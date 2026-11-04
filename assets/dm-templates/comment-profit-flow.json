@@ -1,0 +1,24 @@
+{
+  "brand": "top-builder-ai",
+  "keyword": "PROFIT",
+  "lead_magnet": "Job Profit Analyzer",
+  "lead_magnet_url": "https://topbuilderai.com/job-profit",
+  "platforms": ["instagram", "tiktok"],
+  "status": "ready-when-accounts-created",
+  "notes": "TBAI does not yet have IG/TikTok accounts. This flow is ready to activate once accounts are created and connected.",
+  "flow": {
+    "trigger": "User comments 'PROFIT' (case-insensitive) on any Reel or TikTok",
+    "step_1_dm_initial": {
+      "delay": "immediate",
+      "message": "Hey! Saw your comment. Drop me a follow and I'll send the Job Profit Analyzer right over."
+    },
+    "step_2_dm_after_follow": {
+      "trigger": "User follows the account",
+      "message": "Here you go! Enter one job -- revenue, labor hours, wage, materials, subs, equipment -- and it shows the true margin after labor burden, callbacks, and overhead, plus which bucket is eating the profit and the fix.\n\ntopbuilderai.com/job-profit\n\nLet me know if you have any questions."
+    },
+    "step_2_alt_already_following": {
+      "trigger": "User was already following when they commented",
+      "message": "Hey! Here's the Job Profit Analyzer -- run one of your jobs through it and see the true margin after labor burden, callbacks, and overhead, plus which bucket is eating the profit.\n\ntopbuilderai.com/job-profit\n\nLet me know if you have any questions."
+    }
+  }
+}

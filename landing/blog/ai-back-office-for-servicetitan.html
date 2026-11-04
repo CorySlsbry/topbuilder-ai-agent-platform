@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The AI Back Office for ServiceTitan: Run on Your Actual QuickBooks Books (2026)</title>
+<meta name="description" content="ServiceTitan Max is a strong, broad AI suite. But your books still live in QuickBooks and some back-office work stays manual. Top Builder AI runs alongside ServiceTitan, reconciles to your actual QuickBooks general ledger, works the A/R aging list, and re-costs your pricebook as vendor costs rise. Here is what an AI back office for ServiceTitan is, the 8 self-learning agents that run it, and why agents tuned to your shop help." />
+<link rel="canonical" href="https://topbuilderai.com/blog/ai-back-office-for-servicetitan.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The AI Back Office for ServiceTitan: Run on Your Actual QuickBooks Books (2026)" />
+<meta property="og:description" content="An AI back office for ServiceTitan is a set of self-learning agents installed alongside the ServiceTitan you already run, reconciled to your actual QuickBooks general ledger, that turn your data into deterministic, audited recommendations and human-approved actions for the back-office work ServiceTitan leaves manual or leaves to QuickBooks." />
+<meta property="og:url" content="https://topbuilderai.com/blog/ai-back-office-for-servicetitan.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_backoffice.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_backoffice.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Enterprise-light palette (matches topbuilderai.com homepage). WCAG 2.2 AA, all text pairs >=4.5:1. */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .brand .dot{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--indigo-2),var(--emerald));box-shadow:0 0 18px rgba(37,99,235,.4)}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+
+  /* article header */
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px;background:#fff}
+
+  /* article body */
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,#EEF3FF,#FFFFFF);
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:700;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.35)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo-2),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.1);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  /* agent callout block (reuses figure.calc shell) */
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc .formula{font-family:"Instrument Serif",Georgia,serif;font-size:20px;color:var(--ink);line-height:1.5;margin:6px 0}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  /* agent cards */
+  .agents{margin:26px 0 8px;display:grid;gap:14px}
+  .agent{border:1px solid var(--line2);border-radius:14px;background:var(--panel);padding:18px 20px;box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  .agent .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .agent .n{font-size:12px;font-weight:600;color:var(--indigo);width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;background:rgba(37,99,235,.1);border:1px solid var(--line2);flex:none}
+  .agent h3{font-size:17px;font-weight:600;color:var(--ink);margin:0}
+  .agent .tag{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--emerald);
+    border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:2px 9px;background:rgba(4,120,87,.07)}
+  .agent p{color:var(--ink2);font-size:15.5px;line-height:1.62;margin:9px 0 0}
+
+  /* comparison table */
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:30%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  /* faq */
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:700;letter-spacing:-.02em;margin:10px 0 8px}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  /* cta */
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,#EEF3FF,#F8FAFC);padding:34px 30px;text-align:center;box-shadow:0 24px 56px -36px rgba(37,99,235,.4)}
+  .cta h2{font-size:26px;font-weight:700;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  /* video slot */
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (companion video) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"What's the Best AI Back Office for ServiceTitan Shops?",
+  "description":"The direct answer, up front: an AI back office for a ServiceTitan shop touches invoicing, dispatch, and collections without you babysitting it, reconciled to your real QuickBooks books, human-approved, from $3,000/mo. Walks the numbers, a real cost comparison against a part-time office admin, the invoice-to-collected workflow, and the 'is this just a chatbot' objection.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/1GxU7uhVS3U/maxresdefault.jpg",
+  "uploadDate":"2026-07-19T02:33:51Z",
+  "contentUrl":"https://www.youtube.com/watch?v=1GxU7uhVS3U",
+  "embedUrl":"https://www.youtube.com/embed/1GxU7uhVS3U",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/ai-back-office-for-servicetitan.html"},
+  "headline":"The AI Back Office for ServiceTitan: Run on Your Actual QuickBooks Books (2026)",
+  "description":"An AI back office for ServiceTitan is a set of self-learning agents installed alongside the ServiceTitan a contractor already runs, reconciled to the actual QuickBooks general ledger, that turn the data into deterministic, audited recommendations and human-approved actions for the back-office work ServiceTitan leaves manual or leaves to QuickBooks: cash and margin, inventory, workforce, documents, the A/R aging list, and the pricebook.",
+  "datePublished":"2026-06-18",
+  "dateModified":"2026-07-18",
+  "inLanguage":"en-US",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["AI back office for ServiceTitan","ServiceTitan AI agents","contractor back office automation","HVAC accounts receivable","ServiceTitan dispatch","contractor margin"],
+  "keywords":"AI back office for ServiceTitan, ServiceTitan AI agents, ServiceTitan contractors, AI for HVAC contractors, collections agent, dispatch AI, pricebook automation"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is an AI back office for ServiceTitan?","acceptedAnswer":{"@type":"Answer","text":"It is a set of self-learning AI agents installed alongside the ServiceTitan a contractor already runs. ServiceTitan Max is a strong, broad AI suite for booking, dispatch, job costing, AP and bill capture, and payments, and it keeps improving. An AI back office handles the back-office work ServiceTitan leaves manual or leaves to QuickBooks: it reconciles to your actual QuickBooks general ledger, works your accounts-receivable aging list around the clock, drafts the dunning, forecasts overtime, files paperwork, and re-costs your pricebook as vendor costs rise. It plugs in alongside ServiceTitan and never touches the system of record."}},
+    {"@type":"Question","name":"Does this replace ServiceTitan?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan stays your system of record. Top Builder AI installs alongside it, reads its data through the official integration, and never writes to it without your approval. You keep dispatching, invoicing, and scheduling exactly as you do today. The agents handle the back-office work ServiceTitan leaves manual or leaves to QuickBooks, reconciled to your actual books, while Max keeps doing what it does well."}},
+    {"@type":"Question","name":"How is it different from ServiceTitan's own AI agents?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan's AI, including Atlas, is broad and capable, and Atlas can take action on its own. The differences are specific and honest. Our agents reconcile to your actual QuickBooks general ledger, where your books live, rather than analyzing ServiceTitan's own data. They tune to your specific shop week over week instead of learning from aggregate trade data. And they stay advisory until you approve, where Atlas acts on its own. We win only on these specific gaps, not on the front office Max already runs well."}},
+    {"@type":"Question","name":"Is it safe to let AI touch my data or my prices?","acceptedAnswer":{"@type":"Answer","text":"The agents are advisory by default. They read your data and propose changes; nothing customer-facing happens until a person approves it. Approved actions are reversible with a full audit trail. Every dollar figure is computed by deterministic, tested code, never by the language model, so the math is repeatable and auditable. The model only narrates the result; it never calculates a number."}},
+    {"@type":"Question","name":"Is this just another chatbot?","acceptedAnswer":{"@type":"Answer","text":"No. A chatbot answers questions when you ask it something. Top Builder AI's agents work continuously without being prompted: reconciling QuickBooks every cycle, scoring the A/R aging list, re-pricing the pricebook as vendor costs move, whether or not anyone is logged in. That is task automation tied to your actual ServiceTitan and QuickBooks data, not a generic language-model wrapper you have to interrogate. The gap is real: ServiceTitan's own 2026 Residential State of the Trades report found 74% of contractors see AI as key to efficiency, but only 25% are actually using it day to day. Most of what shops have tried so far has been a chat interface, not agents that do the work on a schedule."}},
+    {"@type":"Question","name":"What does an AI back office for ServiceTitan cost?","acceptedAnswer":{"@type":"Answer","text":"Top Builder AI is onboarded in small quarterly cohorts. This quarter the one-time install is $0 (normally $8,000), or you can pay the install and keep your monthly flexible. The monthly starts from $3,000 per month and scales with the number of people using the system. The install wires the agents to your ServiceTitan and QuickBooks and tunes them to your shop. Pricing is a fixed setup plus monthly, not per-seat-per-feature, and it is backed by a 30-day board-ready-or-free guarantee."}},
+    {"@type":"Question","name":"Does it work with QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"Yes, and this is the point. ServiceTitan analyzes its own data, but your books live in QuickBooks. The Financial and Collections agents read from QuickBooks Online so cash-flow projections, accounts-receivable aging, and dunning worklists reconcile to your actual general ledger, not a separate operational guess. ServiceTitan supplies the operational data (jobs, dispatch, invoices) and QuickBooks supplies the accounting truth; the agents reconcile across both so the back-office picture is whole."}},
+    {"@type":"Question","name":"What are the 8 agents?","acceptedAnswer":{"@type":"Answer","text":"Booking (24/7 call qualification), Routing and Dispatch (drive-time plus margin and overtime), Financial (30/60/90-day cash and margin leakage reconciled to QuickBooks), Inventory (reorder points, shrinkage, unbilled materials), Workforce (staffing and overtime forecasting), Documents (classify, extract, file), Collections (the A/R aging worklist ServiceTitan leaves manual), and Pricebook (re-costs items as your vendor costs rise). Two run alongside ServiceTitan tuned to your shop; six handle back-office work ServiceTitan leaves manual or leaves to QuickBooks."}},
+    {"@type":"Question","name":"Why a cross-agent brain instead of separate point tools?","acceptedAnswer":{"@type":"Answer","text":"Single-point tools each see one slice: a calls bot sees calls, a reviews bot sees reviews, a collections bot sees invoices. None see the whole shop, and none tune to your specific operation. A cross-agent brain lets dispatch weigh the parts inventory the materials agent tracks and the overtime the workforce agent forecasts in the same decision, and it improves week over week from your approvals and edits rather than from aggregate trade data."}},
+    {"@type":"Question","name":"How does the self-learning part work?","acceptedAnswer":{"@type":"Answer","text":"When you approve, edit, or reject a recommendation, the agent records that signal. Approved patterns get reinforced; rejected ones get dropped. A new learned rule is quarantined until it clears a safety and accuracy gate plus human approval, then rolls out gradually. The learning only affects how the agent narrates and prioritizes, never the underlying figures, which are always computed by tested code."}},
+    {"@type":"Question","name":"How is it installed and how long does it take?","acceptedAnswer":{"@type":"Answer","text":"You connect your existing ServiceTitan and QuickBooks through their official integrations during the install, which takes days, not months. The agents start in advisory mode so you see recommendations before anything acts. As you build trust, you enable human-approved actions agent by agent. There is no rip-and-replace and no parallel system to maintain."}},
+    {"@type":"Question","name":"Which trades is this for?","acceptedAnswer":{"@type":"Answer","text":"It is built for residential and commercial service contractors running ServiceTitan, most commonly HVAC, plumbing, and electrical shops. The back-office problems it solves, namely cash flow, accounts receivable, inventory, payroll overtime, dispatch, paperwork, and the pricebook, are universal across those trades, so the agents apply whether you run one location or several."}},
+    {"@type":"Question","name":"Do the agents ever write back to ServiceTitan on their own?","acceptedAnswer":{"@type":"Answer","text":"Not without approval. By default the agents are advisory and persist their findings as recommendations. Any action that changes your live data, such as a pricebook write-back or a booked appointment, runs through a propose, approve, execute gate that a person controls, and every executed action is reversible. There is a master switch that keeps all write actions off until you turn them on."}},
+    {"@type":"Question","name":"What back-office work does ServiceTitan leave manual or leave to QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan Max covers a lot: booking, dispatch, job costing, AP and bill capture with three-way matching, and payments. A few back-office jobs still stay manual or live elsewhere. ServiceTitan's accounts-receivable follow-up is manual, so our Collections agent works the aging list around the clock and drafts the dunning. Your books live in QuickBooks, so our Financial agent reconciles cash and margin to your actual general ledger. ServiceTitan's Price Insights benchmarks regional prices, so our Pricebook agent re-costs items as your own vendor costs rise. We also forecast avoidable overtime and prorate partial-consumable material costs against your books."}},
+    {"@type":"Question","name":"How does the Collections agent help with A/R?","acceptedAnswer":{"@type":"Answer","text":"It works your accounts-receivable aging worklist around the clock, prioritizing invoices by age and amount, drafting dunning emails, texts, and call scripts for you to approve, and tracking promise-to-pay commitments. It does not move money or send anything on its own; it prepares the next best action on each open invoice so collections happen consistently instead of whenever someone finds time."}},
+    {"@type":"Question","name":"Can the agents see across departments, or are they siloed?","acceptedAnswer":{"@type":"Answer","text":"They share one cross-agent brain, so a dispatch decision can account for the parts the inventory agent is tracking and the overtime the workforce agent is forecasting. Access is still governed: sensitive areas like finance and HR are walled off, and leadership grants or revokes which agents each employee can use. The brain is shared; the visibility is permissioned per role."}},
+    {"@type":"Question","name":"Why does an agent tuned to your shop help?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan's Titan Intelligence learns from aggregate trade data across many contractors, which is genuinely useful for benchmarks. Our agents tune to your specific shop: which technicians you prefer for which jobs, how aggressively you chase A/R, what margin floor you hold, and they adapt their recommendations accordingly. Over weeks it stops sounding like a generic tool and starts sounding like a back-office manager who knows your business. The two are complementary, not competitive."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">
+      <span class="dot"></span> Top Builder AI
+    </a>
+    <nav class="nav-links">
+      <a href="/#agents">Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; The AI back office for ServiceTitan</div>
+    <span class="kicker">ServiceTitan &middot; The Back Office</span>
+    <h1>The AI Back Office for ServiceTitan: Run on Your Actual QuickBooks Books (2026)</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published June 18, 2026</span>
+      <span class="pill">Updated July 18, 2026</span>
+      <span class="pill">~13 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical</span>
+    </div>
+  </section>
+
+  <div class="video"><iframe src="https://www.youtube.com/embed/1GxU7uhVS3U" title="What's the Best AI Back Office for ServiceTitan Shops?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">An <strong>AI back office for ServiceTitan</strong> is a set of self-learning AI agents installed <em>alongside</em> the ServiceTitan a contractor already runs, reconciled to your actual QuickBooks general ledger, turning your data into deterministic, audited recommendations and human-approved actions for the back-office work ServiceTitan leaves manual or leaves to QuickBooks. <strong>ServiceTitan Max is a strong, broad AI suite</strong>: booking, dispatch, job costing, AP and bill capture with three-way matching, payments, and Atlas, its agentic AI that takes action. It is good at what it does and getting better fast. Top Builder AI does not try to out-do it. We win on a few specific, true gaps: ServiceTitan's A/R follow-up is manual, so our Collections agent works the aging list 24/7 and drafts the dunning; your books live in QuickBooks, so our Financial agent reconciles cash and margin to your <strong>actual general ledger</strong>; ServiceTitan's Price Insights benchmarks regional prices, so our Pricebook agent re-costs items as <strong>your</strong> vendor costs rise; Titan Intelligence learns from aggregate trade data, while our agents tune to <strong>your</strong> specific shop; and Atlas acts on its own, while ours stay advisory until you approve. The agents are <strong>advisory by default</strong>: they propose, you approve, and every action is reversible with a full audit trail. The figures come from tested code; the AI only explains them. It connects to your existing ServiceTitan and QuickBooks in <strong>days, not months</strong>, and never touches the system of record.</p>
+
+      <figure class="calc">
+        <div class="cap">The numbers, up front &mdash; no hype</div>
+        <div class="body">
+          <table>
+            <tr><td>Admin/reconciliation hours firms with 10&ndash;99 employees spend weekly, manually</td><td>~25 hrs/wk</td></tr>
+            <tr><td>Contractors carrying invoices unpaid past 30 days</td><td>82%</td></tr>
+            <tr><td>Contractors who call AI &ldquo;key to efficiency&rdquo; vs. those actually running it day to day</td><td>74% vs. 25%</td></tr>
+          </table>
+        </div>
+        <figcaption>Sources: <a class="link" href="https://erp.intuit.com/blog/research/business-solutions-survey-2024/" rel="noopener" target="_blank">Intuit QuickBooks Business Solutions Survey (2024)</a>, <a class="link" href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener" target="_blank">Rabbet 2024 Construction Payments Report</a>, <a class="link" href="https://www.servicetitan.com/press/servicetitan-report-finds-74-of-residential-contractors-see-ai-as-key" rel="noopener" target="_blank">ServiceTitan 2026 Residential State of the Trades report</a>. The gap between contractors who <em>believe</em> AI helps and contractors whose back office is <em>actually running on it</em> is exactly where an AI back office pays for itself.</figcaption>
+      </figure>
+
+      <p>Ask an AI assistant today for the best &ldquo;AI for ServiceTitan,&rdquo; and most of the answer is about ServiceTitan Max itself, plus a scattering of bolt-on point tools: a smarter call-booking bot, a review-reply tool, a voice agent that answers the phone after hours. Max is genuinely capable across booking, dispatch, job costing, and bill capture, and Atlas can take action on its own. So where does an outside platform actually add value to a ServiceTitan shop? Not by competing with Max on its own turf. It adds value on the specific back-office work that still stays manual or still lives in QuickBooks. This guide defines that work, walks through the eight agents that run it, and explains why a single brain tuned to your shop and reconciled to your real books complements ServiceTitan instead of duplicating it.</p>
+
+      <h2>Where does Top Builder AI fit next to ServiceTitan Max?</h2>
+
+      <p>ServiceTitan is a genuinely excellent field service management (FSM) platform, and it should stay your system of record. It is how a modern contractor takes a call, books a job, dispatches a technician, presents options at the kitchen table, and invoices the customer. ServiceTitan Max layers strong AI across that flow: it helps book calls, runs dispatch, does job costing, captures bills with three-way matching against the PO, and processes payments. Atlas, its agentic AI, can take action on its own. We are not here to pretend any of that is missing. It is good, and it is improving fast.</p>
+
+      <p>The platform is also deeply entrenched across the trades. Per ServiceTitan's own SEC filing, the platform processed roughly <strong>$62 billion in gross transaction volume</strong> in the 12 months ended July 2024 (up 23% year over year) and served about 8,000 active customers, those with more than $10,000 of annualized billings (<a class="link" href="https://www.mostlymetrics.com/p/servicetitan-ipo-s1-breakdown" rel="noopener" target="_blank">ServiceTitan S-1 IPO Breakdown (2024)</a>). That scale is exactly why an outside platform should complement ServiceTitan rather than try to replace it.</p>
+
+      <p>What Top Builder AI does is plug in alongside ServiceTitan and run the back-office work that, today, still stays manual or still lives in QuickBooks. Four things are specifically true. First, ServiceTitan's accounts-receivable follow-up is manual, so the aging list gets chased only when someone finds time. Second, ServiceTitan analyzes its own operational data, but the books, the actual general ledger, live in QuickBooks, so cash and margin truth lives there. Third, ServiceTitan's Price Insights benchmarks regional prices, which tells you the market, not whether <em>your</em> vendor costs just moved your own item below margin. Fourth, Titan Intelligence learns from aggregate trade data across many contractors, which is useful, but it does not learn the specific habits of your one shop. Those four gaps are where an outside platform earns its keep, and that is the only place we claim to.</p>
+
+      <p>That is the fit. &ldquo;AI back office for ServiceTitan&rdquo; means installing intelligence alongside the platform you already run, reconciled to your real books, so the back-office work ServiceTitan leaves manual or leaves to QuickBooks gets handled, without touching the front office Max already runs well.</p>
+
+      <p>The cost of leaving that work manual is real. Across small businesses generally, larger small firms with 10 to 99 employees report spending an average of <strong>25 hours a week on manual data entry or reconciling data across apps</strong>, according to a 2024 Intuit QuickBooks survey of business owners (<a class="link" href="https://erp.intuit.com/blog/research/business-solutions-survey-2024/" rel="noopener" target="_blank">Intuit QuickBooks Business Solutions Survey (2024)</a>). That is the back-office tax an AI back office is built to shrink.</p>
+
+      <h2>What are the 8 agents in an AI back office for ServiceTitan?</h2>
+
+      <p>Top Builder AI ships eight agents. Two of them run in the same lanes as ServiceTitan's own AI, booking and dispatch, not to beat Max but because tuning those calls to your specific shop and your real margins is where an outside agent helps. The other six handle back-office work ServiceTitan leaves manual or leaves to QuickBooks. Each agent below describes what it actually does. These are built, not roadmap.</p>
+
+      <h3>Which two agents run in ServiceTitan's lanes, tuned to your shop?</h3>
+
+      <div class="agents">
+        <div class="agent">
+          <div class="top"><span class="n">1</span><h3>Booking</h3><span class="tag">24/7</span></div>
+          <p>Runs alongside ServiceTitan's own call handling, tuned to your shop. It qualifies, slots, and <em>values</em> inbound calls, including after-hours and overflow, screening the work and putting a revenue figure on the call so you can see what your phones are worth. Because it tunes to your shop, it gets better at which jobs to prioritize over time. It stays advisory: it proposes, you approve.</p>
+        </div>
+        <div class="agent">
+          <div class="top"><span class="n">2</span><h3>Routing &amp; Dispatch</h3><span class="tag">Margin-aware</span></div>
+          <p>Sits next to ServiceTitan's dispatch and adds a margin and overtime lens. It weighs <strong>margin, parts on hand, and overtime</strong>, not distance alone, and triages incoming work by P1/P2/P3 priority. Because it shares a brain with the inventory and workforce agents, it can flag sending a truck without the right part or quietly stacking avoidable overtime onto one tech. Suggestions go to your dispatcher to approve.</p>
+        </div>
+      </div>
+
+      <h3>Which six agents run the back office ServiceTitan leaves manual or leaves to QuickBooks?</h3>
+
+      <div class="agents">
+        <div class="agent">
+          <div class="top"><span class="n">3</span><h3>Financial</h3><span class="tag">Money</span></div>
+          <p>Projects <strong>30/60/90-day cash</strong> from your real jobs and books, and flags margin leakage the day it appears rather than at month-end. It reads from QuickBooks so the cash picture matches your accounting, not a separate guess. (Illustrative example output: surfacing roughly $48,000 of annualized margin leakage across a book, an illustration of the kind of finding, not a client result.)</p>
+        </div>
+        <div class="agent">
+          <div class="top"><span class="n">4</span><h3>Inventory</h3><span class="tag">Materials</span></div>
+          <p>Calculates reorder points, catches shrinkage, finds <strong>unbilled materials</strong> that never made it onto an invoice, and prorates the cost of <em>partial consumables</em>, the spool of wire or coil of line set used across several jobs, so each ticket carries its true material cost instead of a rounded guess.</p>
+        </div>
+        <div class="agent">
+          <div class="top"><span class="n">5</span><h3>Workforce</h3><span class="tag">People</span></div>
+          <p>Forecasts staffing and <strong>avoidable overtime</strong> before the week happens, reconciles payroll overtime, and treats capacity as a rolling moving target rather than a static headcount. It surfaces the claimed-versus-clocked gaps that quietly inflate payroll.</p>
+        </div>
+        <div class="agent">
+          <div class="top"><span class="n">6</span><h3>Documents</h3><span class="tag">Paperwork</span></div>
+          <p>Classifies, extracts, and files every document, routing each to the right department and the right ServiceTitan folder. It builds <strong>accounts payable from an emailed bill</strong>, handles warranty registration, and flags anything that needs a signature, an expiring certificate of insurance, or a human's eyes.</p>
+        </div>
+        <div class="agent">
+          <div class="top"><span class="n">7</span><h3>Collections</h3><span class="tag">A/R</span></div>
+          <p>Works the <strong>accounts-receivable aging worklist 24/7</strong>, prioritizing open invoices by age and amount, drafting dunning emails, texts, and call scripts for your approval, and tracking promise-to-pay commitments. It prepares the next best action on every overdue invoice so collections happen consistently. It never moves money or sends on its own.</p>
+        </div>
+        <div class="agent">
+          <div class="top"><span class="n">8</span><h3>Pricebook</h3><span class="tag">Pricing</span></div>
+          <p>Keeps material costs current from vendor price updates and <strong>re-prices every affected item under the sold-hour model</strong>, surfacing the old price, new price, and margin delta for human approval. (Covered in depth in our <a class="link" href="/blog/automate-servicetitan-pricebook-vendor-costs.html">pricebook automation guide</a>.)</p>
+        </div>
+      </div>
+
+      <p>Six of those eight, Financial, Inventory, Workforce, Documents, Collections, and Pricebook, do work ServiceTitan leaves manual or leaves to QuickBooks. ServiceTitan's A/R follow-up is manual; the books live in QuickBooks; Price Insights benchmarks the region rather than re-costing your own items. The other two run in ServiceTitan's lanes, tuned to your shop and your real margins, advisory until you approve. We plug in alongside ServiceTitan and never touch the system of record.</p>
+
+      <p>Why does A/R get its own agent? Because slow payment is now the norm in the trades. A 2024 industry report found <strong>82% of contractors face payment delays of more than 30 days</strong>, up from 49% just two years earlier, and estimated that slow payments cost the U.S. construction sector roughly <strong>$280 billion in 2024</strong> (<a class="link" href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener" target="_blank">Rabbet 2024 Construction Payments Report (2024)</a>). When the aging list is only worked when someone finds time, that delay compounds.</p>
+
+      <h2>Why does a cross-agent, self-learning brain beat bolt-on tools?</h2>
+
+      <p>The instinct, when you feel the back-office pain, is to buy a tool for each leak: one app for after-hours calls, another for review replies, another for collections texts, another that nags about overtime. Stitch enough of them together and you have a software stack that costs more than a hire and still misses the obvious. The structural problem is that <strong>none of those tools see the whole shop, and none of them learn your operation.</strong></p>
+
+      <p>Contractors already know where AI pays off, and it is the back office. In a survey of more than 1,000 contractors, <strong>administration led every other category for current AI use and impact at 59%</strong>, ahead of marketing and sales at 51%, and 46% of respondents were already using or experimenting with AI (<a class="link" href="https://www.servicetitan.com/blog/2026-ai-in-the-trades-report-takeaways" rel="noopener" target="_blank">ServiceTitan State of AI in the Trades 2026 (2026)</a>). The demand is for AI that runs the admin and back-office work, which is exactly what a cross-agent brain is built to do.</p>
+
+      <p>Consider one ordinary dispatch decision. A single-point routing tool optimizes for drive time and sends the nearest available technician. But the nearest tech does not have the compressor on the truck (only the inventory agent knows that), is already at 38 hours on a Thursday (only the workforce agent knows that), and the job is a thin-margin warranty call (only the financial agent knows that). A tool that sees one slice makes a locally optimal, globally expensive decision. A <strong>cross-agent brain</strong> can weigh all three in the same call, because the agents share context instead of living in separate apps.</p>
+
+      <p>The second advantage is learning. A bolt-on tool ships with a generic policy and keeps it forever, the same answer for a one-truck shop in Boise and a forty-truck operation in Phoenix. Top Builder AI's agents <strong>learn your shop week over week</strong>. When you approve, edit, or reject a recommendation, that signal is recorded; approved patterns get reinforced, rejected ones get dropped. Over a few weeks the agents absorb which technicians you prefer for which work, how hard you chase A/R, and the margin floor you refuse to cross. They stop sounding like a generic tool and start sounding like a back-office manager who knows your business.</p>
+
+      <figure class="calc">
+        <div class="cap">The back-office brain, in one sentence</div>
+        <div class="body">
+          <div class="formula">One brain across Money, Materials, People, Paperwork, A/R, and the Pricebook, that learns your shop, beats six tools that each see one slice and learn nothing.</div>
+        </div>
+        <figcaption>Single-point tools are locally smart and globally blind. A shared, self-learning brain makes the decision a good office manager would make, with every figure traceable to tested code.</figcaption>
+      </figure>
+
+      <h2>How do ServiceTitan's AI agents compare to Top Builder AI's?</h2>
+
+      <p>To be clear and fair: ServiceTitan's AI agents are good front-office tools, and ServiceTitan is the right system of record. The difference is not quality inside the lane; it is the <strong>shape</strong> of the two products. ServiceTitan's agents are scoped to a module and built to serve every customer the same way. Top Builder AI's agents are scoped to the whole back office and tuned to one shop, yours.</p>
+
+      <div class="tablewrap">
+        <table class="cmp">
+          <thead>
+            <tr><th>Dimension</th><th>ServiceTitan's own AI agents</th><th>Top Builder AI's agents</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Primary domain</td><td>Broad: booking, dispatch, job costing, AP and bill capture, payments</td><td class="yes">Back-office work left manual or to QuickBooks: Money, Materials, People, Paperwork, A/R, Pricebook</td></tr>
+            <tr><td>Scope of view</td><td>Per-module: each agent sees its own lane</td><td class="yes">Whole-business: one cross-agent brain</td></tr>
+            <tr><td>Learning</td><td>Learns from aggregate trade data across contractors</td><td class="yes">Self-learning: tuned to your specific shop week over week</td></tr>
+            <tr><td>Relationship to ServiceTitan</td><td>Built in</td><td class="yes">Installed on top: complements, never replaces</td></tr>
+            <tr><td>Accounting view</td><td>Operational data</td><td class="yes">Reconciles ServiceTitan with QuickBooks</td></tr>
+            <tr><td>How figures are produced</td><td>Platform features</td><td class="yes">Deterministic, tested code; the AI only narrates</td></tr>
+            <tr><td>Actions</td><td>In-product</td><td class="yes">Advisory by default; human-approved, reversible, audited</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Key takeaway:</strong> ServiceTitan's agents are built broad and uniform for every customer; Top Builder AI's are scoped to the whole back office, tuned to your one shop, reconciled to your actual QuickBooks general ledger, and advisory until you approve.</p>
+
+      <p>Read it as complementary, not combative. Keep ServiceTitan and Max doing what they do well. Add Top Builder AI to run the back-office work ServiceTitan leaves manual or leaves to QuickBooks, reconciled to your actual books, with a brain that sees the whole shop and gets smarter the longer it works for you.</p>
+
+      <h2>How does it stay safe when AI touches my operation?</h2>
+
+      <p>Letting AI near your operation only works if it cannot quietly break anything. Top Builder AI is built so it structurally cannot. Four guardrails carry the weight:</p>
+
+      <ul>
+        <li><b>Advisory by default.</b> The agents read your data and <em>propose</em>. Out of the box they persist findings as recommendations and do not touch your live systems. A master switch keeps all write actions off until you deliberately turn them on, agent by agent.</li>
+        <li><b>Human-approved actions.</b> Anything that changes live data, a booked appointment, a pricebook write-back, a sent dunning notice, runs through a <em>propose, approve, execute</em> gate a person controls. Nothing reaches a customer or your books without a human clicking approve.</li>
+        <li><b>Reversible with an audit trail.</b> Every executed action stores the prior state, so a change can be undone to exactly what it was. Every recommendation, approval, edit, and action is logged. You can always answer &ldquo;what changed, who approved it, and how do I roll it back.&rdquo;</li>
+        <li><b>Deterministic figures.</b> Every dollar amount, cash projection, margin delta, re-price, overtime forecast, is computed by pure, tested code, not by the language model. The same inputs always produce the same number. The AI <strong>explains</strong> the result in plain English; it never <strong>calculates</strong> it. That firewall is why the math is auditable and why the figures cannot drift even as the agents learn.</li>
+      </ul>
+
+      <p>Access is governed too. Sensitive areas like finance and HR are walled off, and leadership grants or revokes which agents each employee may use. The brain is shared across the shop; visibility is permissioned by role.</p>
+
+      <h2>How is it installed, and how long does it take?</h2>
+
+      <p>There is no rip-and-replace and no parallel system to babysit. The install is deliberately low-risk, and there's no &ldquo;book a demo to find out&rdquo; gate, pricing and the setup steps are laid out right here:</p>
+
+      <ol>
+        <li><b>Connect what you already run.</b> Top Builder AI links to your existing <strong>ServiceTitan and QuickBooks</strong> through their official integrations. ServiceTitan supplies operational data, jobs, dispatch, invoices, and QuickBooks supplies the accounting view. The connection is a setup step measured in days.</li>
+        <li><b>Start in advisory mode.</b> The agents begin read-only. You see recommendations, the cash projection, the aging worklist, the underpriced items, before anything acts, so you build trust on real output from your own data.</li>
+        <li><b>Enable actions agent by agent.</b> As you trust each agent, you flip on human-approved actions for it. Collections drafts you approve and send. Pricebook write-backs you review and confirm. You expand the autonomy on your timeline, never all at once.</li>
+        <li><b>Let it learn.</b> Every approval and edit tunes the agents to your shop. The longer they run, the more they sound like they were built for your business, because, functionally, they were.</li>
+      </ol>
+
+      <h2>What does an AI back office cost compared to a part-time office admin?</h2>
+
+      <p>The honest comparison isn't AI versus nothing, it's AI versus the hire you'd otherwise make. The U.S. Bureau of Labor Statistics puts the <strong>median annual wage for bookkeeping, accounting, and auditing clerks at $49,210</strong> as of May 2024 (<a class="link" href="https://www.bls.gov/ooh/office-and-administrative-support/bookkeeping-accounting-and-auditing-clerks.htm" rel="noopener" target="_blank">U.S. Bureau of Labor Statistics (2024)</a>). Loaded for payroll taxes and basic benefits at roughly 10%, that's about <strong>$4,500 a month</strong> for one full-time hire, or about <strong>$2,250 a month</strong> for a half-time office admin, before training them on your pricebook or your collections process.</p>
+
+      <div class="tablewrap">
+        <table class="cmp">
+          <thead><tr><th>Option</th><th>Typical monthly cost</th><th>What you actually get</th></tr></thead>
+          <tbody>
+            <tr><td>Part-time office admin (20 hrs/wk)</td><td>~$2,250/mo<sup>*</sup></td><td class="no">One person's hours; A/R chased when they have time; no dispatch or pricebook coverage</td></tr>
+            <tr><td>Full-time office manager</td><td>~$4,500/mo<sup>*</sup></td><td class="no">Full-time hours; still one person, one set of eyes, out sick or on vacation like anyone</td></tr>
+            <tr><td>Top Builder AI</td><td>From $3,000/mo</td><td class="yes">8 agents running continuously across Money, Materials, People, Paperwork, A/R, and the Pricebook, reconciled to your real books</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:var(--ink3);margin-top:-18px"><sup>*</sup>Calculated from the BLS median wage above plus a standard ~10% employer payroll-tax/benefits load, divided by 12 months (half-time assumes half the hours). Actual pay varies by market. Top Builder AI's $3,000/mo starting price is the platform's own published pricing, not a projection.</p>
+
+      <p><strong>Key takeaway:</strong> a single part-time hire costs about what Top Builder AI starts at and covers a fraction of the ground, one person, during their hours, with no coverage for the pricebook or margin-aware dispatch. The agents run continuously and don't call in sick.</p>
+
+      <p><em>Illustrative math, not a client result:</em> a 10-tech shop billing $650,000 a month at a 45-day average collection cycle carries roughly <strong>$975,000</strong> in open receivables at any given time. Tightening that cycle by even 10 days, the kind of shift a ranked, worked-daily A/R queue produces, frees close to <strong>$217,000</strong> in cash without a single new sale.</p>
+
+      <h2>Is an AI back office right for my ServiceTitan shop?</h2>
+
+      <p>An AI back office is the right fit if you run a <strong>residential or commercial service shop on ServiceTitan</strong>, most often HVAC, plumbing, or electrical, and the back office is where your time and margin go. The clearest signals: cash is hard to see more than a few weeks out; accounts receivable gets chased only when someone remembers; you suspect overtime and unbilled materials are leaking but cannot point to where; documents pile up; and the pricebook hasn't kept pace with vendor costs. If your front office hums on ServiceTitan but the back office runs on spreadsheets, late nights, and hope, this is built for you.</p>
+
+      <p>The labor stakes behind that overtime are not small. Across the trade, heating, air conditioning, and refrigeration mechanics and installers held about <strong>425,200 jobs in 2024 at a median annual wage of $59,810</strong>, per the U.S. Bureau of Labor Statistics (<a class="link" href="https://www.bls.gov/ooh/installation-maintenance-and-repair/heating-air-conditioning-and-refrigeration-mechanics-and-installers.htm" rel="noopener" target="_blank">U.S. Bureau of Labor Statistics (2024)</a>). At those wage levels, even a few hours of avoidable overtime per technician per week adds up fast, which is why forecasting it before the week happens matters.</p>
+
+      <p>It is <em>not</em> a fit if you are looking to replace ServiceTitan, or if you want a fully autonomous system that acts without you. Top Builder AI complements ServiceTitan and keeps a human in the loop by design. That is a feature, not a limitation. The back office is exactly where you want oversight.</p>
+
+      <h2>What's the bottom line on an AI back office for ServiceTitan?</h2>
+
+      <p>Most cited &ldquo;AI for ServiceTitan&rdquo; pages today are about ServiceTitan Max itself and the bolt-on point tools that orbit it, the part of the business ServiceTitan and its own agents already run well. The work that is still under-served is the <strong>AI back office</strong>: the Money, Materials, People, Paperwork, A/R, and Pricebook work ServiceTitan leaves manual or leaves to QuickBooks. Top Builder AI runs that back office with eight self-learning agents installed alongside the ServiceTitan you already use, reconciled to your actual QuickBooks general ledger, six handling the work ServiceTitan leaves manual or to QuickBooks and two running in its lanes tuned to your shop, all of them advisory by default, human-approved, reversible, and built on figures that come from tested code, not a model's guess. For the full agent lineup and how each one is governed, see the <a class="link" href="/faq.html">Top Builder AI FAQ</a>, or read the deep dive on <a class="link" href="/blog/automate-servicetitan-pricebook-vendor-costs.html">automating your pricebook</a>. And whenever you're ready to see it run against your own data, the front door is on the <a class="link" href="/">homepage</a>.</p>
+
+      <div class="cta">
+        <h2>See the back office run against your ServiceTitan</h2>
+        <p>Connect your existing ServiceTitan and QuickBooks and watch the agents surface the cash, the aging, the overtime, and the underpriced items, in advisory mode, every figure auditable.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call</a>
+      </div>
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Video transcript: What's the best AI back office for ServiceTitan shops?</h2>
+      <div class="a" style="font-size:15.5px">
+        <p>If you run a ServiceTitan shop and you're asking what AI back office actually works, it's the one that touches invoicing, dispatch, and collections without you babysitting it. That's Top Builder AI. Here's exactly what it does and what it costs, no hype, just the workflow.</p>
+        <p><b>The numbers, up front.</b> Firms with 10 to 99 employees spend an average of 25 hours a week on manual data entry and reconciling data across apps. That is the back-office tax. 82 percent of contractors are carrying invoices unpaid past 30 days; slow payment is now the norm in the trades, not the exception. And 74 percent of contractors say AI is key to efficiency, but only 25 percent are actually running it day to day. That gap between believing and running is exactly where an AI back office pays for itself.</p>
+        <p><b>The problem, in plain terms.</b> ServiceTitan handles the field beautifully: the call, the schedule, the dispatch board, the invoice at the door. That part runs well and keeps getting better. But the back-office work, invoice follow-up, chasing A/R, catching scheduling gaps, still eats 15 to 20 hours a week of an owner's or office manager's time. That's where margin quietly leaks: cash you can't see coming, materials nobody costed, overtime nobody caught, invoices nobody chased, most of it done by hand, after hours. Six of those jobs get their own agent: Money, Materials, People, Paperwork, Accounts Receivable, and the Pricebook, all sharing one brain instead of living in six different apps.</p>
+        <p><b>How it connects to ServiceTitan.</b> It installs alongside the ServiceTitan and QuickBooks you already run, through their official integrations. It never replaces ServiceTitan and never becomes a second system of record. What gets automated first is invoice to payment: the Collections agent works the aging list, and the Financial agent reconciles cash to your real QuickBooks ledger, from day one. What it doesn't touch: any customer-facing decision. You keep control of what a customer sees and what a technician does; the agents propose, a person approves.</p>
+        <p><b>Why one brain, not ten separate tools.</b> A separate call-bot, a separate collections app, and a separate pricebook tool each see one slice of your shop, and none of them learn how you actually run it. A single-point tool optimizes its own lane and misses everything else: the nearest tech for a dispatch call might not have the part on the truck, or might already be deep into overtime. Because these agents share context, a dispatch decision can account for what the inventory agent knows and what the workforce agent is forecasting, in the same call.</p>
+        <p><b>One invoice, sent to collected.</b> The invoice goes out from ServiceTitan; nothing changes there. Behind the scenes, the Collections agent scores it against every other open invoice by age, balance, customer history, and job margin, and drops it into a ranked queue instead of a flat list. Before anything goes out, it checks itself: if a payment already cleared in QuickBooks but ServiceTitan still shows the invoice open, that gets pulled from the queue as a bookkeeping fix, not a phone call. If it's a fast-paying residential account under 30 days, the agent drafts a payment-link text; if it's commercial and older, it drafts a call brief with the balance and history attached. Your office manager reviews it, approves, edits, or skips, right from the queue, nothing reaches a customer until that click happens. It reconciles against QuickBooks first, so you're never chasing an invoice that already got paid, the single most expensive mistake in collections.</p>
+        <p><b>And dispatch, and the pricebook.</b> Dispatch gets a margin and overtime lens next to ServiceTitan's own board: it weighs parts on hand and avoidable overtime, not distance alone, and flags it before a truck rolls. The Pricebook agent re-costs items as your actual vendor costs rise, surfacing the old price, the new price, and the margin delta for you to approve.</p>
+        <p><b>The cost, side by side.</b> The median bookkeeping or admin clerk wage is just over $49,000 a year, per the Bureau of Labor Statistics. Loaded for payroll taxes, a half-time office admin runs about $2,250 a month; a full-time office manager runs about $4,500 a month, and that's still one person, during their hours, with no coverage for the pricebook or margin-aware dispatch. Top Builder AI starts from $3,000 a month: eight agents, running continuously across money, materials, people, paperwork, A/R, and the pricebook. That's the real comparison.</p>
+        <p><b>Is this just another chatbot?</b> No. A chatbot answers when you ask it something. These agents work without being prompted, reconciling QuickBooks every cycle, scoring the aging list, re-pricing the pricebook, whether or not anyone's logged in. Bolt-on tools and chatbots each see one slice, and none of them learn your shop; these agents share one brain and get tuned to your operation every week you use them.</p>
+        <p><b>What tightening the cycle is worth</b> (illustrative math, not a client result): a 10-tech shop billing $650,000 a month at a 45-day average collection cycle is carrying roughly $975,000 in open receivables at any given time. Tighten that cycle by even 10 days, the kind of shift a ranked, worked-daily queue produces, and you free close to $217,000 in cash, without a single new sale.</p>
+        <p><b>Still safe by design.</b> Advisory by default until you approve, every figure computed by tested code rather than a model's guess, and every executed action reversible with a full audit trail.</p>
+        <p><b>Setup, no demo-wall runaround.</b> You connect the ServiceTitan and QuickBooks you already run, through their official integrations; that connection is a same-week task, not a months-long project. There's no book-a-demo-to-find-out gate: the setup steps and the pricing are laid out right on this page.</p>
+        <p><b>The direct answer, one more time:</b> the AI back office that actually works for a ServiceTitan shop is the one that touches invoicing, dispatch, and collections without you babysitting it, reconciled to your real QuickBooks books, human-approved, and it starts from $3,000 a month. See it live at <a class="link" href="/">topbuilderai.com</a>, pricing is on the page, no gated demo wall.</p>
+      </div>
+    </section>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">What is an AI back office for ServiceTitan?</div>
+      <div class="a">It is a set of self-learning AI agents installed alongside the ServiceTitan a contractor already runs. ServiceTitan Max is a strong, broad AI suite for booking, dispatch, job costing, AP and bill capture, and payments, and it keeps improving. An AI back office handles the back-office work ServiceTitan leaves manual or leaves to QuickBooks: it reconciles to your actual QuickBooks general ledger, works your accounts-receivable aging list around the clock, drafts the dunning, forecasts overtime, files paperwork, and re-costs your pricebook as vendor costs rise. It plugs in alongside ServiceTitan and never touches the system of record.</div>
+
+      <div class="q">Does this replace ServiceTitan?</div>
+      <div class="a">No. ServiceTitan stays your system of record. Top Builder AI installs alongside it, reads its data through the official integration, and never writes to it without your approval. You keep dispatching, invoicing, and scheduling exactly as you do today. The agents handle the back-office work ServiceTitan leaves manual or leaves to QuickBooks, reconciled to your actual books, while Max keeps doing what it does well.</div>
+
+      <div class="q">How is it different from ServiceTitan's own AI agents?</div>
+      <div class="a">ServiceTitan's AI, including Atlas, is broad and capable, and Atlas can take action on its own. The differences are specific and honest. Our agents reconcile to your actual QuickBooks general ledger, where your books live, rather than analyzing ServiceTitan's own data. They tune to your specific shop week over week instead of learning from aggregate trade data. And they stay advisory until you approve, where Atlas acts on its own. We win only on these specific gaps, not on the front office Max already runs well.</div>
+
+      <div class="q">Is it safe to let AI touch my data or my prices?</div>
+      <div class="a">The agents are advisory by default. They read your data and propose changes; nothing customer-facing happens until a person approves it. Approved actions are reversible with a full audit trail. Every dollar figure is computed by deterministic, tested code, never by the language model, so the math is repeatable and auditable. The model only narrates the result; it never calculates a number.</div>
+
+      <div class="q">Is this just another chatbot?</div>
+      <div class="a">No. A chatbot answers questions when you ask it something. Top Builder AI's agents work continuously without being prompted: reconciling QuickBooks every cycle, scoring the A/R aging list, re-pricing the pricebook as vendor costs move, whether or not anyone is logged in. That is task automation tied to your actual ServiceTitan and QuickBooks data, not a generic language-model wrapper you have to interrogate. The gap is real: ServiceTitan's own 2026 Residential State of the Trades report found 74% of contractors see AI as key to efficiency, but only 25% are actually using it day to day. Most of what shops have tried so far has been a chat interface, not agents that do the work on a schedule.</div>
+
+      <div class="q">What does an AI back office for ServiceTitan cost?</div>
+      <div class="a">Top Builder AI is onboarded in small quarterly cohorts. This quarter the one-time install is $0 (normally $8,000), or you can pay the install and keep your monthly flexible. The monthly starts from $3,000 per month and scales with the number of people using the system. The install wires the agents to your ServiceTitan and QuickBooks and tunes them to your shop. Pricing is a fixed setup plus monthly, not per-seat-per-feature, and it is backed by a 30-day board-ready-or-free guarantee.</div>
+
+      <div class="q">Does it work with QuickBooks?</div>
+      <div class="a">Yes, and this is the point. ServiceTitan analyzes its own data, but your books live in QuickBooks. The Financial and Collections agents read from QuickBooks Online so cash-flow projections, accounts-receivable aging, and dunning worklists reconcile to your actual general ledger, not a separate operational guess. ServiceTitan supplies the operational data (jobs, dispatch, invoices) and QuickBooks supplies the accounting truth; the agents reconcile across both so the back-office picture is whole.</div>
+
+      <div class="q">What are the 8 agents?</div>
+      <div class="a">Booking (24/7 call qualification), Routing and Dispatch (drive-time plus margin and overtime), Financial (30/60/90-day cash and margin leakage reconciled to QuickBooks), Inventory (reorder points, shrinkage, unbilled materials), Workforce (staffing and overtime forecasting), Documents (classify, extract, file), Collections (the A/R aging worklist ServiceTitan leaves manual), and Pricebook (re-costs items as your vendor costs rise). Two run alongside ServiceTitan tuned to your shop; six handle back-office work ServiceTitan leaves manual or leaves to QuickBooks.</div>
+
+      <div class="q">Why a cross-agent brain instead of separate point tools?</div>
+      <div class="a">Single-point tools each see one slice: a calls bot sees calls, a reviews bot sees reviews, a collections bot sees invoices. None see the whole shop, and none tune to your specific operation. A cross-agent brain lets dispatch weigh the parts inventory the materials agent tracks and the overtime the workforce agent forecasts in the same decision, and it improves week over week from your approvals and edits rather than from aggregate trade data.</div>
+
+      <div class="q">How does the self-learning part work?</div>
+      <div class="a">When you approve, edit, or reject a recommendation, the agent records that signal. Approved patterns get reinforced; rejected ones get dropped. A new learned rule is quarantined until it clears a safety and accuracy gate plus human approval, then rolls out gradually. The learning only affects how the agent narrates and prioritizes, never the underlying figures, which are always computed by tested code.</div>
+
+      <div class="q">How is it installed and how long does it take?</div>
+      <div class="a">You connect your existing ServiceTitan and QuickBooks through their official integrations during the install, which takes days, not months. The agents start in advisory mode so you see recommendations before anything acts. As you build trust, you enable human-approved actions agent by agent. There is no rip-and-replace and no parallel system to maintain.</div>
+
+      <div class="q">Which trades is this for?</div>
+      <div class="a">It is built for residential and commercial service contractors running ServiceTitan, most commonly HVAC, plumbing, and electrical shops. The back-office problems it solves, namely cash flow, accounts receivable, inventory, payroll overtime, dispatch, paperwork, and the pricebook, are universal across those trades, so the agents apply whether you run one location or several.</div>
+
+      <div class="q">Do the agents ever write back to ServiceTitan on their own?</div>
+      <div class="a">Not without approval. By default the agents are advisory and persist their findings as recommendations. Any action that changes your live data, such as a pricebook write-back or a booked appointment, runs through a propose, approve, execute gate that a person controls, and every executed action is reversible. There is a master switch that keeps all write actions off until you turn them on.</div>
+
+      <div class="q">What back-office work does ServiceTitan leave manual or leave to QuickBooks?</div>
+      <div class="a">ServiceTitan Max covers a lot: booking, dispatch, job costing, AP and bill capture with three-way matching, and payments. A few back-office jobs still stay manual or live elsewhere. ServiceTitan's accounts-receivable follow-up is manual, so our Collections agent works the aging list around the clock and drafts the dunning. Your books live in QuickBooks, so our Financial agent reconciles cash and margin to your actual general ledger. ServiceTitan's Price Insights benchmarks regional prices, so our Pricebook agent re-costs items as your own vendor costs rise. We also forecast avoidable overtime and prorate partial-consumable material costs against your books.</div>
+
+      <div class="q">How does the Collections agent help with A/R?</div>
+      <div class="a">It works your accounts-receivable aging worklist around the clock, prioritizing invoices by age and amount, drafting dunning emails, texts, and call scripts for you to approve, and tracking promise-to-pay commitments. It does not move money or send anything on its own; it prepares the next best action on each open invoice so collections happen consistently instead of whenever someone finds time.</div>
+
+      <div class="q">Can the agents see across departments, or are they siloed?</div>
+      <div class="a">They share one cross-agent brain, so a dispatch decision can account for the parts the inventory agent is tracking and the overtime the workforce agent is forecasting. Access is still governed: sensitive areas like finance and HR are walled off, and leadership grants or revokes which agents each employee can use. The brain is shared; the visibility is permissioned per role.</div>
+
+      <div class="q">Why does an agent tuned to your shop help?</div>
+      <div class="a">ServiceTitan's Titan Intelligence learns from aggregate trade data across many contractors, which is genuinely useful for benchmarks. Our agents tune to your specific shop: which technicians you prefer for which jobs, how aggressively you chase A/R, what margin floor you hold, and they adapt their recommendations accordingly. Over weeks it stops sounding like a generic tool and starts sounding like a back-office manager who knows your business. The two are complementary, not competitive.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <p class="disc"><b>Top Builder AI</b>, the AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork, reconciled to your actual QuickBooks books. Installed alongside ServiceTitan; never touches the system of record. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment. A <b>Salisbury Bookkeeping LLC</b> brand.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/">Home</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/security">Security</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

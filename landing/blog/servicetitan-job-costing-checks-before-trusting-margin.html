@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>7 Job-Costing Checks ServiceTitan Contractors Run Before Trusting a Margin Number (Crews Under 20)</title>
+<meta name="description" content="ServiceTitan's own help docs show its job-costing flyout locks at invoice export and burden rate is a manual field, not an automatic one. Seven specific, sourced checks contractors under 20 techs run before trusting a job's margin number." />
+<link rel="canonical" href="https://topbuilderai.com/blog/servicetitan-job-costing-checks-before-trusting-margin.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="7 Job-Costing Checks ServiceTitan Contractors Run Before Trusting a Margin Number (Crews Under 20)" />
+<meta property="og:description" content="ServiceTitan's own docs admit burden rate is manual and the flyout locks at invoice export. Seven sourced checks before you trust a margin number." />
+<meta property="og:url" content="https://topbuilderai.com/blog/servicetitan-job-costing-checks-before-trusting-margin.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+  .updated{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--emerald);font-weight:600;border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:3px 11px;background:rgba(4,120,87,.06)}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:38px;color:var(--ink);line-height:1.15;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:26%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .no{color:var(--ink3)}
+  .table-take{font-size:14px;color:var(--ink3);margin-top:-12px 0 26px;padding:0 2px}
+  @media(max-width:620px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:9px 10px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .howwe{border:1px dashed var(--line2);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--panel2)}
+  .howwe .h{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+  .howwe p{margin:0;font-size:15px;color:var(--ink2);line-height:1.6}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (companion short) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"ServiceTitan Says 8% Margin. Do You Believe It?",
+  "description":"ServiceTitan's own docs admit burden rate is typed in by hand and the flyout locks for good at invoice export. A 44-second walkthrough of the checks that follow.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/HWF1Xm89HKM/maxresdefault.jpg",
+  "uploadDate":"2026-08-15T02:32:01Z",
+  "duration":"PT44S",
+  "contentUrl":"https://www.youtube.com/watch?v=HWF1Xm89HKM",
+  "embedUrl":"https://www.youtube.com/embed/HWF1Xm89HKM",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/servicetitan-job-costing-checks-before-trusting-margin.html"},
+  "headline":"7 Job-Costing Checks ServiceTitan Contractors Run Before Trusting a Margin Number (Crews Under 20)",
+  "description":"ServiceTitan's own help docs show its job-costing flyout locks at invoice export and burden rate is a manual field, not an automatic one. Seven specific, sourced checks contractors under 20 techs run before trusting a job's margin number.",
+  "datePublished":"2026-08-14",
+  "dateModified":"2026-08-15",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan job costing","ServiceTitan burden rate","QuickBooks Online Projects","job costing software for contractors","AI back office for ServiceTitan"],
+  "keywords":"ServiceTitan job costing, ServiceTitan burden rate, QuickBooks Online Projects job costing, job costing software for contractors, ServiceTitan QuickBooks reconciliation, AI back office for ServiceTitan"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Why can't I trust the margin ServiceTitan shows on a job?","acceptedAnswer":{"@type":"Answer","text":"Because several of the numbers feeding that margin are manual, timing-dependent, or locked by ServiceTitan's own design. ServiceTitan's own help docs confirm technician burden rate is a field someone enters by hand at Settings, People, Technicians, labor burden depends on the technician being in payroll at the moment the job completed, and the job-costing flyout itself locks the moment an invoice is posted and exported -- after which nothing you fix updates the number you already looked at."}},
+    {"@type":"Question","name":"Is technician burden rate calculated automatically in ServiceTitan?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan's own how-to documentation for the Burden Rate field states it lives on each technician's profile under Revenue & Cost, and directs the user to calculate the rate manually before entering it. If a rate is blank or stale for any technician, every job that technician touches understates labor cost and overstates margin -- silently, with no warning on the job."}},
+    {"@type":"Question","name":"When does ServiceTitan's job-costing flyout stop updating?","acceptedAnswer":{"@type":"Answer","text":"At invoice export. ServiceTitan's own documentation for the Job Costing tool states directly that the flyout locks once the invoice has already been exported to accounting. Any payroll correction, missed purchase order, or late burden-rate entry made after that point never reaches the number the flyout already showed you."}},
+    {"@type":"Question","name":"Why does labor burden sometimes show as zero on a completed job?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan's own troubleshooting documentation names the cause directly: labor burden pulls from payroll data as of the moment the job was completed. If the technician wasn't yet added to payroll at that moment, or payroll data needs refreshing, the labor burden line simply doesn't appear on the report -- which reads as a cheap job, not a missing number."}},
+    {"@type":"Question","name":"Does QuickBooks Online track job-level profit and loss automatically?","acceptedAnswer":{"@type":"Answer","text":"Only with the right feature and the right plan. Intuit's own documentation states Class tracking cannot capture labor cost at the class level for payroll -- only the Projects feature ties time entries and payroll cost to a specific job, and Projects requires QuickBooks Online Plus or Advanced. A shop on Simple Start or Essentials, or using Class tracking alone, is structurally missing job-level labor cost inside QuickBooks itself."}},
+    {"@type":"Question","name":"Does ServiceTitan track committed cost versus actual cost on every job?","acceptedAnswer":{"@type":"Answer","text":"Only inside the Projects module -- ServiceTitan's commercial/construction feature set, not standard residential Job Costing. ServiceTitan's own how-to documentation defines committed cost as money on a purchase order the vendor hasn't invoiced yet, tracked against actual cost on a Budget vs Actual table, but that view is scoped to Projects. A crew running only residential Jobs never sees it."}},
+    {"@type":"Question","name":"Is retainage tracked automatically between ServiceTitan and QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"No -- it requires a manual setup step in both systems. ServiceTitan's own documentation for project-tracking retainage instructs the user to add a new general-ledger account named 'Retainage Receivable' in both QuickBooks (or Intacct) and ServiceTitan's pricebook before retainage flows through to job costing correctly. Skip that setup and retainage silently misstates the job's real cost position."}},
+    {"@type":"Question","name":"Does ServiceTitan and QuickBooks reconciliation happen on its own?","acceptedAnswer":{"@type":"Answer","text":"Partially. ServiceTitan's own reconciliation documentation states exact and strong matches between ServiceTitan and QuickBooks records link up with no action required -- but anything weaker, like a mismatched GL account or a pricebook item name that doesn't match exactly between the two systems, requires a person to manually correct it before re-importing. The stronger the match, the more it's automatic; the weaker the match, the more it's a person's job."}},
+    {"@type":"Question","name":"At what point should a contractor add a dedicated job-costing tool instead of QuickBooks alone?","acceptedAnswer":{"@type":"Answer","text":"Published construction-accounting guidance puts the threshold around $1M in annual revenue and 10 technicians for staying on QuickBooks alone with disciplined cost codes, with the gaps becoming expensive to ignore somewhere between $2-3M in revenue and 15-plus techs. Most crews under 20 techs sit right at or just below that line, which is why these are checks to run and gaps to close, not a signal to rip out ServiceTitan or QuickBooks."}},
+    {"@type":"Question","name":"What do named job-costing add-on tools actually add on top of ServiceTitan?","acceptedAnswer":{"@type":"Answer","text":"Real-time, burden-inclusive job costing without waiting on ServiceTitan's manual burden-rate field or the invoice-export lock. Knowify's own pricing page lists a $329/month Advanced tier that auto-assigns expenses to a project and adds real-time WIP reporting; Werx's own feature page describes field hours flowing in at a fully burdened rate including taxes, benefits, and insurance for $49/month flat; Dapt's own site describes connecting payroll providers like ADP, Paychex, Paycor, and Paycom directly to job cost so labor hours and rates transfer automatically -- the exact payroll-to-job-cost gap ServiceTitan's manual burden rate leaves open."}},
+    {"@type":"Question","name":"What does one of these checks look like in practice?","acceptedAnswer":{"@type":"Answer","text":"This example is illustrative, not a client result. A $12,000 HVAC install job shows an 8% margin in ServiceTitan's flyout at invoice export. Two of the technicians on that job were added to payroll a day after the job completed, so their labor burden never posted -- the real margin, once burden is corrected after the fact in QuickBooks, is closer to 2%. Nothing about the flyout warned that burden was missing; the number just looked clean."}},
+    {"@type":"Question","name":"Does Top Builder AI have a shipped, self-serve job-costing reconciliation agent today?","acceptedAnswer":{"@type":"Answer","text":"Top Builder AI ships a real, deployed Financial agent connected to ServiceTitan and QuickBooks data, delivered through a Teardown and Install engagement against a shop's own numbers -- not a self-serve signup that reruns these seven checks unattended today. What's described in this post is the method: the specific, sourced places a margin number goes wrong before anyone downstream trusts it."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Job-Costing Checks</div>
+    <span class="kicker">ServiceTitan &middot; QuickBooks &middot; Job Costing</span>
+    <h1>7 Job-Costing Checks ServiceTitan Contractors Run Before Trusting a Margin Number</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 14, 2026</span>
+      <span class="updated">Updated August 14, 2026</span>
+      <span class="pill">~11 min read</span>
+      <span class="pill">Crews Under 20 Techs</span>
+      <span class="updated">Updated August 15, 2026</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_st-quickbooks.jpg" alt="A contractor's desk with ServiceTitan and QuickBooks open side by side on a laptop, invoices stacked nearby" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video vshort"><iframe src="https://www.youtube.com/embed/HWF1Xm89HKM" title="ServiceTitan Says 8% Margin. Do You Believe It?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The 44-second version of the gap below, straight from ServiceTitan's own job-costing docs.</p>
+
+      <p class="answer">Because several of the numbers feeding that margin are manual, timing-dependent, or locked by ServiceTitan's own design. Its own help docs confirm technician burden rate is a field someone enters by hand, labor burden depends on the technician being in payroll the moment the job completed, and the job-costing flyout locks for good the moment an invoice posts and exports. Below are seven specific, separately documented checks &mdash; each sourced to ServiceTitan's or Intuit's own docs, or to a named tool's own pricing page &mdash; that a contractor running under 20 techs runs before trusting a job's margin number.</p>
+
+      <p>None of this is a knock on ServiceTitan's job-costing tool. It tracks labor, materials, and revenue against a job, and for a lot of shops that's genuinely enough. The point is narrower: which of the seven checks below are you currently skipping, and what does that cost when the margin number is wrong in the direction that feels fine.</p>
+
+      <h2>1. Is Every Technician's Burden Rate Field Actually Filled In?</h2>
+      <p>ServiceTitan's own <a class="link" href="https://help.servicetitan.com/how-to/burden-rate-default" rel="noopener noreferrer">Burden Rate documentation</a> puts the field at Settings &rarr; People &rarr; Technicians &rarr; the tech's profile &rarr; Revenue &amp; Cost &mdash; and directs the user to calculate the rate manually before typing it in. There is no auto-default. If that field is blank or three raises out of date for even one technician, every job that technician touches understates labor cost and overstates margin, with nothing on the job flagging it.</p>
+
+      <h2>2. Do You Know the Exact Moment the Flyout Stops Listening?</h2>
+      <p>ServiceTitan's own documentation for the <a class="link" href="https://help.servicetitan.com/docs/run-the-job-costing-tool" rel="noopener noreferrer">Job Costing tool</a> states plainly: "the job costing flyout locks once an invoice is posted and exported." That's a hard, binary event &mdash; not a fuzzy cutoff. A payroll correction, a late purchase order, or a burden-rate fix entered five minutes after export changes nothing about the number already sitting on that job.</p>
+
+      <figure class="stat">
+        <div class="cap">Straight from ServiceTitan's own troubleshooting docs</div>
+        <div class="body">
+          <div class="val">"Labor burden relies on payroll data from when the job was completed"</div>
+          <div class="lab">If the technician wasn't in payroll yet at that moment, or payroll data needs refreshing, ServiceTitan's own documentation confirms their labor burden simply won't appear on the report &mdash; not a warning, just a missing line that reads as a cheaper job than it was.</div>
+          <div class="src">Source: help.servicetitan.com, "Troubleshooting labor burden not reporting accurately in job costing."</div>
+        </div>
+      </figure>
+
+      <h2>3. Was Every Technician on the Job Actually in Payroll When It Completed?</h2>
+      <p>This is the mechanism behind the stat above, and it's worth checking on its own: a new hire, a rehire, or a technician added to payroll a day late all produce the identical symptom &mdash; a job that looks unusually profitable because part of its real labor cost never posted. ServiceTitan's own documentation names this exact failure mode, which means it's a known, recurring gap, not an edge case.</p>
+
+      <h2>4. Is Job-Level Profit and Loss Actually Reaching QuickBooks?</h2>
+      <p>Intuit's own <a class="link" href="https://quickbooks.intuit.com/r/whats-new/introducing-quickbooks-projects/" rel="noopener noreferrer">documentation for QuickBooks Online Projects</a> is direct about a limitation of the more common alternative: "class tracking was unable to capture the cost of labor at the class level for employee payroll." Only the Projects feature ties time entries and payroll cost to a specific job &mdash; and Projects is a QuickBooks Online <strong>Plus or Advanced</strong> feature. A shop on Simple Start or Essentials, or leaning on Class tracking alone, is structurally missing job-level labor cost inside QuickBooks itself, independent of anything happening in ServiceTitan.</p>
+
+      <h2>5. Do You See Committed Cost, or Only What's Already Been Billed?</h2>
+      <p>ServiceTitan's own <a class="link" href="https://help.servicetitan.com/how-to/understand-budget-vs-actuals" rel="noopener noreferrer">Budget vs Actuals documentation</a> defines committed cost as money already tied up in a purchase order the vendor hasn't invoiced yet &mdash; distinct from actual cost, which is billed. That distinction matters because a job can look on-budget right up until three outstanding POs land at once. The catch: this Budget vs Actual view lives inside ServiceTitan's <strong>Projects</strong> module, its commercial/construction feature set. A crew running only standard residential Jobs doesn't get this view at all.</p>
+
+      <h2>6. Is Retainage Actually Wired Into Your Chart of Accounts?</h2>
+      <p>ServiceTitan's own documentation for <a class="link" href="https://help.servicetitan.com/how-to/project-tracking-retainage-accounting" rel="noopener noreferrer">retainage accounting</a> instructs the user to add a new general-ledger account named "Retainage Receivable" in QuickBooks (or Intacct) <em>and</em> map it in the ServiceTitan pricebook before retainage tracks correctly. Skip that one-time setup and retainage on any job with a holdback silently misstates the job's real cost-to-revenue position &mdash; not because ServiceTitan can't handle it, but because nobody told it to.</p>
+
+      <h2>7. Do the ServiceTitan and QuickBooks Lists Actually Match?</h2>
+      <p>ServiceTitan's own <a class="link" href="https://help.servicetitan.com/how-to/reconcile-servicetitan-with-quickbooks-lists" rel="noopener noreferrer">reconciliation documentation</a> states that "exact" and "strong" matches between ServiceTitan and QuickBooks records link up with no action required &mdash; but a mismatched GL account or a pricebook item name that doesn't read identically in both systems has to be corrected by hand before re-importing. The stronger the match, the more it's automatic; the weaker the match, the more it's someone's Tuesday afternoon.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Job-costing checks comparison">
+          <thead><tr><th>Check</th><th>Where it lives</th><th>Automatic or manual</th></tr></thead>
+          <tbody>
+            <tr><td>1. Burden rate field</td><td>Standard ServiceTitan Job Costing</td><td class="no">Manual entry per technician</td></tr>
+            <tr><td>2. Flyout lock at export</td><td>Standard ServiceTitan Job Costing</td><td class="no">Automatic &mdash; and irreversible after</td></tr>
+            <tr><td>3. Payroll-timing gap</td><td>Standard ServiceTitan Job Costing</td><td class="no">Depends on payroll entry timing</td></tr>
+            <tr><td>4. Job-level P&amp;L in QuickBooks</td><td>QuickBooks Online Plus/Advanced (Projects)</td><td class="no">Requires the right plan tier</td></tr>
+            <tr><td>5. Committed vs actual cost</td><td>ServiceTitan Projects module only</td><td class="no">Not in standard residential Jobs</td></tr>
+            <tr><td>6. Retainage</td><td>ServiceTitan + QuickBooks GL, mapped</td><td class="no">One-time manual setup</td></tr>
+            <tr><td>7. List reconciliation</td><td>ServiceTitan &harr; QuickBooks sync</td><td class="no">Automatic only for exact/strong matches</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">Every row here is either a manual field, a hard lock, or scoped to a module a residential-only crew may never see &mdash; none of it is a ServiceTitan defect, all of it is a place a margin number quietly goes wrong.</p>
+
+      <div class="howwe">
+        <div class="h">How we chose these seven</div>
+        <p>Each check above traces to ServiceTitan's or Intuit's own published documentation, opened directly, not a competitor's claim or an assumption about how the software "probably" works. We dropped anything we couldn't verify against a primary doc, and we kept each check to a distinct root cause &mdash; no repeating the same mechanism under a different heading. Published construction-accounting guidance puts the QuickBooks-alone threshold around $1M revenue and 10 techs, with gaps becoming expensive to ignore near $2-3M and 15-plus techs &mdash; most crews under 20 techs sit right at or just below that line, which is why this list is framed as checks to run, not a reason to replace either system.</p>
+      </div>
+
+      <h2>What does one of these look like in practice?</h2>
+      <p>The example below is illustrative, built to show the mechanism, not a client result.</p>
+
+      <figure class="stat">
+        <div class="cap">Illustrative walkthrough &mdash; one job, two missing technicians</div>
+        <div class="body">
+          <div class="val">8% margin at export, closer to 2% once corrected</div>
+          <div class="lab">A $12,000 HVAC install shows an 8% margin in ServiceTitan's flyout at invoice export. Two of the technicians on that job were added to payroll a day after it completed, so their labor burden never posted before the lock. Corrected after the fact in QuickBooks, the real margin is closer to 2% &mdash; and nothing on the original flyout warned that burden was missing.</div>
+          <div class="src">Illustrative example, not a client result.</div>
+        </div>
+      </figure>
+
+      <h2>What do named job-costing add-ons actually add?</h2>
+      <p>A handful of tools exist specifically to close the burden-rate and payroll-timing gaps above, which is itself evidence the gap is real and common, not invented. <a class="link" href="https://knowify.com/pricing" rel="noopener noreferrer">Knowify's own pricing page</a> lists a $329/month Advanced tier that "automatically assigns expenses to the correct project" with real-time WIP reporting; <a class="link" href="https://www.werxapp.com/features/job-costing/" rel="noopener noreferrer">Werx's own feature page</a> describes field hours flowing in "at your fully burdened rate &mdash; base pay plus taxes, benefits, insurance, and more" for $49/month flat; <a class="link" href="https://www.dapt.tech/hvac-job-costing-software" rel="noopener noreferrer">Dapt's own site</a> describes connecting payroll providers like ADP, Paychex, Paycor, and Paycom directly to job cost, moving labor hours and rates in automatically. Each is solving a version of check #1 or #3 &mdash; none of them replace checks #4 through #7, which live on the QuickBooks and reconciliation side.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Audit burden rates</b> on every active technician profile before the next payroll cycle, not after a job closes.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Confirm payroll entry timing</b> for any new or rehired technician before their first job completes.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Check your QuickBooks plan tier</b> if job-level P&amp;L matters &mdash; Class tracking alone won't get you there.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Map any retainage GL accounts</b> once, in both systems, before the next holdback job.</div></div>
+        <div class="step"><div class="num">5</div><div class="txt"><b>Review reconciliation exceptions</b> &mdash; not just the exact/strong matches ServiceTitan already cleared for you.</div></div>
+      </div>
+
+      <p>Every stat above cites the 2025 Commercial Service Market Report ServiceTitan itself published: 45% of surveyed commercial contractors named rising labor and overhead costs a top headwind &mdash; a real reason margin visibility on a per-job basis matters more than a single trailing P&amp;L, and part of why the checks above exist. <span class="src" style="font-size:12px;color:var(--ink3);font-style:italic">Source: servicetitan.com/press/2025-commercial-service-market-report, Thrive Analytics survey of 1,000+ commercial owners/execs, May 2025.</span></p>
+
+      <h2>How does this connect to the rest of the back office?</h2>
+      <p>A margin number that's wrong in the flattering direction is a job-costing problem the moment it steers the next bid, not just an accounting footnote. The same discipline that catches a mispriced job also catches a drifted burden rate or an un-mapped retainage account. Financial reporting is one of eight agents in Top Builder AI's back-office stack; the <a class="link" href="/blog/how-to-know-if-a-servicetitan-job-made-money.html">companion piece on why the flyout number itself goes stale</a> covers the invoice-lock mechanism in more depth, and the <a class="link" href="/blog/ai-back-office-for-servicetitan.html">full back-office overview</a> covers how the agents work together.</p>
+
+      <ul>
+        <li><b>No shipped self-serve job-costing reconciliation agent today.</b> This is a method, delivered as a configured install against a shop's real ServiceTitan and QuickBooks data, not existing software you sign up for.</li>
+        <li><b>No invented numbers.</b> Every check traces to ServiceTitan's or Intuit's own documentation, or a named tool's own pricing/feature page.</li>
+        <li><b>Doesn't replace ServiceTitan's job costing or QuickBooks.</b> Both keep running; these are the checks that make their numbers trustworthy.</li>
+        <li><b>A person still approves every correction.</b> Nothing here auto-edits payroll, burden rates, or the chart of accounts.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>See which of these seven your books are actually missing</h2>
+        <p>Most shops have never run all seven checks against their real ServiceTitan and QuickBooks data at once. A fit call walks through what turns up in yours.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Why can't I trust the margin ServiceTitan shows on a job?</div>
+      <div class="a">Because several of the numbers feeding that margin are manual, timing-dependent, or locked by ServiceTitan's own design. ServiceTitan's own help docs confirm technician burden rate is a field someone enters by hand, labor burden depends on the technician being in payroll at the moment the job completed, and the job-costing flyout itself locks the moment an invoice is posted and exported -- after which nothing you fix updates the number you already looked at.</div>
+
+      <div class="q">Is technician burden rate calculated automatically in ServiceTitan?</div>
+      <div class="a">No. ServiceTitan's own how-to documentation for the Burden Rate field states it lives on each technician's profile under Revenue & Cost, and directs the user to calculate the rate manually before entering it. If a rate is blank or stale for any technician, every job that technician touches understates labor cost and overstates margin -- silently, with no warning on the job.</div>
+
+      <div class="q">When does ServiceTitan's job-costing flyout stop updating?</div>
+      <div class="a">At invoice export. ServiceTitan's own documentation for the Job Costing tool states directly that the flyout locks once the invoice has already been exported to accounting. Any payroll correction, missed purchase order, or late burden-rate entry made after that point never reaches the number the flyout already showed you.</div>
+
+      <div class="q">Why does labor burden sometimes show as zero on a completed job?</div>
+      <div class="a">ServiceTitan's own troubleshooting documentation names the cause directly: labor burden pulls from payroll data as of the moment the job was completed. If the technician wasn't yet added to payroll at that moment, or payroll data needs refreshing, the labor burden line simply doesn't appear on the report -- which reads as a cheap job, not a missing number.</div>
+
+      <div class="q">Does QuickBooks Online track job-level profit and loss automatically?</div>
+      <div class="a">Only with the right feature and the right plan. Intuit's own documentation states Class tracking cannot capture labor cost at the class level for payroll -- only the Projects feature ties time entries and payroll cost to a specific job, and Projects requires QuickBooks Online Plus or Advanced. A shop on Simple Start or Essentials, or using Class tracking alone, is structurally missing job-level labor cost inside QuickBooks itself.</div>
+
+      <div class="q">Does ServiceTitan track committed cost versus actual cost on every job?</div>
+      <div class="a">Only inside the Projects module -- ServiceTitan's commercial/construction feature set, not standard residential Job Costing. ServiceTitan's own how-to documentation defines committed cost as money on a purchase order the vendor hasn't invoiced yet, tracked against actual cost on a Budget vs Actual table, but that view is scoped to Projects. A crew running only residential Jobs never sees it.</div>
+
+      <div class="q">Is retainage tracked automatically between ServiceTitan and QuickBooks?</div>
+      <div class="a">No -- it requires a manual setup step in both systems. ServiceTitan's own documentation for project-tracking retainage instructs the user to add a new general-ledger account named 'Retainage Receivable' in both QuickBooks (or Intacct) and ServiceTitan's pricebook before retainage flows through to job costing correctly. Skip that setup and retainage silently misstates the job's real cost position.</div>
+
+      <div class="q">Does ServiceTitan and QuickBooks reconciliation happen on its own?</div>
+      <div class="a">Partially. ServiceTitan's own reconciliation documentation states exact and strong matches between ServiceTitan and QuickBooks records link up with no action required -- but anything weaker, like a mismatched GL account or a pricebook item name that doesn't match exactly between the two systems, requires a person to manually correct it before re-importing. The stronger the match, the more it's automatic; the weaker the match, the more it's a person's job.</div>
+
+      <div class="q">At what point should a contractor add a dedicated job-costing tool instead of QuickBooks alone?</div>
+      <div class="a">Published construction-accounting guidance puts the threshold around $1M in annual revenue and 10 technicians for staying on QuickBooks alone with disciplined cost codes, with the gaps becoming expensive to ignore somewhere between $2-3M in revenue and 15-plus techs. Most crews under 20 techs sit right at or just below that line, which is why these are checks to run and gaps to close, not a signal to rip out ServiceTitan or QuickBooks.</div>
+
+      <div class="q">What do named job-costing add-on tools actually add on top of ServiceTitan?</div>
+      <div class="a">Real-time, burden-inclusive job costing without waiting on ServiceTitan's manual burden-rate field or the invoice-export lock. Knowify's own pricing page lists a $329/month Advanced tier that auto-assigns expenses to a project and adds real-time WIP reporting; Werx's own feature page describes field hours flowing in at a fully burdened rate including taxes, benefits, and insurance for $49/month flat; Dapt's own site describes connecting payroll providers like ADP, Paychex, Paycor, and Paycom directly to job cost so labor hours and rates transfer automatically -- the exact payroll-to-job-cost gap ServiceTitan's manual burden rate leaves open.</div>
+
+      <div class="q">What does one of these checks look like in practice?</div>
+      <div class="a">This example is illustrative, not a client result. A $12,000 HVAC install job shows an 8% margin in ServiceTitan's flyout at invoice export. Two of the technicians on that job were added to payroll a day after the job completed, so their labor burden never posted -- the real margin, once burden is corrected after the fact in QuickBooks, is closer to 2%. Nothing about the flyout warned that burden was missing; the number just looked clean.</div>
+
+      <div class="q">Does Top Builder AI have a shipped, self-serve job-costing reconciliation agent today?</div>
+      <div class="a">Top Builder AI ships a real, deployed Financial agent connected to ServiceTitan and QuickBooks data, delivered through a Teardown and Install engagement against a shop's own numbers -- not a self-serve signup that reruns these seven checks unattended today. What's described in this post is the method: the specific, sourced places a margin number goes wrong before anyone downstream trusts it.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

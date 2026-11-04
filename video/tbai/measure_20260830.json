@@ -1,0 +1,1152 @@
+{
+  "brand": "Top Builder AI",
+  "domain": "topbuilderai.com",
+  "capabilities": {
+    "perplexity": true,
+    "openai": true,
+    "gemini": true
+  },
+  "summary": {
+    "queries": 14,
+    "really_measured": 14,
+    "cited": 3
+  },
+  "results": [
+    {
+      "query": "how do I add AI automation to ServiceTitan without replacing it",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "servicetitan.com",
+        "textmei.com",
+        "zapier.com",
+        "flowbots.ai",
+        "onepath.ai",
+        "epiphanydynamics.ai",
+        "smith.ai",
+        "colabcontent.com",
+        "lawnandlandscape.com",
+        "retellai.com",
+        "axeautomation.co"
+      ],
+      "answer_excerpts": {
+        "perplexity": "You can add **AI automation around ServiceTitan** by integrating through its API/webhooks or by using ServiceTitan\u2019s own native AI tools, while keeping ServiceTitan as your **system of record** and day-to-day workflow platform.[2][6][7]\n\nThe two main approaches are:\n\n- **Native ServiceTitan AI**: Use built-in products like **Atlas**, **AI Virtual Agents**, and **Pro Products** to automate tasks inside ServiceTitan without replacing the platform.[2][7][9][17][20]\n- **Third-party AI layer**: Conne",
+        "openai": "Adding AI automation to your existing ServiceTitan setup can enhance efficiency and streamline operations. Here\u2019s a general guide on how you might integrate AI without replacing the core system:\n\n1. **Identify Needs and Goals**:\n   - Determine which processes could benefit from AI, such as dispatching, customer service, or data analysis.\n   - Set clear goals for what you want to achieve with AI automation.\n\n2. **Choose AI Tools**:\n   - Look for AI solutions that integrate well with existing soft",
+        "gemini": "You don\u2019t need to replace ServiceTitan to take advantage of modern AI. The standard industry approach is to treat **ServiceTitan as your single source of truth (CRM and operating system)** while layering AI tools on top of it via native features, pre-built partner integrations, and custom API connections.\n\nHere is a breakdown of the four best ways to add AI automation to ServiceTitan without disrupting your core operations:\n\n---\n\n### 1. Enable ServiceTitan\u2019s Native AI (Titan Intelligence)\nBefore"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "servicetitan.com",
+            "textmei.com",
+            "zapier.com",
+            "flowbots.ai",
+            "onepath.ai",
+            "epiphanydynamics.ai",
+            "smith.ai",
+            "colabcontent.com",
+            "lawnandlandscape.com",
+            "retellai.com",
+            "axeautomation.co"
+          ],
+          "answer_excerpt": "You can add **AI automation around ServiceTitan** by integrating through its API/webhooks or by using ServiceTitan\u2019s own native AI tools, while keeping ServiceTitan as your **system of record** and day-to-day workflow platform.[2][6][7]\n\nThe two main approaches are:\n\n- **Native ServiceTitan AI**: Use built-in products like **Atlas**, **AI Virtual Agents**, and **Pro Products** to automate tasks in"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Adding AI automation to your existing ServiceTitan setup can enhance efficiency and streamline operations. Here\u2019s a general guide on how you might integrate AI without replacing the core system:\n\n1. **Identify Needs and Goals**:\n   - Determine which processes could benefit from AI, such as dispatching, customer service, or data analysis.\n   - Set clear goals for what you want to achieve with AI au"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "You don\u2019t need to replace ServiceTitan to take advantage of modern AI. The standard industry approach is to treat **ServiceTitan as your single source of truth (CRM and operating system)** while layering AI tools on top of it via native features, pre-built partner integrations, and custom API connections.\n\nHere is a breakdown of the four best ways to add AI automation to ServiceTitan without disru"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "how do I keep my ServiceTitan pricebook updated with vendor cost increases",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": true,
+      "cited_where": [
+        "perplexity"
+      ],
+      "named_where": [],
+      "competitors_cited": [
+        "winktoolbox.com",
+        "servicetitan.com",
+        "help.servicetitan.com",
+        "community.servicetitan.com",
+        "printingpress.dev",
+        "projul.com",
+        "youtube.com",
+        "titanprotechnologies.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "You can keep your ServiceTitan pricebook current with vendor cost increases by using **Pricebook Connect > Updates** to pull in catalog changes, then applying them manually or turning on **Auto Update** for the fields you want updated automatically.[1][2]\n\n- **Manual update path:** Go to **Pricebook > Pricebook Connect > Updates**, choose the **Provider**, review changes in **Services**, **Materials**, **Equipment**, and **Categories**, select the items you want, and click **Update in Pricebook*",
+        "openai": "Keeping your ServiceTitan pricebook updated with vendor cost increases involves a few key steps:\n\n1. **Regularly Communicate with Vendors:**\n   - Establish a schedule to receive price updates from your vendors.\n   - Subscribe to vendor newsletters or notifications for real-time changes.\n\n2. **Utilize Automation Features:**\n   - Use ServiceTitan's automatic import features if available. Many vendors offer integrations that can update prices automatically.\n\n3. **Manual Updates:**\n   - Regularly re",
+        "gemini": "Keeping your ServiceTitan Pricebook updated against vendor cost increases requires a mix of **automation (to protect your margins automatically)** and **streamlined updating processes (to input new vendor costs)**. \n\n---\n\n### 1. Set Up Dynamic Pricing (The Most Important Step)\nEven if your material costs update, your customer-facing sell prices won't adjust unless your pricing structure is dynamic.\n* **How it works:** Go to **Pricebook > Pricing Builder > Dynamic Pricing**.\n* Configure dynamic p"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": true,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [
+            "https://topbuilderai.com/blog/servicetitan-pricebook-pro-vs-self-learning-agent.html"
+          ],
+          "all_cited_hosts": [
+            "help.servicetitan.com",
+            "community.servicetitan.com",
+            "winktoolbox.com",
+            "topbuilderai.com",
+            "servicetitan.com",
+            "printingpress.dev",
+            "projul.com"
+          ],
+          "answer_excerpt": "You can keep your ServiceTitan pricebook current with vendor cost increases by using **Pricebook Connect > Updates** to pull in catalog changes, then applying them manually or turning on **Auto Update** for the fields you want updated automatically.[1][2]\n\n- **Manual update path:** Go to **Pricebook > Pricebook Connect > Updates**, choose the **Provider**, review changes in **Services**, **Materia"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Keeping your ServiceTitan pricebook updated with vendor cost increases involves a few key steps:\n\n1. **Regularly Communicate with Vendors:**\n   - Establish a schedule to receive price updates from your vendors.\n   - Subscribe to vendor newsletters or notifications for real-time changes.\n\n2. **Utilize Automation Features:**\n   - Use ServiceTitan's automatic import features if available. Many vendor"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "servicetitan.com",
+            "youtube.com",
+            "titanprotechnologies.com",
+            "winktoolbox.com"
+          ],
+          "answer_excerpt": "Keeping your ServiceTitan Pricebook updated against vendor cost increases requires a mix of **automation (to protect your margins automatically)** and **streamlined updating processes (to input new vendor costs)**. \n\n---\n\n### 1. Set Up Dynamic Pricing (The Most Important Step)\nEven if your material costs update, your customer-facing sell prices won't adjust unless your pricing structure is dynamic"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "AI to chase unpaid invoices for HVAC and home service contractors",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "syntharra.com",
+        "serviceagent.ai",
+        "sosinvoices.com",
+        "techemulsion.com",
+        "accountsreceivable.ai",
+        "fieldcamp.ai",
+        "chaseai.app",
+        "invoicechaser.app",
+        "robotomail.com",
+        "reddit.com",
+        "getbill.io",
+        "invoicebutler.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "If you want **AI to chase unpaid invoices** for HVAC and home service contractors, the strongest matches in your results are **FieldCamp**, **Syntharra**, **AccountsReceivable.ai**, **Invoice Butler**, and **Invoice Chaser**.[7][2][6][13][9]\n\n- **FieldCamp**: built for field service teams; it syncs with QuickBooks/Xero, sends payment links, and uses AI agents to follow up over WhatsApp, SMS, or email, escalating until paid.[7]\n- **Syntharra**: specifically targets HVAC contractors and uses an AI",
+        "openai": "Chasing unpaid invoices can be a time-consuming task for HVAC and home service contractors. Leveraging AI can help streamline this process through automation and improved communication. Here are a few ways AI can assist:\n\n1. **Automated Reminder Systems**:\n   - **Email and SMS Reminders**: AI can send personalized and timely reminders to clients about upcoming or overdue payments.\n   - **Custom Schedules**: Set up sequences for different stages: initial reminder, follow-up, and final notice.\n\n2.",
+        "gemini": "Chasing unpaid invoices is one of the biggest cash-flow bottlenecks for HVAC, plumbing, electrical, and general contracting businesses. Homeowners often don\u2019t avoid paying out of malice\u2014they simply lose the email, forget, or expect a quick text-to-pay link.\n\nHere is a breakdown of how AI solutions work for accounts receivable (AR) in the trades, the best software available, and how to set up an automated collection workflow.\n\n---\n\n### 1. Dedicated AI & Automation Tools for AR\nDepending on whethe"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "syntharra.com",
+            "serviceagent.ai",
+            "sosinvoices.com",
+            "techemulsion.com",
+            "accountsreceivable.ai",
+            "fieldcamp.ai",
+            "chaseai.app",
+            "invoicechaser.app",
+            "robotomail.com",
+            "reddit.com",
+            "getbill.io",
+            "invoicebutler.com",
+            "usecarly.com",
+            "getinvoicechaser.com",
+            "agentplace.io",
+            "tradesly.ai",
+            "linkedin.com",
+            "ustechautomations.com"
+          ],
+          "answer_excerpt": "If you want **AI to chase unpaid invoices** for HVAC and home service contractors, the strongest matches in your results are **FieldCamp**, **Syntharra**, **AccountsReceivable.ai**, **Invoice Butler**, and **Invoice Chaser**.[7][2][6][13][9]\n\n- **FieldCamp**: built for field service teams; it syncs with QuickBooks/Xero, sends payment links, and uses AI agents to follow up over WhatsApp, SMS, or em"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Chasing unpaid invoices can be a time-consuming task for HVAC and home service contractors. Leveraging AI can help streamline this process through automation and improved communication. Here are a few ways AI can assist:\n\n1. **Automated Reminder Systems**:\n   - **Email and SMS Reminders**: AI can send personalized and timely reminders to clients about upcoming or overdue payments.\n   - **Custom Sc"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Chasing unpaid invoices is one of the biggest cash-flow bottlenecks for HVAC, plumbing, electrical, and general contracting businesses. Homeowners often don\u2019t avoid paying out of malice\u2014they simply lose the email, forget, or expect a quick text-to-pay link.\n\nHere is a breakdown of how AI solutions work for accounts receivable (AR) in the trades, the best software available, and how to set up an au"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "does ServiceTitan Dispatch Pro optimize for margin or just revenue",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "servicetitan.com",
+        "help.servicetitan.com",
+        "mypowerhouse.group",
+        "marketplace.servicetitan.com",
+        "skill.re",
+        "contractorincharge.com",
+        "titanprotechnologies.com",
+        "youtube.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "**Dispatch Pro is positioned to optimize for profitability/margin, not just raw revenue.** ServiceTitan says it \u201coptimizes your Dispatch Board for profitability,\u201d and that it simulates scenarios to find \u201cthe best way to achieve the most profit for that day.\u201d[1][3][5]\n\nThat said, **revenue is a major input** to the optimization. ServiceTitan says Dispatch Pro uses predicted job value, technician performance, and estimated drive time, and that it calculates revenue as **predicted job value minus d",
+        "openai": "ServiceTitan's Dispatch Pro is designed to optimize job assignments with a focus on maximizing revenue. It utilizes machine learning and Titan Intelligence to predict job values and technician performance, aiming to assign the best technician to each job to enhance profitability. ([help.servicetitan.com](https://help.servicetitan.com/v1/docs/dispatch-pro-overview?utm_source=openai))\n\nHowever, Dispatch Pro also offers flexibility through its settings. Users can adjust the balance between prioriti",
+        "gemini": "ServiceTitan\u2019s **Dispatch Pro optimizes for net expected revenue (revenue minus drive costs)**, rather than true accounting gross margin. \n\nMarketing materials often use the term *profitability*, but the algorithm operates under specific core mechanics:\n\n---\n\n### How the Algorithm Actually Works\nDispatch Pro\u2019s objective function operates on the following core equation:\n\n$$\\text{Optimization Goal} = \\text{Predicted Job Value} - \\text{Drive Cost}$$\n\n1. **Predicted Job Value (Revenue-driven):**\n   "
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "help.servicetitan.com",
+            "servicetitan.com",
+            "marketplace.servicetitan.com",
+            "skill.re",
+            "contractorincharge.com",
+            "mypowerhouse.group",
+            "titanprotechnologies.com"
+          ],
+          "answer_excerpt": "**Dispatch Pro is positioned to optimize for profitability/margin, not just raw revenue.** ServiceTitan says it \u201coptimizes your Dispatch Board for profitability,\u201d and that it simulates scenarios to find \u201cthe best way to achieve the most profit for that day.\u201d[1][3][5]\n\nThat said, **revenue is a major input** to the optimization. ServiceTitan says Dispatch Pro uses predicted job value, technician pe"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "help.servicetitan.com",
+            "servicetitan.com"
+          ],
+          "answer_excerpt": "ServiceTitan's Dispatch Pro is designed to optimize job assignments with a focus on maximizing revenue. It utilizes machine learning and Titan Intelligence to predict job values and technician performance, aiming to assign the best technician to each job to enhance profitability. ([help.servicetitan.com](https://help.servicetitan.com/v1/docs/dispatch-pro-overview?utm_source=openai))\n\nHowever, Disp"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "servicetitan.com",
+            "youtube.com",
+            "mypowerhouse.group"
+          ],
+          "answer_excerpt": "ServiceTitan\u2019s **Dispatch Pro optimizes for net expected revenue (revenue minus drive costs)**, rather than true accounting gross margin. \n\nMarketing materials often use the term *profitability*, but the algorithm operates under specific core mechanics:\n\n---\n\n### How the Algorithm Actually Works\nDispatch Pro\u2019s objective function operates on the following core equation:\n\n$$\\text{Optimization Goal} "
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "how do I automate my EOS scorecard from ServiceTitan and QuickBooks",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "help.servicetitan.com",
+        "eonize.co",
+        "pipedream.com",
+        "apps4rent.com",
+        "blog.atomicrevenue.com",
+        "homeserviceengine.co",
+        "zapier.com",
+        "measurequick.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "You can automate your **EOS scorecard** by using **ServiceTitan** and **QuickBooks** as data sources, then sending the needed KPI numbers into a scorecard tool or spreadsheet on a weekly schedule. ServiceTitan already syncs financial data to QuickBooks Online, so the cleanest setup is usually: **ServiceTitan \u2192 QuickBooks \u2192 scorecard automation**.[1][2][4]\n\nA practical setup looks like this:\n\n- **1. Decide your EOS KPIs first.** EOS scorecards work best when you define a small set of weekly, meas",
+        "openai": "Automating your EOS scorecard from ServiceTitan and QuickBooks involves integrating data from these platforms and automating the reporting process. Here's a step-by-step guide to approach this:\n\n### 1. **Integration Tools**\nConsider using tools like Zapier, Integromat, or Workato to create automated workflows between ServiceTitan, QuickBooks, and your reporting tool.\n\n### 2. **Extracting Data**\n\n- **ServiceTitan:**\n  - Check if ServiceTitan offers an API or export function to access the necessar",
+        "gemini": "Automating your EOS (Entrepreneurial Operating System) Scorecard from **ServiceTitan** and **QuickBooks** eliminates manual weekly data entry and ensures your leadership team looks at accurate, real-time weekly numbers during the Level 10 (L10) meeting.\n\nHere is a step-by-step roadmap to set up this automation, along with the most popular tech stack options.\n\n---\n\n### Step 1: Map Your Metrics to the Source System\nEOS Scorecards track weekly leading and lagging indicators. Map out which system ow"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "help.servicetitan.com",
+            "eonize.co",
+            "pipedream.com",
+            "apps4rent.com",
+            "blog.atomicrevenue.com",
+            "homeserviceengine.co",
+            "zapier.com",
+            "measurequick.com"
+          ],
+          "answer_excerpt": "You can automate your **EOS scorecard** by using **ServiceTitan** and **QuickBooks** as data sources, then sending the needed KPI numbers into a scorecard tool or spreadsheet on a weekly schedule. ServiceTitan already syncs financial data to QuickBooks Online, so the cleanest setup is usually: **ServiceTitan \u2192 QuickBooks \u2192 scorecard automation**.[1][2][4]\n\nA practical setup looks like this:\n\n- **1"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Automating your EOS scorecard from ServiceTitan and QuickBooks involves integrating data from these platforms and automating the reporting process. Here's a step-by-step guide to approach this:\n\n### 1. **Integration Tools**\nConsider using tools like Zapier, Integromat, or Workato to create automated workflows between ServiceTitan, QuickBooks, and your reporting tool.\n\n### 2. **Extracting Data**\n\n-"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Automating your EOS (Entrepreneurial Operating System) Scorecard from **ServiceTitan** and **QuickBooks** eliminates manual weekly data entry and ensures your leadership team looks at accurate, real-time weekly numbers during the Level 10 (L10) meeting.\n\nHere is a step-by-step roadmap to set up this automation, along with the most popular tech stack options.\n\n---\n\n### Step 1: Map Your Metrics to t"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "best AI tools for home services and trades contractors 2026",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "pipelineon.com",
+        "housecallpro.com",
+        "reddit.com",
+        "usecarly.com",
+        "relayfi.com",
+        "aspbranding.com",
+        "layer3labs.io",
+        "myquoteiq.com",
+        "aegisautomations.com",
+        "geekpoweredstudios.com",
+        "en.ai-pedias.com",
+        "thesnowmedia.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "For most **home services and trades contractors in 2026**, the best all-around choice is **Jobber AI** for small to mid-size teams, while **ServiceTitan AI** is the stronger pick for larger or more complex operations.[1] If your biggest pain point is missed calls and lead capture, **Podium AI** is a top standalone option; for budgeting, **Housecall Pro** is the lower-cost alternative with core AI features.[1][5]\n\nA practical shortlist by use case:\n\n- **Best overall for small teams:** **Jobber AI",
+        "openai": "In 2026, artificial intelligence (AI) has become integral to enhancing efficiency and customer satisfaction in the home services and trades sectors. Here are some of the top AI tools tailored for contractors:\n\n\n[Bardy - Visual Feedback Tool with Live HTML Editing](https://bardy.io/?ref=producthunt&utm_source=openai)\n**Barry**  \nRecognized as the best overall AI agent for trades and home services, Barry excels in proactively coordinating field operations, automating job scheduling, crew managemen",
+        "gemini": "For home services and trade contractors (HVAC, plumbing, roofing, electrical, landscaping, and general contracting), the most valuable AI tools are those that solve **revenue leaks**\u2014such as missed inbound calls, slow quoting, manual takeoffs, and abandoned estimates.\n\n---\n\n### 1. 24/7 AI Phone Receptionists & Call Intake\n*Missed calls are the #1 source of lost revenue for trades. These tools answer immediately, qualify emergency vs. routine inquiries, and book directly onto your schedule.*\n\n* *"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "layer3labs.io",
+            "myquoteiq.com",
+            "aegisautomations.com",
+            "pipelineon.com",
+            "housecallpro.com",
+            "geekpoweredstudios.com",
+            "reddit.com",
+            "en.ai-pedias.com",
+            "thesnowmedia.com",
+            "blog.fastbots.ai",
+            "insights.velocityaipartners.co",
+            "usecarly.com",
+            "formvue.com",
+            "chathamoaks.com",
+            "vellum.ai",
+            "relayfi.com",
+            "trybeam.com",
+            "aspbranding.com"
+          ],
+          "answer_excerpt": "For most **home services and trades contractors in 2026**, the best all-around choice is **Jobber AI** for small to mid-size teams, while **ServiceTitan AI** is the stronger pick for larger or more complex operations.[1] If your biggest pain point is missed calls and lead capture, **Podium AI** is a top standalone option; for budgeting, **Housecall Pro** is the lower-cost alternative with core AI "
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "bardy.io",
+            "bestsoftwarefortrades.com",
+            "videosdk.live",
+            "ppc.land",
+            "linkedin.com",
+            "housecallpro.com"
+          ],
+          "answer_excerpt": "In 2026, artificial intelligence (AI) has become integral to enhancing efficiency and customer satisfaction in the home services and trades sectors. Here are some of the top AI tools tailored for contractors:\n\n\n[Bardy - Visual Feedback Tool with Live HTML Editing](https://bardy.io/?ref=producthunt&utm_source=openai)\n**Barry**  \nRecognized as the best overall AI agent for trades and home services, "
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "youtube.com",
+            "aspbranding.com",
+            "relayfi.com",
+            "pipelineon.com",
+            "usecarly.com",
+            "reddit.com",
+            "5wpr.com",
+            "zuper.co",
+            "buildsync.ai",
+            "salesask.com"
+          ],
+          "answer_excerpt": "For home services and trade contractors (HVAC, plumbing, roofing, electrical, landscaping, and general contracting), the most valuable AI tools are those that solve **revenue leaks**\u2014such as missed inbound calls, slow quoting, manual takeoffs, and abandoned estimates.\n\n---\n\n### 1. 24/7 AI Phone Receptionists & Call Intake\n*Missed calls are the #1 source of lost revenue for trades. These tools answ"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "should I replace ServiceTitan with Jobber or Housecall Pro or add an AI layer",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "getjobber.com",
+        "servicetitan.com",
+        "appvizer.com",
+        "fieldservicesoftware.io",
+        "fieldpulse.com",
+        "servicestorm.io",
+        "ustechautomations.com",
+        "softwareadvice.com",
+        "pipelineon.com",
+        "tooleduppro.com",
+        "skillmammoth.com",
+        "getonecrew.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "If you are already on **ServiceTitan**, the strongest default answer is usually **don\u2019t replace it unless you\u2019re overpaying for capabilities you do not use**; instead, decide whether you need **simpler operations** (Jobber or Housecall Pro) or **more automation on top of the system**. ServiceTitan is consistently positioned for larger, more complex trade operations with deeper dispatch, reporting, inventory, and pricebook features, while Jobber is positioned as the easier, faster-to-adopt option",
+        "openai": "Choosing between ServiceTitan, Jobber, and Housecall Pro depends on the specific needs of your business. Here\u2019s a quick comparison:\n\n### ServiceTitan\n- **Best for**: Larger companies, especially in the home services industry.\n- **Features**: Comprehensive, including CRM, scheduling, dispatching, invoicing, and more.\n- **Pros**: Robust features, strong support, and customization.\n- **Cons**: Can be costly and complex for smaller businesses.\n\n### Jobber\n- **Best for**: Small to medium-sized servic",
+        "gemini": "Whether you should switch to **Jobber / Housecall Pro** or **keep ServiceTitan and add an AI layer** depends on the root cause of your frustration. \n\nMost contractors consider leaving ServiceTitan for one of three reasons: **it\u2019s too expensive**, **it\u2019s too complex**, or **they aren't capturing enough leads/revenue to justify it**.\n\nHere is a strategic framework to help you decide the right path.\n\n---\n\n### Option 1: Switch to Jobber or Housecall Pro\n**Best if:** Your business is under 5\u20138 trucks"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "getjobber.com",
+            "servicetitan.com",
+            "appvizer.com",
+            "fieldservicesoftware.io",
+            "fieldpulse.com",
+            "servicestorm.io",
+            "ustechautomations.com",
+            "softwareadvice.com",
+            "pipelineon.com",
+            "tooleduppro.com",
+            "skillmammoth.com",
+            "getonecrew.com",
+            "fieldservicecompare.com",
+            "serviceagent.ai",
+            "reddit.com",
+            "contractorplus.app"
+          ],
+          "answer_excerpt": "If you are already on **ServiceTitan**, the strongest default answer is usually **don\u2019t replace it unless you\u2019re overpaying for capabilities you do not use**; instead, decide whether you need **simpler operations** (Jobber or Housecall Pro) or **more automation on top of the system**. ServiceTitan is consistently positioned for larger, more complex trade operations with deeper dispatch, reporting,"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Choosing between ServiceTitan, Jobber, and Housecall Pro depends on the specific needs of your business. Here\u2019s a quick comparison:\n\n### ServiceTitan\n- **Best for**: Larger companies, especially in the home services industry.\n- **Features**: Comprehensive, including CRM, scheduling, dispatching, invoicing, and more.\n- **Pros**: Robust features, strong support, and customization.\n- **Cons**: Can be"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Whether you should switch to **Jobber / Housecall Pro** or **keep ServiceTitan and add an AI layer** depends on the root cause of your frustration. \n\nMost contractors consider leaving ServiceTitan for one of three reasons: **it\u2019s too expensive**, **it\u2019s too complex**, or **they aren't capturing enough leads/revenue to justify it**.\n\nHere is a strategic framework to help you decide the right path.\n"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "ServiceTitan vs Housecall Pro for a contractor billing past 2 million a year",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "servicetitan.com",
+        "fieldpulse.com",
+        "fieldservicesoftware.io",
+        "ustechautomations.com",
+        "webfx.com",
+        "resources.rework.com",
+        "capterra.com",
+        "distance.so",
+        "kickcharge.com",
+        "serviceagent.ai",
+        "hoist.digital",
+        "fieldservicecompare.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "For a contractor billing **over $2M/year**, **ServiceTitan** is usually the better fit if you have multiple techs, a dispatcher/CSR team, or need deeper reporting and workflow control. **Housecall Pro** is generally the better value if you want simpler operations, faster setup, and lower cost. [3][6][7][10][14][17]\n\nThe clearest pattern in the results is this:\n\n- **ServiceTitan** is positioned for larger, more complex shops, with sources repeatedly citing it as a fit for **$2M+ revenue** and/or ",
+        "openai": "When choosing between ServiceTitan and Housecall Pro for a contractor billing over $2 million a year, it's important to consider the specific needs and priorities of your business. Here's a comparison of the two:\n\n### ServiceTitan\n\n**Pros:**\n- **Comprehensive Features:** Offers a wide range of features, including advanced reporting, CRM, scheduling, and dispatching tools.\n- **Scalability:** Designed for larger businesses and can handle complex operations. It's particularly strong in HVAC, plumbi",
+        "gemini": "For a contractor billing **$2M+ annually**, you have reached the exact revenue threshold where the choice between ServiceTitan and Housecall Pro shifts from a question of *budget* to a question of *operational maturity, margin control, and scaling strategy*.\n\nAt $2M+, an entry/mid-tier system can begin to cost you more in hidden inefficiencies (missed upsells, untracked inventory, lack of job costing) than the price tag of an enterprise platform. \n\nHere is how the two platforms compare specifica"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "servicetitan.com",
+            "fieldpulse.com",
+            "fieldservicesoftware.io",
+            "ustechautomations.com",
+            "webfx.com",
+            "resources.rework.com",
+            "capterra.com",
+            "distance.so",
+            "kickcharge.com",
+            "serviceagent.ai",
+            "hoist.digital",
+            "fieldservicecompare.com",
+            "housecallpro.com",
+            "contractorplus.app",
+            "servicefusion.com",
+            "reddit.com"
+          ],
+          "answer_excerpt": "For a contractor billing **over $2M/year**, **ServiceTitan** is usually the better fit if you have multiple techs, a dispatcher/CSR team, or need deeper reporting and workflow control. **Housecall Pro** is generally the better value if you want simpler operations, faster setup, and lower cost. [3][6][7][10][14][17]\n\nThe clearest pattern in the results is this:\n\n- **ServiceTitan** is positioned for"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "When choosing between ServiceTitan and Housecall Pro for a contractor billing over $2 million a year, it's important to consider the specific needs and priorities of your business. Here's a comparison of the two:\n\n### ServiceTitan\n\n**Pros:**\n- **Comprehensive Features:** Offers a wide range of features, including advanced reporting, CRM, scheduling, and dispatching tools.\n- **Scalability:** Design"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "For a contractor billing **$2M+ annually**, you have reached the exact revenue threshold where the choice between ServiceTitan and Housecall Pro shifts from a question of *budget* to a question of *operational maturity, margin control, and scaling strategy*.\n\nAt $2M+, an entry/mid-tier system can begin to cost you more in hidden inefficiencies (missed upsells, untracked inventory, lack of job cost"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "does ServiceTitan track certificate of insurance expiration dates",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": true,
+      "cited_where": [
+        "perplexity",
+        "openai",
+        "gemini"
+      ],
+      "named_where": [],
+      "competitors_cited": [
+        "help.servicetitan.com",
+        "roofingsoftwareguide.com",
+        "ustechautomations.com",
+        "community.servicetitan.com",
+        "billyforinsurance.com",
+        "coitracker.co",
+        "trackmyvendor.com",
+        "trustlayer.io",
+        "getbcs.com",
+        "renewops.app",
+        "expirationreminder.com",
+        "youtube.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "**Not natively, based on ServiceTitan\u2019s published documentation and related analyses.** ServiceTitan can store document-related compliance fields and dates in some workflows, but the results you provided do not show a built-in COI feature that automatically reads a certificate of insurance, tracks its expiration, and sends renewal alerts on its own.[1][2][6]\n\nWhat the evidence does show:\n\n- ServiceTitan has **date fields** and compliance-style tracking for licenses/permits, including an **Expira",
+        "openai": "As of August 2026, ServiceTitan does not offer built-in functionality to track the expiration dates of Certificates of Insurance (COIs). This means that while ServiceTitan requires its own vendors to provide up-to-date COIs, it does not provide tools for contractors to monitor the COI statuses of their own subcontractors within the platform. ([topbuilderai.com](https://topbuilderai.com/blog/servicetitan-coi-tracking-ai-documents-agent.html?utm_source=openai))\n\nTo address this gap, contractors ca",
+        "gemini": "**No, ServiceTitan does not natively track Certificate of Insurance (COI) expiration dates or provide automated compliance alerts out of the box.** \n\nWhile ServiceTitan is built to handle dispatching, invoicing, inventory, and customer management, it does not include a dedicated compliance module to monitor vendor, subcontractor, or employee insurance policies.\n\n---\n\n### Workarounds Within ServiceTitan\nIf you want to keep some record of insurance inside ServiceTitan, you can use manual workaroun"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": true,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [
+            "https://topbuilderai.com/blog/servicetitan-coi-tracking-ai-documents-agent.html"
+          ],
+          "all_cited_hosts": [
+            "topbuilderai.com",
+            "ustechautomations.com",
+            "help.servicetitan.com",
+            "roofingsoftwareguide.com",
+            "community.servicetitan.com",
+            "billyforinsurance.com",
+            "coitracker.co",
+            "trackmyvendor.com",
+            "trustlayer.io",
+            "getbcs.com",
+            "renewops.app",
+            "expirationreminder.com"
+          ],
+          "answer_excerpt": "**Not natively, based on ServiceTitan\u2019s published documentation and related analyses.** ServiceTitan can store document-related compliance fields and dates in some workflows, but the results you provided do not show a built-in COI feature that automatically reads a certificate of insurance, tracks its expiration, and sends renewal alerts on its own.[1][2][6]\n\nWhat the evidence does show:\n\n- Servic"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": true,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [
+            "https://topbuilderai.com/blog/servicetitan-coi-tracking-ai-documents-agent.html?utm_source=openai"
+          ],
+          "all_cited_hosts": [
+            "topbuilderai.com",
+            "help.servicetitan.com"
+          ],
+          "answer_excerpt": "As of August 2026, ServiceTitan does not offer built-in functionality to track the expiration dates of Certificates of Insurance (COIs). This means that while ServiceTitan requires its own vendors to provide up-to-date COIs, it does not provide tools for contractors to monitor the COI statuses of their own subcontractors within the platform. ([topbuilderai.com](https://topbuilderai.com/blog/servic"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": true,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [
+            "https://topbuilderai.com"
+          ],
+          "all_cited_hosts": [
+            "youtube.com",
+            "topbuilderai.com",
+            "servicetitan.com",
+            "roofingsoftwareguide.com",
+            "coipro.com",
+            "facebook.com"
+          ],
+          "answer_excerpt": "**No, ServiceTitan does not natively track Certificate of Insurance (COI) expiration dates or provide automated compliance alerts out of the box.** \n\nWhile ServiceTitan is built to handle dispatching, invoicing, inventory, and customer management, it does not include a dedicated compliance module to monitor vendor, subcontractor, or employee insurance policies.\n\n---\n\n### Workarounds Within Service"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "how do I know if a ServiceTitan job actually made money",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "help.servicetitan.com",
+        "servicetitan.com",
+        "growwithclover.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "In ServiceTitan, a job **made money** if its **gross margin** is positive: **Total Revenue \u2212 Total Cost > 0**.[2][3] You can check this in the **Job Costing** tool or Job Costing reports, where ServiceTitan shows **Total Revenue**, **Total Cost**, **Gross Margin**, and **% Gross Margin**.[2][3][14]\n\nThe quickest way to tell is:\n\n- Open the job\u2019s **Job Costing** view or report.[2][3]\n- Compare **Total Revenue** to **Total Cost**.[2][3]\n- If **Gross Margin** is above zero, the job was profitable; ",
+        "openai": "To determine if a ServiceTitan job made money, you need to analyze several financial metrics related to the job. Here's how you can evaluate it:\n\n1. **Revenue vs. Expenses**:\n   - **Revenue**: Check the total amount billed to the customer for the job.\n   - **Expenses**: Calculate all costs associated with the job, including labor, materials, equipment, and overhead.\n\n2. **Gross Profit**:\n   - Subtract the total expenses from the total revenue to determine the gross profit. \n   - Formula: **Gross",
+        "gemini": "To know if a ServiceTitan job actually made money, you need to look at its **Gross Margin (Gross Profit)** within the platform and verify that all direct costs were recorded accurately. \n\nServiceTitan tracks profitability at the job level through **Job Costing**. \n\n---\n\n### Step 1: Look at the Job Margin Summary\nOn any completed job or invoice:\n1. Open the **Job Record** or **Invoice**.\n2. Look at the **financial summary bar** at the top or bottom of the screen.\n3. You will see:\n   * **Subtotal "
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "help.servicetitan.com",
+            "servicetitan.com",
+            "growwithclover.com"
+          ],
+          "answer_excerpt": "In ServiceTitan, a job **made money** if its **gross margin** is positive: **Total Revenue \u2212 Total Cost > 0**.[2][3] You can check this in the **Job Costing** tool or Job Costing reports, where ServiceTitan shows **Total Revenue**, **Total Cost**, **Gross Margin**, and **% Gross Margin**.[2][3][14]\n\nThe quickest way to tell is:\n\n- Open the job\u2019s **Job Costing** view or report.[2][3]\n- Compare **To"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "To determine if a ServiceTitan job made money, you need to analyze several financial metrics related to the job. Here's how you can evaluate it:\n\n1. **Revenue vs. Expenses**:\n   - **Revenue**: Check the total amount billed to the customer for the job.\n   - **Expenses**: Calculate all costs associated with the job, including labor, materials, equipment, and overhead.\n\n2. **Gross Profit**:\n   - Subt"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "To know if a ServiceTitan job actually made money, you need to look at its **Gross Margin (Gross Profit)** within the platform and verify that all direct costs were recorded accurately. \n\nServiceTitan tracks profitability at the job level through **Job Costing**. \n\n---\n\n### Step 1: Look at the Job Margin Summary\nOn any completed job or invoice:\n1. Open the **Job Record** or **Invoice**.\n2. Look at"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "Procore Agent Studio vs a third-party AI back office",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": true,
+      "cited_where": [
+        "perplexity",
+        "gemini"
+      ],
+      "named_where": [
+        "gemini"
+      ],
+      "competitors_cited": [
+        "procore.com",
+        "support.procore.com",
+        "transparency.procore.com",
+        "businesswire.com",
+        "structuredlayer.com",
+        "moveworks.com",
+        "v2.support.procore.com",
+        "work-management.org",
+        "reddit.com",
+        "enr.com",
+        "assetsoft.biz"
+      ],
+      "answer_excerpts": {
+        "perplexity": "**Procore Agent Studio** is the better choice if you want AI that works *inside Procore* on Procore project, document, and financial workflows, with native permissions and no third-party model training.[1][3][8] A **third-party AI back office** is the better fit if you need automation that sits *alongside Procore* and handles work outside the platform, especially ledger, collections, A/P, payroll, or reconciliation tasks that depend on systems like QuickBooks.[11]\n\n- **Choose Procore Agent Studi",
+        "openai": "When comparing Procore Agent Studio with a third-party AI back office, there are several factors to consider:\n\n### Procore Agent Studio\n- **Integration**: Designed specifically for users of Procore, a construction management software, allowing seamless integration with its features.\n- **Functionality**: Focuses on enhancing workflows within Procore, improving efficiency in construction project management.\n- **Support**: Offers dedicated support as part of the Procore ecosystem, which can be bene",
+        "gemini": "When evaluating **Procore Agent Studio** (Procore\u2019s native custom AI agent builder) against a **third-party AI back office** (such as specialized construction accounting/finance AI platforms like Briq or Top Builder AI, or custom multi-agent ERP automations), the decision largely comes down to **operational project management inside Procore** versus **cross-platform financial and administrative operations across your broader tech stack**.\n\n---\n\n### Core Overview\n\n| Dimension | Procore Agent Stud"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": true,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [
+            "https://topbuilderai.com/blog/procore-agent-studio-vs-third-party-ai.html"
+          ],
+          "all_cited_hosts": [
+            "procore.com",
+            "support.procore.com",
+            "transparency.procore.com",
+            "businesswire.com",
+            "structuredlayer.com",
+            "moveworks.com",
+            "topbuilderai.com",
+            "v2.support.procore.com",
+            "work-management.org",
+            "reddit.com"
+          ],
+          "answer_excerpt": "**Procore Agent Studio** is the better choice if you want AI that works *inside Procore* on Procore project, document, and financial workflows, with native permissions and no third-party model training.[1][3][8] A **third-party AI back office** is the better fit if you need automation that sits *alongside Procore* and handles work outside the platform, especially ledger, collections, A/P, payroll,"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "When comparing Procore Agent Studio with a third-party AI back office, there are several factors to consider:\n\n### Procore Agent Studio\n- **Integration**: Designed specifically for users of Procore, a construction management software, allowing seamless integration with its features.\n- **Functionality**: Focuses on enhancing workflows within Procore, improving efficiency in construction project man"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": true,
+          "brand_named_in_answer": true,
+          "brand_citation_urls": [
+            "https://topbuilderai.com"
+          ],
+          "all_cited_hosts": [
+            "procore.com",
+            "topbuilderai.com",
+            "enr.com",
+            "assetsoft.biz"
+          ],
+          "answer_excerpt": "When evaluating **Procore Agent Studio** (Procore\u2019s native custom AI agent builder) against a **third-party AI back office** (such as specialized construction accounting/finance AI platforms like Briq or Top Builder AI, or custom multi-agent ERP automations), the decision largely comes down to **operational project management inside Procore** versus **cross-platform financial and administrative op"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "how should recoverable depreciation and insurance supplements post to a contractor's books",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "claimsupplementpro.com",
+        "capout.ai",
+        "constructioncfo.net",
+        "insuranceclaimsauthority.com",
+        "propertyinsurancecoveragelaw.com",
+        "palmbld.com",
+        "investopedia.com",
+        "numerawisesolutions.com",
+        "reddit.com",
+        "callcupcake.com",
+        "justclaims.ai",
+        "peachtreerestorations.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "Recoverable depreciation and insurance supplements should generally post as **insurance claim receivables** until the carrier pays them, not as revenue at the moment they are approved. For a contractor, the cleanest treatment is to track them **by claim/job** as amounts owed by the insurer, then clear the receivable when the payment is received.[8][17]\n\n- **Initial ACV check:** book the insurer payment to **cash** and reduce the related **insurance claim receivable** for the ACV amount paid.[1][",
+        "openai": "When dealing with recoverable depreciation and insurance supplements, it's important to post these entries accurately in a contractor's books for proper financial reporting and compliance. Here\u2019s how you can handle them:\n\n### Recoverable Depreciation\n\n1. **Initial Entry**: When you receive an insurance reimbursement that includes recoverable depreciation, it shouldn't be recognized as income immediately.\n   \n   - **Debit**: Accounts Receivable (for the total claim amount, including recoverable d",
+        "gemini": "In construction and insurance restoration accounting, the biggest point of confusion is that **insurance terminology does not match standard accounting terminology**:\n\n* **Recoverable Depreciation** is **not** an accounting depreciation expense. To the contractor, it is simply **earned contract revenue / Accounts Receivable** that is withheld by the insurer until the job is completed (similar to retainage).\n* **Supplements** are simply **Change Orders** that increase the total contract value and"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "claimsupplementpro.com",
+            "capout.ai",
+            "constructioncfo.net",
+            "insuranceclaimsauthority.com",
+            "propertyinsurancecoveragelaw.com",
+            "palmbld.com",
+            "investopedia.com",
+            "numerawisesolutions.com",
+            "reddit.com",
+            "callcupcake.com",
+            "justclaims.ai",
+            "peachtreerestorations.com",
+            "acquisition.gov",
+            "bluecouchinsurance.com",
+            "americanroofingusa.com",
+            "skroofingandconstruction.com",
+            "taxstra.com",
+            "dcaa.mil",
+            "insurewithmasters.com"
+          ],
+          "answer_excerpt": "Recoverable depreciation and insurance supplements should generally post as **insurance claim receivables** until the carrier pays them, not as revenue at the moment they are approved. For a contractor, the cleanest treatment is to track them **by claim/job** as amounts owed by the insurer, then clear the receivable when the payment is received.[8][17]\n\n- **Initial ACV check:** book the insurer pa"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "When dealing with recoverable depreciation and insurance supplements, it's important to post these entries accurately in a contractor's books for proper financial reporting and compliance. Here\u2019s how you can handle them:\n\n### Recoverable Depreciation\n\n1. **Initial Entry**: When you receive an insurance reimbursement that includes recoverable depreciation, it shouldn't be recognized as income immed"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "In construction and insurance restoration accounting, the biggest point of confusion is that **insurance terminology does not match standard accounting terminology**:\n\n* **Recoverable Depreciation** is **not** an accounting depreciation expense. To the contractor, it is simply **earned contract revenue / Accounts Receivable** that is withheld by the insurer until the job is completed (similar to r"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "bookkeeping software for contractors that doesn't use accounting jargon",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "freshbooks.com",
+        "constructioncoverage.com",
+        "buildern.com",
+        "larksuite.com",
+        "reddit.com",
+        "xero.com",
+        "dupple.com",
+        "quickbooks.intuit.com",
+        "getholdings.com",
+        "augmentedtrades.com",
+        "waveapps.com",
+        "business.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "If you want **bookkeeping software for contractors that avoids accounting jargon**, the best-fit options from the results are **Wave**, **FreshBooks**, and **Xero**. They are repeatedly described as simple, easy to use, and suitable for contractors who want invoicing, expense tracking, and basic job costing without a steep accounting learning curve.[4][6][11]\n\n- **Wave**: Best if you want the most straightforward setup and a free option. Wave says contractors can track expenses, send invoices, v",
+        "openai": "Here are a few bookkeeping software options designed for contractors that aim to minimize accounting jargon:\n\n1. **FreshBooks**: Known for its user-friendly interface, FreshBooks simplifies billing and expense tracking, helping you manage projects and time without complex terminology.\n\n2. **Joist**: Tailored specifically for contractors, Joist offers invoicing, payment tracking, and estimate creation without overwhelming users with accounting terms.\n\n3. **Jobber**: Focused on service businesses,",
+        "gemini": "Most traditional accounting platforms (like QuickBooks or Xero) are built with professional accountants in mind, relying heavily on terms like *general ledgers*, *reconciliations*, *charts of accounts*, and *debits/credits*. \n\nIf you want straightforward, plain-English software that lets you track income, expenses, jobs, and taxes without needing an accounting degree, here are the best options for contractors:\n\n---\n\n### 1. **Joist** \u2014 *Best strictly for trade & construction contractors*\n* **Why "
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "freshbooks.com",
+            "constructioncoverage.com",
+            "buildern.com",
+            "larksuite.com",
+            "reddit.com",
+            "xero.com",
+            "dupple.com",
+            "quickbooks.intuit.com",
+            "getholdings.com",
+            "augmentedtrades.com",
+            "waveapps.com",
+            "business.com",
+            "myofficeops.com",
+            "wise.com",
+            "permitflow.com",
+            "foundationsoft.com",
+            "sage.com"
+          ],
+          "answer_excerpt": "If you want **bookkeeping software for contractors that avoids accounting jargon**, the best-fit options from the results are **Wave**, **FreshBooks**, and **Xero**. They are repeatedly described as simple, easy to use, and suitable for contractors who want invoicing, expense tracking, and basic job costing without a steep accounting learning curve.[4][6][11]\n\n- **Wave**: Best if you want the most"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Here are a few bookkeeping software options designed for contractors that aim to minimize accounting jargon:\n\n1. **FreshBooks**: Known for its user-friendly interface, FreshBooks simplifies billing and expense tracking, helping you manage projects and time without complex terminology.\n\n2. **Joist**: Tailored specifically for contractors, Joist offers invoicing, payment tracking, and estimate creat"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Most traditional accounting platforms (like QuickBooks or Xero) are built with professional accountants in mind, relying heavily on terms like *general ledgers*, *reconciliations*, *charts of accounts*, and *debits/credits*. \n\nIf you want straightforward, plain-English software that lets you track income, expenses, jobs, and taxes without needing an accounting degree, here are the best options for"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "6 Housecall Pro alternatives for contractors that need job costing",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "getonecrew.com",
+        "revofield.com",
+        "mycontractortools.com",
+        "tooleduppro.com",
+        "projul.com",
+        "taskarc.app",
+        "servicebusinessacademy.org",
+        "mikevidan.com",
+        "getjobber.com",
+        "toricentlabs.com",
+        "myquoteiq.com",
+        "jobtable.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "If **job costing** is the key requirement, the strongest Housecall Pro alternatives in your results are **Projul**, **FieldPulse**, and **QuoteIQ**; **ServiceTitan** and **FieldEdge** are better fits for larger or more operationally complex shops, while **Jobber** is the best general-purpose alternative but is not highlighted here for deep job costing.[5][15][3][9]\n\n- **Projul** \u2014 Best for contractors who need *real construction management* plus **job costing**, CRM, estimating, scheduling, invo",
+        "openai": "Here are six alternatives to Housecall Pro that contractors can use for job costing:\n\n1. **Jobber**: Offers features for scheduling, invoicing, and job tracking, with a focus on service-based businesses.\n\n2. **ServiceTitan**: Primarily for residential service companies, it provides comprehensive job management and costing tools.\n\n3. **Buildertrend**: Suitable for construction professionals, it includes project management, job costing, and budgeting features.\n\n4. **mHelpDesk**: Provides tools for",
+        "gemini": "While **Housecall Pro** is popular for scheduling, dispatching, and simple residential service invoicing, it often falls short for contractors who manage multi-day jobs, commercial projects, or complex trade work that requires real-time labor burden tracking, purchase order matching, and budget-vs.-actual reporting.\n\nHere are **6 of the best Housecall Pro alternatives** that provide robust, real-time job costing:\n\n---\n\n### 1. Knowify\n* **Best for:** Specialty trade contractors & commercial subco"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "getonecrew.com",
+            "revofield.com",
+            "mycontractortools.com",
+            "tooleduppro.com",
+            "projul.com",
+            "taskarc.app",
+            "servicebusinessacademy.org",
+            "mikevidan.com",
+            "getjobber.com",
+            "toricentlabs.com",
+            "myquoteiq.com",
+            "jobtable.com",
+            "fieldbookly.com",
+            "fieldproxy.ai",
+            "fieldservicecompare.com",
+            "buildops.com",
+            "reddit.com",
+            "workiz.com",
+            "simplywise.com"
+          ],
+          "answer_excerpt": "If **job costing** is the key requirement, the strongest Housecall Pro alternatives in your results are **Projul**, **FieldPulse**, and **QuoteIQ**; **ServiceTitan** and **FieldEdge** are better fits for larger or more operationally complex shops, while **Jobber** is the best general-purpose alternative but is not highlighted here for deep job costing.[5][15][3][9]\n\n- **Projul** \u2014 Best for contrac"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Here are six alternatives to Housecall Pro that contractors can use for job costing:\n\n1. **Jobber**: Offers features for scheduling, invoicing, and job tracking, with a focus on service-based businesses.\n\n2. **ServiceTitan**: Primarily for residential service companies, it provides comprehensive job management and costing tools.\n\n3. **Buildertrend**: Suitable for construction professionals, it inc"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "While **Housecall Pro** is popular for scheduling, dispatching, and simple residential service invoicing, it often falls short for contractors who manage multi-day jobs, commercial projects, or complex trade work that requires real-time labor burden tracking, purchase order matching, and budget-vs.-actual reporting.\n\nHere are **6 of the best Housecall Pro alternatives** that provide robust, real-t"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    }
+  ]
+}

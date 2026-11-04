@@ -1,0 +1,26 @@
+True Job Margin: Why Your P&L Lies About Jobs, and the Job-Costing System That Fixes It
+
+Your P&L can show a profitable quarter while individual jobs quietly lose money. I walk through how to cost a job honestly, the buckets almost everyone misses, and the weekly rhythm that catches margin leaks while the job is still fresh. No theory, this is the system we run with contractors.
+
+What you'll learn:
+- Why gross margin on the P&L is an average that hides losing jobs
+- The 5 cost buckets: burdened labor, materials, equipment/subs, callbacks, overhead
+- Labor burden: a field hour typically costs 1.25-1.4x the wage, and how to compute your multiplier
+- The buckets everyone misses: callbacks (revenue zero, cost full) and unbilled change orders
+- A worked example: the $12,000 job that looked like 40% and truly made 4%
+- The simple overhead allocation method contractors actually stick with
+- The weekly 20-minute job-costing review (5 steps)
+- A flagged job is one of three problems: estimate, execution, or price
+- Four moves for a chronically thin job type: reprice, re-scope, retrain, retire
+
+Get the free Job Profit Analyzer:
+https://topbuilderai.com/job-profit
+
+Enter one job (revenue, hours, wage, materials, subs, equipment) plus two overhead numbers. It shows the burden math step by step, which bucket eats your margin, and an honest verdict: healthy, thin, or underwater, with the fix for each. Takes about 2 minutes.
+
+Built by Top Builder AI, back-office automation for ServiceTitan contractors.
+https://topbuilderai.com
+
+This video was created with AI-assisted production tools.
+
+#ServiceTitan #contractor #HVAC #plumbing #electrical #jobcosting #margin #construction #business

@@ -1,0 +1,28 @@
+{
+  "QueryResponse": {
+    "Bill": [
+      {
+        "Id": "501",
+        "DocNumber": "B-501",
+        "TxnDate": "2026-06-01",
+        "DueDate": "2026-06-30",
+        "TotalAmt": 800.00,
+        "Balance": 800.00,
+        "VendorRef": { "value": "12", "name": "Supply House Inc" }
+      },
+      {
+        "Id": "502",
+        "DocNumber": "B-502",
+        "TxnDate": "2026-06-05",
+        "DueDate": "2026-07-05",
+        "TotalAmt": 450.00,
+        "Balance": 450.00,
+        "VendorRef": { "value": "18", "name": "Fleet Fuel Co" }
+      }
+    ],
+    "startPosition": 1,
+    "maxResults": 2,
+    "totalCount": 2
+  },
+  "time": "2026-06-17T00:00:00.000-07:00"
+}

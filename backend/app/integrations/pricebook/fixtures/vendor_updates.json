@@ -1,0 +1,7 @@
+[
+  { "sku": "CU-34", "vendor": "Ferguson", "new_unit_cost_cents": 650, "effective_offset": 16, "note": "Q3 copper increase (+30%)" },
+  { "sku": "R410A", "vendor": "Ferguson", "new_unit_cost_cents": 6200, "effective_offset": 16, "note": "refrigerant allocation surcharge (+24%)" },
+  { "sku": "SHEET", "vendor": "Johnstone Supply", "new_unit_cost_cents": 3300, "effective_offset": 16, "note": "galvanized steel tariff pass-through (+10%)" },
+  { "sku": "COND-3T", "vendor": "Carrier", "new_unit_cost_cents": 189000, "effective_offset": 16, "note": "2026 equipment list (+5%)" },
+  { "sku": "FILTER-20", "vendor": "Johnstone Supply", "new_unit_cost_cents": 600, "effective_offset": 16, "note": "no change (held)" }
+]

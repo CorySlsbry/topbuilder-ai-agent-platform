@@ -1,0 +1,62 @@
+{
+  "Header": {
+    "ReportName": "AgedReceivables",
+    "Time": "2026-06-17T00:00:00-07:00",
+    "ReportBasis": "Accrual",
+    "Currency": "USD",
+    "Option": [{ "Name": "report_date", "Value": "2026-06-17" }]
+  },
+  "Columns": {
+    "Column": [
+      { "ColTitle": "", "ColType": "Customer" },
+      { "ColTitle": "Current", "ColType": "Money" },
+      { "ColTitle": "1 - 30", "ColType": "Money" },
+      { "ColTitle": "31 - 60", "ColType": "Money" },
+      { "ColTitle": "61 - 90", "ColType": "Money" },
+      { "ColTitle": "91 and over", "ColType": "Money" },
+      { "ColTitle": "Total", "ColType": "Money" }
+    ]
+  },
+  "Rows": {
+    "Row": [
+      {
+        "ColData": [
+          { "value": "Acme Mechanical", "id": "1" },
+          { "value": "1000.00" },
+          { "value": "500.00" },
+          { "value": "0.00" },
+          { "value": "0.00" },
+          { "value": "0.00" },
+          { "value": "1500.00" }
+        ],
+        "type": "Data"
+      },
+      {
+        "ColData": [
+          { "value": "Birch Property Group", "id": "2" },
+          { "value": "0.00" },
+          { "value": "0.00" },
+          { "value": "200.00" },
+          { "value": "300.00" },
+          { "value": "700.00" },
+          { "value": "1200.00" }
+        ],
+        "type": "Data"
+      },
+      {
+        "Summary": {
+          "ColData": [
+            { "value": "TOTAL" },
+            { "value": "1000.00" },
+            { "value": "500.00" },
+            { "value": "200.00" },
+            { "value": "300.00" },
+            { "value": "700.00" },
+            { "value": "2700.00" }
+          ]
+        },
+        "type": "Section"
+      }
+    ]
+  }
+}

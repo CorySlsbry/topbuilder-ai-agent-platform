@@ -1,0 +1,23 @@
+ServiceTitan's own help docs say Pricebook Pro's content is generic and refreshed monthly by ServiceTitan, and Pricebook Connect surfaces vendor cost changes for you to apply by hand, one material at a time. Neither one recomputes every affected flat-rate price across your book when a vendor cost moves, or shows you the margin dollar impact before you approve it.
+
+Top Builder AI's Pricebook agent closes that specific gap. It ingests the same vendor cost update, matches every service and assembly item built on that material, recomputes each price under your sold-hour model (sold hours × rate + materials + markup), totals the margin impact across the batch, flags anything past your tolerance, and proposes it as one human-approved, reversible write-back to ServiceTitan. Deterministic, tested code computes every figure — the AI only explains it, and nothing writes back without your approval.
+
+▶ Full written guide: https://topbuilderai.com/blog/servicetitan-pricebook-pro-vs-self-learning-agent.html
+▶ See all 8 agents + book a fit call: https://topbuilderai.com/
+▶ Top Builder AI: https://topbuilderai.com
+
+CHAPTERS
+0:00 What does Pricebook Pro actually update?
+0:00 Is Pricebook Connect the same thing?
+0:00 What happens when a vendor raises a price?
+0:00 The gap, in one sentence
+0:00 How the agent closes it
+0:00 One vendor increase, worked through
+0:00 Side by side
+0:00 Safe by design
+0:00 How it connects to the back office
+0:00 What actually changes
+
+Built and run by Top Builder AI — the AI back office for ServiceTitan contractors, an arm of Salisbury Bookkeeping LLC.
+
+#ServiceTitan #HVACBusiness #AIforContractors

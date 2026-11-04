@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How Do You Catch a ServiceTitan Job Losing Money While It's Still Open? (2026)</title>
+<meta name="description" content="ServiceTitan's own docs show a real-time Budget vs Actual table exists, but it lives behind the Project Management feature set, needs support-configured setup, and its WIP report has to be run by hand. Here is the real mid-job visibility gap." />
+<link rel="canonical" href="https://topbuilderai.com/blog/servicetitan-real-time-job-cost-tracking.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How Do You Catch a ServiceTitan Job Losing Money While It's Still Open? (2026)" />
+<meta property="og:description" content="ServiceTitan's own docs show a real-time Budget vs Actual table exists, but it's gated behind Project Management, needs support-configured setup, and the WIP report has to be run by hand. The real mid-job visibility gap." />
+<meta property="og:url" content="https://topbuilderai.com/blog/servicetitan-real-time-job-cost-tracking.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+  .updated{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--emerald);font-weight:600;border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:3px 11px;background:rgba(4,120,87,.06)}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:38px;color:var(--ink);line-height:1.15;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:30%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  .table-take{font-size:14px;color:var(--ink3);margin:-14px 0 26px;padding:0 2px}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .howwe{border:1px dashed var(--line2);border-radius:var(--r);padding:18px 22px;margin:26px 0;background:rgba(37,99,235,.03)}
+  .howwe .h{font-weight:600;color:var(--ink);font-size:14.5px;margin-bottom:6px}
+  .howwe p{margin:0;font-size:14.5px;color:var(--ink2);line-height:1.6}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (long-form) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Does ServiceTitan Track Job Cost in Real Time? What Its Own Docs Actually Say",
+  "description":"ServiceTitan's own documentation describes a genuine real-time job-cost table called Budget vs Actual, but it's gated behind Project Management, a support-configured setup, and actuals that only post once an invoice, bill, or paid timesheet clears. A full walkthrough of the mid-job visibility gap, and how Top Builder AI's Financial and Pricebook agents flag a job trending over budget while the crew is still on site.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/Dy7aVhO8pVE/maxresdefault.jpg",
+  "uploadDate":"2026-08-18T16:05:48Z",
+  "duration":"PT10M54S",
+  "contentUrl":"https://www.youtube.com/watch?v=Dy7aVhO8pVE",
+  "embedUrl":"https://www.youtube.com/embed/Dy7aVhO8pVE",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+<!-- VideoObject JSON-LD (companion short) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Is Your ServiceTitan Job Actually Losing Money Right Now?",
+  "description":"ServiceTitan's own docs say a real-time budget table exists, but it's gated behind the Projects add-on and only counts a cost once it's billed. A 53-second walkthrough of the mid-job visibility gap.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/P76NlRJtBB4/maxresdefault.jpg",
+  "uploadDate":"2026-08-16T11:29:00Z",
+  "duration":"PT53S",
+  "contentUrl":"https://www.youtube.com/watch?v=P76NlRJtBB4",
+  "embedUrl":"https://www.youtube.com/embed/P76NlRJtBB4",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/servicetitan-real-time-job-cost-tracking.html"},
+  "headline":"How Do You Catch a ServiceTitan Job Losing Money While It's Still Open? (2026)",
+  "description":"ServiceTitan's own docs show a real-time Budget vs Actual table exists, but it lives behind the Project Management feature set, needs support-configured setup, and its WIP report has to be run by hand. Here is the real mid-job visibility gap.",
+  "datePublished":"2026-08-16T12:00:00Z",
+  "dateModified":"2026-08-18T16:15:00Z",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan real-time job costing","ServiceTitan Budget vs Actual","ServiceTitan Project Management","ServiceTitan WIP report","mid-job cost overruns contractors"],
+  "keywords":"ServiceTitan real-time job costing, ServiceTitan Budget vs Actual, catch a job over budget mid-project, ServiceTitan WIP report, ServiceTitan Project Management module"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How do you catch a ServiceTitan job losing money while it's still in progress?","acceptedAnswer":{"@type":"Answer","text":"Not from a report you run after the invoice posts, and not from the standard Job Costing flyout most residential and light-commercial shops use. ServiceTitan's own documentation confirms a genuinely real-time cost table exists, called Budget vs Actual, but it only appears inside the Project Management feature set, needs account configuration through ServiceTitan's own support team, and even then only updates as fast as someone enters an invoice, a bill, or a paid timesheet, not as fast as the crew is spending money in the field."}},
+    {"@type":"Question","name":"Does ServiceTitan have a real-time job costing feature at all?","acceptedAnswer":{"@type":"Answer","text":"Yes, and it is real, not vaporware. ServiceTitan's own help documentation for the Budget vs Actual table states the table updates in real time as you work through a project and generate actuals. The catch is scope: that table lives only inside Project Management, a feature set most standard residential and light-commercial ServiceTitan accounts do not have turned on."}},
+    {"@type":"Question","name":"What does ServiceTitan's Budget vs Actual table require to turn on?","acceptedAnswer":{"@type":"Answer","text":"Account configuration, done by ServiceTitan's own support team, not a setting you flip yourself. ServiceTitan's own documentation for project financials states plainly that account configuration is required to use this feature and directs the user to contact Technical Support for details, and separately that Budget vs Actual has to already be enabled before the visual project financials will show at all."}},
+    {"@type":"Question","name":"Does the standard ServiceTitan Job Costing tool give you mid-job budget visibility?","acceptedAnswer":{"@type":"Answer","text":"No. The standard Job Costing flyout most ServiceTitan shops use is a different feature entirely from Budget vs Actual, and ServiceTitan's own documentation states it locks once an invoice is posted and exported, built from the invoice rather than tracked live against a budget. A shop without Project Management turned on has no real-time cost table at all, only the after-the-fact flyout."}},
+    {"@type":"Question","name":"What does real-time actually mean if the numbers only post when someone bills or gets billed?","acceptedAnswer":{"@type":"Answer","text":"It means the table itself refreshes instantly, but the inputs feeding it do not arrive instantly. ServiceTitan's own documentation states actuals start calculating when you generate an invoice, receive a bill, or issue a return, and that technician labor actual cost is the hourly rate multiplied by paid hours worked, not clocked hours. A crew burning materials or hours in the field today will not show up as an actual cost until that paperwork clears, real time about entry, not about the work itself."}},
+    {"@type":"Question","name":"Is ServiceTitan's WIP report a live dashboard you can check anytime?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan's own documentation for the Work in Progress report describes a report you manually run: navigate to Reports, click WIP, set a Project start date and an As of date, then click Run Report. It is a point-in-time snapshot generated on demand, not a dashboard that sits open and updates as costs land, and nothing in the documentation describes it refreshing on its own."}},
+    {"@type":"Question","name":"Does ServiceTitan automatically alert you when a job is trending over budget?","acceptedAnswer":{"@type":"Answer","text":"Not based on its own documentation. The Budget vs Actual table shows columns like percent of budget used, variance, and balance to finish with color coding for negative or over-budget values, but nothing in ServiceTitan's own help docs or its Project Management feature page describes a proactive alert or notification firing when a job crosses a budget threshold. Someone has to open the table and look."}},
+    {"@type":"Question","name":"Are ServiceTitan's 'fewer overruns' stats backed by a named study?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan's own blog post on real-time job costing states that contractors using integrated job costing software report 25 percent fewer budget overruns and that projects with committed cost tracking have 15 percent fewer overruns, but cites no external survey, study, or named source for either figure anywhere in the piece. Treat both as ServiceTitan's own marketing claims about its own product, not independently verified numbers."}},
+    {"@type":"Question","name":"What is the difference between committed cost and actual cost for catching an overrun early?","acceptedAnswer":{"@type":"Answer","text":"Committed cost is money already tied up in an approved purchase order the vendor has not billed yet; actual cost is money already billed. A job can look on-budget mid-project purely because real, already-incurred costs are still sitting as committed rather than actual, so watching actual cost alone misses spend that has already happened but has not been invoiced, which is exactly the gap a mid-job check needs to close."}},
+    {"@type":"Question","name":"Are there third-party tools built specifically for real-time, in-progress job costing?","acceptedAnswer":{"@type":"Answer","text":"Yes, and their marketing is built entirely around this exact gap. Knowify's own site states most contractors find out a job lost money after it is done and positions its tool to show where a job stands before it is too late to act. Buildertrend's own help documentation describes its Job Costing Budget as a real-time view of estimated costs, actual spend, and profitability at the cost-code level. Dapt's own HVAC job costing page promises real-time visibility into labor, equipment, and material costs to prevent overruns. None plug natively into ServiceTitan."}},
+    {"@type":"Question","name":"What does a mid-job cost overrun look like in practice?","acceptedAnswer":{"@type":"Answer","text":"This example is illustrative, not a client result. A fixed-price $18,500 bathroom remodel is 60 percent through its schedule but has already used 78 percent of its material budget after a supply substitution, and two change-order hours have been logged but not yet billed. Nothing forces anyone to compare those two numbers until the invoice posts weeks later, by which point the remaining budget for finish materials is already gone."}},
+    {"@type":"Question","name":"How does Top Builder AI catch a job going over budget while it's still open?","acceptedAnswer":{"@type":"Answer","text":"The Financial and Pricebook agents pull ServiceTitan's committed costs, actual costs, and paid-hours labor data continuously rather than waiting for an invoice or a manually run report, recompute the job's real cost-to-budget position against a set tolerance, and flag drift while the crew is still on site so a dispatcher or PM can act before more materials get bought or more hours get logged against a fixed-price job. It never edits a ServiceTitan record; it surfaces the number and the reason."}},
+    {"@type":"Question","name":"Does this replace ServiceTitan's Projects module or Budget vs Actual table?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan stays the system of record for the job, the budget, and the invoice. Where Project Management is turned on and configured, its Budget vs Actual table keeps working exactly as before. The agent reads the same committed and actual cost data ServiceTitan already tracks, whether or not Project Management is enabled on a given account, and surfaces the projected margin while the job is still open, closer to the always-current view ServiceTitan's own marketing promises than what a standard account without Project Management delivers on its own."}},
+    {"@type":"Question","name":"Is this a live, self-serve dashboard I can connect to today?","acceptedAnswer":{"@type":"Answer","text":"The mid-job margin recomputation logic is real, built and tested code inside the Financial and Pricebook agents. It ships today as part of a Teardown and Install engagement, configured against a shop's actual ServiceTitan committed costs, actual costs, and payroll data, not as a blind self-serve signup a contractor turns on alone."}},
+    {"@type":"Question","name":"What's the fastest way to check if my shop has real-time job-cost visibility right now?","acceptedAnswer":{"@type":"Answer","text":"Open a job that is still in progress and see whether a Budget vs Actual table appears at all. If it does not, Project Management is not turned on for that account and there is no real-time cost table today, only the standard Job Costing flyout that locks at invoice. If it does appear, check how many committed costs on that job have not yet moved to actual, that gap is exactly what a mid-project spend could be hiding. A fit call walks through what that same check finds against your real ServiceTitan data."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Real-Time Job Costing</div>
+    <span class="kicker">ServiceTitan &middot; Job Costing &middot; Real-Time Margin</span>
+    <h1>How Do You Catch a ServiceTitan Job Losing Money While It's Still Open?</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 16, 2026</span>
+      <span class="updated">Last updated: August 18, 2026</span>
+      <span class="pill">~12 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical &middot; Roofing</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_st-quickbooks.jpg" alt="A contractor checking a job's budget against actual spend on a laptop while a crew works in the background" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video"><iframe src="https://www.youtube.com/embed/Dy7aVhO8pVE" title="Does ServiceTitan Track Job Cost in Real Time? What Its Own Docs Actually Say" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The full walkthrough, on camera, straight from ServiceTitan's own docs, or the <a class="link" href="https://youtu.be/P76NlRJtBB4">53-second version</a> below.</p>
+
+      <div class="video vshort"><iframe src="https://www.youtube.com/embed/P76NlRJtBB4" title="Is Your ServiceTitan Job Actually Losing Money Right Now?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The 53-second version of the mid-job visibility gap below, straight from ServiceTitan's own docs.</p>
+
+      <p class="answer">Not from a report you run after the invoice posts, and not from the standard Job Costing flyout most residential and light-commercial shops use. ServiceTitan's own documentation confirms a genuinely <strong>real-time cost table exists</strong>, called <strong>Budget vs Actual</strong>, but it only appears inside the <strong>Project Management</strong> feature set, needs account configuration through ServiceTitan's own support team, and even then only updates as fast as someone enters an invoice, a bill, or a paid timesheet, not as fast as the crew is actually spending money in the field.</p>
+
+      <p>Two other pieces on this site already cover job costing on ServiceTitan: <a class="link" href="/blog/how-to-know-if-a-servicetitan-job-made-money.html">why the standard job-costing flyout goes stale after the fact</a>, and <a class="link" href="/blog/servicetitan-job-costing-checks-before-trusting-margin.html">seven checks to run before trusting a margin number once a job is closed</a>. Both are about verifying a number after the work is done. This one is about a narrower, more urgent question: how do you know a job is going sideways while the crew is still on site, before more materials get bought or more hours get logged against a fixed-price contract, while there's still time to actually do something about it. The answer runs through ServiceTitan's own documentation for a feature most shops have never turned on.</p>
+
+      <h2>Does ServiceTitan have anything that tracks cost in real time while a job is open?</h2>
+
+      <p>Yes, and it's a real, documented feature, not a marketing exaggeration. <a class="link" href="https://help.servicetitan.com/v1/docs/understand-budget-vs-actual" rel="noopener noreferrer">ServiceTitan's own help article for the Budget vs Actual table</a> states plainly that the table updates in real time as you work through a project and generate actuals, showing percent of budget used, variance, balance to finish, and a forecasted cost at completion. The problem is scope: that same article states the Budget vs Actual section is only available with Project Management, a distinct feature set layered on top of standard ServiceTitan Jobs, built for the platform's commercial and construction side.</p>
+
+      <p>A shop running ordinary residential or light-commercial Jobs, which is most of the ServiceTitan install base, does not see this table anywhere in their account. What they see instead is the standard Job Costing flyout, the one <a class="link" href="/blog/how-to-know-if-a-servicetitan-job-made-money.html">covered in depth in the companion piece on this site</a>, which is built from the invoice and locks once that invoice posts and exports. Real-time cost tracking exists inside ServiceTitan. It is just not the tool most contractors are actually looking at.</p>
+
+      <h2>What does it take to turn Budget vs Actual on?</h2>
+
+      <p>More than a settings toggle. <a class="link" href="https://help.servicetitan.com/docs/understand-project-financials" rel="noopener noreferrer">ServiceTitan's own documentation for project financials</a> states directly that account configuration is required to use this feature and instructs the user to contact Technical Support for details, and separately that Budget vs Actual has to already be enabled before the visual project financials view will show at all. That's a support ticket and a setup process standing between a shop and the real-time table ServiceTitan's own docs describe, not a checkbox a dispatcher flips on a Tuesday afternoon.</p>
+
+      <p>The same documentation explains how the underlying figures get built once configured: Contract Value is the total price and tax of all sold estimates, Actual Billed is the sum of income items on invoices minus retainage, and Total Budgeted Expense is the sum of estimated costs. Real, usable numbers, once someone has done the setup work to expose them.</p>
+
+      <h2>What does "real time" actually mean if the numbers only post when someone bills or gets billed?</h2>
+
+      <p>It means the table refreshes instantly, but the inputs feeding it do not arrive instantly. ServiceTitan's own documentation for Budget vs Actual states that <strong>actuals start calculating when you generate an invoice, receive bills, or issue returns</strong>, and that the actual value for technician labor is calculated by taking the hourly rate and multiplying it by <strong>paid hours worked</strong>, not clocked hours. So a technician's time on a job today does not become an actual labor cost until payroll runs and pays it, and a material purchase does not become an actual cost until someone enters the bill.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="ServiceTitan's real-time job-costing claims vs what its own docs require">
+          <thead><tr><th>Feature</th><th>ServiceTitan's own claim</th><th>What its own docs actually require</th></tr></thead>
+          <tbody>
+            <tr><td>Budget vs Actual table</td><td>Updates in real time as you work through the project</td><td class="no">Only available with Project Management, a separate feature set</td></tr>
+            <tr><td>Turning it on</td><td>Not addressed on the feature pages</td><td class="no">Account configuration required; contact Technical Support</td></tr>
+            <tr><td>Actual cost figures</td><td>Real-time visibility into every expense</td><td class="no">Only post once an invoice, bill, or return is generated</td></tr>
+            <tr><td>Technician labor actual</td><td>Real-time labor cost</td><td class="no">Hourly rate &times; paid hours, gated on payroll running</td></tr>
+            <tr><td>WIP report</td><td>Real-time view of business health (marketing)</td><td class="no">A report you manually run with an "as of" date you set</td></tr>
+            <tr><td>Overrun alerts</td><td>Not claimed</td><td class="no">No threshold alert described; color-coded columns you check yourself</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">Every real-time claim traces to a real feature, and every one of those features is gated: behind a module, behind a support-configured setup, or behind someone filing paperwork before the "real-time" number reflects the work that already happened.</p>
+
+      <h2>Is ServiceTitan's Work-in-Progress report a live dashboard you can check anytime?</h2>
+
+      <p>No, and this is a distinct feature from Budget vs Actual worth separating out. <a class="link" href="https://help.servicetitan.com/v1/docs/work-in-progress-wip-report" rel="noopener noreferrer">ServiceTitan's own help documentation for the WIP report</a> walks through generating it: go to Reports, click All Reports, click WIP, set a Project start date and an As of date, then click Run Report. That's a manually triggered, point-in-time export built around the percentage-of-completion accounting method, useful for month-end revenue recognition, not a dashboard sitting open that refreshes as the crew works.</p>
+
+      <p>ServiceTitan's own marketing describes the WIP report as invaluable for getting a real-time view of financial health for owners running many jobs at once. The documentation for how it's actually generated tells a narrower story: it's real time in the sense that you can run it whenever you want, not in the sense that it's watching your jobs and telling you something changed.</p>
+
+      <h2>Does ServiceTitan automatically alert you when a job is trending over budget?</h2>
+
+      <p>Nothing in ServiceTitan's own documentation describes a proactive alert. <a class="link" href="https://www.servicetitan.com/features/construction-project-management-software" rel="noopener noreferrer">ServiceTitan's own Project Management feature page</a> promises real-time visibility into every expense to keep a project on budget, and a Project Portfolio view billed as giving real-time insights on which projects require attention. Nowhere on that page, and nowhere in the Budget vs Actual help article, is there a described notification, email, or push alert that fires when a job crosses a set budget threshold. The visual indicator is color-coding on the table itself: someone still has to open the project and look at it.</p>
+
+      <p>That distinction matters because "requires attention" is a description of a screen, not an event. A dispatcher or project manager with fifteen jobs open at once has to actively check each one's Budget vs Actual table to catch drift, rather than getting told which job needs a look.</p>
+
+      <h2>Are ServiceTitan's own "fewer overruns" numbers backed by a named study?</h2>
+
+      <p>No, and this is worth stating plainly because it's easy to miss. <a class="link" href="https://www.servicetitan.com/blog/real-time-job-costing" rel="noopener noreferrer">ServiceTitan's own marketing blog post on real-time job costing</a> states that "contractors using integrated job costing software report 25% fewer budget overruns" and that "projects with committed cost tracking have 15% fewer overruns." Neither figure is attributed to an external survey, a named research firm, or a dated study anywhere in that post. Both are ServiceTitan's own marketing claims about the value of its own product category, not an independently verified result. It's a real, useful post for describing how the dashboard is meant to work, three data streams (labor from mobile time entries, materials from purchase orders, subcontractor costs from invoices), just not one to cite as outside evidence.</p>
+
+      <h2>What is the difference between committed cost and actual cost, and why does it matter mid-job?</h2>
+
+      <p>Committed cost is money already tied up in a purchase order a vendor hasn't billed yet. Actual cost is money already billed. A job can look on-budget mid-project purely because a real, already-incurred expense is sitting as committed rather than actual, and Budget vs Actual, even when it's turned on and current, only counts an expense as actual once the bill lands. Watching actual cost alone misses spend that has already happened in the field but hasn't been invoiced yet, which is exactly the blind spot that lets a job drift for weeks before anyone notices.</p>
+
+      <p>This is also where the standard, non-Project-Management side of ServiceTitan and the Projects side genuinely differ: committed-versus-actual tracking is scoped to Projects, so a shop running standard Jobs doesn't get this view at all, on top of not having Budget vs Actual in the first place.</p>
+
+      <h2>Why does this matter more on materials-heavy or fixed-price jobs?</h2>
+
+      <p>Because the two most common ways a job goes over budget both happen mid-project, not at closeout: a materials substitution or price change burns through the budgeted allowance faster than planned, or a fixed-price job runs longer than estimated and keeps billing labor hours against a contract value that doesn't move. Either one is fixable if caught while the crew still has work left to do, a supplier can be swapped, a change order can be written, a scope conversation can happen with the customer. Neither is fixable once the invoice has already posted and the number is just a postmortem.</p>
+
+      <h2>Are there third-party tools built specifically for this exact gap?</h2>
+
+      <p>Yes, and their own marketing is built entirely around it, which is itself evidence the gap is real and not unique to ServiceTitan. <a class="link" href="https://knowify.com/job-costing-software/" rel="noopener noreferrer">Knowify's own job-costing page</a> states directly: "Most contractors find out a job lost money after it's done. Knowify shows you where every job stands before it's too late to do anything about it," with project costs said to update on one screen in real time as they're entered from the field, the office, or QuickBooks. <a class="link" href="https://buildertrend.com/help-article/job-costing-budget-overview/" rel="noopener noreferrer">Buildertrend's own help documentation</a> describes its Job Costing Budget as a central hub giving "a clear, real-time view of estimated costs, actual spend, projected costs, and profitability," tracked at the cost-code level as expenses come in from purchase orders and change orders. <a class="link" href="https://www.dapt.tech/hvac-job-costing-software" rel="noopener noreferrer">Dapt's own HVAC job-costing page</a> promises "real-time visibility into labor hours, equipment usage, and material costs to prevent overruns," pulling technician hours directly from time-tracking tools into the job.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Named tools' own real-time job-costing claims">
+          <thead><tr><th>Tool</th><th>Its own claim</th><th>Source</th></tr></thead>
+          <tbody>
+            <tr><td>Knowify</td><td>Shows where a job stands before it's too late to act, real-time cost updates</td><td>knowify.com/job-costing-software</td></tr>
+            <tr><td>Buildertrend</td><td>Real-time view of estimated cost, actual spend, and profitability by cost code</td><td>buildertrend.com/help-article</td></tr>
+            <tr><td>Dapt</td><td>Real-time labor, equipment, and material cost visibility to prevent overruns</td><td>dapt.tech/hvac-job-costing-software</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">None of these three plug natively into ServiceTitan, so running one alongside it means a second system a dispatcher or PM checks by hand, not a native view inside the platform already open all day.</p>
+
+      <h2>What does this look like on one real job?</h2>
+
+      <p>The example below is illustrative, built to show the mechanism, not a client result.</p>
+
+      <figure class="calc">
+        <div class="cap">Illustrative walkthrough: one $18,500 fixed-price bathroom remodel, mid-project</div>
+        <div class="body">
+          <div class="lab">Where the job actually is</div>
+          <table>
+            <tr><td>Contract value (fixed price)</td><td>$18,500</td></tr>
+            <tr><td>Schedule progress</td><td>60% complete</td></tr>
+            <tr><td>Material budget used so far</td><td>78%</td></tr>
+            <tr><td>Two change-order hours logged</td><td class="price">Not yet billed</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">What nothing is currently comparing</div>
+          <table>
+            <tr><td>60% done vs. 78% of material budget spent</td><td>No system flags this gap on its own</td></tr>
+            <tr><td>Unbilled change-order hours</td><td>Still committed, not actual, until invoiced</td></tr>
+            <tr class="tot"><td>When someone finds out</td><td class="price">Whenever the invoice posts, weeks later</td></tr>
+          </table>
+        </div>
+        <figcaption>The 60-versus-78 gap is visible today to anyone who thinks to compare those two numbers by hand. Nothing in the standard flyout, and nothing described in ServiceTitan's own Budget vs Actual or WIP documentation, surfaces that comparison on its own.</figcaption>
+      </figure>
+
+      <h2>How does Top Builder AI catch a job going over budget while it's still open?</h2>
+
+      <p>The Financial and Pricebook agents pull ServiceTitan's committed costs, actual costs, and paid-hours labor data continuously rather than waiting on an invoice to post or someone to manually run a report, recompute the job's real cost-to-budget position against a configured tolerance, and flag drift while the crew is still on site, whether or not Project Management and Budget vs Actual are even turned on for that account.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Read committed and actual cost together</b> Both cost states from ServiceTitan's own data, checked side by side instead of only seeing whichever one has posted so far.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Track schedule progress against spend</b> Compares how far along a job is against how much of its budget or material allowance is gone, the exact comparison nothing in ServiceTitan does automatically.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Recompute labor with burden as it's logged</b> Doesn't wait on payroll to run before counting a technician's hours toward the job's real cost trajectory.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Flag drift past tolerance while the job is open</b> A job trending over budget gets surfaced for review while there's still time to swap a supplier, write a change order, or have the scope conversation.</div></div>
+        <div class="step"><div class="num">5</div><div class="txt"><b>A human decides the next move</b> The agent never edits a ServiceTitan job cost record, a budget, or an invoice. It surfaces the number and the reason; a person acts on it.</div></div>
+      </div>
+
+      <div class="howwe">
+        <div class="h">A note on the "$0 install" wording</div>
+        <p>This gap is the same one ServiceTitan's own Project Management feature is built to close, and where it's already turned on and configured, that native table keeps doing its job. This method exists for the much larger share of accounts where it isn't turned on, or where committed-versus-actual and schedule-versus-spend still need to be compared by hand.</p>
+      </div>
+
+      <h2>Does this replace ServiceTitan's Projects module or Budget vs Actual table?</h2>
+
+      <p>No. ServiceTitan stays the system of record for the job, the budget, and the invoice. Where Project Management is turned on and configured, its Budget vs Actual table keeps working exactly as it does today. The Financial and Pricebook agents read the same committed and actual cost data ServiceTitan already tracks, whether or not that module is enabled, and surface a projected margin while the job is still open, closer to the always-current view ServiceTitan's own marketing describes than what a standard account without Project Management delivers on its own.</p>
+
+      <ul>
+        <li><b>No edited records.</b> ServiceTitan's job cost data stays exactly as your team enters it.</li>
+        <li><b>No invented numbers.</b> Committed costs, actual costs, and schedule progress come from your real ServiceTitan data, never a guess presented as fact.</li>
+        <li><b>No blind self-serve signup.</b> Delivered as part of a Teardown and Install, configured against your actual ServiceTitan committed cost, actual cost, and payroll data.</li>
+        <li><b>Works with or without Project Management.</b> The comparison runs on the same underlying job data ServiceTitan already stores, whether or not that module is turned on for your account.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>Find out if your shop even has the real-time table turned on</h2>
+        <p>Open a job in progress and see whether a Budget vs Actual table appears at all. A fit call walks through what that check, and the committed-versus-actual gap behind it, finds against your real ServiceTitan data.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">How do you catch a ServiceTitan job losing money while it's still in progress?</div>
+      <div class="a">Not from a report you run after the invoice posts, and not from the standard Job Costing flyout most residential and light-commercial shops use. ServiceTitan's own documentation confirms a genuinely real-time cost table exists, called Budget vs Actual, but it only appears inside the Project Management feature set, needs account configuration through ServiceTitan's own support team, and even then only updates as fast as someone enters an invoice, a bill, or a paid timesheet, not as fast as the crew is spending money in the field.</div>
+
+      <div class="q">Does ServiceTitan have a real-time job costing feature at all?</div>
+      <div class="a">Yes, and it is real, not vaporware. ServiceTitan's own help documentation for the Budget vs Actual table states the table updates in real time as you work through a project and generate actuals. The catch is scope: that table lives only inside Project Management, a feature set most standard residential and light-commercial ServiceTitan accounts do not have turned on.</div>
+
+      <div class="q">What does ServiceTitan's Budget vs Actual table require to turn on?</div>
+      <div class="a">Account configuration, done by ServiceTitan's own support team, not a setting you flip yourself. ServiceTitan's own documentation for project financials states plainly that account configuration is required to use this feature and directs the user to contact Technical Support for details, and separately that Budget vs Actual has to already be enabled before the visual project financials will show at all.</div>
+
+      <div class="q">Does the standard ServiceTitan Job Costing tool give you mid-job budget visibility?</div>
+      <div class="a">No. The standard Job Costing flyout most ServiceTitan shops use is a different feature entirely from Budget vs Actual, and ServiceTitan's own documentation states it locks once an invoice is posted and exported, built from the invoice rather than tracked live against a budget. A shop without Project Management turned on has no real-time cost table at all, only the after-the-fact flyout.</div>
+
+      <div class="q">What does real-time actually mean if the numbers only post when someone bills or gets billed?</div>
+      <div class="a">It means the table itself refreshes instantly, but the inputs feeding it do not arrive instantly. ServiceTitan's own documentation states actuals start calculating when you generate an invoice, receive a bill, or issue a return, and that technician labor actual cost is the hourly rate multiplied by paid hours worked, not clocked hours. A crew burning materials or hours in the field today will not show up as an actual cost until that paperwork clears, real time about entry, not about the work itself.</div>
+
+      <div class="q">Is ServiceTitan's WIP report a live dashboard you can check anytime?</div>
+      <div class="a">No. ServiceTitan's own documentation for the Work in Progress report describes a report you manually run: navigate to Reports, click WIP, set a Project start date and an As of date, then click Run Report. It is a point-in-time snapshot generated on demand, not a dashboard that sits open and updates as costs land, and nothing in the documentation describes it refreshing on its own.</div>
+
+      <div class="q">Does ServiceTitan automatically alert you when a job is trending over budget?</div>
+      <div class="a">Not based on its own documentation. The Budget vs Actual table shows columns like percent of budget used, variance, and balance to finish with color coding for negative or over-budget values, but nothing in ServiceTitan's own help docs or its Project Management feature page describes a proactive alert or notification firing when a job crosses a budget threshold. Someone has to open the table and look.</div>
+
+      <div class="q">Are ServiceTitan's "fewer overruns" stats backed by a named study?</div>
+      <div class="a">No. ServiceTitan's own blog post on real-time job costing states that contractors using integrated job costing software report 25 percent fewer budget overruns and that projects with committed cost tracking have 15 percent fewer overruns, but cites no external survey, study, or named source for either figure anywhere in the piece. Treat both as ServiceTitan's own marketing claims about its own product, not independently verified numbers.</div>
+
+      <div class="q">What is the difference between committed cost and actual cost for catching an overrun early?</div>
+      <div class="a">Committed cost is money already tied up in an approved purchase order the vendor has not billed yet; actual cost is money already billed. A job can look on-budget mid-project purely because real, already-incurred costs are still sitting as committed rather than actual, so watching actual cost alone misses spend that has already happened but has not been invoiced, which is exactly the gap a mid-job check needs to close.</div>
+
+      <div class="q">Are there third-party tools built specifically for real-time, in-progress job costing?</div>
+      <div class="a">Yes, and their marketing is built entirely around this exact gap. Knowify's own site states most contractors find out a job lost money after it is done and positions its tool to show where a job stands before it is too late to act. Buildertrend's own help documentation describes its Job Costing Budget as a real-time view of estimated costs, actual spend, and profitability at the cost-code level. Dapt's own HVAC job costing page promises real-time visibility into labor, equipment, and material costs to prevent overruns. None plug natively into ServiceTitan.</div>
+
+      <div class="q">What does a mid-job cost overrun look like in practice?</div>
+      <div class="a">This example is illustrative, not a client result. A fixed-price $18,500 bathroom remodel is 60 percent through its schedule but has already used 78 percent of its material budget after a supply substitution, and two change-order hours have been logged but not yet billed. Nothing forces anyone to compare those two numbers until the invoice posts weeks later, by which point the remaining budget for finish materials is already gone.</div>
+
+      <div class="q">How does Top Builder AI catch a job going over budget while it's still open?</div>
+      <div class="a">The Financial and Pricebook agents pull ServiceTitan's committed costs, actual costs, and paid-hours labor data continuously rather than waiting for an invoice or a manually run report, recompute the job's real cost-to-budget position against a set tolerance, and flag drift while the crew is still on site so a dispatcher or PM can act before more materials get bought or more hours get logged against a fixed-price job. It never edits a ServiceTitan record; it surfaces the number and the reason.</div>
+
+      <div class="q">Does this replace ServiceTitan's Projects module or Budget vs Actual table?</div>
+      <div class="a">No. ServiceTitan stays the system of record for the job, the budget, and the invoice. Where Project Management is turned on and configured, its Budget vs Actual table keeps working exactly as before. The agent reads the same committed and actual cost data ServiceTitan already tracks, whether or not Project Management is enabled on a given account, and surfaces the projected margin while the job is still open, closer to the always-current view ServiceTitan's own marketing promises than what a standard account without Project Management delivers on its own.</div>
+
+      <div class="q">Is this a live, self-serve dashboard I can connect to today?</div>
+      <div class="a">The mid-job margin recomputation logic is real, built and tested code inside the Financial and Pricebook agents. It ships today as part of a Teardown and Install engagement, configured against a shop's actual ServiceTitan committed costs, actual costs, and payroll data, not as a blind self-serve signup a contractor turns on alone.</div>
+
+      <div class="q">What's the fastest way to check if my shop has real-time job-cost visibility right now?</div>
+      <div class="a">Open a job that is still in progress and see whether a Budget vs Actual table appears at all. If it does not, Project Management is not turned on for that account and there is no real-time cost table today, only the standard Job Costing flyout that locks at invoice. If it does appear, check how many committed costs on that job have not yet moved to actual, that gap is exactly what a mid-project spend could be hiding. A fit call walks through what that same check finds against your real ServiceTitan data.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,112 @@
+{
+  "_comment": "Canyon Ridge Mechanical — seeded EOS communication-hub data (issues + business plan). Money is integer CENTS; the eos.py engine emits dollars. Issues anchor to the seed roster (seed.py) and the documented pains (>$400k A/R, Zapier-broke scorecard, low close rate). Business plan anchors to the ~$7M company and the Bloom Finance measurables.",
+  "company": "Canyon Ridge Mechanical",
+  "fiscal_year": 2026,
+  "period_label": "June 2026",
+  "issues": [
+    {
+      "id": "iss-ar-aging",
+      "title": "A/R aged past 90 days is over $400k — should be near $0 for residential",
+      "owner": "Priya Shah",
+      "department": "finance",
+      "priority": 1,
+      "status": "open",
+      "created": "2026-06-02"
+    },
+    {
+      "id": "iss-close-rate",
+      "title": "Sales close rate stuck at 23% — target is 70–80%; ride-along + coaching plan needed",
+      "owner": "Dana Royce",
+      "department": "sales",
+      "priority": 1,
+      "status": "open",
+      "created": "2026-06-04"
+    },
+    {
+      "id": "iss-scorecard-zapier",
+      "title": "Weekly scorecard still hand-keyed since the Zapier flow broke — 3–4 people every Monday",
+      "owner": "Marcus Reed",
+      "department": "leadership",
+      "priority": 2,
+      "status": "open",
+      "created": "2026-06-05"
+    },
+    {
+      "id": "iss-materials-usage",
+      "title": "Techs not logging partial consumables (metal spools, copper) — job costing is guesswork",
+      "owner": "Gus Romero",
+      "department": "warehouse",
+      "priority": 2,
+      "status": "open",
+      "created": "2026-06-08"
+    },
+    {
+      "id": "iss-after-hours",
+      "title": "After-hours calls going to voicemail — losing booked revenue overnight",
+      "owner": "Tanya Brooks",
+      "department": "front_office",
+      "priority": 2,
+      "status": "open",
+      "created": "2026-06-09"
+    },
+    {
+      "id": "iss-payroll-gap",
+      "title": "Install-tech self-reported hours not verified against clock — overtime leaking",
+      "owner": "Evan Marsh",
+      "department": "finance",
+      "priority": 3,
+      "status": "open",
+      "created": "2026-06-10"
+    },
+    {
+      "id": "iss-dispatch-idle",
+      "title": "Tech idle time over 9h/week on the board — tighten P1/P2/P3 assignment",
+      "owner": "Ray Delgado",
+      "department": "dispatch",
+      "priority": 3,
+      "status": "open",
+      "created": "2026-06-11"
+    },
+    {
+      "id": "iss-warranty-reg",
+      "title": "Equipment warranties not registered on vendor sites at install — backlog of serials",
+      "owner": "Cole Barrett",
+      "department": "field",
+      "priority": 3,
+      "status": "closed",
+      "created": "2026-05-20",
+      "resolved": "2026-06-06"
+    }
+  ],
+  "annual_goals": [
+    { "key": "revenue", "label": "Annual revenue", "unit": "usd", "target": 700000000, "actual": 322000000, "higher_is_better": true },
+    { "key": "net_margin", "label": "Net profit margin", "unit": "percent", "target": 12, "actual": 9.4, "higher_is_better": true },
+    { "key": "close_rate", "label": "Sales close rate", "unit": "percent", "target": 70, "actual": 23, "higher_is_better": true },
+    { "key": "ar_over_90", "label": "A/R over 90 days", "unit": "usd", "target": 5000000, "actual": 41200000, "higher_is_better": false },
+    { "key": "memberships", "label": "Active maintenance memberships", "unit": "count", "target": 1200, "actual": 880, "higher_is_better": true }
+  ],
+  "budget_to_actual": [
+    { "key": "install_rev", "label": "HVAC Install revenue", "kind": "revenue", "budget_cents": 38000000, "actual_cents": 40250000 },
+    { "key": "service_rev", "label": "Service & maintenance revenue", "kind": "revenue", "budget_cents": 16000000, "actual_cents": 14800000 },
+    { "key": "other_rev", "label": "Plumbing & electrical revenue", "kind": "revenue", "budget_cents": 9000000, "actual_cents": 9600000 },
+    { "key": "equipment_cogs", "label": "Equipment & materials (COGS)", "kind": "cogs", "budget_cents": 24000000, "actual_cents": 26100000 },
+    { "key": "field_labor_cogs", "label": "Field labor (COGS)", "kind": "cogs", "budget_cents": 12000000, "actual_cents": 12900000 },
+    { "key": "payroll_expense", "label": "Office payroll & admin", "kind": "expense", "budget_cents": 7500000, "actual_cents": 7350000 },
+    { "key": "marketing_expense", "label": "Marketing & lead gen", "kind": "expense", "budget_cents": 3000000, "actual_cents": 3650000 },
+    { "key": "overhead_expense", "label": "Facilities & overhead", "kind": "expense", "budget_cents": 4200000, "actual_cents": 4180000 }
+  ],
+  "trailing_12": [
+    { "month": "2025-07", "revenue_cents": 58000000, "net_income_cents": 5200000 },
+    { "month": "2025-08", "revenue_cents": 61500000, "net_income_cents": 5800000 },
+    { "month": "2025-09", "revenue_cents": 54000000, "net_income_cents": 4400000 },
+    { "month": "2025-10", "revenue_cents": 49000000, "net_income_cents": 3900000 },
+    { "month": "2025-11", "revenue_cents": 47500000, "net_income_cents": 3600000 },
+    { "month": "2025-12", "revenue_cents": 52000000, "net_income_cents": 4100000 },
+    { "month": "2026-01", "revenue_cents": 44000000, "net_income_cents": 2900000 },
+    { "month": "2026-02", "revenue_cents": 46500000, "net_income_cents": 3300000 },
+    { "month": "2026-03", "revenue_cents": 55000000, "net_income_cents": 4700000 },
+    { "month": "2026-04", "revenue_cents": 59500000, "net_income_cents": 5400000 },
+    { "month": "2026-05", "revenue_cents": 63000000, "net_income_cents": 6000000 },
+    { "month": "2026-06", "revenue_cents": 64650000, "net_income_cents": 6070000 }
+  ]
+}

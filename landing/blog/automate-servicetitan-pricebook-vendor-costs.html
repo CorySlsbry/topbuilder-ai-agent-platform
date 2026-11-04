@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Automate Your ServiceTitan Pricebook When Vendor Costs Rise (2026 Guide)</title>
+<meta name="description" content="A practical 2026 guide for ServiceTitan contractors: how to keep your pricebook's material costs current automatically when vendors raise prices. Ingest a vendor price file, recompute each item under the sold-hour model, and write back human-approved price changes." />
+<link rel="canonical" href="https://topbuilderai.com/blog/automate-servicetitan-pricebook-vendor-costs.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Automate Your ServiceTitan Pricebook When Vendor Costs Rise (2026 Guide)" />
+<meta property="og:description" content="Keep your ServiceTitan pricebook's material costs current automatically: ingest a vendor price file, recompute each item under the sold-hour model, surface the price and margin delta, and write back changes a human approves." />
+<meta property="og:url" content="https://topbuilderai.com/blog/automate-servicetitan-pricebook-vendor-costs.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_pricebook.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_pricebook.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Enterprise-light palette (WCAG 2.2 AA). Deep-blue primary, refined-green secondary. */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --inkem:#FFFFFF;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+
+  /* article header */
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  /* article body */
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  /* figure / worked-example callout */
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc .formula{font-family:"Instrument Serif",Georgia,serif;font-size:20px;color:var(--ink);line-height:1.5;margin:6px 0}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  /* comparison table */
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:34%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  /* faq */
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  /* cta */
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  /* video slot */
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+
+  /* material-cost bar chart (scoped) */
+  .mcc{margin:14px 0 6px}
+  .mcc-row{display:flex;align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid var(--line)}
+  .mcc-row:last-child{border-bottom:none}
+  .mcc-name{flex:0 0 auto;min-width:104px;max-width:42%;font-size:13.5px;font-weight:500;color:var(--ink);line-height:1.3}
+  .mcc-track{flex:1 1 auto;min-width:60px;height:14px;background:var(--panel2);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .mcc-bar{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--indigo),var(--emerald))}
+  .mcc-val{flex:0 0 auto;width:62px;text-align:right;font-size:14px;font-weight:600;color:var(--ink);
+    font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  @media(max-width:430px){
+    .mcc-row{gap:10px}
+    .mcc-name{min-width:88px;max-width:46%;font-size:12.5px}
+    .mcc-val{width:54px;font-size:13px}
+  }
+</style>
+
+<!-- VideoObject JSON-LD (companion video) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"How to Automate Your ServiceTitan Pricebook When Vendor Costs Rise",
+  "description":"A walkthrough of keeping a ServiceTitan pricebook's material costs current under the sold-hour pricing model with human-approved, reversible price write-backs.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/y37Pr23oqJ8/maxresdefault.jpg",
+  "uploadDate":"2026-06-19T02:10:05Z",
+  "contentUrl":"https://www.youtube.com/watch?v=y37Pr23oqJ8",
+  "embedUrl":"https://www.youtube.com/embed/y37Pr23oqJ8",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/automate-servicetitan-pricebook-vendor-costs.html"},
+  "headline":"How to Automate Your ServiceTitan Pricebook When Vendor Costs Rise (2026 Guide)",
+  "description":"How to keep a ServiceTitan pricebook's material costs current automatically when vendor prices rise: ingest a vendor price file, recompute each item's material cost and price under the sold-hour model, surface the price and margin delta, and write back changes a human approves.",
+  "datePublished":"2026-06-18",
+  "dateModified":"2026-06-18",
+  "inLanguage":"en-US",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan pricebook","HVAC pricing","sold-hour pricing model","vendor cost increases","contractor margin"],
+  "keywords":"automate ServiceTitan pricebook vendor cost increases, ServiceTitan pricebook update, sold-hour pricing model, material cost markup, HVAC flat rate pricing"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How often should I update my ServiceTitan pricebook?","acceptedAnswer":{"@type":"Answer","text":"Update material costs whenever a vendor publishes a new price, and re-price the affected catalog items at least quarterly. Most distributors push cost changes on a quarterly or seasonal cadence, and commodity lines like copper and refrigerant move more often. Quarterly is the floor; event-driven (whenever a price file arrives) is better and is what automation makes practical."}},
+    {"@type":"Question","name":"Does ServiceTitan update vendor costs automatically?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan stores your pricebook and can recalculate prices from costs and markup once those costs are entered, but it does not automatically pull new vendor unit costs from your distributor and reprice your book. Pricebook Pro provides professionally maintained content and updates on a managed cadence, but keeping your own vendor-specific costs current is still a process you own."}},
+    {"@type":"Question","name":"What is the sold-hour pricing model?","acceptedAnswer":{"@type":"Answer","text":"It is the flat-rate formula most residential contractors price from: price equals sold hours multiplied by your sold-hour rate, plus materials cost, plus a markup on materials. Materials cost is the sum across the item's material lines of quantity times the vendor unit cost. Because every item carries labor and a bill of materials, any change in a vendor cost flows straight into the price."}},
+    {"@type":"Question","name":"Will updating material costs change my customer prices?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you let it. When a vendor cost rises, the sold-hour formula produces a higher price for any item that uses that material. The increase is usually small per item because materials are only part of the price and the markup is applied on top. You decide whether to pass it through, absorb it, or adjust the markup. Nothing reaches a customer quote until you approve it."}},
+    {"@type":"Question","name":"Can AI change my prices without my approval?","acceptedAnswer":{"@type":"Answer","text":"Not in Top Builder AI. The Pricebook agent recomputes costs and prices and proposes each change, but a price write-back to ServiceTitan is always human-in-the-loop. A person reviews the old price, the new price, and the margin impact, then approves or rejects the batch. Approved writes are reversible, so a mistake can be undone to the prior price."}},
+    {"@type":"Question","name":"What is the difference from Profit Rhino or Pricebook Pro?","acceptedAnswer":{"@type":"Answer","text":"Profit Rhino is a flat-rate pricebook whose ServiceTitan sync is import-based, and Pricebook Pro is ServiceTitan's managed pricebook content. Both are strong starting points for structure and content. The gap they leave is continuous, vendor-cost-driven re-pricing: taking your specific distributor's new costs, recomputing each item, and writing approved updates back on a recurring cadence rather than a one-time import."}},
+    {"@type":"Question","name":"Why does a stale pricebook hurt margin so much?","acceptedAnswer":{"@type":"Answer","text":"In flat-rate pricing you sell a price, not a receipt, so a cost error never corrects itself. If copper or refrigerant rises and the pricebook still uses last year's cost, every job using that material is quoted at last year's margin. The leak is invisible because the price still looks normal; it only shows up later as a thinner gross margin you cannot trace to any single ticket."}},
+    {"@type":"Question","name":"How does an AI agent keep a pricebook current?","acceptedAnswer":{"@type":"Answer","text":"It ingests a vendor price file or distributor feed on a schedule, matches new unit costs to the SKUs on your pricebook items, recomputes each item's materials cost and then its price under the sold-hour model, and reports the old-to-new price and margin change. Items that move beyond a tolerance you set are flagged for review. You approve the batch, and approved changes write back to ServiceTitan."}},
+    {"@type":"Question","name":"What is a price-change tolerance?","acceptedAnswer":{"@type":"Answer","text":"A tolerance is the percentage move that triggers a human flag. For example, with a five percent tolerance, an item whose recomputed price moves more than five percent is highlighted before it can reach a quote. This catches vendor data errors, mis-mapped SKUs, and unusually large swings, so routine small increases flow through while outliers get a second look."}},
+    {"@type":"Question","name":"Does a vendor cost increase lower my margin percent?","acceptedAnswer":{"@type":"Answer","text":"Under the sold-hour model, if you pass the cost through and keep the same markup percent, your margin percent on the materials portion is unchanged and your margin dollars actually rise, because the markup is applied to a larger cost. Margin only erodes when you do not pass the increase through, which is exactly what happens when the pricebook is stale."}},
+    {"@type":"Question","name":"Do I need a developer to connect a vendor price file?","acceptedAnswer":{"@type":"Answer","text":"No. Most distributors provide price updates as a spreadsheet or CSV, and many offer a feed. The agent reads that file, maps columns to SKUs, and matches them to your pricebook items. The setup work is a one-time mapping of your vendors and SKU naming. After that, each new file runs through the same pipeline without engineering."}},
+    {"@type":"Question","name":"What happens to items the vendor file does not cover?","acceptedAnswer":{"@type":"Answer","text":"They are left unchanged. The agent only recomputes items whose material lines include a SKU in the price update. It also reports coverage, meaning how many of your pricebook SKUs the vendor file actually touched, so you can see which parts of the book are current and which still need a source of fresh costs."}},
+    {"@type":"Question","name":"Is the price math something I can audit?","acceptedAnswer":{"@type":"Answer","text":"Yes. The price is computed by deterministic, tested code, not by a language model, so the same inputs always produce the same number. The agent shows each item's labor, materials cost before and after, the markup, and the resulting price, line by line. The language model only narrates the result; it never calculates a figure."}},
+    {"@type":"Question","name":"Can I roll back a price change after approving it?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every approved write-back stores the prior price, so a change can be reversed to the exact value it had before. This makes a batch safe to approve: if a downstream issue appears, you restore the affected items rather than reconstructing old prices by hand."}},
+    {"@type":"Question","name":"How long does it take to get value from automating the pricebook?","acceptedAnswer":{"@type":"Answer","text":"The first useful output is the first price file you run, because it immediately shows which items are underpriced against current vendor costs and by how much. The recurring value is keeping the book current with little effort, so margin does not quietly drift between manual updates that are easy to postpone."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Automating your ServiceTitan pricebook</div>
+    <span class="kicker">ServiceTitan &middot; Pricebook</span>
+    <h1>How to Automate Your ServiceTitan Pricebook When Vendor Costs Rise (2026 Guide)</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published June 18, 2026</span>
+      <span class="pill">~12 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical</span>
+    </div>
+  </section>
+
+  <div class="video"><iframe src="https://www.youtube.com/embed/y37Pr23oqJ8" title="How to Automate Your ServiceTitan Pricebook When Vendor Costs Rise" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">To keep a ServiceTitan pricebook's material costs current automatically, connect your distributor's price file (or feed) to a tool that, on a schedule, matches each new vendor unit cost to the SKUs on your pricebook items, recomputes every affected item under the <strong>sold-hour pricing model</strong>, <em>price = sold hours &times; sold-hour rate + materials cost + (materials cost &times; markup)</em>, and shows you the old price, the new price, and the margin change for each item. You approve the batch, and the approved prices write back into ServiceTitan. That is exactly what Top Builder AI's <strong>Pricebook agent</strong> does: it ingests a vendor price update, recomputes cost and price for each item, flags anything that moves past a tolerance you set, and proposes each change as a <strong>human-approved, reversible</strong> write-back. AI never changes a customer-facing price on its own. A person approves it first.</p>
+
+      <p>If you run a residential HVAC, plumbing, or electrical shop on ServiceTitan, your pricebook is the single most valuable spreadsheet in the company. It is where every quote, every option a technician presents at the kitchen table, and every dollar of gross margin is decided. And it is almost always out of date. Vendors raise prices through the year; the pricebook does not move with them. This guide walks through why that gap quietly eats margin, how material costs actually get into a ServiceTitan pricebook today, and how an AI agent keeps them current with a continuous, human-approved sync instead of a once-a-year scramble.</p>
+
+      <h2>Why does a stale pricebook quietly kill my margin?</h2>
+
+      <p>Flat-rate pricing is the engine of a modern service business, and it has one structural weakness: <strong>you sell a price, not a receipt.</strong> The customer never sees your cost. That is the point. It lets your technician quote a confident, all-in number at the door. But it also means a cost error never corrects itself. If the price on the sheet is built on last spring's copper cost, every job that uses copper is quoted at last spring's margin, forever, until someone updates the sheet.</p>
+
+      <p>The sold-hour model amplifies this. Because the price is a formula and not a guess, a wrong input produces a precisely wrong output on every single ticket that touches it. A high-volume item that is underpriced by a few percent does not lose you a few percent once; it loses you a few percent on every job, every day, for as long as the cost is stale. The leak is invisible in the moment because the price still <em>looks</em> normal. It only surfaces weeks later as a gross margin that came in thinner than the estimate, and by then it is nearly impossible to trace back to the specific items that drifted.</p>
+
+      <p>Two forces make this worse in practice. First, the costs that move most are the ones contractors use most: copper, aluminum, refrigerant, sheet metal, fittings, and standard equipment all ride commodity and supply cycles. Second, manual pricebook maintenance is exactly the kind of low-urgency, high-effort task that gets postponed. Nobody's day blows up because the pricebook is three months old. So it slips, and the margin slips with it.</p>
+
+      <p>The scale of this is not theoretical. Across the trades, overall construction input prices rose 2.6% in a single month (May) and were 9.6% higher year over year, with copper wire and cable up 24.2% year over year, according to <a class="link" href="https://www.enr.com/articles/63148-construction-materials-prices-jump-26-in-may-up-nearly-10-year-over-year" rel="noopener" target="_blank">Associated Builders and Contractors analysis of BLS Producer Price Index data (2026)</a>. When inputs move that fast, a pricebook frozen on last year's costs falls behind in weeks, not years.</p>
+
+      <p>The metals that show up on almost every HVAC, plumbing, and electrical ticket are leading the climb. Copper and brass mill shape prices rose 15.7% over the 12 months ending January 2026, per <a class="link" href="https://www.agc.org/news/2026/02/27/extreme-increases-aluminum-steel-and-copper-costs-drive-prices-construction-materials-january" rel="noopener" target="_blank">Associated General Contractors of America analysis of BLS Producer Price Index data (2026)</a>. Contractors feel it directly: 56% of exterior trades contractors said they were uneasy about rising material prices, ranking it among their three biggest challenges, per the <a class="link" href="https://www.servicetitan.com/guides/exterior-trades-report-2024" rel="noopener" target="_blank">ServiceTitan Exterior Trades Report (2024)</a>.</p>
+
+      <figure class="calc">
+        <div class="cap">Trade material cost increases &middot; 12 months ending Jan 2026</div>
+        <div class="body">
+          <div class="mcc">
+            <div class="mcc-row">
+              <div class="mcc-name">Aluminum mill shapes</div>
+              <div class="mcc-track"><div class="mcc-bar" style="width:100%"></div></div>
+              <div class="mcc-val">+33.0%</div>
+            </div>
+            <div class="mcc-row">
+              <div class="mcc-name">Steel mill products</div>
+              <div class="mcc-track"><div class="mcc-bar" style="width:62.7%"></div></div>
+              <div class="mcc-val">+20.7%</div>
+            </div>
+            <div class="mcc-row">
+              <div class="mcc-name">Copper &amp; brass mill shapes</div>
+              <div class="mcc-track"><div class="mcc-bar" style="width:47.6%"></div></div>
+              <div class="mcc-val">+15.7%</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>Producer price changes for the core metals on a typical HVAC, plumbing, or electrical ticket over the 12 months ending January 2026, per <a class="link" href="https://www.agc.org/news/2026/02/27/extreme-increases-aluminum-steel-and-copper-costs-drive-prices-construction-materials-january" rel="noopener" target="_blank">Associated General Contractors of America analysis of BLS Producer Price Index data (2026)</a>. Every one of these increases lands on a pricebook item, so a book frozen on last year's costs underprices each affected quote until it is refreshed.</figcaption>
+      </figure>
+
+      <h2>How do material costs get into a ServiceTitan pricebook today?</h2>
+
+      <p>There are three common ways a residential contractor keeps costs and prices in a ServiceTitan pricebook, and each leaves the same freshness gap.</p>
+
+      <h3>1. Manual entry and bulk edits</h3>
+      <p>Many shops maintain the pricebook by hand: an office manager edits items in ServiceTitan, or exports to a spreadsheet, updates costs, and re-imports. This is fully under your control and works for small books, but it is slow and error-prone, and it only happens as often as someone has time, which in practice means rarely. Between updates, the book drifts.</p>
+
+      <h3>2. One-time imports from a flat-rate provider (e.g., Profit Rhino)</h3>
+      <p><strong>Profit Rhino</strong> is a well-known flat-rate pricebook product that gives contractors a structured, professionally built catalog with labor and materials already organized. Its ServiceTitan integration is <strong>import-based</strong>: you bring the content and pricing into ServiceTitan as a sync or import. That is genuinely useful for getting a clean, complete book in place. The limitation, for the specific problem of <em>your</em> vendor costs rising, is that an import is a point-in-time event. It refreshes the book when you run it; it does not continuously reach into your distributor's latest cost file and reprice your items every time those costs change.</p>
+
+      <h3>3. ServiceTitan Pricebook Pro and Pricing Builder</h3>
+      <p>ServiceTitan offers <strong>Pricebook Pro</strong>, professionally maintained pricebook content with images and descriptions updated on a managed cadence, and <strong>Pricing Builder</strong>, the native tooling for calculating prices from costs, markups, and member rates. These are real, capable features and the right foundation for many shops. What they do not do is automatically pull <em>your</em> specific distributor's new unit costs and reprice your book the moment those costs change. Managed content updates on a vendor's cadence; keeping your own vendor-cost inputs current is still a process you own.</p>
+
+      <p>The common thread across all three: the structure is solved, but the <strong>freshness of your vendor costs</strong> is not. That freshness gap, the lag between a vendor raising a price and your pricebook reflecting it, is where margin leaks, and it is the exact wedge an AI agent fills.</p>
+
+      <p>And the gap widens faster than any quarterly update cycle can keep up with. Across the trades, steel mill product prices increased 20.7% and aluminum mill shape prices jumped 33.0% over the 12 months ending January 2026, per <a class="link" href="https://www.agc.org/news/2026/02/27/extreme-increases-aluminum-steel-and-copper-costs-drive-prices-construction-materials-january" rel="noopener" target="_blank">Associated General Contractors of America analysis of BLS Producer Price Index data (2026)</a>. A book that gets a manual refresh once or twice a year is, by definition, quoting most of that increase at a loss.</p>
+
+      <h2>What is the sold-hour pricing model?</h2>
+
+      <p>Everything that follows hinges on one formula, the flat-rate model most residential contractors already price from:</p>
+
+      <figure class="calc">
+        <div class="cap">The model</div>
+        <div class="body">
+          <div class="formula">price = sold&nbsp;hours &times; sold-hour&nbsp;rate + materials&nbsp;cost + (materials&nbsp;cost &times; markup)</div>
+          <div class="lab">where</div>
+          <div class="formula" style="font-size:18px">materials&nbsp;cost = &Sigma; ( quantity &times; vendor&nbsp;unit&nbsp;cost ) over the item's material lines</div>
+        </div>
+        <figcaption>Each pricebook item carries its labor (sold hours at your rate) and a bill of materials. When a vendor unit cost changes, only the materials cost and the markup-on-materials move; the labor portion is unaffected.</figcaption>
+      </figure>
+
+      <p>Notice what this structure does to margin. Your true cost of a job is labor (sold at your rate) plus materials at cost. The markup dollars, materials cost times the markup percent, are the gross margin the model is designed to protect. So when a vendor cost rises and you pass it through at the same markup percent, your margin <em>dollars</em> actually go up, because the markup is now applied to a larger cost. Margin only erodes when you <strong>fail</strong> to pass the increase through, which is precisely what a stale pricebook does for you.</p>
+
+      <h2>What does a vendor cost increase actually do to one item's price?</h2>
+
+      <p>Here is the arithmetic on a single item, shown transparently. This is <strong>illustrative math</strong> with round, made-up numbers to demonstrate the model, not a client result.</p>
+
+      <p>Take an air-conditioning install priced at 8 sold hours, a sold-hour rate of $150, a 20% material markup, and four material lines:</p>
+
+      <figure class="calc">
+        <div class="cap">Example item &middot; AC install &middot; current costs</div>
+        <div class="body">
+          <table class="mono">
+            <tr><td>Labor, 8 sold hours &times; $150</td><td>$1,200.00</td></tr>
+            <tr><td>Condenser (1 &times; $1,800)</td><td>$1,800.00</td></tr>
+            <tr><td>Line set (1 &times; $120)</td><td>$120.00</td></tr>
+            <tr><td>R-410A refrigerant (4 lb &times; $50)</td><td>$200.00</td></tr>
+            <tr><td>Copper (20 ft &times; $5.00)</td><td>$100.00</td></tr>
+            <tr><td>Materials cost (sum of material lines)</td><td>$2,220.00</td></tr>
+            <tr><td>Markup on materials (20% &times; $2,220)</td><td>$444.00</td></tr>
+            <tr class="tot"><td>Price = $1,200 + $2,220 + $444</td><td class="price">$3,864.00</td></tr>
+          </table>
+        </div>
+        <figcaption>Materials cost is $2,220. Price = labor $1,200 + materials $2,220 &times; 1.20 = <strong>$3,864.00</strong>.</figcaption>
+      </figure>
+
+      <p>Now a vendor publishes a price update: copper rises to <strong>$6.50/ft</strong> and R-410A rises to <strong>$62/lb</strong>. The condenser and line set are unchanged. Only the two affected material lines move:</p>
+
+      <figure class="calc">
+        <div class="cap">Same item &middot; after the vendor cost increase</div>
+        <div class="body">
+          <table class="mono">
+            <tr><td>Labor (unchanged)</td><td>$1,200.00</td></tr>
+            <tr><td>Condenser (unchanged)</td><td>$1,800.00</td></tr>
+            <tr><td>Line set (unchanged)</td><td>$120.00</td></tr>
+            <tr><td>R-410A (4 lb &times; $62) &nbsp;&uarr;</td><td>$248.00</td></tr>
+            <tr><td>Copper (20 ft &times; $6.50) &nbsp;&uarr;</td><td>$130.00</td></tr>
+            <tr><td>Materials cost (new)</td><td>$2,298.00</td></tr>
+            <tr><td>Markup on materials (20% &times; $2,298)</td><td>$459.60</td></tr>
+            <tr class="tot"><td>New price = $1,200 + $2,298 + $459.60</td><td class="price">$3,957.60</td></tr>
+          </table>
+        </div>
+        <figcaption>Materials cost rises $78 (to $2,298). New price = $1,200 + $2,298 &times; 1.20 = <strong>$3,957.60</strong>, a <strong>+$93.60 (+2.42%)</strong> move. Keep the 20% markup and your margin dollars on this item rise from $444 to $459.60. Leave the pricebook stale and you keep quoting $3,864 while paying the higher cost. That $93.60 comes straight out of margin on every install.</figcaption>
+      </figure>
+
+      <p>That is the whole problem in one item. A small, almost unnoticeable cost change moves the right price by 2.42%. On a single install it is $93.60. Across a full book of items, hundreds of jobs a month, and a year of vendor increases that never got entered, it is the difference between the margin you planned and the margin you got.</p>
+
+      <p>It is not only the raw materials, either. The equipment lines on your bigger installs are climbing too: producer prices for construction machinery and equipment rose 5.6% over the 12 months ending December 2025, per <a class="link" href="https://www.agc.org/news/2026/01/30/double-digit-increases-aluminum-steel-and-copper-costs-drive-producer-price-indexes-construction" rel="noopener" target="_blank">Associated General Contractors of America analysis of BLS Producer Price Index data (2026)</a>. Every one of those increases lands on a pricebook item, and every item that is not re-costed quietly underprices the next quote.</p>
+
+      <h2>How does an AI agent keep my ServiceTitan pricebook current?</h2>
+
+      <p>An AI pricebook agent automates the loop that a careful office manager would run if they had unlimited time. The pipeline is deliberately boring and auditable:</p>
+
+      <ol>
+        <li><b>Ingest the vendor price file or distributor feed.</b> On a schedule (quarterly works well; event-driven on each new file is better), the agent reads the distributor's spreadsheet, CSV, or feed of new unit costs and maps each row to a SKU on your pricebook.</li>
+        <li><b>Recompute material cost per item.</b> For every pricebook item whose bill of materials includes a changed SKU, it sums quantity &times; new vendor unit cost across the material lines to get the new materials cost.</li>
+        <li><b>Re-apply the sold-hour formula.</b> It runs <em>price = sold hours &times; sold-hour rate + materials cost + (materials cost &times; markup)</em> with the new materials cost, producing the new price, labor untouched.</li>
+        <li><b>Surface the price delta and margin impact.</b> For each item it shows the old price, the new price, the dollar and percent change, and the change in margin dollars, sorted largest move first, exactly how a pricing desk reviews a re-price batch.</li>
+        <li><b>Flag anything past tolerance.</b> Items whose price moves beyond a tolerance you set (say, more than 5%) are flagged for a closer look, the guardrail that catches vendor data errors and mis-mapped SKUs before they reach a quote.</li>
+        <li><b>A human approves the batch.</b> A person reviews the proposed changes and approves, edits, or rejects. Nothing is customer-facing until then.</li>
+        <li><b>Write back to ServiceTitan.</b> Approved prices write back into the ServiceTitan pricebook, and each write stores the prior price so it can be reversed.</li>
+      </ol>
+
+      <p>This is exactly how Top Builder AI's <strong>Pricebook agent</strong> is built. The price is computed by <strong>deterministic, tested code</strong>, not by a language model, so the same inputs always produce the same number, and every figure is auditable line by line. The agent persists its findings as <em>advisory recommendations</em>; it does not silently touch your live pricebook. A price write-back to ServiceTitan is <strong>always human-in-the-loop</strong>, and every approved change is <strong>reversible</strong> to the exact prior price. The language model's only job is to narrate the result in plain English. The dollars come from the math, never from the model.</p>
+
+      <h2>Profit Rhino or Pricebook Pro vs. a continuous re-pricing agent: what's the difference?</h2>
+
+      <p>The point here is not that imports or managed content are wrong. They are a great foundation. It is that they solve a different problem (getting a clean, structured book) than the one that erodes margin during the year (keeping <em>your</em> vendor costs fresh). Here is the framing:</p>
+
+      <div class="tablewrap">
+        <table class="cmp">
+          <thead>
+            <tr><th>Capability</th><th>One-time import / managed content</th><th>Continuous, approved sync (Pricebook agent)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Gets a structured book in place</td><td class="yes">Yes</td><td>Assumes you already have one</td></tr>
+            <tr><td>Uses your specific distributor's costs</td><td>Partially, whatever you import</td><td class="yes">Yes, from your vendor price file</td></tr>
+            <tr><td>Re-prices on every cost change</td><td class="no">No, point-in-time</td><td class="yes">Yes, scheduled or event-driven</td></tr>
+            <tr><td>Shows old to new price + margin impact</td><td>Limited</td><td class="yes">Per item, largest move first</td></tr>
+            <tr><td>Flags outliers past a tolerance</td><td class="no">No</td><td class="yes">Yes, configurable</td></tr>
+            <tr><td>Human approves before customers see it</td><td>You re-import manually</td><td class="yes">Yes, always human-in-the-loop</td></tr>
+            <tr><td>Reversible to the prior price</td><td class="no">Manual</td><td class="yes">Yes, one-click undo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Read it as a stack, not a fight. Use a flat-rate provider or Pricebook Pro to build and maintain the structure of your book. Layer a continuous, approved re-pricing agent on top to keep the <em>vendor-cost inputs</em> current between those structural updates. The two solve adjacent problems.</p>
+
+      <h2>How do I roll out automated pricebook re-pricing?</h2>
+
+      <p>You do not need to automate the whole book on day one. A sensible rollout looks like this:</p>
+
+      <ul>
+        <li><b>Start with one vendor and your highest-volume items.</b> Map your primary distributor's price file to the SKUs that appear on your most-quoted installs and repairs. That is where stale costs do the most damage and where you see value fastest.</li>
+        <li><b>Set a conservative tolerance.</b> Begin with a tight flag threshold so anything unusual lands in front of a human. Loosen it as you build trust in the mapping.</li>
+        <li><b>Run the first file in review mode.</b> The first run is diagnostic on its own. It tells you which items are underpriced against today's costs and by how much, before you change anything.</li>
+        <li><b>Approve in batches.</b> Review the proposed changes sorted by largest dollar move, approve the routine ones, and hold the flagged outliers for a second look or a SKU-mapping fix.</li>
+        <li><b>Schedule the cadence.</b> Once the mapping is solid, let new vendor files flow through the same pipeline automatically, with a human approving each batch. Quarterly is the floor; per-file is the goal.</li>
+      </ul>
+
+      <p>The setup cost is a one-time mapping of your vendors and SKU naming. After that, every new price file runs through the same auditable loop without engineering work, and your pricebook stops drifting away from reality the moment a vendor raises a price.</p>
+
+      <h2>The takeaway</h2>
+
+      <p>A ServiceTitan pricebook is only as good as the costs underneath it, and in a flat-rate world those costs are a moving target. The structure is a solved problem; the freshness of your vendor costs is not. Closing that gap, ingest the new costs, recompute under the sold-hour model, surface the price and margin delta, let a human approve, and write back a reversible change, is how you keep margin from quietly leaking between manual updates. That is the job the <a class="link" href="/">Top Builder AI Pricebook agent</a> was built to do, and it does it without ever changing a customer-facing price on its own. For more on how the agents are governed and what data they touch, see the <a class="link" href="/faq.html">Top Builder AI FAQ</a>.</p>
+
+      <div class="cta">
+        <h2>See it run against your pricebook</h2>
+        <p>Bring one vendor price file and we'll show you which items are underpriced today, under the sold-hour model, with every figure auditable line by line.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">How often should I update my ServiceTitan pricebook?</div>
+      <div class="a">Update material costs whenever a vendor publishes a new price, and re-price the affected catalog items at least quarterly. Most distributors push cost changes on a quarterly or seasonal cadence, and commodity lines like copper and refrigerant move more often. Quarterly is the floor; event-driven, meaning whenever a price file arrives, is better and is what automation makes practical.</div>
+
+      <div class="q">Does ServiceTitan update vendor costs automatically?</div>
+      <div class="a">No. ServiceTitan stores your pricebook and can recalculate prices from costs and markup once those costs are entered, but it does not automatically pull new vendor unit costs from your distributor and reprice your book. Pricebook Pro provides professionally maintained content on a managed cadence, but keeping your own vendor-specific costs current is still a process you own.</div>
+
+      <div class="q">What is the sold-hour pricing model?</div>
+      <div class="a">It is the flat-rate formula most residential contractors price from: price equals sold hours times your sold-hour rate, plus materials cost, plus a markup on materials. Materials cost is the sum across the item's material lines of quantity times the vendor unit cost. Because every item carries labor and a bill of materials, any change in a vendor cost flows straight into the price.</div>
+
+      <div class="q">Will updating material costs change my customer prices?</div>
+      <div class="a">Yes, if you let it. When a vendor cost rises, the sold-hour formula produces a higher price for any item that uses that material. The increase is usually small per item because materials are only part of the price and the markup sits on top. You decide whether to pass it through, absorb it, or adjust the markup. Nothing reaches a customer quote until you approve it.</div>
+
+      <div class="q">Can AI change my prices without my approval?</div>
+      <div class="a">Not in Top Builder AI. The Pricebook agent recomputes costs and prices and proposes each change, but a price write-back to ServiceTitan is always human-in-the-loop. A person reviews the old price, the new price, and the margin impact, then approves or rejects the batch. Approved writes are reversible, so a mistake can be undone to the prior price.</div>
+
+      <div class="q">What is the difference from Profit Rhino or Pricebook Pro?</div>
+      <div class="a">Profit Rhino is a flat-rate pricebook whose ServiceTitan sync is import-based, and Pricebook Pro is ServiceTitan's managed pricebook content. Both are strong starting points for structure and content. The gap they leave is continuous, vendor-cost-driven re-pricing: taking your specific distributor's new costs, recomputing each item, and writing approved updates back on a recurring cadence rather than a one-time import.</div>
+
+      <div class="q">Why does a stale pricebook hurt margin so much?</div>
+      <div class="a">In flat-rate pricing you sell a price, not a receipt, so a cost error never corrects itself. If copper or refrigerant rises and the pricebook still uses last year's cost, every job using that material is quoted at last year's margin. The leak is invisible because the price still looks normal; it only shows up later as a thinner gross margin you cannot trace to any single ticket.</div>
+
+      <div class="q">How does an AI agent keep a pricebook current?</div>
+      <div class="a">It ingests a vendor price file or distributor feed on a schedule, matches new unit costs to the SKUs on your pricebook items, recomputes each item's materials cost and then its price under the sold-hour model, and reports the old-to-new price and margin change. Items that move beyond a tolerance you set are flagged for review. You approve the batch, and approved changes write back to ServiceTitan.</div>
+
+      <div class="q">What is a price-change tolerance?</div>
+      <div class="a">A tolerance is the percentage move that triggers a human flag. For example, with a five percent tolerance, an item whose recomputed price moves more than five percent is highlighted before it can reach a quote. This catches vendor data errors, mis-mapped SKUs, and unusually large swings, so routine small increases flow through while outliers get a second look.</div>
+
+      <div class="q">Does a vendor cost increase lower my margin percent?</div>
+      <div class="a">Under the sold-hour model, if you pass the cost through and keep the same markup percent, your margin percent on the materials portion is unchanged and your margin dollars actually rise, because the markup is applied to a larger cost. Margin only erodes when you do not pass the increase through, which is exactly what happens when the pricebook is stale.</div>
+
+      <div class="q">Do I need a developer to connect a vendor price file?</div>
+      <div class="a">No. Most distributors provide price updates as a spreadsheet or CSV, and many offer a feed. The agent reads that file, maps columns to SKUs, and matches them to your pricebook items. The setup work is a one-time mapping of your vendors and SKU naming. After that, each new file runs through the same pipeline without engineering.</div>
+
+      <div class="q">What happens to items the vendor file does not cover?</div>
+      <div class="a">They are left unchanged. The agent only recomputes items whose material lines include a SKU in the price update. It also reports coverage, meaning how many of your pricebook SKUs the vendor file actually touched, so you can see which parts of the book are current and which still need a source of fresh costs.</div>
+
+      <div class="q">Is the price math something I can audit?</div>
+      <div class="a">Yes. The price is computed by deterministic, tested code, not by a language model, so the same inputs always produce the same number. The agent shows each item's labor, materials cost before and after, the markup, and the resulting price, line by line. The language model only narrates the result; it never calculates a figure.</div>
+
+      <div class="q">Can I roll back a price change after approving it?</div>
+      <div class="a">Yes. Every approved write-back stores the prior price, so a change can be reversed to the exact value it had before. This makes a batch safe to approve: if a downstream issue appears, you restore the affected items rather than reconstructing old prices by hand.</div>
+
+      <div class="q">How long does it take to get value from automating the pricebook?</div>
+      <div class="a">The first useful output is the first price file you run, because it immediately shows which items are underpriced against current vendor costs and by how much. The recurring value is keeping the book current with little effort, so margin does not quietly drift between manual updates that are easy to postpone.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors, Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

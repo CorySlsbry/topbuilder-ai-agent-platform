@@ -1,0 +1,79 @@
+{
+  "Header": {
+    "ReportName": "AgedReceivableDetail",
+    "Time": "2026-06-17T00:00:00-07:00",
+    "ReportBasis": "Accrual",
+    "Currency": "USD",
+    "Option": [{ "Name": "report_date", "Value": "2026-06-17" }]
+  },
+  "Columns": {
+    "Column": [
+      { "ColTitle": "Date", "ColType": "Date" },
+      { "ColTitle": "Transaction Type", "ColType": "String" },
+      { "ColTitle": "Num", "ColType": "String" },
+      { "ColTitle": "Customer", "ColType": "String" },
+      { "ColTitle": "Due Date", "ColType": "Date" },
+      { "ColTitle": "Past Due", "ColType": "String" },
+      { "ColTitle": "Amount", "ColType": "Money" },
+      { "ColTitle": "Open Balance", "ColType": "Money" }
+    ]
+  },
+  "Rows": {
+    "Row": [
+      {
+        "ColData": [
+          { "value": "2026-03-01" },
+          { "value": "Invoice" },
+          { "value": "1041" },
+          { "value": "Birch Property Group", "id": "2" },
+          { "value": "2026-03-31" },
+          { "value": "78" },
+          { "value": "300.00" },
+          { "value": "300.00" }
+        ],
+        "type": "Data"
+      },
+      {
+        "ColData": [
+          { "value": "2026-02-01" },
+          { "value": "Invoice" },
+          { "value": "1009" },
+          { "value": "Birch Property Group", "id": "2" },
+          { "value": "2026-02-15" },
+          { "value": "100" },
+          { "value": "400.00" },
+          { "value": "400.00" }
+        ],
+        "type": "Data"
+      },
+      {
+        "ColData": [
+          { "value": "2025-12-10" },
+          { "value": "Invoice" },
+          { "value": "0922" },
+          { "value": "Birch Property Group", "id": "2" },
+          { "value": "2025-12-31" },
+          { "value": "160" },
+          { "value": "300.00" },
+          { "value": "300.00" }
+        ],
+        "type": "Data"
+      },
+      {
+        "Summary": {
+          "ColData": [
+            { "value": "TOTAL" },
+            { "value": "" },
+            { "value": "" },
+            { "value": "" },
+            { "value": "" },
+            { "value": "" },
+            { "value": "1000.00" },
+            { "value": "1000.00" }
+          ]
+        },
+        "type": "Section"
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+[
+  { "id": "BILL-5001", "vendor": "Emco Supply", "amount_cents": 184500, "doc_number": "EMCO-44821", "bill_date": "2026-06-12", "extracted_job_ref": "JOB-9001", "job_ref_source": "printed", "due_in_days": 30 },
+  { "id": "BILL-5002", "vendor": "Wolseley HVAC", "amount_cents": 96200, "doc_number": "WOL-77310", "bill_date": "2026-06-13", "extracted_job_ref": "JOB-9002", "job_ref_source": "printed", "due_in_days": 30 },
+  { "id": "BILL-5003", "vendor": "Fujitsu General", "amount_cents": 412000, "doc_number": "FG-INV-9912", "bill_date": "2026-06-13", "extracted_job_ref": "JOB-9003", "job_ref_source": "printed", "due_in_days": 45 },
+  { "id": "BILL-5004", "vendor": "Andrew Sheret", "amount_cents": 53800, "doc_number": "AS-22118", "bill_date": "2026-06-14", "extracted_job_ref": "JOB-9004", "job_ref_source": "handwritten", "due_in_days": 30 },
+  { "id": "BILL-5005", "vendor": "Coastline Electrical", "amount_cents": 71500, "doc_number": "CE-3071", "bill_date": "2026-06-14", "extracted_job_ref": null, "job_ref_source": "missing", "due_in_days": 15 },
+  { "id": "BILL-5006", "vendor": "Pacific Refrigeration", "amount_cents": 28900, "doc_number": "PR-661", "bill_date": "2026-06-15", "extracted_job_ref": "JOB-9999", "job_ref_source": "printed", "due_in_days": 30 }
+]

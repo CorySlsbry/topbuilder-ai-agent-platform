@@ -1,0 +1,28 @@
+{
+  "QueryResponse": {
+    "Invoice": [
+      {
+        "Id": "1041",
+        "DocNumber": "1041",
+        "TxnDate": "2026-03-01",
+        "DueDate": "2026-03-31",
+        "TotalAmt": 300.00,
+        "Balance": 300.00,
+        "CustomerRef": { "value": "2", "name": "Birch Property Group" }
+      },
+      {
+        "Id": "1102",
+        "DocNumber": "1102",
+        "TxnDate": "2026-06-10",
+        "DueDate": "2026-07-10",
+        "TotalAmt": 1500.00,
+        "Balance": 1500.00,
+        "CustomerRef": { "value": "1", "name": "Acme Mechanical" }
+      }
+    ],
+    "startPosition": 1,
+    "maxResults": 2,
+    "totalCount": 2
+  },
+  "time": "2026-06-17T00:00:00.000-07:00"
+}

@@ -1,0 +1,25 @@
+[
+  "Canyon Ridge HVAC — the UPCOMING week's assigned/booked jobs, by technician + job type. The booked",
+  "time estimate is deliberately omitted; the projection uses each tech's LEARNED per-type duration from",
+  "capacity_completed_jobs.json (that IS the moving target). t-h2 Ben (~9h/ac_install) is loaded with 5",
+  "installs -> ~45h -> projected overtime; t-h3 Carlos (~7h) carries 3 -> slack to absorb Ben's overflow;",
+  "t-h1 Alice (now ~5h, getting faster) carries 5 installs + 2 repairs and still lands inside her week.",
+
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac"},
+
+  {"technician_id": "t-h3", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h3", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h3", "job_type": "ac_install", "trade": "hvac"},
+
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac"},
+  {"technician_id": "t-h1", "job_type": "ac_repair", "trade": "hvac"},
+  {"technician_id": "t-h1", "job_type": "ac_repair", "trade": "hvac"}
+]

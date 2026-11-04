@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Job Profit Analyzer | Top Builder AI</title>
+<meta name="description" content="Enter one job: revenue, labor hours, wage, materials, subs, equipment. See its true margin after labor burden, callbacks, and overhead, which bucket eats the profit, and the fix.">
+<link rel="canonical" href="https://topbuilderai.com/job-profit" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/job-profit" />
+<meta property="og:title" content="Job Profit Analyzer | Top Builder AI" />
+<meta property="og:description" content="One job in, true margin out. See the burden math, the overhead allocation, which bucket eats your margin, and an honest verdict: healthy, thin, or underwater." />
+<meta property="og:site_name" content="Top Builder AI" />
+<meta property="og:image" content="https://topbuilderai.com/assets/cc-executive.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/assets/cc-executive.png" />
+<meta name="twitter:title" content="Job Profit Analyzer | Top Builder AI" />
+<meta name="twitter:description" content="Find out what a job really made after labor burden, callbacks, and overhead. Takes about 2 minutes." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<style>
+/* ========================================
+   TOKENS
+   ======================================== */
+:root {
+  color-scheme: dark;
+  --bg-deep: #0C1222;
+  --bg-surface: #1A2332;
+  --bg-card: #1F2937;
+  --bg-raised: #243044;
+  --bg-input: #151D2B;
+
+  --text-primary: #E8ECF1;
+  --text-secondary: #8494A7;
+  --text-muted: #556171;
+
+  --accent: #6366F1;
+  --accent-bright: #818CF8;
+  --accent-hover: #7A7DF3;
+  --accent-dim: rgba(99, 102, 241, 0.14);
+  --accent-border: rgba(99, 102, 241, 0.3);
+
+  --border: #1E2D3D;
+  --border-light: #2A3A4A;
+
+  --green: #34D399;
+  --green-dim: rgba(52, 211, 153, 0.12);
+  --amber: #FBBF24;
+  --amber-dim: rgba(251, 191, 36, 0.12);
+  --red: #F87171;
+  --red-dim: rgba(248, 113, 113, 0.12);
+
+  --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Cascadia Code', 'SF Mono', 'Consolas', 'Liberation Mono', monospace;
+
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-lg: 12px;
+
+  --max-w: 1200px;
+  --gap: 20px;
+}
+
+/* ========================================
+   RESET + BASE (mobile-first)
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+}
+
+a { color: var(--accent-bright); text-decoration: none; }
+a:hover { color: #A5B4FC; }
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: var(--text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 2px;
+}
+
+.page-wrap {
+  min-height: 100vh;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  z-index: 100;
+}
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  padding: 28px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.brand-tagline {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero { padding: 40px 0 28px; }
+
+.hero h1 {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+  color: var(--text-primary);
+}
+
+.hero h1 span { color: var(--accent-bright); }
+
+.hero-sub {
+  margin-top: 12px;
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 640px;
+  line-height: 1.55;
+}
+
+.hero-note {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 12px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-radius: 20px;
+  font-size: 12.5px;
+  color: var(--accent-bright);
+}
+
+/* ========================================
+   ANALYZER LAYOUT (mobile-first: single column)
+   ======================================== */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+  padding-bottom: 56px;
+}
+
+@media (min-width: 900px) {
+  .calc-grid { grid-template-columns: 1fr 420px; gap: 32px; }
+  .calc-outputs-col { position: sticky; top: 24px; }
+}
+
+/* ========================================
+   INPUT CARDS
+   ======================================== */
+.input-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+@media (min-width: 640px) { .input-section { padding: 24px; } }
+
+.input-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.slider-row { margin-bottom: 20px; }
+.slider-row:last-child { margin-bottom: 0; }
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.slider-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.slider-val {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent-bright);
+  font-variant-numeric: tabular-nums;
+  min-width: 56px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--accent) var(--fill, 0%), var(--bg-raised) var(--fill, 0%));
+  transition: opacity 0.15s;
+}
+input[type="range"]:hover { opacity: 0.9; }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  border: 3px solid var(--bg-surface);
+  box-shadow: 0 0 0 1px rgba(99,102,241,0.35);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(99,102,241,0.18);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent-bright);
+  border: 3px solid var(--bg-surface);
+  box-shadow: 0 0 0 1px rgba(99,102,241,0.35);
+  cursor: pointer;
+}
+
+.slider-range {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.helper-note {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: var(--accent-dim);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.helper-note strong { color: var(--accent-bright); font-weight: 600; }
+
+/* ========================================
+   OUTPUT DASHBOARD
+   ======================================== */
+.output-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.output-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* burden math */
+.math-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  padding: 5px 0;
+  font-variant-numeric: tabular-nums;
+  gap: 12px;
+}
+.math-line .m-val { color: var(--text-primary); font-weight: 600; white-space: nowrap; }
+.math-line.m-em .m-val { color: var(--accent-bright); }
+.math-line.m-warn { border-top: 1px dashed var(--border-light); margin-top: 4px; padding-top: 9px; }
+.math-line.m-warn .m-val { color: var(--amber); }
+
+.output-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  transition: text-shadow 0.4s ease-out;
+}
+.metric-value.updating { text-shadow: 0 0 16px rgba(99, 102, 241, 0.45); }
+.metric-value.accent { color: var(--accent-bright); }
+
+.metric-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* verdict card */
+.verdict-card {
+  background: linear-gradient(135deg, var(--bg-surface) 0%, #1E2A38 100%);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  text-align: center;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.verdict-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(99, 102, 241, 0.10) 0%, transparent 60%);
+  pointer-events: none;
+}
+.verdict-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  position: relative;
+}
+.verdict-number {
+  font-family: var(--font-mono);
+  font-size: clamp(30px, 5vw, 42px);
+  font-weight: 800;
+  color: var(--accent-bright);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  transition: text-shadow 0.5s ease-out;
+  position: relative;
+}
+.verdict-number.updating { text-shadow: 0 0 30px rgba(99, 102, 241, 0.5); }
+.verdict-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  position: relative;
+  font-variant-numeric: tabular-nums;
+}
+
+.verdict-pill {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+}
+.verdict-pill.healthy { background: var(--green-dim); color: var(--green); border: 1px solid rgba(52,211,153,0.3); }
+.verdict-pill.thin { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(251,191,36,0.3); }
+.verdict-pill.underwater { background: var(--red-dim); color: var(--red); border: 1px solid rgba(248,113,113,0.3); }
+
+.verdict-fix {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  position: relative;
+}
+.verdict-fix strong { color: var(--text-primary); }
+.verdict-fix .fix-price { color: var(--accent-bright); font-family: var(--font-mono); font-weight: 700; }
+
+/* leak breakdown */
+.leak-row { margin-bottom: 12px; }
+.leak-row:last-child { margin-bottom: 0; }
+.leak-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+  gap: 10px;
+}
+.leak-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.leak-name .leak-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--red-dim);
+  color: var(--red);
+  vertical-align: 1px;
+}
+.leak-val {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.leak-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg-raised);
+  overflow: hidden;
+}
+.leak-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+  transition: width 0.45s ease-out;
+}
+.leak-fill.biggest { background: var(--red); }
+.leak-fill.margin-fill { background: var(--green); }
+
+.leak-foot {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.leak-foot strong { color: var(--text-primary); }
+.leak-foot .gap-num { color: var(--amber); font-family: var(--font-mono); font-weight: 700; }
+
+/* ========================================
+   EMAIL GATE
+   ======================================== */
+.gate-section { padding: 48px 0; text-align: center; }
+
+.gate-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 24px;
+  position: relative;
+}
+@media (min-width: 640px) { .gate-inner { padding: 40px 32px; } }
+
+.gate-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 0 0 2px 2px;
+}
+
+.gate-title { font-size: 22px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
+
+.gate-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+
+.gate-form { display: flex; flex-direction: column; gap: 12px; }
+
+.gate-input {
+  padding: 12px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.gate-input::placeholder { color: var(--text-muted); }
+.gate-input:focus { border-color: var(--accent); }
+
+.gate-btn {
+  padding: 14px 24px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  margin-top: 4px;
+}
+.gate-btn:hover { background: var(--accent-hover); }
+.gate-btn:active { transform: scale(0.98); }
+
+.gate-disclaimer { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
+
+.gate-error { color: var(--red); font-size: 13px; margin-top: 8px; display: none; }
+
+/* ========================================
+   GATED CONTENT
+   ======================================== */
+.gated { display: none; }
+.gated.visible { display: block; }
+.gate-section.hidden { display: none; }
+
+.reveal-animate { animation: revealUp 0.5s ease-out; }
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header { margin-bottom: 24px; }
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.section-desc {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 620px;
+}
+
+.print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 10px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius);
+  color: var(--accent-bright);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.print-btn:hover { background: var(--bg-raised); border-color: var(--accent); }
+
+.sheet-section { padding: 8px 0 48px; }
+
+/* worksheet */
+.worksheet {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.ws-head {
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.ws-head .ws-field { display: flex; gap: 8px; align-items: baseline; }
+.ws-blank {
+  display: inline-block;
+  min-width: 130px;
+  border-bottom: 1px solid var(--border-light);
+  height: 1.2em;
+}
+
+.ws-table { width: 100%; border-collapse: collapse; }
+.ws-table th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.ws-table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  vertical-align: middle;
+}
+.ws-table tr:last-child td { border-bottom: none; }
+.ws-table .ws-num {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  color: var(--accent-bright);
+  width: 34px;
+}
+.ws-table .ws-item { font-weight: 600; color: var(--text-primary); }
+.ws-table .ws-detail { font-size: 12.5px; color: var(--text-muted); font-weight: 400; display: block; }
+.ws-table .ws-amt {
+  text-align: right;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  white-space: nowrap;
+  width: 160px;
+}
+.ws-write { display: inline-block; min-width: 110px; border-bottom: 1px solid var(--border-light); height: 1.15em; }
+.ws-table tr.ws-total td {
+  background: var(--bg-card);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.ws-verdict-row { display: flex; gap: 14px; flex-wrap: wrap; padding: 16px 20px; }
+.ws-check {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--text-secondary);
+}
+.ws-box {
+  width: 16px; height: 16px;
+  border: 1.5px solid var(--border-light);
+  border-radius: 3px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* cheat sheet */
+.cheat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 760px) { .cheat-grid { grid-template-columns: 1fr 1fr; } }
+
+.cheat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+.cheat-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+.cheat-card h3 .cc-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px; height: 26px;
+  margin-right: 10px;
+  background: var(--accent-dim);
+  border-radius: var(--radius-sm);
+  color: var(--accent-bright);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  vertical-align: -6px;
+}
+.cheat-card ul { list-style: none; }
+.cheat-card li {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  padding: 5px 0 5px 18px;
+  position: relative;
+  line-height: 1.5;
+}
+.cheat-card li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 12px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.cheat-card li strong { color: var(--text-primary); font-weight: 600; }
+.cheat-card .band { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.cheat-card .band.g { color: var(--green); }
+.cheat-card .band.a { color: var(--amber); }
+.cheat-card .band.r { color: var(--red); }
+
+/* ========================================
+   CTA BAND
+   ======================================== */
+.cta-band {
+  margin: 8px 0 56px;
+  padding: 40px 24px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.14) 0%, rgba(52,211,153,0.07) 100%);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+.cta-band h2 { font-size: clamp(20px, 3vw, 26px); font-weight: 800; letter-spacing: -0.02em; }
+.cta-band p { margin-top: 8px; color: var(--text-secondary); font-size: 15px; }
+.cta-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.15s, transform 0.1s;
+}
+.cta-link:hover { background: var(--accent-hover); color: #fff; }
+.cta-link:active { transform: scale(0.98); }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0 32px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ========================================
+   PRINT (worksheet + cheat sheet only)
+   ======================================== */
+@media print {
+  body { background: #fff; color: #111; font-size: 12px; }
+  /* print-ready is added only after the gate unlocks: gated sheets print, tool chrome does not */
+  body.print-ready .top-bar, body.print-ready .header, body.print-ready .hero, body.print-ready .calc-grid,
+  body.print-ready .gate-section, body.print-ready .cta-band, body.print-ready .footer,
+  body.print-ready .print-btn, body.print-ready .section-desc { display: none !important; }
+  body.print-ready .gated { display: block !important; }
+  .page-wrap { background: none; }
+  .sheet-section { padding: 0 0 18px; page-break-inside: avoid; }
+  .section-header { margin-bottom: 10px; }
+  .section-eyebrow { color: #4F46E5; }
+  .section-title { color: #111; font-size: 18px; }
+  .worksheet, .cheat-card { background: #fff; border: 1px solid #bbb; border-radius: 6px; }
+  .ws-head { background: #f3f4f6; color: #333; border-bottom: 1px solid #bbb; }
+  .ws-table th { color: #555; border-bottom: 1px solid #bbb; }
+  .ws-table td { border-bottom: 1px solid #ddd; color: #222; }
+  .ws-table .ws-item, .ws-table tr.ws-total td { color: #111; }
+  .ws-table .ws-detail, .ws-table .ws-amt, .ws-head { color: #555; }
+  .ws-table tr.ws-total td { background: #f3f4f6; }
+  .ws-table .ws-num { color: #4F46E5; }
+  .ws-blank, .ws-write { border-bottom: 1px solid #888; }
+  .ws-box { border-color: #888; }
+  .ws-check { color: #333; }
+  .cheat-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cheat-card h3 { color: #111; }
+  .cheat-card h3 .cc-num { background: #EEF0FE; color: #4F46E5; }
+  .cheat-card li { color: #333; }
+  .cheat-card li::before { background: #4F46E5; }
+  .cheat-card li strong { color: #111; }
+  .cheat-card .band.g { color: #047857; }
+  .cheat-card .band.a { color: #B45309; }
+  .cheat-card .band.r { color: #B91C1C; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verdict-number, .metric-value { transition: none !important; }
+  .reveal-animate { animation: none; }
+  .leak-fill { transition: none; }
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Job Profit Analyzer","description":"Enter one job and see its true margin after labor burden, callbacks, equipment, and overhead allocation, plus which cost bucket eats the profit and how to fix it.","url":"https://topbuilderai.com/job-profit","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com"}}
+</script>
+<script src="/webmcp.js" defer></script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div class="top-bar"></div>
+
+  <!-- HEADER -->
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        Top Builder AI
+      </div>
+      <span class="brand-tagline">AI Back-Office Automation for Contractors</span>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>The Job Profit <span>Analyzer</span></h1>
+      <p class="hero-sub">Enter one job. See what it really made after labor burden, callbacks, equipment, and its share of overhead. The math is shown step by step, and the verdict is honest.</p>
+      <span class="hero-note">Preloaded with the $12,000 example job from our video. Swap in your own numbers.</span>
+    </section>
+
+    <!-- ANALYZER -->
+    <section class="calc-grid">
+      <div class="calc-inputs-col">
+
+        <!-- The job -->
+        <div class="input-section">
+          <div class="input-section-label">The Job</div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Job revenue (invoiced)</span>
+              <span class="slider-val" id="valRevenue">$12,000</span>
+            </div>
+            <input type="range" id="sliderRevenue" min="500" max="60000" value="12000" step="250" aria-label="Job revenue in dollars">
+            <div class="slider-range"><span>$500</span><span>$60,000</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Labor hours on the job</span>
+              <span class="slider-val" id="valHours">92</span>
+            </div>
+            <input type="range" id="sliderHours" min="1" max="300" value="92" step="1" aria-label="Labor hours on the job">
+            <div class="slider-range"><span>1</span><span>300</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Average wage of the crew</span>
+              <span class="slider-val" id="valWage">$28/hr</span>
+            </div>
+            <input type="range" id="sliderWage" min="15" max="60" value="28" step="1" aria-label="Average hourly wage">
+            <div class="slider-range"><span>$15</span><span>$60</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Materials (delivered and used)</span>
+              <span class="slider-val" id="valMaterials">$4,650</span>
+            </div>
+            <input type="range" id="sliderMaterials" min="0" max="30000" value="4650" step="50" aria-label="Materials cost">
+            <div class="slider-range"><span>$0</span><span>$30,000</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Subcontractors</span>
+              <span class="slider-val" id="valSubs">$0</span>
+            </div>
+            <input type="range" id="sliderSubs" min="0" max="20000" value="0" step="100" aria-label="Subcontractor cost">
+            <div class="slider-range"><span>$0</span><span>$20,000</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Equipment days (rentals, trencher, lift)</span>
+              <span class="slider-val" id="valEquipDays">3</span>
+            </div>
+            <input type="range" id="sliderEquipDays" min="0" max="20" value="3" step="1" aria-label="Equipment rental days">
+            <div class="slider-range"><span>0</span><span>20</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Equipment cost per day</span>
+              <span class="slider-val" id="valEquipRate">$180</span>
+            </div>
+            <input type="range" id="sliderEquipRate" min="0" max="1000" value="180" step="10" aria-label="Equipment cost per day">
+            <div class="slider-range"><span>$0</span><span>$1,000</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Callback / warranty cost (labor + parts)</span>
+              <span class="slider-val" id="valCallback">$410</span>
+            </div>
+            <input type="range" id="sliderCallback" min="0" max="3000" value="410" step="10" aria-label="Callback and warranty cost">
+            <div class="slider-range"><span>$0</span><span>$3,000</span></div>
+          </div>
+        </div>
+
+        <!-- Company inputs -->
+        <div class="input-section">
+          <div class="input-section-label">Your Company (set once)</div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Labor burden multiplier</span>
+              <span class="slider-val" id="valBurden">1.35x</span>
+            </div>
+            <input type="range" id="sliderBurden" min="1" max="1.6" value="1.35" step="0.01" aria-label="Labor burden multiplier">
+            <div class="slider-range"><span>1.00x</span><span>1.60x</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Monthly overhead (everything not on a job)</span>
+              <span class="slider-val" id="valOverhead">$30,000</span>
+            </div>
+            <input type="range" id="sliderOverhead" min="2000" max="150000" value="30000" step="1000" aria-label="Monthly overhead in dollars">
+            <div class="slider-range"><span>$2K</span><span>$150K</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Monthly revenue</span>
+              <span class="slider-val" id="valMonthlyRev">$150,000</span>
+            </div>
+            <input type="range" id="sliderMonthlyRev" min="20000" max="1500000" value="150000" step="10000" aria-label="Monthly revenue in dollars">
+            <div class="slider-range"><span>$20K</span><span>$1.5M</span></div>
+          </div>
+
+          <div class="helper-note" id="burdenNote">
+            Burden covers employer taxes, workers comp, insurance, benefits, truck, fuel, phone. Contractors we work with typically land between <strong>1.25x and 1.4x</strong>. Your overhead rate: <strong id="ohRateNote">20%</strong> of revenue rides on every job.
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTPUTS -->
+      <div class="calc-outputs-col">
+
+        <div class="output-card">
+          <div class="output-title">The Burden Math, Shown</div>
+          <div class="math-line"><span id="mathWagesLabel">92 hrs x $28/hr</span><span class="m-val" id="mathWages">$2,576 wages</span></div>
+          <div class="math-line m-em"><span id="mathBurdenLabel">x 1.35 burden</span><span class="m-val" id="mathBurdened">$3,478 true labor</span></div>
+          <div class="math-line m-warn"><span>Cost the paystubs never show</span><span class="m-val" id="mathPremium">+$902</span></div>
+        </div>
+
+        <div class="output-card">
+          <div class="output-card-grid">
+            <div class="metric-card">
+              <div class="metric-label">Gut Math Says</div>
+              <div class="metric-value" id="outGut">$4,774</div>
+              <div class="metric-note" id="outGutPct">39.8% margin feel</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">True Direct Cost</div>
+              <div class="metric-value" id="outDirect">$9,078</div>
+              <div class="metric-note">all five buckets, no overhead</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">True Gross Profit</div>
+              <div class="metric-value accent" id="outGross">$2,922</div>
+              <div class="metric-note" id="outGrossPct">24.4% of revenue</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Overhead Share</div>
+              <div class="metric-value" id="outOverhead">$2,400</div>
+              <div class="metric-note" id="outOverheadPct">at 20% of revenue</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="verdict-card">
+          <div class="verdict-label">True net margin on this job</div>
+          <div class="verdict-number" id="outNet">$522</div>
+          <div class="verdict-sub" id="outNetPct">4.4% of revenue</div>
+          <div class="verdict-pill thin" id="verdictPill" role="status">Thin</div>
+          <div class="verdict-fix" id="verdictFix"></div>
+        </div>
+
+        <div class="output-card">
+          <div class="output-title">Where the Margin Goes</div>
+          <div id="leakList"></div>
+          <div class="leak-foot" id="leakFoot"></div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- EMAIL GATE -->
+  <section class="gate-section" id="gateSection">
+    <div class="container">
+      <div class="gate-inner">
+        <h2 class="gate-title">Unlock the Printable Job-Cost Worksheet</h2>
+        <p class="gate-desc">Get the one-page worksheet your office can run on every closed job, plus the margin cheat sheet: burden ranges, the overhead method, verdict bands, and the weekly 20-minute review steps.</p>
+        <form class="gate-form" id="gateForm" autocomplete="on">
+          <input class="gate-input" type="text" id="gateName" placeholder="Full name" required autocomplete="name">
+          <input class="gate-input" type="email" id="gateEmail" placeholder="Work email" required autocomplete="email">
+          <input class="gate-input" type="text" id="gateCompany" placeholder="Company name" required autocomplete="organization">
+          <button class="gate-btn" type="submit">Get the Worksheet + Cheat Sheet</button>
+        </form>
+        <div class="gate-error" id="gateError">Please fill in all fields with a valid email.</div>
+        <p class="gate-disclaimer">We'll also send the worksheet and cheat sheet to your inbox. No spam.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GATED CONTENT -->
+  <div class="gated" id="gatedContent">
+
+    <!-- WORKSHEET -->
+    <section class="sheet-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Printable</div>
+          <h2 class="section-title">The Job-Cost Worksheet</h2>
+          <p class="section-desc">One page per job. Run it on every closed job in the weekly review, or hand it to your office manager as the standard.</p>
+          <button class="print-btn" id="printBtn" type="button">Print the worksheet + cheat sheet</button>
+        </div>
+
+        <div class="worksheet" id="worksheet">
+          <div class="ws-head">
+            <span class="ws-field">Job <span class="ws-blank"></span></span>
+            <span class="ws-field">Customer <span class="ws-blank"></span></span>
+            <span class="ws-field">Closed <span class="ws-blank" style="min-width:90px"></span></span>
+            <span class="ws-field">Reviewed by <span class="ws-blank"></span></span>
+          </div>
+          <table class="ws-table" aria-label="Job cost worksheet">
+            <thead>
+              <tr><th style="width:34px">#</th><th>Line</th><th style="text-align:right">Amount</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ws-num">R</td>
+                <td class="ws-item">Job revenue, as invoiced
+                  <span class="ws-detail">Include every approved change order. If work grew and the invoice did not, note it below.</span></td>
+                <td class="ws-amt">$ <span class="ws-write"></span></td>
+              </tr>
+              <tr>
+                <td class="ws-num">1</td>
+                <td class="ws-item">Labor at burdened cost
+                  <span class="ws-detail">Hours <span class="ws-write" style="min-width:56px"></span> x wage $ <span class="ws-write" style="min-width:56px"></span> x burden <span class="ws-write" style="min-width:46px"></span></span></td>
+                <td class="ws-amt">$ <span class="ws-write"></span></td>
+              </tr>
+              <tr>
+                <td class="ws-num">2</td>
+                <td class="ws-item">Materials, delivered and used
+                  <span class="ws-detail">From the POs on the job, including waste and returns.</span></td>
+                <td class="ws-amt">$ <span class="ws-write"></span></td>
+              </tr>
+              <tr>
+                <td class="ws-num">3</td>
+                <td class="ws-item">Equipment + subcontractors
+                  <span class="ws-detail">Rental days x day rate, plus sub invoices.</span></td>
+                <td class="ws-amt">$ <span class="ws-write"></span></td>
+              </tr>
+              <tr>
+                <td class="ws-num">4</td>
+                <td class="ws-item">Callbacks + warranty on this job
+                  <span class="ws-detail">Return-trip labor at the burdened rate, plus parts. Post it to the job that caused it.</span></td>
+                <td class="ws-amt">$ <span class="ws-write"></span></td>
+              </tr>
+              <tr class="ws-total">
+                <td class="ws-num"></td>
+                <td class="ws-item">True gross profit <span class="ws-detail">Revenue minus lines 1 through 4</span></td>
+                <td class="ws-amt">$ <span class="ws-write"></span></td>
+              </tr>
+              <tr>
+                <td class="ws-num">5</td>
+                <td class="ws-item">Overhead share
+                  <span class="ws-detail">Revenue x your overhead rate <span class="ws-write" style="min-width:46px"></span> %</span></td>
+                <td class="ws-amt">$ <span class="ws-write"></span></td>
+              </tr>
+              <tr class="ws-total">
+                <td class="ws-num"></td>
+                <td class="ws-item">True net margin <span class="ws-detail">Gross profit minus overhead share. Also write it as % of revenue.</span></td>
+                <td class="ws-amt">$ <span class="ws-write"></span> = <span class="ws-write" style="min-width:46px"></span> %</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="ws-verdict-row">
+            <span class="ws-check"><span class="ws-box"></span> Healthy (10%+): save the estimate as a template</span>
+            <span class="ws-check"><span class="ws-box"></span> Thin (0-10%): circle the biggest bucket, fix or reprice</span>
+            <span class="ws-check"><span class="ws-box"></span> Underwater (below 0%): reprice or re-scope before selling again</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHEAT SHEET -->
+    <section class="sheet-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Reference</div>
+          <h2 class="section-title">The Margin Cheat Sheet</h2>
+        </div>
+
+        <div class="cheat-grid">
+          <div class="cheat-card">
+            <h3><span class="cc-num">1</span>Labor burden</h3>
+            <ul>
+              <li>True hourly cost = wage x burden. Typical range for contractors we work with: <strong class="band">1.25x to 1.4x</strong>.</li>
+              <li>Compute once a year: employer taxes + comp + insurance + benefits + truck + fuel + phone + tools, divided by productive field hours.</li>
+              <li>Cost every job at the loaded rate, never the paystub wage.</li>
+            </ul>
+          </div>
+          <div class="cheat-card">
+            <h3><span class="cc-num">2</span>Overhead allocation</h3>
+            <ul>
+              <li>Overhead rate = last year's overhead / last year's revenue.</li>
+              <li>Every job carries that % of its revenue. Or divide overhead by field hours and load it per hour.</li>
+              <li>Pick one method, stay consistent, review the rate twice a year.</li>
+            </ul>
+          </div>
+          <div class="cheat-card">
+            <h3><span class="cc-num">3</span>Verdict bands (net after overhead)</h3>
+            <ul>
+              <li><strong class="band g">10%+ = healthy.</strong> Save the estimate as a template and hold the price.</li>
+              <li><strong class="band a">0-10% = thin.</strong> Find the biggest bucket, then fix price or hours.</li>
+              <li><strong class="band r">Below 0% = underwater.</strong> Stop selling it at this price. Reprice or re-scope first.</li>
+            </ul>
+          </div>
+          <div class="cheat-card">
+            <h3><span class="cc-num">4</span>The weekly 20-minute review</h3>
+            <ul>
+              <li>Pull last week's closed jobs. Load burdened labor, materials, equipment, subs.</li>
+              <li>Post callbacks to the job that caused them. Subtract each job's overhead share.</li>
+              <li>Flag anything under target and ask why: estimate, execution, or price.</li>
+            </ul>
+          </div>
+          <div class="cheat-card">
+            <h3><span class="cc-num">5</span>A flagged job is one of three problems</h3>
+            <ul>
+              <li><strong>Estimate wrong:</strong> fix the template so the next bid is right.</li>
+              <li><strong>Execution slipped:</strong> hours, waste, rework. Coach the crew.</li>
+              <li><strong>Price too low:</strong> raise it or walk away.</li>
+            </ul>
+          </div>
+          <div class="cheat-card">
+            <h3><span class="cc-num">6</span>Chronically thin job type? Four moves</h3>
+            <ul>
+              <li><strong>Reprice</strong> it against the true cost.</li>
+              <li><strong>Re-scope</strong> what is included by default.</li>
+              <li><strong>Retrain</strong> the crew that runs long.</li>
+              <li><strong>Retire</strong> it and sell the profitable work instead.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container">
+      <div class="cta-band">
+        <h2>Want the weekly review to run itself?</h2>
+        <p>We build automated job costing on top of ServiceTitan: burdened labor, callbacks posted to the source job, and overhead allocated, every week without the spreadsheet.</p>
+        <a class="cta-link" href="https://topbuilderai.com" target="_blank" rel="noopener">Talk to Top Builder AI</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      Built by <a href="https://topbuilderai.com" target="_blank" rel="noopener">Top Builder AI</a>. We automate contractor back offices so you can focus on the job site.
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ======== STORAGE HELPERS ======== */
+  function getStore(k) { try { return localStorage.getItem(k); } catch(e) { return null; } }
+  function setStore(k, v) { try { localStorage.setItem(k, v); } catch(e) {} }
+
+  /* ======== FORMAT ======== */
+  function fmtCurrency(n) {
+    var neg = n < 0;
+    var s = '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+    return neg ? '-' + s : s;
+  }
+  function fmtPct(n) {
+    return (Math.round(n * 10) / 10).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
+  }
+
+  /* ======== REFS ======== */
+  var sliders = {
+    revenue:    document.getElementById('sliderRevenue'),
+    hours:      document.getElementById('sliderHours'),
+    wage:       document.getElementById('sliderWage'),
+    materials:  document.getElementById('sliderMaterials'),
+    subs:       document.getElementById('sliderSubs'),
+    equipDays:  document.getElementById('sliderEquipDays'),
+    equipRate:  document.getElementById('sliderEquipRate'),
+    callback:   document.getElementById('sliderCallback'),
+    burden:     document.getElementById('sliderBurden'),
+    overhead:   document.getElementById('sliderOverhead'),
+    monthlyRev: document.getElementById('sliderMonthlyRev')
+  };
+
+  var vals = {
+    revenue:    document.getElementById('valRevenue'),
+    hours:      document.getElementById('valHours'),
+    wage:       document.getElementById('valWage'),
+    materials:  document.getElementById('valMaterials'),
+    subs:       document.getElementById('valSubs'),
+    equipDays:  document.getElementById('valEquipDays'),
+    equipRate:  document.getElementById('valEquipRate'),
+    callback:   document.getElementById('valCallback'),
+    burden:     document.getElementById('valBurden'),
+    overhead:   document.getElementById('valOverhead'),
+    monthlyRev: document.getElementById('valMonthlyRev')
+  };
+
+  var mathWagesLabel  = document.getElementById('mathWagesLabel');
+  var mathWages       = document.getElementById('mathWages');
+  var mathBurdenLabel = document.getElementById('mathBurdenLabel');
+  var mathBurdened    = document.getElementById('mathBurdened');
+  var mathPremium     = document.getElementById('mathPremium');
+
+  var outGut         = document.getElementById('outGut');
+  var outGutPct      = document.getElementById('outGutPct');
+  var outDirect      = document.getElementById('outDirect');
+  var outGross       = document.getElementById('outGross');
+  var outGrossPct    = document.getElementById('outGrossPct');
+  var outOverhead    = document.getElementById('outOverhead');
+  var outOverheadPct = document.getElementById('outOverheadPct');
+  var outNet         = document.getElementById('outNet');
+  var outNetPct      = document.getElementById('outNetPct');
+  var verdictPill    = document.getElementById('verdictPill');
+  var verdictFix     = document.getElementById('verdictFix');
+  var leakList       = document.getElementById('leakList');
+  var leakFoot       = document.getElementById('leakFoot');
+  var ohRateNote     = document.getElementById('ohRateNote');
+
+  /* ======== STATE ======== */
+  var prev = { gut: 4774, direct: 9078, gross: 2922, overhead: 2400, net: 522 };
+
+  /* ======== SLIDER FILL ======== */
+  function updateFill(s) {
+    var pct = ((s.value - s.min) / (s.max - s.min)) * 100;
+    s.style.setProperty('--fill', pct + '%');
+  }
+
+  /* ======== CALCULATE (deterministic, per job) ======== */
+  function calculate() {
+    var revenue   = +sliders.revenue.value;
+    var hours     = +sliders.hours.value;
+    var wage      = +sliders.wage.value;
+    var materials = +sliders.materials.value;
+    var subs      = +sliders.subs.value;
+    var equip     = (+sliders.equipDays.value) * (+sliders.equipRate.value);
+    var callback  = +sliders.callback.value;
+    var burden    = +sliders.burden.value;
+
+    var wages         = hours * wage;
+    var burdenedLabor = wages * burden;
+    var burdenPremium = burdenedLabor - wages;
+
+    var directCost  = burdenedLabor + materials + subs + equip + callback;
+    var grossProfit = revenue - directCost;
+
+    var ohRate = (+sliders.overhead.value) / Math.max(1, +sliders.monthlyRev.value);
+    ohRate = Math.min(ohRate, 0.95);
+    var overheadShare = revenue * ohRate;
+
+    var net = grossProfit - overheadShare;
+
+    /* what the owner's head-math says: revenue minus materials minus paystub wages */
+    var gut = revenue - materials - wages;
+
+    /* the price at which this exact job clears 10% net: R(1 - ohRate - 0.10) >= directCost */
+    var denom = 1 - ohRate - 0.10;
+    var priceFor10 = denom > 0.05 ? directCost / denom : null;
+
+    return {
+      revenue: revenue, wages: wages, burden: burden,
+      burdenedLabor: burdenedLabor, burdenPremium: burdenPremium,
+      materials: materials, subs: subs, equip: equip, callback: callback,
+      directCost: directCost, grossProfit: grossProfit,
+      ohRate: ohRate, overheadShare: overheadShare, net: net,
+      gut: gut, priceFor10: priceFor10,
+      hours: hours, wage: wage
+    };
+  }
+
+  /* ======== COUNTER ANIMATION ======== */
+  var animFrames = {};
+  function animateVal(el, from, to, duration) {
+    var id = el.id || Math.random();
+    if (animFrames[id]) cancelAnimationFrame(animFrames[id]);
+    if (Math.abs(to - from) < 1) { el.textContent = fmtCurrency(to); return; }
+    el.classList.add('updating');
+    var start = performance.now();
+    function tick(now) {
+      var progress = Math.min((now - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = fmtCurrency(from + (to - from) * eased);
+      if (progress < 1) { animFrames[id] = requestAnimationFrame(tick); }
+      else { el.classList.remove('updating'); }
+    }
+    animFrames[id] = requestAnimationFrame(tick);
+  }
+
+  /* ======== VERDICT ======== */
+  function applyVerdict(r) {
+    var netPct = r.revenue > 0 ? (r.net / r.revenue) * 100 : 0;
+    var kind, fixHtml;
+    if (netPct >= 10) {
+      kind = 'healthy';
+      fixHtml = '<strong>The fix: protect it.</strong> Save this estimate as a template, hold the price, and watch that the labor hours stay this honest on the next one.';
+    } else if (netPct >= 0) {
+      kind = 'thin';
+      fixHtml = '<strong>The fix: one bucket is doing the damage.</strong> Start with the biggest leak below, then reprice.' +
+        (r.priceFor10 ? ' Priced at about <span class="fix-price">' + fmtCurrency(r.priceFor10) + '</span>, this exact job clears 10% net.' : '');
+    } else {
+      kind = 'underwater';
+      fixHtml = '<strong>The fix: stop selling this job at this price.</strong> Reprice it against the true cost or re-scope what is included before you take another one.' +
+        (r.priceFor10 ? ' This job needed about <span class="fix-price">' + fmtCurrency(r.priceFor10) + '</span> to clear 10% net.' : '');
+    }
+    verdictPill.className = 'verdict-pill ' + kind;
+    verdictPill.textContent = kind === 'underwater' ? 'Underwater' : (kind === 'thin' ? 'Thin' : 'Healthy');
+    verdictFix.innerHTML = fixHtml;
+    return netPct;
+  }
+
+  /* ======== LEAK BREAKDOWN ======== */
+  function renderLeaks(r) {
+    var buckets = [
+      { name: 'Labor (burdened)', amt: r.burdenedLabor },
+      { name: 'Materials',        amt: r.materials },
+      { name: 'Subcontractors',   amt: r.subs },
+      { name: 'Equipment',        amt: r.equip },
+      { name: 'Callbacks',        amt: r.callback },
+      { name: 'Overhead share',   amt: r.overheadShare }
+    ].filter(function (b) { return b.amt > 0; });
+
+    buckets.sort(function (a, b) { return b.amt - a.amt; });
+    var maxPct = 0;
+    buckets.forEach(function (b) {
+      b.pct = r.revenue > 0 ? (b.amt / r.revenue) * 100 : 0;
+      if (b.pct > maxPct) maxPct = b.pct;
+    });
+
+    var netPct = r.revenue > 0 ? Math.max(0, (r.net / r.revenue) * 100) : 0;
+    var scale = Math.max(maxPct, netPct, 1);
+
+    var html = '';
+    buckets.forEach(function (b, i) {
+      var isBiggest = i === 0;
+      html += '<div class="leak-row">' +
+        '<div class="leak-head"><span class="leak-name">' + b.name +
+        (isBiggest ? '<span class="leak-tag">Biggest leak</span>' : '') +
+        '</span><span class="leak-val">' + fmtCurrency(b.amt) + ' &middot; ' + fmtPct(b.pct) + '</span></div>' +
+        '<div class="leak-bar"><div class="leak-fill' + (isBiggest ? ' biggest' : '') + '" style="width:' + Math.min(100, (b.pct / scale) * 100) + '%"></div></div>' +
+        '</div>';
+    });
+    html += '<div class="leak-row">' +
+      '<div class="leak-head"><span class="leak-name">What the job kept</span><span class="leak-val">' + fmtCurrency(Math.max(0, r.net)) + ' &middot; ' + fmtPct(r.revenue > 0 ? Math.max(0, r.net / r.revenue * 100) : 0) + '</span></div>' +
+      '<div class="leak-bar"><div class="leak-fill margin-fill" style="width:' + Math.min(100, (netPct / scale) * 100) + '%"></div></div>' +
+      '</div>';
+    leakList.innerHTML = html;
+
+    /* gut-math gap: everything head-math misses, sorted */
+    var hidden = [
+      { name: 'labor burden', amt: r.burdenPremium },
+      { name: 'overhead', amt: r.overheadShare },
+      { name: 'equipment', amt: r.equip },
+      { name: 'callbacks', amt: r.callback },
+      { name: 'subs', amt: r.subs }
+    ].filter(function (h) { return h.amt >= 1; });
+    hidden.sort(function (a, b) { return b.amt - a.amt; });
+    var gap = hidden.reduce(function (s, h) { return s + h.amt; }, 0);
+    var parts = hidden.map(function (h) { return h.name + ' ' + fmtCurrency(h.amt); }).join(', ');
+    leakFoot.innerHTML = 'Gut math (revenue minus materials minus wages) misses <span class="gap-num">' + fmtCurrency(gap) +
+      '</span> of real cost on this job' + (parts ? ': ' + parts + '.' : '.') +
+      ' That is the gap between the margin you <strong>feel</strong> and the margin you <strong>keep</strong>.';
+  }
+
+  /* ======== UPDATE UI ======== */
+  function updateUI() {
+    vals.revenue.textContent    = fmtCurrency(+sliders.revenue.value);
+    vals.hours.textContent      = sliders.hours.value;
+    vals.wage.textContent       = '$' + sliders.wage.value + '/hr';
+    vals.materials.textContent  = fmtCurrency(+sliders.materials.value);
+    vals.subs.textContent       = fmtCurrency(+sliders.subs.value);
+    vals.equipDays.textContent  = sliders.equipDays.value;
+    vals.equipRate.textContent  = fmtCurrency(+sliders.equipRate.value);
+    vals.callback.textContent   = fmtCurrency(+sliders.callback.value);
+    vals.burden.textContent     = (+sliders.burden.value).toFixed(2) + 'x';
+    vals.overhead.textContent   = fmtCurrency(+sliders.overhead.value);
+    vals.monthlyRev.textContent = fmtCurrency(+sliders.monthlyRev.value);
+
+    Object.keys(sliders).forEach(function (k) { updateFill(sliders[k]); });
+
+    var r = calculate();
+
+    /* burden math card */
+    mathWagesLabel.textContent  = r.hours + ' hrs x $' + r.wage + '/hr';
+    mathWages.textContent       = fmtCurrency(r.wages) + ' wages';
+    mathBurdenLabel.textContent = 'x ' + r.burden.toFixed(2) + ' burden';
+    mathBurdened.textContent    = fmtCurrency(r.burdenedLabor) + ' true labor';
+    mathPremium.textContent     = '+' + fmtCurrency(r.burdenPremium);
+
+    /* metrics */
+    animateVal(outGut,      prev.gut,      r.gut,           350);
+    animateVal(outDirect,   prev.direct,   r.directCost,    400);
+    animateVal(outGross,    prev.gross,    r.grossProfit,   450);
+    animateVal(outOverhead, prev.overhead, r.overheadShare, 400);
+    animateVal(outNet,      prev.net,      r.net,           550);
+
+    outGutPct.textContent      = fmtPct(r.revenue > 0 ? r.gut / r.revenue * 100 : 0) + ' margin feel';
+    outGrossPct.textContent    = fmtPct(r.revenue > 0 ? r.grossProfit / r.revenue * 100 : 0) + ' of revenue';
+    outOverheadPct.textContent = 'at ' + fmtPct(r.ohRate * 100) + ' of revenue';
+    ohRateNote.textContent     = fmtPct(r.ohRate * 100);
+
+    var netPct = applyVerdict(r);
+    outNetPct.textContent = fmtPct(r.revenue > 0 ? (r.net / r.revenue) * 100 : 0) + ' of revenue';
+
+    renderLeaks(r);
+
+    prev = { gut: r.gut, direct: r.directCost, gross: r.grossProfit, overhead: r.overheadShare, net: r.net };
+  }
+
+  /* ======== EVENT LISTENERS ======== */
+  Object.keys(sliders).forEach(function (k) {
+    sliders[k].addEventListener('input', updateUI);
+  });
+
+  /* ======== EMAIL GATE ======== */
+  var gateSection = document.getElementById('gateSection');
+  var gatedContent = document.getElementById('gatedContent');
+  var gateForm = document.getElementById('gateForm');
+  var gateError = document.getElementById('gateError');
+
+  function unlockContent() {
+    gateSection.classList.add('hidden');
+    gatedContent.classList.add('visible');
+    gatedContent.classList.add('reveal-animate');
+    document.body.classList.add('print-ready');
+    setTimeout(function () {
+      gatedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+
+  if (getStore('tb_jp_unlocked') === '1') {
+    gateSection.classList.add('hidden');
+    gatedContent.classList.add('visible');
+    document.body.classList.add('print-ready');
+  }
+
+  gateForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name    = document.getElementById('gateName').value.trim();
+    var email   = document.getElementById('gateEmail').value.trim();
+    var company = document.getElementById('gateCompany').value.trim();
+
+    if (!name || !email || !company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      gateError.style.display = 'block';
+      return;
+    }
+    gateError.style.display = 'none';
+
+    setStore('tb_jp_unlocked', '1');
+    setStore('tb_jp_lead', JSON.stringify({ name: name, email: email, company: company, tool: 'job-profit-analyzer', ts: Date.now() }));
+
+    unlockContent();
+  });
+
+  /* ======== PRINT ======== */
+  document.getElementById('printBtn').addEventListener('click', function () {
+    window.print();
+  });
+
+  /* ======== INIT ======== */
+  updateUI();
+
+})();
+</script>
+</body>
+</html>

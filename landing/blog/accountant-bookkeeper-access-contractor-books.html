@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How Do You Give a Bookkeeper Access to Your Contractor Books Without Handing Over Admin?</title>
+<meta name="description" content="QuickBooks Online's Accountant role and ServiceTitan's Accounting role each promise scoped bookkeeper access. Sourced from both vendors' own docs, here's what each one actually locks down and what it leaves wide open." />
+<link rel="canonical" href="https://topbuilderai.com/blog/accountant-bookkeeper-access-contractor-books.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How Do You Give a Bookkeeper Access to Your Contractor Books Without Handing Over Admin?" />
+<meta property="og:description" content="QuickBooks Online's Accountant role and ServiceTitan's Accounting role each promise scoped bookkeeper access. Sourced from both vendors' own docs, here's what each one actually locks down, what it leaves wide open, and what to do instead." />
+<meta property="og:url" content="https://topbuilderai.com/blog/accountant-bookkeeper-access-contractor-books.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_payroll.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_payroll.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+  .updated{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--emerald);font-weight:600;border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:3px 11px;background:rgba(4,120,87,.06)}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:38px;color:var(--ink);line-height:1.15;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:16%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .no{color:var(--ink3)}
+  .table-take{font-size:14px;color:var(--ink3);margin-top:-12px 0 26px;padding:0 2px}
+  @media(max-width:620px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:9px 10px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .howwe{border:1px dashed var(--line2);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--panel2)}
+  .howwe .h{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+  .howwe p{margin:0;font-size:15px;color:var(--ink2);line-height:1.6}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/accountant-bookkeeper-access-contractor-books.html"},
+  "headline":"How Do You Give a Bookkeeper or CPA Access to Your Contractor Books Without Handing Over the Whole System?",
+  "description":"QuickBooks Online's Accountant role and ServiceTitan's Accounting role each promise scoped bookkeeper access. Sourced from both vendors' own current documentation: what each one actually locks down, what it leaves wide open, and what most contractors end up doing instead.",
+  "datePublished":"2026-08-18T12:00:00Z",
+  "dateModified":"2026-08-18T12:00:00Z",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_payroll.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["QuickBooks Online Accountant user","QuickBooks Online user roles","ServiceTitan roles and permissions","bookkeeper access contractor books","CPA access QuickBooks","ServiceTitan Accounting role","job costing data security for contractors"],
+  "keywords":"give bookkeeper access to QuickBooks, QuickBooks Online Accountant user, ServiceTitan roles and permissions, CPA access to contractor books, ServiceTitan Accounting role, QuickBooks Online user roles, bookkeeper access without admin rights"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does QuickBooks Online's Accountant user role give my bookkeeper full admin access?","acceptedAnswer":{"@type":"Answer","text":"Effectively, yes, and it is not adjustable. QuickBooks Online's own accountant-user documentation states the accountant can view, add, edit, and delete transactions, undo whole reconciliations, reclassify transactions, and write off bills, and multiple threads in Intuit's own QuickBooks Community confirm that once someone is added as an accountant user they hold the same level of access as the Primary Admin, with no setting to dial that back."}},
+    {"@type":"Question","name":"Can I restrict what a QuickBooks Accountant user sees, like payroll or bank transactions?","acceptedAnswer":{"@type":"Answer","text":"Not within the Accountant role itself. Intuit's own QuickBooks Community confirms there is no option to adjust an accountant's access once they're added, and the only way to limit what they see is to not use the Accountant role at all and add them as a Standard user instead, where you control the permissions directly."}},
+    {"@type":"Question","name":"What are QuickBooks Online's other user role options besides Accountant?","acceptedAnswer":{"@type":"Answer","text":"Company Admin, Standard user, Reports only, and Time tracking only, per QuickBooks Online's own user roles and access rights documentation. Standard users can be set to All Access, All Access except payroll, or Limited, and Limited access breaks down into five categories: Sales and Customers, Purchases and Vendors, Checking and Credit Cards, Payroll, and Sensitive Accounting Activities, each of which can be turned on or off independently."}},
+    {"@type":"Question","name":"What does QuickBooks Online's \"Reports only\" role actually let someone see?","acceptedAnswer":{"@type":"Answer","text":"All reports except payroll and contact-info reports, with no access to view the actual underlying transactions, per QuickBooks Online's own user roles documentation. It is a free, non-billable role that does not count against a plan's paid user limit, which makes it a fit for a CPA who only reviews numbers monthly, not for a bookkeeper who needs to enter and reconcile."}},
+    {"@type":"Question","name":"Which QuickBooks Online plan do I need for a fully custom, view-only bookkeeper role?","acceptedAnswer":{"@type":"Answer","text":"Advanced. QuickBooks Online's own documentation on custom roles states that Plus offers only the preset roles, while Advanced adds fully custom roles with granular View, Create, Edit, or Delete permissions across banking, payroll, reports, budgets, and inventory. Per third-party pricing trackers, Advanced runs $340 a month as of the August 2026 price increase and includes up to 25 users; Plus, the tier most contractor shops actually run, tops out at five users without that granular control."}},
+    {"@type":"Question","name":"Can I revoke my bookkeeper's QuickBooks Online access instantly?","acceptedAnswer":{"@type":"Answer","text":"Yes. QuickBooks Online's own help article on removing an accountant user walks through Settings, Manage users, the Accounting Firms tab, then Delete, and the access is gone immediately once a Company Admin confirms it. The same instant removal applies to a Standard user through Manage users."}},
+    {"@type":"Question","name":"Does ServiceTitan have a built-in role for a bookkeeper or controller?","acceptedAnswer":{"@type":"Answer","text":"Yes, an Accounting role, one of eight predefined roles ServiceTitan ships with. Per ServiceTitan's own documentation on understanding roles, the Accounting role can perform all major functions related to accounting duties but explicitly cannot view or edit technician payroll settings, which is a narrower default than QuickBooks Online's Accountant user."}},
+    {"@type":"Question","name":"Does ServiceTitan's Accounting role let a bookkeeper see technician pay rates?","acceptedAnswer":{"@type":"Answer","text":"Not by default. Per ServiceTitan's own permissions documentation, the specific permission \"View or update payroll tab on technician edit\" is turned on only for the Admin role by default; without it, the technician's payroll tab stays greyed out. A separate permission, \"View/edit burden rate,\" is on by default for Accounting, so a bookkeeper can see labor cost for job costing without seeing an individual technician's pay rate or commission structure."}},
+    {"@type":"Question","name":"Does ServiceTitan's Accounting role let a bookkeeper edit the pricebook by default?","acceptedAnswer":{"@type":"Answer","text":"Yes, and this is the gap most shops miss. Per ServiceTitan's own employee permissions documentation, \"Edit service,\" \"Edit material,\" and \"Edit equipment\" are all turned on by default for Dispatch, Accounting, Field Manager, Sales Manager, and Admin roles alike. A contractor who wants a bookkeeper who can see numbers but never touch pricing has to manually turn those three permissions off; ServiceTitan does not ship that restriction out of the box."}},
+    {"@type":"Question","name":"Can I stop a ServiceTitan user from exporting my full customer list?","acceptedAnswer":{"@type":"Answer","text":"Yes, and this one ships locked down. Per ServiceTitan's own documentation, the permission \"Allow exporting search results,\" which controls Excel and CSV export from search screens, is enabled only for the Admin role by default. A bookkeeper on the Accounting role cannot export the customer list unless an admin deliberately grants that permission."}},
+    {"@type":"Question","name":"Can I get one clean, read-only bookkeeper view across both ServiceTitan and QuickBooks at once?","acceptedAnswer":{"@type":"Answer","text":"Not natively, no single toggle does this. Each platform's own permission system is real and configurable on its own side, QuickBooks Online through Standard user or Advanced custom roles, ServiceTitan through role permission toggles, but neither vendor's own documentation describes a shared or synced access layer between the two. A contractor has to configure each system separately and keep both configurations current by hand."}},
+    {"@type":"Question","name":"Does it matter if the person getting access is my spouse instead of an outside bookkeeper?","acceptedAnswer":{"@type":"Answer","text":"Not to either platform's permission engine. QuickBooks Online and ServiceTitan don't have a family or co-owner access tier; a spouse doing the books gets the same role choices an outside CPA firm would. A spouse who only reviews numbers fits QuickBooks Online's free Reports only role or a locked-down ServiceTitan Accounting role; a spouse doing the actual bookkeeping work needs a properly scoped Standard user or Accounting role, not the Accountant or Admin role just because it's the fastest option to set up."}},
+    {"@type":"Question","name":"What do most contractors do instead of building this properly?","acceptedAnswer":{"@type":"Answer","text":"Based on how both platforms' default settings behave, most shops land on one of two patterns: over-granting, adding the bookkeeper as a QuickBooks Accountant user and a ServiceTitan Admin because it is faster than configuring permissions correctly, or under-granting, exporting PDFs and spreadsheets by hand so the bookkeeper never logs into either system, which is exactly the manual re-keying step that breaks job-cost accuracy this blog has documented elsewhere."}},
+    {"@type":"Question","name":"Is over-granting bookkeeper access actually a real risk, or just a technicality?","acceptedAnswer":{"@type":"Answer","text":"It is a documented pattern in fraud cases generally, not a contractor-specific statistic. The Association of Certified Fraud Examiners' 2024 Report to the Nations, which analyzed 1,921 real occupational fraud cases, found that a lack of internal controls (32%) or the override of existing controls (19%) accounted for the opportunity in more than half of all cases examined. That is general occupational-fraud data, not a bookkeeping-software-specific figure, but it is the closest traceable, dated source on why access scope matters."}},
+    {"@type":"Question","name":"Does Top Builder AI have a shipped self-serve tool that sets this up for me?","acceptedAnswer":{"@type":"Answer","text":"No self-serve product ships today. Top Builder AI's Documents and Financial capability is real, built code that already handles categorization and filing, but auditing and configuring a bookkeeper's exact permission scope across a shop's live ServiceTitan and QuickBooks accounts is delivered through a done-for-you Teardown or 90-Day Install engagement, not existing software a contractor signs up for and clicks through alone."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Bookkeeper Access</div>
+    <span class="kicker">QuickBooks Online &middot; ServiceTitan &middot; Bookkeeper Access</span>
+    <h1>How Do You Give a Bookkeeper or CPA Access to Your Contractor Books Without Handing Over the Whole System?</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 18, 2026</span>
+      <span class="updated">Updated August 18, 2026</span>
+      <span class="pill">~13 min read</span>
+      <span class="pill">Owner + Bookkeeper Setups</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_payroll.jpg" alt="A contractor and a bookkeeper reviewing printed financial reports at a desk, a service van visible through the window behind them" loading="eager" width="1408" height="768" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">Neither QuickBooks Online nor ServiceTitan hands you a single, ready-made "bookkeeper, read-only" role that works the way most contractors expect. QuickBooks Online's own Accountant user gets treated as near-admin access, view, add, edit, and delete transactions, undo reconciliations, reclassify anything, with no dial to turn that down, per Intuit's own documentation and its own QuickBooks Community threads. ServiceTitan's built-in Accounting role is narrower by default, it can't touch a technician's pay rate, but it can edit your pricebook out of the box unless you manually turn that off. Below is exactly what each vendor's own current documentation says a bookkeeper role can and can't do, where the two platforms disagree on what "safe" access even means, and what actually closes the gap for a shop running both.</p>
+
+      <p>This isn't a "which platform is more secure" piece. Both QuickBooks Online and ServiceTitan are the software the industry actually runs, and neither is going anywhere. The question underneath this one, the one an owner types at 11pm after a bookkeeper asks for login credentials, is narrower: can I give this person enough to do her job, and nothing else, or am I stuck choosing between locking her out of the numbers she needs and handing her the whole account.</p>
+
+      <h2>Does giving my bookkeeper QuickBooks access mean giving them the keys to everything?</h2>
+      <p>If you use the built-in Accountant user type, functionally yes, and QuickBooks Online doesn't let you turn that down afterward. Per Intuit's own help documentation on managing accountant users, an accountant added this way can view, add, edit, and delete transactions and gets professional-grade tools that go beyond a normal user, undoing whole reconciliations, reclassifying transactions, and writing off bills.</p>
+      <p>The part that surprises most owners shows up in Intuit's own QuickBooks Community: once someone is added as an accountant user, "there's no option to adjust your accountant's access right since they're already set up as an admin." The only stated workaround is to not use the Accountant role at all and add the person as a Standard user instead, which is a controllable but entirely different setup.</p>
+
+      <h2>What does QuickBooks Online's Accountant user role actually unlock?</h2>
+      <p>Everything a working accountant needs to correct the books, and functionally the same access level as the Primary Admin. Per Intuit's own accountant-access documentation, an accountant user can view, add, edit, and delete transactions, run any report, and use tools regular users don't get: undoing an entire bank reconciliation, reclassifying batches of transactions, and writing off bills in bulk.</p>
+      <p>It's also free. Accountant users don't count toward a plan's paid, billed user limit, and QuickBooks Online allows up to two accountant users on Simple Start and up to three on Advanced, per the same documentation. That makes it cheap to add someone this way, which is exactly why so many contractors do, without realizing the role has no built-in ceiling.</p>
+
+      <h2>Can that access be narrowed down, or is it all-or-nothing?</h2>
+      <p>It's all-or-nothing inside the Accountant role itself. If you want narrower access, QuickBooks Online's own path is to skip the Accountant role and add the bookkeeper as a Standard user, where you set the access level directly. That is a real, working option, it just requires knowing to choose it before you send the invite, not after your bookkeeper is already logged in as a near-admin.</p>
+      <p>One nuance worth knowing: Standard users can also be set to "All Access except payroll," a specific, named option in QuickBooks Online's own user roles documentation, which is closer to what most owners picture when they imagine "give the bookkeeper the books but not the payroll."</p>
+
+      <h2>What do QuickBooks Online's other user roles actually offer instead?</h2>
+      <p>Four real alternatives exist beyond Accountant: Company Admin, Standard user, Reports only, and Time tracking only, per QuickBooks Online's own user roles and access rights documentation. Standard user is the one built for this exact situation, it can be set to All Access, All Access except payroll, or Limited, and Limited access breaks into five toggleable categories: Sales and Customers, Purchases and Vendors, Checking and Credit Cards, Payroll, and Sensitive Accounting Activities.</p>
+      <p>Reports only is the leanest option: it shows all reports except payroll and contact-info reports, with no access to the underlying transactions at all, and it's a free, non-billable role that doesn't count against the plan's user limit. That fits a CPA who reviews a monthly P&L and nothing else; it doesn't fit a bookkeeper who needs to categorize transactions or reconcile a bank feed.</p>
+
+      <h2>Which QuickBooks Online plan do I need to build a real view-only bookkeeper role?</h2>
+      <p>Advanced, if you want fully custom, granular permissions. QuickBooks Online's own documentation on custom roles states that Plus offers only the preset roles, while Advanced adds custom roles with View, Create, Edit, or Delete control across banking, payroll, reports, budgets, and inventory individually. Per current third-party pricing trackers, Advanced runs $340 a month after the August 2026 price increase and includes up to 25 users; Plus, the tier most 1-to-10-person contractor shops actually run, tops out at five users and doesn't offer that granularity.</p>
+      <p>That's the real tradeoff most owners never see spelled out: the plan tier that already fits a small crew's headcount, Plus, is not the plan tier with the permission control this question is really asking for.</p>
+
+      <h2>How fast can I cut off a bookkeeper's QuickBooks access if the relationship ends?</h2>
+      <p>Immediately, on both role types. Per QuickBooks Online's own help article on removing an accountant user, a Company Admin goes to Settings, Manage users, the Accounting Firms tab, finds the accountant, and selects Delete twice; access is gone as soon as it's confirmed, and the same instant removal applies to deleting a Standard user. One documented catch: accountants can't remove other accountants or themselves from that screen, only a Primary Admin can pull the trigger, so make sure the owner, not the bookkeeper, holds that login.</p>
+
+      <h2>Does ServiceTitan even have a role built for a bookkeeper?</h2>
+      <p>Yes, called Accounting, one of eight roles ServiceTitan ships with by default: Admin, Dispatch, Accounting, Field Managers, Technicians, Sales Managers, CSRs, and General Office, per ServiceTitan's own documentation on understanding roles. That same documentation states the Accounting role "CAN perform all major functions in ServiceTitan related to accounting duties" but explicitly "CANNOT view or edit technician payroll settings," a narrower default out of the box than QuickBooks Online's all-access Accountant user.</p>
+
+      <h2>What can that ServiceTitan Accounting role see and touch, by default?</h2>
+      <p>Job costing reports and burden-rate data, yes; the technician payroll tab, no, unless an admin turns it on. Per ServiceTitan's own permissions documentation, "View or update payroll tab on technician edit" is on by default only for Admin; without it, the payroll tab on a technician's record is greyed out entirely. A separate, narrower permission, "View/edit burden rate," is on by default for Accounting, so a bookkeeper sees labor cost for job-margin math without seeing that specific technician's actual pay rate or commission.</p>
+      <p>The catch most shops miss cuts the other way. The same documentation shows "Edit service," "Edit material," and "Edit equipment," the permissions that let someone change your pricebook, are all on by default for Dispatch, Accounting, Field Manager, Sales Manager, and Admin alike. A bookkeeper on the default Accounting role can, right now, change what your services cost. Turning that off requires an admin to go into Settings, People, Role Permissions and deselect it, per ServiceTitan's own instructions for setting role permissions.</p>
+
+      <h2>Can I stop a ServiceTitan bookkeeper from touching pricing or exporting my customer list?</h2>
+      <p>Pricing, yes, but only if you turn it off yourself; customer-list export ships locked down already. Per ServiceTitan's own employee-permissions documentation, "Allow exporting search results," the permission that lets someone pull your customer list to Excel or CSV, is enabled only for Admin by default. A bookkeeper on Accounting can't export your customer list unless an admin deliberately grants it. Pricebook editing is the opposite story: it's on by default and has to be manually removed, permission by permission, for a role or for that one individual.</p>
+
+      <h2>So can I build one clean, read-only bookkeeper view across both systems at once?</h2>
+      <p>Not with a single setting, no. Each platform's permission system is genuinely configurable on its own side, QuickBooks Online through a Standard user role or an Advanced custom role, ServiceTitan through the role permission toggles at Settings, People, Role Permissions, but neither vendor's own documentation describes a shared or synced access layer between the two systems. Locking down QuickBooks doesn't touch ServiceTitan's pricebook permission, and locking down ServiceTitan doesn't touch what your Accountant user can undo in QuickBooks. A contractor configures both, separately, correctly, and then has to remember to keep both current every time a bookkeeper's role changes.</p>
+
+      <h2>Does it matter if the person getting access is my spouse instead of an outside bookkeeper?</h2>
+      <p>Not to either platform's permission engine, no. QuickBooks Online and ServiceTitan don't have a "family" or "co-owner" access tier; a spouse doing the books on Sunday night gets the same four QuickBooks Online role choices and the same eight ServiceTitan roles as an outside CPA firm would. What changes is which choice fits. A spouse who just wants to see the AR aging and the week's numbers on her phone fits QuickBooks Online's free Reports only role or a ServiceTitan Accounting role with pricebook editing turned off. A spouse who is the one categorizing transactions, sending invoices, and chasing depreciation checks needs the same working access a paid bookkeeper would, a Standard user with Limited categories set correctly, not the Accountant role, and not full ServiceTitan Admin just because it's easier than configuring the Accounting role once.</p>
+      <p>The distinction matters because the two roles carry different risk. A view-only spouse account that gets compromised exposes reports; a spouse logged in as QuickBooks Online's near-admin Accountant user or ServiceTitan's full Admin exposes everything those roles can touch, including the pricebook, the customer list, and every transaction in the file.</p>
+
+      <figure class="stat">
+        <div class="cap">Illustrative walkthrough &middot; one owner, two systems</div>
+        <div class="body">
+          <div class="val">Two logins set up in an afternoon, neither one scoped</div>
+          <div class="lab">A roofing owner adds his wife as a QuickBooks Online Accountant user so she can enter deposits on Sunday nights, and adds her as a ServiceTitan Admin so she can pull job reports without asking him for a login. Both choices work immediately. Neither one is the role QuickBooks Online or ServiceTitan actually built for that job: a Standard user with Limited access in QuickBooks, and an Accounting role with pricebook editing turned off in ServiceTitan, would have covered the same daily work without the admin-level blast radius on either side.</div>
+          <div class="src">Illustrative example, not a client result.</div>
+        </div>
+      </figure>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="QuickBooks Online Accountant user vs ServiceTitan Accounting role vs what a bookkeeper actually needs">
+          <thead><tr><th>Access area</th><th>QuickBooks Online Accountant user</th><th>ServiceTitan Accounting role (default)</th><th>What a bookkeeper actually needs</th></tr></thead>
+          <tbody>
+            <tr><td>P&amp;L / job costing reports</td><td>Full, all reports</td><td>Yes (job costing report included)</td><td>Yes</td></tr>
+            <tr><td>AR aging / customer balances</td><td>Full</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>Payroll amounts / pay stubs</td><td class="no">Full, same as admin, not blockable in this role</td><td class="no">No, payroll tab greyed out by default</td><td class="no">Usually not, unless reconciling payroll</td></tr>
+            <tr><td>Technician pay rate / commission</td><td>N/A, not a QuickBooks field</td><td class="no">No by default</td><td class="no">No</td></tr>
+            <tr><td>Edit the pricebook / service pricing</td><td>N/A, not a QuickBooks field</td><td>Yes by default, must be manually turned off</td><td class="no">No, unless a controller role</td></tr>
+            <tr><td>Export the full customer list</td><td>Yes, via reports</td><td class="no">No by default, Admin-only</td><td class="no">No</td></tr>
+            <tr><td>Undo reconciliations / reclassify in bulk</td><td>Yes, a defining feature of this role</td><td>N/A</td><td>Sometimes, for a real bookkeeper</td></tr>
+            <tr><td>Instant revoke when the relationship ends</td><td>Yes, one click by a Primary Admin</td><td>Yes, an admin can deactivate or change the role anytime</td><td>Always required</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">Both platforms can be locked down, but only if an admin actively customizes away from the default. QuickBooks Online's Accountant role ships as a broad, all-access bundle with no dial; ServiceTitan's Accounting role ships able to edit your pricebook until someone turns that off. Neither one talks to the other.</p>
+
+      <h2>What do most contractors do instead of building this properly?</h2>
+      <p>Based on how both platforms' defaults behave, most shops land on one of two patterns, and neither one is really a solution. The first is over-granting: adding the bookkeeper as a QuickBooks Accountant user and a ServiceTitan Admin because it's the fast path and nobody has an afternoon to map out role permissions. The second is under-granting: keeping the bookkeeper out of both systems entirely and exporting PDFs or CSVs by hand instead, which sidesteps the access question but recreates exactly the manual re-keying step this blog has already documented as the source of stale job-cost numbers in a <a class="link" href="/blog/servicetitan-quickbooks-sync-gaps-double-data-entry.html">companion piece on QuickBooks sync gaps</a>.</p>
+
+      <h2>What actually closes this gap for a shop running ServiceTitan and QuickBooks together?</h2>
+      <p>A permission audit that walks both systems together, sets QuickBooks to a Standard user with the right Limited categories (or a proper Advanced custom role), sets ServiceTitan's Accounting role permissions deliberately instead of leaving the defaults, and documents both so the next bookkeeper transition doesn't start from zero. That's delivered through Top Builder AI's Teardown or 90-Day Install, a done-for-you engagement, not a piece of software a contractor clicks through alone. The <a class="link" href="/blog/connect-servicetitan-quickbooks-automated-job-costing.html">companion guide on connecting ServiceTitan to QuickBooks for automated job costing</a> covers the categorization layer that this access work sits underneath; getting the numbers flowing cleanly and getting the right person the right access to those numbers are two parts of the same back-office cleanup.</p>
+
+      <div class="howwe">
+        <div class="h">How we verified this</div>
+        <p>Every permission claim above traces to that vendor's own current documentation. QuickBooks Online: its <a class="link" href="https://quickbooks.intuit.com/learn-support/en-global/help-article/account-management/managing-accountant-users-quickbooks-online/L2AcdYvHw_ROW_en" rel="noopener noreferrer">help article on managing accountant users</a>, its <a class="link" href="https://quickbooks.intuit.com/learn-support/en-us/help-article/access-permissions/user-roles-access-rights-quickbooks-online/L66POfRrI_US_en_US" rel="noopener noreferrer">user roles and access rights documentation</a>, its <a class="link" href="https://quickbooks.intuit.com/learn-support/en-us/help-article/access-permissions/add-manage-custom-roles-quickbooks-online-advanced/L8Ugph7xl_US_en_US" rel="noopener noreferrer">custom roles documentation for Advanced</a>, and its <a class="link" href="https://quickbooks.intuit.com/learn-support/en-us/help-article/accountant-access/remove-accountant-user/L2WxFaS9M_US_en_US" rel="noopener noreferrer">help article on removing an accountant user</a>. Where Intuit's own documentation was ambiguous on whether accountant access is truly fixed, we cross-checked against multiple threads in Intuit's own QuickBooks Community, which independently confirmed the same behavior. ServiceTitan: its <a class="link" href="https://help.servicetitan.com/how-to/understanding-roles" rel="noopener noreferrer">documentation on understanding employee and technician permission roles</a>, its <a class="link" href="https://help.servicetitan.com/how-to/employee-permissions" rel="noopener noreferrer">explanation of office employee permissions</a>, and its <a class="link" href="https://help.servicetitan.com/how-to/set-permissions-for-role" rel="noopener noreferrer">documentation on setting permissions for a role</a>. The fraud-risk context comes from the <a class="link" href="https://legacy.acfe.com/report-to-the-nations/2024/" rel="noopener noreferrer">Association of Certified Fraud Examiners' 2024 Report to the Nations</a>, general occupational-fraud data, not a bookkeeping-software-specific study, labeled as such. QuickBooks Online Advanced pricing was checked against current third-party pricing trackers rather than Intuit's own pricing page directly; verify current figures before deciding.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Decide what your bookkeeper actually needs to do</b>, enter and reconcile transactions versus review reports only, before picking a QuickBooks role; that answer decides Accountant vs Standard vs Reports only.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Check your ServiceTitan Accounting role's pricebook permissions today</b> at Settings, People, Role Permissions; most shops have never turned "Edit service/material/equipment" off.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Confirm who holds the Primary Admin login in QuickBooks</b> so revoking access never depends on the bookkeeper's own cooperation.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Write down both configurations somewhere outside either system</b>, since neither platform's permission screen documents itself for the next person who has to change it.</div></div>
+      </div>
+
+      <ul>
+        <li><b>No shipped self-serve permission-audit tool today.</b> This is a sourced method, delivered as part of a configured Teardown or Install against a shop's real ServiceTitan and QuickBooks setup, not existing software a contractor signs up for.</li>
+        <li><b>No invented numbers or mechanisms.</b> Every role and permission claim above traces to that vendor's own current documentation or its own official Community; where the documentation didn't say something outright, we said so.</li>
+        <li><b>Doesn't claim a synced access layer that doesn't exist.</b> Neither QuickBooks Online nor ServiceTitan documents a shared permission system between the two platforms, and this post doesn't claim Top Builder AI has built one.</li>
+        <li><b>A person still approves every permission change.</b> Nothing described here auto-edits a user's role, a technician's pay rate, or a pricebook entry.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>Want to see exactly what your bookkeeper's current access actually covers?</h2>
+        <p>Most shops have never checked their ServiceTitan role permissions or their QuickBooks user type against what the bookkeeper actually needs. A fit call walks through what turns up in yours.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>What else do contractors ask about bookkeeper and accountant access?</h2>
+
+      <div class="q">Does QuickBooks Online's Accountant user role give my bookkeeper full admin access?</div>
+      <div class="a">Effectively, yes, and it is not adjustable. QuickBooks Online's own accountant-user documentation states the accountant can view, add, edit, and delete transactions, undo whole reconciliations, reclassify transactions, and write off bills, and multiple threads in Intuit's own QuickBooks Community confirm that once someone is added as an accountant user they hold the same level of access as the Primary Admin, with no setting to dial that back.</div>
+
+      <div class="q">Can I restrict what a QuickBooks Accountant user sees, like payroll or bank transactions?</div>
+      <div class="a">Not within the Accountant role itself. Intuit's own QuickBooks Community confirms there is no option to adjust an accountant's access once they're added, and the only way to limit what they see is to not use the Accountant role at all and add them as a Standard user instead, where you control the permissions directly.</div>
+
+      <div class="q">What are QuickBooks Online's other user role options besides Accountant?</div>
+      <div class="a">Company Admin, Standard user, Reports only, and Time tracking only, per QuickBooks Online's own user roles and access rights documentation. Standard users can be set to All Access, All Access except payroll, or Limited, and Limited access breaks down into five categories: Sales and Customers, Purchases and Vendors, Checking and Credit Cards, Payroll, and Sensitive Accounting Activities, each of which can be turned on or off independently.</div>
+
+      <div class="q">What does QuickBooks Online's "Reports only" role actually let someone see?</div>
+      <div class="a">All reports except payroll and contact-info reports, with no access to view the actual underlying transactions, per QuickBooks Online's own user roles documentation. It is a free, non-billable role that does not count against a plan's paid user limit, which makes it a fit for a CPA who only reviews numbers monthly, not for a bookkeeper who needs to enter and reconcile.</div>
+
+      <div class="q">Which QuickBooks Online plan do I need for a fully custom, view-only bookkeeper role?</div>
+      <div class="a">Advanced. QuickBooks Online's own documentation on custom roles states that Plus offers only the preset roles, while Advanced adds fully custom roles with granular View, Create, Edit, or Delete permissions across banking, payroll, reports, budgets, and inventory. Per third-party pricing trackers, Advanced runs $340 a month as of the August 2026 price increase and includes up to 25 users; Plus, the tier most contractor shops actually run, tops out at five users without that granular control.</div>
+
+      <div class="q">Can I revoke my bookkeeper's QuickBooks Online access instantly?</div>
+      <div class="a">Yes. QuickBooks Online's own help article on removing an accountant user walks through Settings, Manage users, the Accounting Firms tab, then Delete, and the access is gone immediately once a Company Admin confirms it. The same instant removal applies to a Standard user through Manage users.</div>
+
+      <div class="q">Does ServiceTitan have a built-in role for a bookkeeper or controller?</div>
+      <div class="a">Yes, an Accounting role, one of eight predefined roles ServiceTitan ships with. Per ServiceTitan's own documentation on understanding roles, the Accounting role can perform all major functions related to accounting duties but explicitly cannot view or edit technician payroll settings, which is a narrower default than QuickBooks Online's Accountant user.</div>
+
+      <div class="q">Does ServiceTitan's Accounting role let a bookkeeper see technician pay rates?</div>
+      <div class="a">Not by default. Per ServiceTitan's own permissions documentation, the specific permission "View or update payroll tab on technician edit" is turned on only for the Admin role by default; without it, the technician's payroll tab stays greyed out. A separate permission, "View/edit burden rate," is on by default for Accounting, so a bookkeeper can see labor cost for job costing without seeing an individual technician's pay rate or commission structure.</div>
+
+      <div class="q">Does ServiceTitan's Accounting role let a bookkeeper edit the pricebook by default?</div>
+      <div class="a">Yes, and this is the gap most shops miss. Per ServiceTitan's own employee permissions documentation, "Edit service," "Edit material," and "Edit equipment" are all turned on by default for Dispatch, Accounting, Field Manager, Sales Manager, and Admin roles alike. A contractor who wants a bookkeeper who can see numbers but never touch pricing has to manually turn those three permissions off; ServiceTitan does not ship that restriction out of the box.</div>
+
+      <div class="q">Can I stop a ServiceTitan user from exporting my full customer list?</div>
+      <div class="a">Yes, and this one ships locked down. Per ServiceTitan's own documentation, the permission "Allow exporting search results," which controls Excel and CSV export from search screens, is enabled only for the Admin role by default. A bookkeeper on the Accounting role cannot export the customer list unless an admin deliberately grants that permission.</div>
+
+      <div class="q">Can I get one clean, read-only bookkeeper view across both ServiceTitan and QuickBooks at once?</div>
+      <div class="a">Not natively, no single toggle does this. Each platform's own permission system is real and configurable on its own side, QuickBooks Online through Standard user or Advanced custom roles, ServiceTitan through role permission toggles, but neither vendor's own documentation describes a shared or synced access layer between the two. A contractor has to configure each system separately and keep both configurations current by hand.</div>
+
+      <div class="q">Does it matter if the person getting access is my spouse instead of an outside bookkeeper?</div>
+      <div class="a">Not to either platform's permission engine. QuickBooks Online and ServiceTitan don't have a family or co-owner access tier; a spouse doing the books gets the same role choices an outside CPA firm would. A spouse who only reviews numbers fits QuickBooks Online's free Reports only role or a locked-down ServiceTitan Accounting role; a spouse doing the actual bookkeeping work needs a properly scoped Standard user or Accounting role, not the Accountant or Admin role just because it's the fastest option to set up.</div>
+
+      <div class="q">What do most contractors do instead of building this properly?</div>
+      <div class="a">Based on how both platforms' default settings behave, most shops land on one of two patterns: over-granting, adding the bookkeeper as a QuickBooks Accountant user and a ServiceTitan Admin because it is faster than configuring permissions correctly, or under-granting, exporting PDFs and spreadsheets by hand so the bookkeeper never logs into either system, which is exactly the manual re-keying step that breaks job-cost accuracy this blog has documented elsewhere.</div>
+
+      <div class="q">Is over-granting bookkeeper access actually a real risk, or just a technicality?</div>
+      <div class="a">It is a documented pattern in fraud cases generally, not a contractor-specific statistic. The Association of Certified Fraud Examiners' 2024 Report to the Nations, which analyzed 1,921 real occupational fraud cases, found that a lack of internal controls (32%) or the override of existing controls (19%) accounted for the opportunity in more than half of all cases examined. That is general occupational-fraud data, not a bookkeeping-software-specific figure, but it is the closest traceable, dated source on why access scope matters.</div>
+
+      <div class="q">Does Top Builder AI have a shipped self-serve tool that sets this up for me?</div>
+      <div class="a">No self-serve product ships today. Top Builder AI's Documents and Financial capability is real, built code that already handles categorization and filing, but auditing and configuring a bookkeeper's exact permission scope across a shop's live ServiceTitan and QuickBooks accounts is delivered through a done-for-you Teardown or 90-Day Install engagement, not existing software a contractor signs up for and clicks through alone.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

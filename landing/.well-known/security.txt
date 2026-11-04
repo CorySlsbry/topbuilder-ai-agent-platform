@@ -1,0 +1,9 @@
+# Top Builder AI — security contact (RFC 9116)
+# Salisbury Bookkeeping, LLC · topbuilderai.com
+# If you have found a security vulnerability, please tell us. Thank you.
+
+Contact: mailto:support@salisburybookkeeping.com
+Expires: 2027-06-14T00:00:00.000Z
+Policy: https://topbuilderai.com/security
+Preferred-Languages: en
+Canonical: https://topbuilderai.com/.well-known/security.txt

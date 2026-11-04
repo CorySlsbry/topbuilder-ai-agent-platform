@@ -1,0 +1,21 @@
+An AI back office for ServiceTitan is a set of self-learning AI agents that install on the ServiceTitan you already run and handle the work it never automated — the money, materials, people, paperwork, receivables, and pricebook — turning your data into deterministic, audited recommendations and human-approved actions. ServiceTitan runs your front office; these eight agents run the back office, and they get smarter every week.
+
+Two of the eight beat ServiceTitan's own AI agents (Booking and Dispatch) because they learn your shop; six run the back office it has no agent for — Financial, Inventory, Workforce, Documents, Collections, and Pricebook. They share one brain instead of ten disconnected tools, every figure comes from deterministic tested code, and every action is advisory-by-default, human-approved, and reversible. It complements ServiceTitan — it never replaces it.
+
+▶ Full written guide: https://topbuilderai.com/blog/ai-back-office-for-servicetitan.html
+▶ See all 8 agents + book an intro call: https://topbuilderai.com/
+▶ Top Builder AI: https://topbuilderai.com
+
+CHAPTERS
+0:00 The front office vs. the back office
+0:56 An AI back office for ServiceTitan
+1:11 Eight agents — two it can't beat, six it doesn't have
+2:05 Why one brain beats ten tools
+2:36 vs. ServiceTitan's own AI agents
+2:56 Safe by design
+3:15 What changes
+3:38 See it on your ServiceTitan
+
+Built and run by Top Builder AI — the AI back office for ServiceTitan contractors, an arm of Salisbury Bookkeeping LLC.
+
+#ServiceTitan #AIforContractors #HVACBusiness

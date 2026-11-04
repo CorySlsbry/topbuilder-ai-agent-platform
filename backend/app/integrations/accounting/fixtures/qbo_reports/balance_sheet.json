@@ -1,0 +1,193 @@
+{
+  "Header": {
+    "ReportName": "BalanceSheet",
+    "Time": "2026-06-17T00:00:00-07:00",
+    "ReportBasis": "Accrual",
+    "Currency": "USD",
+    "Option": [{ "Name": "AccountingStandard", "Value": "GAAP" }]
+  },
+  "Columns": {
+    "Column": [
+      { "ColTitle": "", "ColType": "Account" },
+      { "ColTitle": "Total", "ColType": "Money" }
+    ]
+  },
+  "Rows": {
+    "Row": [
+      {
+        "Header": { "ColData": [{ "value": "ASSETS" }, { "value": "" }] },
+        "Rows": {
+          "Row": [
+            {
+              "Header": { "ColData": [{ "value": "Current Assets" }, { "value": "" }] },
+              "Rows": {
+                "Row": [
+                  {
+                    "Header": { "ColData": [{ "value": "Bank Accounts" }, { "value": "" }] },
+                    "Rows": {
+                      "Row": [
+                        {
+                          "ColData": [
+                            { "value": "Operating Checking", "id": "35" },
+                            { "value": "5000.00" }
+                          ],
+                          "type": "Data"
+                        },
+                        {
+                          "ColData": [
+                            { "value": "Savings", "id": "36" },
+                            { "value": "2000.00" }
+                          ],
+                          "type": "Data"
+                        }
+                      ]
+                    },
+                    "Summary": {
+                      "ColData": [{ "value": "Total Bank Accounts" }, { "value": "7000.00" }]
+                    },
+                    "type": "Section",
+                    "group": "BankAccounts"
+                  },
+                  {
+                    "Header": { "ColData": [{ "value": "Accounts Receivable" }, { "value": "" }] },
+                    "Rows": {
+                      "Row": [
+                        {
+                          "ColData": [
+                            { "value": "Accounts Receivable (A/R)", "id": "84" },
+                            { "value": "2700.00" }
+                          ],
+                          "type": "Data"
+                        }
+                      ]
+                    },
+                    "Summary": {
+                      "ColData": [{ "value": "Total Accounts Receivable" }, { "value": "2700.00" }]
+                    },
+                    "type": "Section",
+                    "group": "AR"
+                  }
+                ]
+              },
+              "Summary": {
+                "ColData": [{ "value": "Total Current Assets" }, { "value": "9700.00" }]
+              },
+              "type": "Section"
+            }
+          ]
+        },
+        "Summary": { "ColData": [{ "value": "TOTAL ASSETS" }, { "value": "9700.00" }] },
+        "type": "Section",
+        "group": "TotalAssets"
+      },
+      {
+        "Header": { "ColData": [{ "value": "LIABILITIES AND EQUITY" }, { "value": "" }] },
+        "Rows": {
+          "Row": [
+            {
+              "Header": { "ColData": [{ "value": "Liabilities" }, { "value": "" }] },
+              "Rows": {
+                "Row": [
+                  {
+                    "Header": { "ColData": [{ "value": "Current Liabilities" }, { "value": "" }] },
+                    "Rows": {
+                      "Row": [
+                        {
+                          "Header": { "ColData": [{ "value": "Accounts Payable" }, { "value": "" }] },
+                          "Rows": {
+                            "Row": [
+                              {
+                                "ColData": [
+                                  { "value": "Accounts Payable (A/P)", "id": "33" },
+                                  { "value": "800.00" }
+                                ],
+                                "type": "Data"
+                              }
+                            ]
+                          },
+                          "Summary": {
+                            "ColData": [{ "value": "Total Accounts Payable" }, { "value": "800.00" }]
+                          },
+                          "type": "Section",
+                          "group": "AP"
+                        },
+                        {
+                          "Header": { "ColData": [{ "value": "Credit Cards" }, { "value": "" }] },
+                          "Rows": {
+                            "Row": [
+                              {
+                                "ColData": [
+                                  { "value": "Fleet Card", "id": "41" },
+                                  { "value": "1200.00" }
+                                ],
+                                "type": "Data"
+                              }
+                            ]
+                          },
+                          "Summary": {
+                            "ColData": [{ "value": "Total Credit Cards" }, { "value": "1200.00" }]
+                          },
+                          "type": "Section",
+                          "group": "CreditCards"
+                        },
+                        {
+                          "Header": { "ColData": [{ "value": "Other Current Liabilities" }, { "value": "" }] },
+                          "Rows": {
+                            "Row": [
+                              {
+                                "ColData": [
+                                  { "value": "Line of Credit", "id": "57" },
+                                  { "value": "500.00" }
+                                ],
+                                "type": "Data"
+                              }
+                            ]
+                          },
+                          "Summary": {
+                            "ColData": [{ "value": "Total Other Current Liabilities" }, { "value": "500.00" }]
+                          },
+                          "type": "Section",
+                          "group": "OtherCurrentLiabilities"
+                        }
+                      ]
+                    },
+                    "Summary": {
+                      "ColData": [{ "value": "Total Current Liabilities" }, { "value": "2500.00" }]
+                    },
+                    "type": "Section",
+                    "group": "CurrentLiabilities"
+                  },
+                  {
+                    "Header": { "ColData": [{ "value": "Long-Term Liabilities" }, { "value": "" }] },
+                    "Rows": {
+                      "Row": [
+                        {
+                          "ColData": [
+                            { "value": "Equipment Loan", "id": "61" },
+                            { "value": "10000.00" }
+                          ],
+                          "type": "Data"
+                        }
+                      ]
+                    },
+                    "Summary": {
+                      "ColData": [{ "value": "Total Long-Term Liabilities" }, { "value": "10000.00" }]
+                    },
+                    "type": "Section",
+                    "group": "LongTermLiabilities"
+                  }
+                ]
+              },
+              "Summary": {
+                "ColData": [{ "value": "Total Liabilities" }, { "value": "12500.00" }]
+              },
+              "type": "Section",
+              "group": "Liabilities"
+            }
+          ]
+        },
+        "type": "Section"
+      }
+    ]
+  }
+}

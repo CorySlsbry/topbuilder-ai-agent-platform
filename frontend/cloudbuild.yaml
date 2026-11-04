@@ -1,0 +1,14 @@
+# Build the Command Center image with the API base baked into the client bundle.
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --build-arg
+      - NEXT_PUBLIC_API_BASE_URL=https://api.topbuilderai.com
+      - -t
+      - us-central1-docker.pkg.dev/builder-ai-497610/topbuilder-ai/servicetitan-agent-web:${_TAG}
+      - .
+images:
+  - us-central1-docker.pkg.dev/builder-ai-497610/topbuilder-ai/servicetitan-agent-web:${_TAG}
+substitutions:
+  _TAG: manual

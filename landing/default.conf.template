@@ -1,0 +1,55 @@
+server {
+    listen       ${PORT};
+    server_name  _;
+    root         /usr/share/nginx/html;
+    index        index.html;
+
+    # ⛔ nginx gotcha that bit us (2026-08-10 security audit): `add_header` in a location block
+    # REPLACES the entire server-level set — it does not merge. The Cache-Control below used to be
+    # alone in this block, which silently stripped EVERY security header from the homepage (and from
+    # anything try_files fell back to /index.html, i.e. most of the site). Verified live:
+    # topbuilderai.com was returning no X-Frame-Options, no nosniff, no Referrer-Policy at all.
+    # RULE: any location that sets its own add_header MUST repeat the full security set below.
+
+    # SPA-style fallback + clean URLs. $uri.html lets /privacy, /terms and /security resolve to
+    # their .html files; only when nothing matches do we fall back to the single page. Never cache
+    # the HTML so edits show immediately.
+    location = /index.html {
+        add_header Cache-Control "no-cache, must-revalidate";
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    }
+    location / {
+        try_files $uri $uri.html $uri/ /index.html;
+    }
+
+    # RFC 9116 security contact — must be served as plain text. (.well-known is a dotfile dir; nginx
+    # serves it fine, but be explicit about the content type so agents parse it correctly.) NOTE:
+    # an add_header in a location REPLACES the server-level set, so the security headers are repeated.
+    location = /.well-known/security.txt {
+        default_type text/plain;
+        add_header Cache-Control "public, max-age=86400";
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    }
+
+    # WebMCP manifest — explicit JS content type; short cache so tool changes propagate.
+    location = /webmcp.js {
+        default_type application/javascript;
+        add_header Cache-Control "public, max-age=3600";
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    }
+
+    # security headers (server-level default — inherited only by locations that set NO add_header)
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+}

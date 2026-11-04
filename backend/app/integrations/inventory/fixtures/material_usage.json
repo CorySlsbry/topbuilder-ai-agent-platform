@@ -1,0 +1,8 @@
+[
+  { "job_id": "J-501", "sku": "SKU-FILT", "qty_used": 8,   "billed": false },
+  { "job_id": "J-501", "sku": "SKU-CAP",  "qty_used": 2,   "billed": true },
+  { "job_id": "J-502", "sku": "SKU-RFGR", "qty_used": 1.5, "billed": false },
+  { "job_id": "J-503", "sku": "SKU-CONT", "qty_used": 4,   "billed": false },
+  { "job_id": "J-504", "sku": "SKU-COMP", "qty_used": 1,   "billed": true },
+  { "job_id": "J-505", "sku": "SKU-THRM", "qty_used": 1,   "billed": false }
+]

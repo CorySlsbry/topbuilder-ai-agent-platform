@@ -1,0 +1,11 @@
+Should you replace ServiceTitan with a different platform, or add an AI back-office layer on top of it?
+
+ServiceTitan's own BBB complaints profile documents early-termination demands from $16,121 to $67,230. Independent implementation guides put a fast-track switch at 3-4 weeks of setup, a go-live week, then 90 days of post-launch support. None of that gets priced in a typical "ServiceTitan alternatives" listicle.
+
+A stale pricebook, a slow AR queue, or dispatch that ignores margin are workflow gaps, not platform limitations, and they travel with a shop to whatever new system it lands on. An AI layer added on top of the ServiceTitan a shop already runs, covering pricebook freshness, collections, dispatch margin, and job costing, closes those gaps directly, without the migration, the retraining, or the new contract.
+
+Full breakdown, every source linked: https://topbuilderai.com/blog/add-ai-to-servicetitan-vs-replace-it.html
+
+Top Builder AI is the AI back office for ServiceTitan contractors: Money, Materials, People & Paperwork. Advisory by default; a human approves every action.
+
+https://topbuilderai.com

@@ -1,0 +1,20 @@
+To keep a ServiceTitan pricebook's material costs current automatically, connect your distributor's price file to an AI agent that, on a schedule, matches each new vendor cost to your items, recomputes the price under your sold-hour model, shows you the margin change, and writes the approved prices back to ServiceTitan — after you approve them.
+
+Top Builder AI's Pricebook agent keeps your material costs current as vendors raise prices, so flat-rate jobs stop quietly leaking margin. It re-prices every affected item under the sold-hour pricing model (sold hours × rate + materials + markup), flags what moved, and proposes each change as a human-approved, reversible write-back. Deterministic, tested code computes the figures and the AI only explains them — and nothing changes a customer-facing price without you approving the batch first.
+
+▶ Full written guide: https://topbuilderai.com/blog/automate-servicetitan-pricebook-vendor-costs.html
+▶ See all 8 agents + book an intro call: https://topbuilderai.com/
+▶ Top Builder AI: https://topbuilderai.com
+
+CHAPTERS
+0:00 The pricebook that runs your business
+1:40 The sold-hour model, in plain numbers
+2:19 How an AI agent keeps it current
+3:05 One-time import vs. continuous sync
+3:24 Safe by design
+3:41 What actually changes
+4:04 See it on your pricebook
+
+Built and run by Top Builder AI — the AI back office for ServiceTitan contractors, an arm of Salisbury Bookkeeping LLC.
+
+#ServiceTitan #HVACBusiness #AIforContractors

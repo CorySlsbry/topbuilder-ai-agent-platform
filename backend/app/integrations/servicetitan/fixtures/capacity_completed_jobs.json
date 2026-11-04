@@ -1,0 +1,37 @@
+[
+  "Canyon Ridge HVAC — completed-job ACTUAL-hours history (clock-in at dispatch -> clock-out at",
+  "completion). Dates are stored as WEEK OFFSETS back from the run's as_of date (0 = the as_of day,",
+  "12 = ~12 weeks earlier) so the demo's rolling moving-target + OT story stays current whenever it runs.",
+  "Two stories are deliberately VISIBLE: (a) t-h1 Alice is getting FASTER at ac_install over 12 weeks",
+  "(8h -> 5h), so her recency-weighted estimate sits well below the ac_install baseline; (b) t-h2 Ben is",
+  "a steady-but-slow installer whose upcoming week (see capacity_assigned_jobs.json) projects into",
+  "overtime, while same-trade t-h3 Carlos has slack to absorb it.",
+
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 8.0, "weeks_ago": 11},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 8.0, "weeks_ago": 10},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 7.5, "weeks_ago": 9},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 7.0, "weeks_ago": 8},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 7.0, "weeks_ago": 6},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 6.5, "weeks_ago": 5},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 6.0, "weeks_ago": 4},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 5.5, "weeks_ago": 2},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 5.0, "weeks_ago": 1},
+  {"technician_id": "t-h1", "job_type": "ac_install", "trade": "hvac", "actual_hours": 5.0, "weeks_ago": 0},
+
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac", "actual_hours": 9.0, "weeks_ago": 10},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac", "actual_hours": 9.5, "weeks_ago": 8},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac", "actual_hours": 9.0, "weeks_ago": 6},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac", "actual_hours": 9.5, "weeks_ago": 4},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac", "actual_hours": 9.0, "weeks_ago": 2},
+  {"technician_id": "t-h2", "job_type": "ac_install", "trade": "hvac", "actual_hours": 9.0, "weeks_ago": 0},
+
+  {"technician_id": "t-h3", "job_type": "ac_install", "trade": "hvac", "actual_hours": 7.0, "weeks_ago": 9},
+  {"technician_id": "t-h3", "job_type": "ac_install", "trade": "hvac", "actual_hours": 7.5, "weeks_ago": 6},
+  {"technician_id": "t-h3", "job_type": "ac_install", "trade": "hvac", "actual_hours": 7.0, "weeks_ago": 3},
+  {"technician_id": "t-h3", "job_type": "ac_install", "trade": "hvac", "actual_hours": 7.0, "weeks_ago": 1},
+
+  {"technician_id": "t-h1", "job_type": "ac_repair", "trade": "hvac", "actual_hours": 2.0, "weeks_ago": 3},
+  {"technician_id": "t-h1", "job_type": "ac_repair", "trade": "hvac", "actual_hours": 2.5, "weeks_ago": 1},
+  {"technician_id": "t-h3", "job_type": "ac_repair", "trade": "hvac", "actual_hours": 3.0, "weeks_ago": 2},
+  {"technician_id": "t-h3", "job_type": "ac_repair", "trade": "hvac", "actual_hours": 3.5, "weeks_ago": 0}
+]

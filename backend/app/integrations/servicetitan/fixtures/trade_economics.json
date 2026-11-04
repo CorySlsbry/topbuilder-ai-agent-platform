@@ -1,0 +1,22 @@
+[
+  {
+    "trade": "hvac",
+    "billable_rate": 145,
+    "availability_factor": 0.85
+  },
+  {
+    "trade": "plumbing",
+    "billable_rate": 140,
+    "availability_factor": 0.85
+  },
+  {
+    "trade": "electrical",
+    "billable_rate": 150,
+    "availability_factor": 0.85
+  },
+  {
+    "trade": "install",
+    "billable_rate": 120,
+    "availability_factor": 0.85
+  }
+]

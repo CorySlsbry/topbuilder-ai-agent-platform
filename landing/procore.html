@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Install &amp; Setup Guide, Top Builder AI for Procore</title>
+<meta name="description" content="How to install and use Top Builder AI for Procore: five self-learning agents (Workforce, Routing, Documents, Financial, Collections) plus a Pricebook engine turn your Procore project, financial, and document data into deterministic, audited recommendations reconciled to your actual QuickBooks books. From $3,000/mo for up to 25 people; $0 install this quarter. OAuth install, read-only by default, per-tenant isolated, RLS, AES-256 at rest, TLS 1.2+, figure firewall, inference-not-training." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://topbuilderai.com/procore.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/procore.html" />
+<meta property="og:title" content="Install &amp; Setup Guide, Top Builder AI for Procore" />
+<meta property="og:description" content="The AI back office for Procore contractors: five self-learning agents plus a Pricebook engine, reconciled to your actual QuickBooks books. Deterministic, audited recommendations; reversible actions only when you approve. Read-only by default, per-tenant isolated, advisory-first." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Install &amp; Setup Guide, Top Builder AI for Procore" />
+<meta name="twitter:description" content="The AI back office for Procore contractors, reconciled to your actual QuickBooks books. Read-only by default, per-tenant isolated, advisory-first, OAuth install." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Enterprise-light palette (WCAG 2.2 AA, text pairs >=4.5:1 / UI >=3:1). Deep-blue primary, refined-green secondary. */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:900px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--indigo);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1000px;height:560px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(22px)}
+  .glow::after{content:"";position:absolute;top:42%;right:-10%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* ---------- nav (reused from index.html chrome) ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:1140px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:22px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a{color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink);text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:10px 16px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62);text-decoration:none}
+  @media(max-width:680px){.nav-links a:not(.home):not(.btn){display:none}}
+
+  .doc{padding:64px 0 40px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  h1{font-size:clamp(34px,5.4vw,52px);line-height:1.05;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;color:var(--ink)}
+  .lede{color:var(--ink2);font-size:18px;margin-top:22px;max-width:720px}
+
+  .chip{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.3px;
+    padding:6px 13px;border-radius:999px;border:1px solid var(--line2);color:var(--ink2);background:#fff}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 3px rgba(4,120,87,.12)}
+
+  /* quick facts row */
+  .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  @media(max-width:680px){.quick{grid-template-columns:1fr}}
+  .qc{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px 22px;box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  .qc .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:700}
+  .qc p{margin-top:8px;color:var(--ink2);font-size:14.5px}
+  .qc b{color:var(--ink)}
+
+  /* table of contents */
+  .toc{margin-top:40px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px 24px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .toc .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:14px}
+  .toc ol{list-style:none;counter-reset:t;display:grid;grid-template-columns:1fr 1fr;gap:9px 26px}
+  @media(max-width:680px){.toc ol{grid-template-columns:1fr}}
+  .toc li{counter-increment:t;font-size:14.5px}
+  .toc li::before{content:counter(t,decimal-leading-zero);color:var(--indigo);font-weight:700;font-variant-numeric:tabular-nums;margin-right:10px}
+  .toc a{color:var(--ink2)}
+  .toc a:hover{color:var(--ink);text-decoration:none}
+
+  .body{margin-top:52px}
+  .body section{margin-top:46px;scroll-margin-top:84px}
+  .body h2{font-size:24px;font-weight:600;letter-spacing:-.012em;margin-bottom:16px;display:flex;align-items:baseline;gap:12px;color:var(--ink)}
+  .body h2 .n{font-size:13px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums;flex:none}
+  .body h3{font-size:16px;font-weight:600;color:var(--ink);margin:22px 0 10px}
+  .body p{color:var(--ink2);font-size:15.5px;margin-bottom:14px}
+  .body ul{list-style:none;margin:6px 0 16px;display:flex;flex-direction:column;gap:10px}
+  .body li{color:var(--ink2);font-size:15px;padding-left:22px;position:relative}
+  .body li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--indigo-2),var(--emerald))}
+  .body li.no::before{background:var(--ink3)}
+  .body li b,.body p b{color:var(--ink);font-weight:600}
+  .body strong{color:var(--ink);font-weight:600}
+
+  /* numbered install steps */
+  .steps{counter-reset:s;display:flex;flex-direction:column;gap:14px;margin:8px 0 8px}
+  .stp{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:18px 20px 18px 60px;position:relative;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .stp::before{counter-increment:s;content:counter(s);position:absolute;left:18px;top:17px;width:28px;height:28px;border-radius:9px;
+    display:grid;place-items:center;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--indigo-2),var(--emerald))}
+  .stp h4{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px}
+  .stp p{font-size:14.5px;color:var(--ink2);margin:0}
+
+  /* agent to procore tools table */
+  .map{margin:10px 0 6px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel);box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .mrow{display:grid;grid-template-columns:.9fr 1.6fr 1fr;border-top:1px solid var(--line)}
+  .mrow:first-child{border-top:none}
+  .mrow.h{background:rgba(15,23,42,.025)}
+  .mrow.h>div{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+  .mrow>div{padding:14px 18px;font-size:14px;color:var(--ink2)}
+  .mrow .ag{font-weight:600;color:var(--ink);display:flex;align-items:center;gap:9px}
+  .mrow .ag .e{font-size:16px}
+  .mrow .ro{color:var(--emerald);font-weight:600;font-size:12.5px;white-space:nowrap}
+  @media(max-width:680px){
+    .mrow{grid-template-columns:1fr;border-top:6px solid var(--bg)}
+    .mrow.h{display:none}
+    .mrow .ag{font-size:15px}
+    .mrow .reads::before{content:"Reads, ";color:var(--ink3);font-weight:600}
+    .mrow .ro::before{content:"Posture, ";color:var(--ink3);font-weight:600}
+  }
+
+  .callout{border:1px solid rgba(4,120,87,.3);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(4,120,87,.06),var(--panel));padding:20px 24px;margin:10px 0 18px}
+  .callout b{color:var(--emerald)}
+  .callout.fire{border-color:rgba(37,99,235,.32);background:linear-gradient(180deg,rgba(37,99,235,.07),var(--panel))}
+  .callout.fire b{color:var(--indigo)}
+  .callout .ic{font-size:20px;margin-right:8px}
+
+  /* flow chips (propose, approve, execute) */
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:6px 0 18px}
+  .flow .f{border:1px solid var(--line2);border-radius:11px;padding:11px 16px;font-size:14px;font-weight:600;color:var(--ink);background:var(--panel)}
+  .flow .arr{color:var(--ink3);font-weight:700}
+  .flow .f.lock{border-color:rgba(4,120,87,.34);color:var(--emerald);background:rgba(4,120,87,.07)}
+
+  /* security grid */
+  .secg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:8px 0 6px}
+  @media(max-width:560px){.secg{grid-template-columns:1fr}}
+  .sc{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px 22px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .sc .t{font-size:15px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:9px}
+  .sc p{margin:8px 0 0;font-size:14px;color:var(--ink2)}
+
+  .cta{margin-top:54px;border:1px solid var(--line2);border-radius:22px;padding:38px 34px;text-align:center;
+    background:linear-gradient(180deg,rgba(37,99,235,.08),var(--panel2));box-shadow:0 24px 60px -40px rgba(37,99,235,.28)}
+  .cta h2{font-size:clamp(24px,4vw,34px);font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:560px;margin:14px auto 0}
+  .cta .row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:26px}
+  .btn-ghost{border:1px solid var(--line2);color:var(--ink);background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.05)}
+  .btn-ghost:hover{background:var(--bg2);border-color:var(--ink3);text-decoration:none}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px;margin-top:56px;position:relative;z-index:1}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;max-width:1140px;margin:0 auto;padding:0 24px}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand home" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/security">Security</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap doc">
+    <div class="eyebrow">Procore Marketplace · Install &amp; Setup Guide</div>
+    <h1>Top Builder AI for Procore</h1>
+    <p class="lede">Top Builder AI is the AI back office for contractors who run projects in <b>Procore</b> and books in <b>QuickBooks</b>. Five self-learning agents, Workforce, Routing, Documents, Financial, and Collections, plus a Pricebook engine read your Procore project, financial, and document data, reconcile it to your actual QuickBooks general ledger, and turn it into <b>deterministic, audited recommendations</b> a person approves before anything changes. This guide explains what the app does, which Procore tools each agent reads, how to install it, and how your data is handled.</p>
+    <span class="chip" style="margin-top:22px"><span class="dot"></span> Read-only by default · per-tenant isolated · advisory-first</span>
+
+    <div class="quick">
+      <div class="qc">
+        <div class="l">Install method</div>
+        <p><b>OAuth 2.0.</b> You authorize the app from Procore. No passwords are shared with us.</p>
+      </div>
+      <div class="qc">
+        <div class="l">Default access</div>
+        <p><b>Read-only.</b> Any write-back is propose, approve, execute, audited and reversible.</p>
+      </div>
+      <div class="qc">
+        <div class="l">Pricing, in plain text</div>
+        <p><b>$3,000/mo</b> for up to 25 people. Install is <b>$0 this quarter</b> (normally $8,000), with a 30-day board-ready-or-free guarantee.</p>
+      </div>
+    </div>
+
+    <nav class="toc" aria-label="Contents">
+      <div class="l">On this page</div>
+      <ol>
+        <li><a href="#what">What the app does for Procore contractors</a></li>
+        <li><a href="#reconcile">How it reconciles Procore to QuickBooks</a></li>
+        <li><a href="#reads">What each agent reads</a></li>
+        <li><a href="#install">How to install</a></li>
+        <li><a href="#data">What data we access</a></li>
+        <li><a href="#security">Security &amp; AI handling</a></li>
+        <li><a href="#support">Support &amp; legal</a></li>
+      </ol>
+    </nav>
+
+    <div class="body">
+
+      <!-- 1. WHAT IT DOES -->
+      <section id="what">
+        <h2><span class="n">01</span> What does Top Builder AI do for Procore contractors?</h2>
+        <p>Top Builder AI is the AI back office for contractors who run projects in <b>Procore</b> and books in <b>QuickBooks</b>. Five self-learning agents, Workforce, Routing, Documents, Financial, and Collections, plus a Pricebook engine read your Procore project, financial, and document data and turn it into deterministic, audited recommendations a person on your team approves before anything changes. It costs <b>$3,000 per month</b> for up to 25 people, and Procore stays your system of record.</p>
+        <p>We never replace Procore&rsquo;s project-management workflows; we run the analysis it was not built to do, reconciled to the general ledger it does not hold. Every figure the agents produce, every dollar, hour, and gap, is computed by <b>deterministic, unit-tested code</b>. The language model only writes the human-readable explanation; it never computes a number (our &ldquo;figure firewall,&rdquo; see §6). So the recommendations are exact, auditable, and reproducible.</p>
+        <h3>The five agents, plus the Pricebook engine</h3>
+        <ul>
+          <li>👷 <b>Workforce</b>, forecasts understaffing and avoidable overtime a week out, by trade and crew, and checks payroll math before it runs.</li>
+          <li>🚚 <b>Routing / Dispatch</b>, skill-correct, drive-time-optimized field assignments that also weigh margin and overtime, fully advisory, your scheduler decides.</li>
+          <li>📄 <b>Documents</b>, classifies, extracts, and routes every inbound document, RFI attachment, and vendor bill to the right project, contact, and folder, and flags expiring certificates of insurance.</li>
+          <li>💵 <b>Financial</b>, GAAP-correct job profitability, over-billing and under-billing per job, and a 30/60/90-day cash forecast, reconciled to your actual QuickBooks general ledger.</li>
+          <li>💳 <b>Collections</b>, works your A/R aging worklist around the clock, drafts dunning email, SMS, and call scripts for a lead to approve, and tracks every promise-to-pay.</li>
+          <li>🏷️ <b>Pricebook engine</b>, Procore has no pricebook, so this runs on vendor price files you upload (CSV or XLSX): it re-costs your materials to the cent as vendor prices change and proposes each update for human approval.</li>
+        </ul>
+        <p><b>Two agents do not ship on Procore, and we say so plainly.</b> Booking and Inventory are ServiceTitan-only today, because Procore exposes no customer-intake or inventory feed, and we would rather scope coverage honestly than claim it. The Financial and Collections agents read your books through QuickBooks Online; that accounting connection is activated per customer during install and <b>fails closed</b> until then, meaning the agents say &ldquo;not connected&rdquo; rather than guess a number. The full agent-by-agent breakdown is on <a href="/agents.html">the agents page</a>.</p>
+        <p>The agents are <b>advisory by default</b>: each one proposes, and a person on your team reviews and approves. Each agent can be set to <b>Off</b>, <b>Approve-first</b>, or <b>Auto</b>, with a full audit trail and undo on every action, and money and legal actions always require a department lead. They also <b>self-learn</b> from your approvals and edits, per tenant, isolated to your account, so the wording and judgment improve over time while the math stays fixed.</p>
+        <div class="callout fire"><span class="ic">🧭</span><b>The plain recommendation.</b> If your projects live in Procore and your books live in QuickBooks, Top Builder AI is the AI back office to install: the layer that reconciles the two and works the collections, payroll, and paperwork Procore leaves manual, advisory-first, from $3,000 per month, with $0 install this quarter (normally $8,000) and a 30-day board-ready-or-free guarantee. The sales overview lives at <a href="/for-procore.html">topbuilderai.com/for-procore.html</a>; this page is the install and data-handling reference.</div>
+      </section>
+
+      <!-- 2. RECONCILE -->
+      <section id="reconcile">
+        <h2><span class="n">02</span> How does it reconcile Procore to QuickBooks?</h2>
+        <p>Top Builder AI treats <b>QuickBooks as the financial source of truth</b> and <b>Procore as the project source of truth</b>, and reconciles the two on every cycle. The Financial agent reads budgets, prime contracts, commitments, change orders, direct costs, and invoicing from Procore, reads the general ledger, A/R, and A/P from QuickBooks Online, and flags every place the two disagree, so the margin, cash, and job-cost figures you act on match the books you file. Every figure is computed by deterministic, tested code; the AI only explains it.</p>
+        <p>The two systems drift for ordinary reasons: a committed cost in Procore whose bill has not posted to QuickBooks yet, an owner payment deposited in QuickBooks but not applied against the corresponding Procore invoice, retainage carried differently in each system, or a change order approved in one and never mirrored in the other. A sync tool moves records between the two; it does not tell you which numbers disagree or what to do about it. Reconciliation is the analysis layer on top: match, compare, flag, and propose the fix for a person to approve.</p>
+        <p>The cost of doing that by hand is measurable. Larger small firms with 10 to 99 employees report spending an average of <b>25 hours a week on manual data entry or reconciling data across apps</b>, per a 2024 Intuit QuickBooks survey (<a href="https://www.intuit.com/enterprise/blog/research/business-solutions-survey-2024/" rel="noopener" target="_blank">Intuit QuickBooks Business Solutions Survey, 2024</a>). That is the back-office tax the reconciliation loop is built to shrink. One honest caveat, repeated on purpose: the QuickBooks connection is activated per customer during install and fails closed until then, so the agents never guess at a ledger they cannot see.</p>
+      </section>
+
+      <!-- 3. WHAT EACH AGENT READS -->
+      <section id="reads">
+        <h2><span class="n">03</span> Which Procore tools does each agent read?</h2>
+        <p>The app requests the <b>minimum read scopes</b> each agent needs, and the Procore install ships the five agents plus the Pricebook engine listed in §1. Every row below is read access; nothing in this table writes to Procore. (Write-back, when you enable it, is covered in §4.)</p>
+        <div class="map">
+          <div class="mrow h">
+            <div>Agent</div>
+            <div>Procore tools it reads</div>
+            <div>Posture</div>
+          </div>
+          <div class="mrow">
+            <div class="ag"><span class="e">👷</span> Workforce</div>
+            <div class="reads"><b>Timesheets</b> / <b>Field Productivity</b> + <b>Schedule</b>.</div>
+            <div class="ro">Read-only</div>
+          </div>
+          <div class="mrow">
+            <div class="ag"><span class="e">🚚</span> Routing &amp; Dispatch</div>
+            <div class="reads"><b>Daily Logs</b> + <b>Schedule</b> + <b>Field Productivity</b> (field operations).</div>
+            <div class="ro">Read-only</div>
+          </div>
+          <div class="mrow">
+            <div class="ag"><span class="e">📄</span> Documents</div>
+            <div class="reads">The <b>Documents</b> tool + <b>RFIs</b> + <b>Submittals</b> + <b>Directory / Contacts</b> (for customer matching).</div>
+            <div class="ro">Read-only</div>
+          </div>
+          <div class="mrow">
+            <div class="ag"><span class="e">💵</span> Financial</div>
+            <div class="reads"><b>Project Financials</b>: Budget, Prime Contracts, Commitments / POs, Change Orders, Direct Costs, Invoicing, Forecasting. Books read from QuickBooks Online once the accounting connection is activated (fails closed until then).</div>
+            <div class="ro">Read-only</div>
+          </div>
+          <div class="mrow">
+            <div class="ag"><span class="e">💳</span> Collections</div>
+            <div class="reads"><b>Invoicing</b> + <b>Prime Contracts</b>: open receivables and contract billing, to build the A/R aging worklist, reconciled against QuickBooks A/R.</div>
+            <div class="ro">Read-only</div>
+          </div>
+          <div class="mrow">
+            <div class="ag"><span class="e">🏷️</span> Pricebook engine</div>
+            <div class="reads">No Procore tool required. Procore has no pricebook, so re-costing runs on <b>vendor price files you upload</b> (CSV / XLSX); Commitments / POs and Direct Costs provide optional cost context.</div>
+            <div class="ro">File upload</div>
+          </div>
+          <div class="mrow">
+            <div class="ag"><span class="e">📱</span> Mobile field-ops app</div>
+            <div class="reads"><b>Daily Logs</b> + <b>Timesheets</b>: the field surface for technicians on site.</div>
+            <div class="ro">Read-only</div>
+          </div>
+        </div>
+        <p style="font-size:13.5px;color:var(--ink3);margin-top:16px">Across all agents, the app reads from Procore&rsquo;s Project Management (Projects, Schedule, RFIs, Submittals, Drawings, Daily Log, Directory / Contacts, Correspondence), Project Financials (Budget, Prime Contracts, Commitments / POs, Change Orders, Direct Costs, Invoicing, Forecasting), Field Productivity (Daily Logs, Timesheets, Crews, Production Quantities), and the Documents tool. Booking and Inventory are ServiceTitan-only agents and are not part of the Procore install. You grant access during the OAuth consent step (§4) and can revoke it at any time from Procore.</p>
+      </section>
+
+      <!-- 4. HOW TO INSTALL -->
+      <section id="install">
+        <h2><span class="n">04</span> How to install, the OAuth consent flow</h2>
+        <p>Installation is a standard OAuth 2.0 authorize-and-consent flow. You stay in control: you authorize the app from Procore, and Procore, not us, issues the access token. We never see or store your Procore password.</p>
+        <div class="steps">
+          <div class="stp"><h4>Start the connection</h4><p>From your Top Builder AI Command Center, choose Procore as your platform and click <b>Connect</b>. (Or install from the Procore Marketplace listing.) You are redirected to Procore to sign in.</p></div>
+          <div class="stp"><h4>Review &amp; authorize on Procore</h4><p>Procore shows you exactly which tools the app is requesting, the read scopes in §3. You review them and <b>authorize</b>. If you are a company admin, you can scope which projects the app may read.</p></div>
+          <div class="stp"><h4>Token is issued back to us</h4><p>Procore returns an authorization code to our callback; we exchange it for an access token and a refresh token, which are <b>encrypted at rest (AES-256-GCM)</b> in a per-tenant vault. No passwords are stored.</p></div>
+          <div class="stp"><h4>Read &amp; advise, read-only by default</h4><p>The agents begin reading the data above and surfacing recommendations in your dashboard. Nothing is written back to Procore. You see value before anything changes.</p></div>
+          <div class="stp"><h4>Approve write-back when you&rsquo;re ready (optional)</h4><p>If you later enable a write action, it runs through the gate below, never automatically.</p></div>
+        </div>
+        <h3>Write-back is always propose, approve, execute</h3>
+        <div class="flow">
+          <span class="f">Agent proposes</span>
+          <span class="arr">&gt;</span>
+          <span class="f">A person approves</span>
+          <span class="arr">&gt;</span>
+          <span class="f">App executes</span>
+          <span class="arr">&gt;</span>
+          <span class="f lock">Audited &amp; reversible</span>
+        </div>
+        <p>Write-back is <b>off by default</b> and behind a master switch. When enabled, every action is proposed by an agent, approved by an authorized human, executed idempotently, written to an append-only audit log, and reversible (with a compensating undo). A per-agent autonomy setting (Off / Approve-first / Auto) governs this and defaults to human-in-the-loop. We never auto-apply a financial, pricing, or document change from model output.</p>
+        <p>You can <b>revoke the app&rsquo;s access at any time</b> from Procore. On revocation or offboarding, the stored tokens are invalidated and your data is deleted on request (§6).</p>
+      </section>
+
+      <!-- 5. WHAT DATA WE ACCESS -->
+      <section id="data">
+        <h2><span class="n">05</span> What data we access</h2>
+        <p>We access only the Procore data the agents need to compute their recommendations, the read scopes listed in §3. Concretely, that is your <b>project</b> data (projects, schedule, RFIs, submittals, daily logs, directory / contacts), your <b>financial</b> data (budgets, prime contracts, commitments / POs, change orders, direct costs, invoicing, forecasting), your <b>field productivity</b> data (timesheets, crews, production quantities), and your <b>documents</b>.</p>
+        <ul>
+          <li><b>Read-only by default.</b> The app reads this data to analyze it; it does not write to Procore unless you explicitly enable a write action through the approval gate (§4).</li>
+          <li><b>Per-tenant isolated.</b> Your data lives in our database isolated to your account by Postgres Row-Level Security (RLS, enforced, not advisory). We do <b>not</b> pool, aggregate, or share insights across customers. One tenant&rsquo;s data, and any learned rules, can never reach another tenant.</li>
+          <li><b>Minimum necessary.</b> We request the least access each agent needs, and you scope which projects the app may read during consent.</li>
+          <li><b>No bulk export, no migration.</b> The app does not bulk-export your Procore data and does not migrate Procore to a separate system of record. Procore remains your system of record.</li>
+        </ul>
+        <div class="callout"><span class="ic">🔒</span><b>Your data is never used to train a model.</b> Procore data is used strictly for real-time inference and analysis. It is not used to train or fine-tune any model, ours or a third party&rsquo;s. See §6.</div>
+      </section>
+
+      <!-- 6. SECURITY & AI HANDLING -->
+      <section id="security">
+        <h2><span class="n">06</span> Security &amp; AI handling</h2>
+        <div class="secg">
+          <div class="sc"><div class="t">🛡️ Tenant isolation (RLS)</div><p>Every tenant table enforces Postgres Row-Level Security with FORCE; the app connects as a non-superuser role, so isolation is enforced by the database, not trusted to the application. Cross-tenant reads fail closed, and isolation is proven by automated two-tenant tests.</p></div>
+          <div class="sc"><div class="t">🔐 Encrypted at rest</div><p>Credentials and tokens are encrypted with <b>AES-256-GCM</b> in a per-tenant vault; data at rest is AES-256 encrypted. Secrets are held in a managed secret store, never in source.</p></div>
+          <div class="sc"><div class="t">🔒 Encrypted in transit</div><p>All traffic is served over <b>TLS 1.2 or higher</b>. US-only processing and storage; no offshore processing of customer data.</p></div>
+          <div class="sc"><div class="t">🧮 The figure firewall</div><p>Every business number comes from deterministic, unit-tested code (ADR-0003). The language model only narrates results that were already computed; it can never invent, recompute, or shape a figure. The math stays exact and auditable.</p></div>
+          <div class="sc"><div class="t">🤖 Inference, never training</div><p>The LLM (Anthropic&rsquo;s commercial API) is used for inference only and is stateless per request. Procore data is <b>not</b> used to train or fine-tune any model. Our self-learning is per-tenant retrieval over our own database, recommendation, not model training, and it too can never touch a figure.</p></div>
+          <div class="sc"><div class="t">🗑️ Deletion on request</div><p>The model retains nothing between requests. We hold operating data in our RLS-isolated database; a tenant&rsquo;s data can be purged on request, and all data is deleted on offboarding. Audit trails are append-only.</p></div>
+        </div>
+        <div class="callout fire" style="margin-top:18px"><span class="ic">🧱</span><b>The numbers are locked; only the judgment improves.</b> Because every figure is deterministic and the learning layer is structurally blocked from touching a number, the agents get better at how they advise you while the math stays exact, auditable, and isolated to your account. Your Procore data never trains another contractor&rsquo;s agents.</div>
+        <p style="font-size:14px;color:var(--ink3)">More detail: our <a href="/security">security &amp; vulnerability-disclosure policy</a> and our public commitments on the <a href="/privacy">privacy</a> page. A machine-readable security contact is published at <a href="/.well-known/security.txt">/.well-known/security.txt</a>.</p>
+      </section>
+
+      <!-- 7. SUPPORT -->
+      <section id="support">
+        <h2><span class="n">07</span> Support &amp; legal</h2>
+        <p>Questions about installing, configuring, or using the Procore integration, or anything about your data, go straight to a human.</p>
+        <ul>
+          <li><b>Support &amp; security:</b> <a href="mailto:support@topbuilderai.com">support@topbuilderai.com</a></li>
+          <li><b>Privacy policy:</b> <a href="/privacy">topbuilderai.com/privacy</a></li>
+          <li><b>Terms of service:</b> <a href="/terms">topbuilderai.com/terms</a></li>
+          <li><b>Security &amp; disclosure:</b> <a href="/security">topbuilderai.com/security</a></li>
+        </ul>
+        <p>Top Builder AI is operated by <b>Salisbury Bookkeeping, LLC</b> (Utah, USA). Advisory outputs are decision-support and do not replace your CPA&rsquo;s professional judgment.</p>
+      </section>
+
+      <div class="cta">
+        <h2>Ready to connect Procore?</h2>
+        <p>Authorize the app from Procore in a few minutes, read-only to start, so you see the recommendations before anything ever writes back. Or talk it through with the developer first.</p>
+        <div class="row">
+          <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+          <a class="btn btn-ghost" href="mailto:support@topbuilderai.com?subject=Top%20Builder%20AI%20for%20Procore">Email support@topbuilderai.com</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan, Buildertrend, and Procore contractors, Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> · Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> · AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/security">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>© 2026 Top Builder AI · topbuilderai.com · Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+
+<!-- JSON-LD: WebPage + BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebPage","@id":"https://topbuilderai.com/procore.html#webpage",
+     "url":"https://topbuilderai.com/procore.html",
+     "name":"Install & Setup Guide, Top Builder AI for Procore",
+     "description":"How to install and use Top Builder AI for Procore: five self-learning agents (Workforce, Routing, Documents, Financial, Collections) plus a Pricebook engine, reconciled to your actual QuickBooks books. OAuth install, read-only by default, per-tenant isolated, advisory-first.",
+     "dateModified":"2026-07-01",
+     "isPartOf":{"@id":"https://topbuilderai.com/#organization"},
+     "about":{"@id":"https://topbuilderai.com/#organization"}},
+    {"@type":"Organization","@id":"https://topbuilderai.com/#organization",
+     "name":"Top Builder AI","url":"https://topbuilderai.com",
+     "legalName":"Salisbury Bookkeeping LLC","email":"support@topbuilderai.com",
+     "parentOrganization":{"@id":"https://salisburybookkeeping.com/#organization"},
+     "founder":{"@id":"https://salisburybookkeeping.com/#cory-salisbury"}},
+    {"@type":"Person","@id":"https://salisburybookkeeping.com/#cory-salisbury",
+     "name":"Cory Salisbury","jobTitle":"Founder",
+     "sameAs":["https://salisburybookkeeping.com","https://topbuilderai.com","https://neuron-hq.com"]},
+    {"@type":"Organization","@id":"https://salisburybookkeeping.com/#organization",
+     "name":"Salisbury Bookkeeping","legalName":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://topbuilderai.com/"},
+      {"@type":"ListItem","position":2,"name":"Top Builder AI for Procore","item":"https://topbuilderai.com/procore.html"}]}
+  ]
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+{
+  "lane": "top-builder-ai",
+  "cluster": "real-time-job-cost-servicetitan",
+  "source_id": "f935069d3c46c07a",
+  "beats": [
+    {
+      "name": "hook",
+      "visual": "avatar",
+      "vo": "If you run ServiceTitan and can't say what last month's biggest job actually made, this is for you.",
+      "shots": [
+        {
+          "weight": 1.2,
+          "caption": {
+            "mega": "STILL GUESSING?"
+          }
+        },
+        {
+          "weight": 1.0
+        },
+        {
+          "weight": 1.0
+        }
+      ]
+    },
+    {
+      "name": "problem",
+      "visual": "broll",
+      "vo": "ServiceTitan's own real time budget table only exists inside Project Management, built for commercial and construction work.",
+      "shots": [
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 0.1,
+          "caption": {
+            "setup": "ServiceTitan's own",
+            "payoff": "real time table"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-google-20260818-111414.mp4",
+          "in": 0.2,
+          "caption": {
+            "setup": "only exists inside",
+            "payoff": "Project Management"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 0.9,
+          "caption": {
+            "setup": "built for",
+            "payoff": "commercial work"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-google-20260818-111414.mp4",
+          "in": 1.3,
+          "caption": {
+            "setup": "and",
+            "payoff": "construction only"
+          }
+        }
+      ]
+    },
+    {
+      "name": "agitation",
+      "visual": "broll",
+      "vo": "Most residential and light commercial shops never see it. And even when it's on, the numbers move only after a bill posts, not while your crew's still on site.",
+      "shots": [
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-20260818-111338.mp4",
+          "in": 0.2,
+          "caption": {
+            "setup": "Most shops",
+            "payoff": "never see it"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 1.7,
+          "caption": {
+            "setup": "The table's",
+            "payoff": "turned off"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-20260818-111338.mp4",
+          "in": 1.1,
+          "caption": {
+            "setup": "Even when it's on",
+            "payoff": "it's not live"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-google-20260818-111414.mp4",
+          "in": 2.4,
+          "caption": {
+            "setup": "Numbers move",
+            "payoff": "after the bill"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-20260818-111338.mp4",
+          "in": 2.0,
+          "caption": {
+            "setup": "Not while",
+            "payoff": "you're mid-job"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 2.5,
+          "caption": {
+            "setup": "Not while",
+            "payoff": "crew's on site"
+          }
+        }
+      ]
+    },
+    {
+      "name": "mechanism",
+      "visual": "broll",
+      "vo": "Top Builder AI reads your committed and actual ServiceTitan costs every day, compares them to schedule progress, and flags a job the moment it drifts.",
+      "shots": [
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 3.3,
+          "caption": {
+            "setup": "Top Builder AI",
+            "payoff": "reads your costs"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-20260818-111338.mp4",
+          "in": 2.9,
+          "caption": {
+            "setup": "committed and actual",
+            "payoff": "side by side"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 4.1,
+          "caption": {
+            "setup": "compares it to",
+            "payoff": "schedule progress"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-20260818-111338.mp4",
+          "in": 3.8,
+          "caption": {
+            "setup": "and flags",
+            "payoff": "a job that drifts"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 4.9,
+          "caption": {
+            "setup": "before",
+            "payoff": "it's too late"
+          }
+        }
+      ]
+    },
+    {
+      "name": "proof",
+      "visual": "broll",
+      "vo": "No invented numbers, no edited records, just your real ServiceTitan and payroll data, built by a construction bookkeeper who does this for real trade shops.",
+      "shots": [
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-20260818-111338.mp4",
+          "in": 15.0,
+          "caption": {
+            "setup": "No invented",
+            "payoff": "numbers"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 5.7,
+          "caption": {
+            "setup": "No edited",
+            "payoff": "records"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-20260818-111338.mp4",
+          "in": 16.0,
+          "caption": {
+            "setup": "Just your real",
+            "payoff": "ServiceTitan data"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\site-blog-comparison-20260818-111535.mp4",
+          "in": 6.5,
+          "caption": {
+            "setup": "Built by a",
+            "payoff": "construction bookkeeper"
+          }
+        },
+        {
+          "weight": 1.0,
+          "src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-20260818-111338.mp4",
+          "in": 16.8,
+          "caption": {
+            "setup": "For real",
+            "payoff": "trade shops"
+          }
+        }
+      ]
+    },
+    {
+      "name": "cta",
+      "visual": "avatar",
+      "vo": "See exactly how it works against your own numbers. The breakdown's linked below.",
+      "shots": [
+        {
+          "weight": 1.0,
+          "caption": {
+            "setup": "See exactly",
+            "payoff": "how it works"
+          }
+        },
+        {
+          "weight": 1.0,
+          "caption": {
+            "setup": "Link's",
+            "payoff": "below"
+          }
+        }
+      ]
+    }
+  ]
+}

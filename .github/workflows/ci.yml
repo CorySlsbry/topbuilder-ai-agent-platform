@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: fieldops
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d fieldops"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      MIGRATION_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/fieldops
+      DATABASE_URL: postgresql+asyncpg://app_user:app_pw@localhost:5432/fieldops
+      APP_PG_DSN: postgresql://app_user:app_pw@localhost:5432/fieldops
+      RUN_DB_TESTS: "1"
+      ENV: dev
+      JWT_SECRET: REDACTED
+      CREDENTIAL_ENCRYPTION_KEY: REDACTED
+      WEBHOOK_SIGNING_SECRET: test-webhook-secret
+      EMBEDDING_PROVIDER: hashing
+      RATE_LIMIT_PER_MINUTE: "1000000"
+      RATE_LIMIT_BURST: "100000"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install
+        run: pip install -e "./backend[dev]"
+      - name: Lint
+        run: ruff check backend
+      - name: Migrate
+        run: python backend/scripts/migrate.py
+      - name: Test
+        run: cd backend && pytest -q
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install
+        run: cd frontend && npm install --no-audit --no-fund
+      - name: Build
+        run: cd frontend && NEXT_TELEMETRY_DISABLED=1 npm run build

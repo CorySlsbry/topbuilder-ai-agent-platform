@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Top Builder AI Blog: Running the Back Office on ServiceTitan, Procore &amp; Buildertrend</title>
+<meta name="description" content="Field notes for contractors running ServiceTitan, Procore, or Buildertrend: how to automate the back-office work those platforms leave manual or leave to QuickBooks, collections, pricebook, dispatch, payroll, and the scorecard, with AI agents that tune to your shop and stay advisory until you approve." />
+<link rel="canonical" href="https://topbuilderai.com/blog/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Top Builder AI Blog: Running the Back Office on ServiceTitan, Procore & Buildertrend" />
+<meta property="og:description" content="How to automate the back-office work ServiceTitan, Procore, and Buildertrend leave manual or leave to QuickBooks, collections, pricebook, dispatch, payroll, and the EOS scorecard, with AI agents that tune to your shop and stay advisory until you approve." />
+<meta property="og:url" content="https://topbuilderai.com/blog/" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#08080a; --bg2:#0c0d10; --panel:#101116; --panel2:#15161d;
+    --line:#23242d; --line2:#2e3039;
+    --ink:#f4f4f6; --ink2:#b6b8c2; --ink3:#83858f;
+    --indigo:#8b93ff; --indigo-2:#6366f1; --emerald:#34d399; --amber:#fbbf24;
+    --maxw:1140px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(99,102,241,.18),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(52,211,153,.09),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(8,8,10,.72);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .brand .dot{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,var(--indigo-2),var(--emerald));box-shadow:0 0 18px rgba(99,102,241,.5)}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo-2),#7c83f5);color:#fff;box-shadow:0 8px 30px -8px rgba(99,102,241,.7)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 36px -8px rgba(99,102,241,.85)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+
+  /* header */
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  .head{padding:72px 0 26px}
+  .head h1{font-size:clamp(34px,5.2vw,56px);line-height:1.04;letter-spacing:-.025em;font-weight:600;margin:14px 0 0}
+  .head .lede{color:var(--ink2);font-size:19px;max-width:660px;margin-top:20px}
+
+  /* post grid */
+  .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:24px 0 40px}
+  @media(max-width:900px){.posts{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){.posts{grid-template-columns:1fr}}
+  .card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);
+    overflow:hidden;transition:transform .16s ease,border-color .2s ease,box-shadow .2s ease}
+  .card:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 24px 50px -30px rgba(0,0,0,.85)}
+  .card .thumb{aspect-ratio:16/9;background:linear-gradient(135deg,rgba(99,102,241,.18),rgba(52,211,153,.12));border-bottom:1px solid var(--line);
+    display:grid;place-items:center;color:var(--ink3);font-size:13px}
+  .card .body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .card .kicker{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo)}
+  .card h3{font-size:18px;line-height:1.28;letter-spacing:-.01em;font-weight:600}
+  .card p{color:var(--ink2);font-size:14px;line-height:1.55}
+  .card .more{margin-top:auto;color:var(--emerald);font-weight:600;font-size:13.5px}
+
+  /* empty state */
+  .empty{border:1px dashed var(--line2);border-radius:var(--r);background:rgba(255,255,255,.015);padding:40px 28px;text-align:center;margin:8px 0 40px}
+  .empty .t{font-weight:600;font-size:18px}
+  .empty p{color:var(--ink2);font-size:15px;max-width:560px;margin:10px auto 0}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:40px 0;color:var(--ink3);font-size:13.5px}
+  .foot-in{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+  .foot-links{display:flex;gap:18px;flex-wrap:wrap}
+  .foot-links a:hover{color:var(--ink2)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+<!-- JSON-LD: Blog + Organization (sameAs the Salisbury Bookkeeping channel + parent firm) + breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"Blog","@id":"https://topbuilderai.com/blog/#blog","name":"The Top Builder AI Blog",
+     "description":"Field notes for contractors running ServiceTitan, Procore, or Buildertrend: automating the back-office work those platforms leave manual or leave to QuickBooks, collections, pricebook, dispatch, payroll, and the EOS scorecard, with AI agents that tune to your shop and stay advisory until you approve.",
+     "url":"https://topbuilderai.com/blog/",
+     "inLanguage":"en-US",
+     "publisher":{"@id":"https://topbuilderai.com/#org"}},
+    {"@type":"Organization","@id":"https://topbuilderai.com/#org","name":"Top Builder AI",
+     "url":"https://topbuilderai.com/","parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"},
+     "sameAs":["https://salisburybookkeeping.com","https://neuron-hq.com"]},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://topbuilderai.com/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://topbuilderai.com/blog/"}]}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<div class="glow"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">
+      <span class="dot"></span> Top Builder AI
+    </a>
+    <nav class="nav-links">
+      <a href="/#agents">Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap head">
+    <span class="eyebrow">The Back-Office Field Notes</span>
+    <h1>How to run the <span class="serif" style="color:var(--indigo)">back office</span> of a ServiceTitan, Procore, or Buildertrend shop.</h1>
+    <p class="lede">Practical, contractor-first guides on the back-office work ServiceTitan, Procore, and Buildertrend leave manual or leave to QuickBooks: chasing the A/R aging list, keeping the pricebook current as vendor costs rise, dispatching by priority and margin, catching payroll overtime, and replacing the weekly scorecard scramble. We plug in alongside the platform you already run and never touch your system of record. Written by the team that builds the agents that do it.</p>
+  </section>
+
+  <section class="wrap">
+    <!-- POST CARDS: the flywheel inserts one <a class="card"> per published post here (newest first). -->
+    <div class="posts" id="posts">
+      <!-- newest first -->
+      <a class="card" href="/blog/solar-dealer-fee-quickbooks-roofing-shop.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-quickbooks.jpg) center/cover;font-size:0" role="img" aria-label="How Should Solar Dealer Fees Post to a Roofing or Solar Shop's QuickBooks?"></div>
+        <div class="body">
+          <span class="kicker">Solar &middot; Roofing &middot; Financing &middot; Back Office</span>
+          <h3>How Should Solar Dealer Fees Post to a Roofing or Solar Shop's QuickBooks?</h3>
+          <p>Dealer fees run 10-30% of cash price per the CFPB, and booking one against income overstates your job margin. The exact QuickBooks item setup that keeps it off the invoice.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/quarterly-tax-set-aside-contractor-no-accountant.html">
+        <div class="thumb" style="background:url(/blog/_thumb_payroll.jpg) center/cover;font-size:0" role="img" aria-label="How Much Should a Contractor Set Aside for Quarterly Taxes With No Accountant on Staff?"></div>
+        <div class="body">
+          <span class="kicker">Taxes &middot; Back Office &middot; No Accountant on Staff</span>
+          <h3>How Much Should a Contractor Set Aside for Quarterly Taxes With No Accountant on Staff?</h3>
+          <p>The IRS math, not a guess: 15.3% self-employment tax on 92.35% of net earnings, plus your bracket, paid four times a year or the safe-harbor rule fines you for guessing wrong.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/software-stack-line-items-roofing-shop-1300-month.html">
+        <div class="thumb" style="background:url(/blog/_thumb_payroll.jpg) center/cover;font-size:0" role="img" aria-label="6 Line Items That Push a 2-Person Roofing Shop's Software Bill Past $1,300 a Month"></div>
+        <div class="body">
+          <span class="kicker">Software Costs &middot; Subscription Stack &middot; Roofing Shops</span>
+          <h3>6 Line Items That Push a 2-Person Roofing Shop's Software Bill Past $1,300 a Month</h3>
+          <p>A field CRM, QuickBooks, per-report aerial measurements, card processing, and e-signature all bill separately. Six sourced line items and what the realistic monthly total actually is.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/switching-contractor-software-quickbooks-migration-time.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-quickbooks.jpg) center/cover;font-size:0" role="img" aria-label="How Long Does Switching Off Your Current Field Software Actually Take?"></div>
+        <div class="body">
+          <span class="kicker">Switching Software &middot; QuickBooks Migration &middot; AI Trust</span>
+          <h3>How Long Does Switching Off Your Current Field Software Actually Take?</h3>
+          <p>Most software switches take longer than the sales call promised because of data migration, not setup. Real industry timelines, what happens to your QuickBooks history, and how a penny-verified migration actually works.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/roofing-price-per-square-burdened-labor-margin.html">
+        <div class="thumb" style="background:url(/blog/_thumb_pricebook.jpg) center/cover;font-size:0" role="img" aria-label="How Much Should a Roofing Contractor Charge Per Square to Actually Hit Margin?"></div>
+        <div class="body">
+          <span class="kicker">Roofing &middot; Per-Square Pricing &middot; Burdened Labor Rate</span>
+          <h3>How Much Should a Roofing Contractor Charge Per Square to Actually Hit Margin?</h3>
+          <p>A roofing square is 100 sq ft, but the price per square that hits margin depends on a burdened labor rate most shops never calculate. Sourced burden math, real workers' comp rates, and the ServiceTitan pricebook gap, with a worked example.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-vs-housecall-pro-past-2-million.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-alternative.png) center/cover;font-size:0" role="img" aria-label="6 ServiceTitan vs Housecall Pro Differences That Matter Once a Contractor Bills Past $2M"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan &middot; Housecall Pro &middot; Contract Terms</span>
+          <h3>6 ServiceTitan vs Housecall Pro Differences That Matter Once a Contractor Bills Past $2M</h3>
+          <p>Housecall Pro publishes three prices. ServiceTitan publishes none. Six sourced differences, contract terms, job-costing depth, and the add-on stack, from each vendor's own pricing page, Terms of Use, and BBB complaints profile.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/insurance-supplements-recoverable-depreciation-contractor-books.html">
+        <div class="thumb" style="background:url(/blog/_thumb_collections.jpg) center/cover;font-size:0" role="img" aria-label="How Should Recoverable Depreciation and Insurance Supplements Actually Post to a Contractor's Books?"></div>
+        <div class="body">
+          <span class="kicker">Insurance Restoration &middot; ACV &amp; RCV &middot; Job Costing</span>
+          <h3>How Should Recoverable Depreciation and Insurance Supplements Actually Post to a Contractor's Books?</h3>
+          <p>The ACV check, the recoverable depreciation release, and the supplement approval land in three different weeks from three different payors. Sourced timelines for each, plus what a CPA who works these claims says about booking them.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/bookkeeping-software-without-accounting-jargon-contractors.html">
+        <div class="thumb" style="background:url(/blog/_thumb_backoffice.jpg) center/cover;font-size:0" role="img" aria-label="Is There Contractor Bookkeeping Software That Doesn't Require Knowing Debits and Credits?"></div>
+        <div class="body">
+          <span class="kicker">QuickBooks Online &middot; ServiceTitan &middot; Financial Literacy</span>
+          <h3>Is There Contractor Bookkeeping Software That Doesn't Require Knowing Debits and Credits?</h3>
+          <p>QuickBooks Online's own journal entry screen still runs on named Debit and Credit columns, and ServiceTitan's own setup docs have you mapping pricebook items to GL accounts. Sourced survey data on what that jargon gap actually costs contractors.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/housecall-pro-alternatives-job-costing-crews-under-15.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-alternative.png) center/cover;font-size:0" role="img" aria-label="6 Housecall Pro Alternatives for Contractors Who Need Job Costing Under 15 Techs"></div>
+        <div class="body">
+          <span class="kicker">Housecall Pro &middot; Job Costing &middot; Software Comparison</span>
+          <h3>6 Housecall Pro Alternatives for Contractors Who Need Job Costing Under 15 Techs</h3>
+          <p>Housecall Pro's own pricing page claims job costing starting at $59/month. Which of six tools contractors actually compare it to unlock real job costing, at what tier, sourced from each vendor's own pricing page.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/payroll-visibility-settings-servicetitan-quickbooks-roles.html">
+        <div class="thumb" style="background:url(/blog/_thumb_payroll.jpg) center/cover;font-size:0" role="img" aria-label="6 Payroll-Visibility Settings for Contractors Growing Past Owner-Only Access"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan &middot; QuickBooks &middot; Payroll Access</span>
+          <h3>6 Payroll-Visibility Settings for Contractors Growing Past Owner-Only Access</h3>
+          <p>A role-by-role audit of who can see payroll in ServiceTitan and QuickBooks Online by default, Admin, Accounting, Dispatch, technicians, and 1099 contractors, sourced from both vendors' own documentation.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/accountant-bookkeeper-access-contractor-books.html">
+        <div class="thumb" style="background:url(/blog/_thumb_payroll.jpg) center/cover;font-size:0" role="img" aria-label="How Do You Give a Bookkeeper Access Without Handing Over Everything"></div>
+        <div class="body">
+          <span class="kicker">QuickBooks &middot; ServiceTitan &middot; Access &amp; Permissions</span>
+          <h3>How Do You Give a Bookkeeper Access Without Handing Over the Whole System?</h3>
+          <p>QuickBooks Online's Accountant role is all-or-nothing and can't be scoped down. ServiceTitan has a real Accounting role, but it still won't view payroll. What it actually takes to build one clean, read-only view for a bookkeeper across both.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/jobber-vs-housecall-pro-job-costing.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-alternative.png) center/cover;font-size:0" role="img" aria-label="Jobber vs Housecall Pro: Which One Actually Shows You If a Job Made Money"></div>
+        <div class="body">
+          <span class="kicker">Jobber &middot; Housecall Pro &middot; Job Costing</span>
+          <h3>Jobber vs Housecall Pro: Which One Actually Shows You If a Job Made Money?</h3>
+          <p>Both platforms gate job costing one paid tier above their base plan, and neither one's QuickBooks Online sync carries that number into your actual books. Sourced from each vendor's own pricing and help docs.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-quickbooks-sync-gaps-double-data-entry.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-quickbooks.jpg) center/cover;font-size:0" role="img" aria-label="6 QuickBooks Sync Gaps That Force Contractors Into Double Data Entry"></div>
+        <div class="body">
+          <span class="kicker">QuickBooks &middot; Field Service Software &middot; Double Data Entry</span>
+          <h3>6 QuickBooks Sync Gaps That Force Contractors Into Double Data Entry</h3>
+          <p>ServiceTitan, Jobber, Housecall Pro, Buildertrend, and Service Fusion each have a documented QuickBooks sync gap, sourced to each vendor's own docs. Plus the one QuickBooks feature that fixes it, and why it isn't wired to any of them.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-pricing-cost-onboarding-contract-2026.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-alternative.png) center/cover;font-size:0" role="img" aria-label="How Much Does ServiceTitan Actually Cost in 2026"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan &middot; Pricing &middot; Contract Terms &middot; 2026</span>
+          <h3>How Much Does ServiceTitan Actually Cost in 2026?</h3>
+          <p>ServiceTitan publishes no price anywhere, confirmed on its own site, Capterra, and G2. Real dollar figures instead, straight from its own Terms of Use and BBB complaints profile: a $4,802.50 onboarding fee, a termination clause equal to all remaining payments.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-real-time-job-cost-tracking.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-quickbooks.jpg) center/cover;font-size:0" role="img" aria-label="How Do You Catch a ServiceTitan Job Losing Money While It's Still Open"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan &middot; Job Costing &middot; Real-Time Margin</span>
+          <h3>How Do You Catch a ServiceTitan Job Losing Money While It's Still Open?</h3>
+          <p>ServiceTitan's own docs confirm a real-time Budget vs Actual table exists, but it's gated behind Project Management, needs support-configured setup, and its WIP report has to be run by hand. The real mid-job visibility gap, sourced.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-job-costing-checks-before-trusting-margin.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-quickbooks.jpg) center/cover;font-size:0" role="img" aria-label="7 Job-Costing Checks ServiceTitan Contractors Run Before Trusting a Margin Number"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · QuickBooks · Job Costing</span>
+          <h3>7 Job-Costing Checks ServiceTitan Contractors Run Before Trusting a Margin Number</h3>
+          <p>ServiceTitan's own docs admit burden rate is a manual field and the flyout locks at invoice export. Seven specific, sourced checks for crews under 20 techs before you trust a margin number.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/how-to-know-if-a-servicetitan-job-made-money.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-quickbooks.jpg) center/cover;font-size:0" role="img" aria-label="How Do You Know If a ServiceTitan Job Actually Made Money"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Job Costing · 2026</span>
+          <h3>How Do You Know If a ServiceTitan Job Actually Made Money?</h3>
+          <p>ServiceTitan's own help docs say job costing locks once you post the invoice, and burden rate has to be typed in by hand. Here's the gap between the marketing claim and the shipped tool.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/why-wont-crew-use-servicetitan-mobile-app.html">
+        <div class="thumb" style="background:url(/blog/_thumb_payroll.jpg) center/cover;font-size:0" role="img" aria-label="Why Won't My Crew Use the ServiceTitan Mobile App"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Workforce · 2026</span>
+          <h3>Why Won't My Crew Use the ServiceTitan Mobile App?</h3>
+          <p>ServiceTitan's own survey says resistance is the smallest reason. What an incomplete clock-out actually costs your payroll and job costing before anyone catches it.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-membership-renewal-blind-spots.html">
+        <div class="thumb" style="background:url(/blog/_thumb_backoffice.jpg) center/cover;font-size:0" role="img" aria-label="6 ServiceTitan Membership-Renewal Blind Spots"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Memberships · 2026</span>
+          <h3>6 ServiceTitan Membership-Renewal Blind Spots for Contractors Under 10 Crews</h3>
+          <p>ServiceTitan's own membership tools count losses after they happen and only auto-fix expired credit cards (and never Amex). Six sourced blind spots, and the honest way to close them.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-sales-tax-zone-compliance.html">
+        <div class="thumb" style="background:url(/blog/_thumb_backoffice.jpg) center/cover;font-size:0" role="img" aria-label="Does ServiceTitan Handle Multi-Zone Sales Tax Compliance"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Financial · 2026</span>
+          <h3>Does ServiceTitan Handle Multi-Zone Sales Tax Compliance for You?</h3>
+          <p>ServiceTitan's own setup docs say it isn't responsible for knowing your jurisdiction's tax rules, and its own blog tells contractors to go buy Avalara. Here's the real gap for multi-zone shops.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-coi-tracking-ai-documents-agent.html">
+        <div class="thumb" style="background:url(/blog/_thumb_backoffice.jpg) center/cover;font-size:0" role="img" aria-label="Does ServiceTitan Track Certificate of Insurance Expiration Dates"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Documents · 2026</span>
+          <h3>Does ServiceTitan Track Certificate-of-Insurance Expiration Dates?</h3>
+          <p>ServiceTitan's own docs show no COI expiration tracking, yet ServiceTitan's own vendor contract requires it from its own vendors within 10 days. Here's the gap and the honest way to close it.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-pricebook-pro-vs-self-learning-agent.html">
+        <div class="thumb" style="background:url(/blog/_thumb_pricebook.jpg) center/cover;font-size:0" role="img" aria-label="ServiceTitan Pricebook Pro vs a Self-Learning Pricing Agent"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Pricebook · 2026</span>
+          <h3>ServiceTitan Pricebook Pro vs. a Self-Learning Pricing Agent</h3>
+          <p>ServiceTitan's own docs show Pricebook Pro refreshes monthly and Pricebook Connect surfaces vendor deltas for you to apply by hand. What neither one does: reprice the whole book and show the margin hit.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/best-servicetitan-alternative-small-trades-job-costing.html">
+        <div class="thumb" style="background:url(/blog/_thumb_os-alternative.png) center/cover;font-size:0" role="img" aria-label="The Best ServiceTitan Alternative for Small Trades Crews"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan Alternatives · Job Costing · 2026</span>
+          <h3>The Best ServiceTitan Alternative for Small Trades Crews</h3>
+          <p>ServiceTitan is enterprise-sized; Jobber and Housecall Pro leave job costing to QuickBooks. What a 1-10 person shop should actually run to finally see what every job made, in one system.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/add-ai-to-servicetitan-vs-replace-it.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-alternative.png) center/cover;font-size:0" role="img" aria-label="Should You Replace ServiceTitan With AI, or Add a Back-Office Layer On Top"></div>
+        <div class="body">
+          <span class="kicker">Switching Costs · Comparison · 2026</span>
+          <h3>Should You Replace ServiceTitan With AI, or Add a Back-Office Layer On Top?</h3>
+          <p>What switching off ServiceTitan really costs and takes, sourced from BBB complaints and the alternatives' own pricing pages, versus adding an AI layer on top of what you already run.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/best-ai-tools-hvac-plumbing-electrical-contractors-2026.html">
+        <div class="thumb" style="background:url(/blog/_thumb_best-ai-tools-2026.jpg) center/cover;font-size:0" role="img" aria-label="Best AI Tools for HVAC, Plumbing and Electrical Contractors 2026"></div>
+        <div class="body">
+          <span class="kicker">AI Tools · Comparison · 2026</span>
+          <h3>Best AI Tools for HVAC, Plumbing &amp; Electrical Contractors (2026)</h3>
+          <p>Every "best AI tools" list is 100% front-office. None touch collections, pricebook, dispatch margin, or job costing. Here's the real landscape, and the row no list covers.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/automate-eos-scorecard-servicetitan-quickbooks.html">
+        <div class="thumb" style="background:url(/blog/_thumb_eos-scorecard.jpg) center/cover;font-size:0" role="img" aria-label="Automate Your EOS Scorecard From ServiceTitan and QuickBooks"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · QuickBooks · EOS</span>
+          <h3>Automate Your EOS Scorecard From ServiceTitan and QuickBooks</h3>
+          <p>ServiceTitan's KPI modules cap at 6 metrics from ServiceTitan data only. An EOS Scorecard needs 5-15, half of them financial. Here's the real gap, and how to close it.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-ai-dispatch-routing-margin.html">
+        <div class="thumb" style="background:url(/blog/_thumb_dispatch.jpg) center/cover;font-size:0" role="img" aria-label="AI Dispatch and Routing for ServiceTitan: Priority, Drive Time, and Margin"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Dispatch · Margin</span>
+          <h3>AI Dispatch & Routing for ServiceTitan: Priority, Drive Time, and Margin — Not Just the Calendar</h3>
+          <p>ServiceTitan's own Dispatch Pro formula optimizes revenue minus drive cost. Here's how a Routing agent adds overtime and margin on top, human-approved.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/ai-back-office-for-procore.html">
+        <div class="thumb" style="background:url(/blog/_thumb_procore-backoffice.jpg) center/cover;font-size:0" role="img" aria-label="The AI Back Office for Procore"></div>
+        <div class="body">
+          <span class="kicker">Procore · The Back Office</span>
+          <h3>The AI Back Office for Procore</h3>
+          <p>Run the work between Procore and QuickBooks: labor, routing, documents, financials, and collections, advisory by default.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/procore-agent-studio-vs-third-party-ai.html">
+        <div class="thumb" style="background:url(/blog/_thumb_procore-agentstudio.jpg) center/cover;font-size:0" role="img" aria-label="Procore Agent Studio vs Third-Party AI Agents"></div>
+        <div class="body">
+          <span class="kicker">Procore · Honest Comparison</span>
+          <h3>Procore Agent Studio vs Third-Party AI Agents</h3>
+          <p>What Agent Studio covers inside Procore, what it leaves to your books, and where a third-party back-office layer fits.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/automate-collections-buildertrend.html">
+        <div class="thumb" style="background:url(/blog/_thumb_buildertrend-collections.jpg) center/cover;font-size:0" role="img" aria-label="How to Automate Collections for Your Buildertrend Shop"></div>
+        <div class="body">
+          <span class="kicker">Buildertrend · Collections · Cash Flow</span>
+          <h3>How to Automate Collections for Your Buildertrend Shop</h3>
+          <p>Score the aging list, reconcile against QuickBooks, and approve a ranked follow-up queue instead of hand-chasing invoices.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/servicetitan-ar-collections-automation.html">
+        <div class="thumb" style="background:url(/blog/_thumb_collections.jpg) center/cover;font-size:0" role="img" aria-label="Automate A/R collections for ServiceTitan contractors"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Collections · Cash Flow</span>
+          <h3>How to Automate Invoice Collections for Your ServiceTitan Shop: The A/R Aging Playbook</h3>
+          <p>Reconcile against QuickBooks, score the aging list by priority, and stop manually triaging which invoices to chase.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/zero-install-ai-back-office-servicetitan.html">
+        <div class="thumb" style="background:url(/blog/_thumb_zeroinstall.jpg) center/cover;font-size:0" role="img" aria-label="The $0-install AI back office for ServiceTitan"></div>
+        <div class="body">
+          <span class="kicker">The Offer · Founding 25</span>
+          <h3>The $0-Install AI Back Office for ServiceTitan</h3>
+          <p>Start with $0 down: prepay your first year and the install is waived. The offer, why it's safe, and the eight agents.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/ai-back-office-for-servicetitan.html">
+        <div class="thumb" style="background:url(/blog/_thumb_backoffice.jpg) center/cover;font-size:0" role="img" aria-label="The AI Back Office for ServiceTitan"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · The Back Office</span>
+          <h3>The AI Back Office for ServiceTitan: Run on Your Actual QuickBooks Books (2026)</h3>
+          <p>ServiceTitan analyzes its own data; your books live in QuickBooks. We reconcile to your actual general ledger and work the back office it leaves manual.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/connect-servicetitan-quickbooks-automated-job-costing.html">
+        <div class="thumb" style="background:url(/blog/_thumb_st-quickbooks.jpg) center/cover;font-size:0" role="img" aria-label="How to Connect ServiceTitan to QuickBooks for Automated Job Costing"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · QuickBooks · Job Costing</span>
+          <h3>How to Connect ServiceTitan to QuickBooks for Automated Job Costing</h3>
+          <p>What the native sync does, where it breaks, and how an automated bridge keeps job costs accurate in your real books.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/cut-back-office-hours-with-ai-without-hiring.html">
+        <div class="thumb" style="background:url(/blog/_thumb_cuthours.jpg) center/cover;font-size:0" role="img" aria-label="How HVAC and Trades Shops Cut Back-Office Hours With AI Without Hiring More Staff"></div>
+        <div class="body">
+          <span class="kicker">The Back Office · Hours Saved</span>
+          <h3>How HVAC and Trades Shops Cut Back-Office Hours With AI Without Hiring More Staff (2026)</h3>
+          <p>The agents work cash, A/R, inventory, payroll, and the pricebook the office does by hand, advisory by default.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+      <a class="card" href="/blog/automate-servicetitan-pricebook-vendor-costs.html">
+        <div class="thumb" style="background:url(/blog/_thumb_pricebook.jpg) center/cover;font-size:0" role="img" aria-label="Automate your ServiceTitan pricebook"></div>
+        <div class="body">
+          <span class="kicker">ServiceTitan · Pricebook</span>
+          <h3>How to Automate Your ServiceTitan Pricebook When Vendor Costs Rise</h3>
+          <p>Keep your pricebook current when vendors raise costs, sold-hour re-pricing with human-approved write-backs.</p>
+          <span class="more">Read →</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="empty" id="empty">
+      <p>We publish one or two genuinely useful, fact-dense guides a week, no filler. Want the back office handled instead of read about? <a href="https://book.topbuilderai.com" style="color:var(--emerald);font-weight:600">Book a fit call →</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div><b>Top Builder AI</b>, the AI back office for ServiceTitan contractors. A <b>Salisbury Bookkeeping LLC</b> brand.</div>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

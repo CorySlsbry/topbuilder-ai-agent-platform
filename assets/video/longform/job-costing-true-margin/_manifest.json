@@ -1,0 +1,16 @@
+{
+  "slug": "job-costing-true-margin",
+  "brand": "top-builder-ai",
+  "type": "longform-video",
+  "format": "mp4-1920x1080",
+  "title": "True Job Margin: The Job-Costing System for ServiceTitan Contractors",
+  "description": "Why gross margin on the P&L lies about individual jobs, and how to cost a job honestly: labor burden (1.25-1.4x wages), materials, equipment, callbacks, unbilled change orders, simple overhead allocation, a worked $12K-job example that truly made 4%, and the weekly 20-minute job-costing review. Pure value, no pitch.",
+  "style": "value-first-informational",
+  "beats": 27,
+  "lead_magnet": "job-profit-analyzer",
+  "cta_url": "topbuilderai.com/job-profit",
+  "platforms": ["youtube"],
+  "created": "2026-07-11",
+  "reusable": true,
+  "beat_script": "vid_job_costing_true_margin.py"
+}

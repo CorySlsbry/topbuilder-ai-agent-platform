@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- WebMCP origin trial, topbuilderai.com, expires 2026-11-17. Lets browser AI agents (Gemini in Chrome, etc.) call this page's declared tools instead of scraping. Re-register at developer.chrome.com/origintrials before expiry. -->
+<meta http-equiv="origin-trial" content="REDACTED" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<title>See Top Builder AI Run Your Back Office, Platform Demo &amp; Modeled Scenarios</title>
+<meta name="description" content="Watch Top Builder AI run the back office on top of ServiceTitan, Procore, and QuickBooks: eight self-learning agents, a full platform walkthrough, the five steps from connect to leadership view, and two modeled HVAC scenarios showing what the math supports on recovered margin, freed cash, and reclaimed office hours." />
+<link rel="canonical" href="https://topbuilderai.com/demo.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/demo.html" />
+<meta property="og:title" content="See Top Builder AI Run Your Back Office, Platform Demo & Modeled Scenarios" />
+<meta property="og:description" content="A full platform walkthrough of Top Builder AI running the back office on top of ServiceTitan, Procore, and QuickBooks, plus two modeled HVAC scenarios." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+ :root{
+ /* Enterprise-light palette (WCAG 2.2 AA, all text pairs >=4.5:1). Blue primary, green secondary. */
+ --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+ --line:#E2E8F0; --line2:#CBD5E1;
+ --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+ --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+ --inkem:#FFFFFF;
+ --maxw:1140px; --r:18px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0}
+ html{scroll-behavior:smooth}
+ body{
+ font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+ background:var(--bg); color:var(--ink); line-height:1.55;
+ -webkit-font-smoothing:antialiased; overflow-x:hidden;
+ }
+ .serif{font-family:"Instrument Serif",Georgia,serif; font-weight:400; letter-spacing:.2px}
+ .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+ a{color:inherit; text-decoration:none}
+ .mono{font-variant-numeric:tabular-nums; font-feature-settings:"tnum"}
+
+ /* ---------- ambient background ---------- */
+ .glow{position:fixed; inset:0; z-index:0; pointer-events:none}
+ .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+ width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+ .glow::after{content:"";position:absolute;top:46%;right:-10%;width:680px;height:680px;
+ background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+ main{position:relative;z-index:1}
+
+ /* ---------- nav ---------- */
+ header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+ background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+ .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+ .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+ .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--ink2)}
+ .nav-links a:hover{color:var(--ink)}
+ .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+ white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+ .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+ box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+ .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+ .btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+ .btn-ghost:hover{background:var(--bg2);border-color:var(--ink3);transform:translateY(-1px)}
+ @media(max-width:760px){
+ .nav-links a:not(.btn){display:none}
+ .nav-in{height:auto;min-height:54px;padding:9px 0;gap:10px;flex-wrap:nowrap}
+ .brand{font-size:14px;gap:7px;white-space:nowrap;flex-shrink:0}
+ .brand svg{width:22px;height:22px}
+ .nav-links{gap:8px;flex-shrink:0}
+ .nav-links .btn{padding:8px 12px;font-size:12.5px;border-radius:9px}
+ }
+ @media(max-width:430px){
+ .wrap{padding:0 16px}
+ .brand{font-size:13px;gap:6px}
+ .brand svg{width:20px;height:20px}
+ .nav-links{gap:6px}
+ .nav-links .btn{padding:7px 10px;font-size:12px}
+ }
+
+ /* ---------- section heads ---------- */
+ .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+ .section{padding:96px 0;position:relative}
+ .section h2{font-size:clamp(28px,4.4vw,46px);line-height:1.08;letter-spacing:-.02em;font-weight:700;margin:14px 0 0;color:var(--ink)}
+ .lede{color:var(--ink2);font-size:18px;max-width:680px;margin-top:18px}
+ @media(max-width:560px){.section{padding:64px 0}}
+
+ /* ---------- hero ---------- */
+ .hero{padding:78px 0 36px}
+ .eh{max-width:880px;margin:0 auto;text-align:center}
+ .eh-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.01em;color:var(--indigo);background:#EFF4FF;border:1px solid #DBE6FF;border-radius:999px;padding:7px 15px}
+ .eh-eyebrow svg{width:15px;height:15px}
+ .eh h1{font-size:clamp(34px,5.6vw,60px);line-height:1.06;font-weight:800;letter-spacing:-.025em;color:var(--ink);margin:22px auto 0;max-width:18ch;text-wrap:balance}
+ .eh-sub{font-size:clamp(16px,2.1vw,19px);line-height:1.6;color:var(--ink2);max-width:64ch;margin:20px auto 0}
+ .eh-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:30px 0 0}
+ .eh-cta .btn{padding:14px 24px;font-size:15.5px;border-radius:12px}
+ .eh-cta .btn svg{width:18px;height:18px}
+
+ /* ---------- demo video ---------- */
+ .video-wrap{max-width:920px;margin:46px auto 0}
+ .video-frame{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;
+ box-shadow:0 1px 3px rgba(15,23,42,.06),0 30px 70px -36px rgba(15,23,42,.5)}
+ .video-frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#0B1220}
+ .video-play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+ .video-play .glyph{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;
+ background:rgba(255,255,255,.92);box-shadow:0 12px 34px -8px rgba(15,23,42,.55);border:1px solid var(--line)}
+ .video-play .glyph svg{width:30px;height:30px;color:var(--indigo);margin-left:4px}
+ .video-cap{margin:16px auto 0;text-align:center;font-size:13.5px;color:var(--ink3)}
+
+ /* ---------- how it works steps ---------- */
+ .steps{display:flex;flex-direction:column;gap:34px;margin-top:48px}
+ .step-row{display:grid;grid-template-columns:1fr 1.05fr;gap:46px;align-items:center}
+ .step-row.flip .step-shot{order:2}
+ .step-row.flip .step-text{order:1}
+ @media(max-width:840px){
+ .step-row{grid-template-columns:1fr;gap:24px}
+ .step-row.flip .step-shot,.step-row.flip .step-text{order:initial}
+ }
+ .step-text .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;
+ font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;color:#fff;background:linear-gradient(135deg,var(--indigo),var(--indigo-2));
+ box-shadow:0 8px 20px -8px rgba(37,99,235,.55)}
+ .step-text h3{font-size:clamp(20px,2.6vw,25px);font-weight:700;letter-spacing:-.015em;color:var(--ink);margin:16px 0 0}
+ .step-text p{font-size:15.5px;line-height:1.6;color:var(--ink2);margin-top:12px}
+ .step-shot{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#0B1220;
+ box-shadow:0 1px 3px rgba(15,23,42,.06),0 22px 50px -30px rgba(15,23,42,.55)}
+ .step-shot img{display:block;width:100%;height:auto}
+
+ /* ---------- case studies ---------- */
+ .cases{display:flex;flex-direction:column;gap:30px;margin-top:48px}
+ .case{border:1px solid var(--line);border-radius:22px;background:var(--panel);overflow:hidden;
+ box-shadow:0 1px 3px rgba(15,23,42,.06),0 26px 60px -40px rgba(15,23,42,.5)}
+ .case-head{padding:34px 38px 0}
+ .case-chip{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--ink2);
+ background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+ .case-head h3{font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:-.02em;color:var(--ink);margin:16px 0 0;line-height:1.12}
+ .case-body{padding:24px 38px 0}
+ .case-block{margin-top:22px}
+ .case-block:first-child{margin-top:8px}
+ .case-block .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo)}
+ .case-block p{font-size:15px;line-height:1.65;color:var(--ink2);margin-top:10px}
+ .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+ @media(max-width:760px){.stat-grid{grid-template-columns:1fr}}
+ .stat{border:1px solid var(--line);border-radius:14px;background:var(--panel2);padding:20px 18px}
+ .stat .val{font-size:clamp(22px,3vw,28px);font-weight:700;letter-spacing:-.02em;color:var(--emerald);font-variant-numeric:tabular-nums;line-height:1.05}
+ .stat .met{font-size:13.5px;font-weight:600;color:var(--ink);margin-top:9px;line-height:1.35}
+ .stat .basis{font-size:11.5px;line-height:1.5;color:var(--ink3);margin-top:9px}
+ blockquote.case-quote{margin:24px 0 0;border-left:3px solid var(--indigo);background:var(--bg2);
+ border-radius:0 14px 14px 0;padding:20px 24px;font-size:16px;line-height:1.6;color:var(--ink);font-style:italic}
+ .case-time{font-size:12.5px;color:var(--ink3);margin-top:14px}
+ .case-disc{margin:22px 38px;padding:14px 18px;border-top:1px solid var(--line);
+ font-size:12.5px;line-height:1.6;color:var(--ink3);font-style:italic}
+
+ /* ---------- final cta ---------- */
+ .final{border:1px solid var(--line2);border-radius:26px;padding:54px 40px;text-align:center;position:relative;overflow:hidden;
+ background:linear-gradient(180deg,rgba(37,99,235,.08),var(--panel2));box-shadow:0 40px 90px -50px rgba(37,99,235,.32)}
+ .final h2{font-size:clamp(28px,5vw,46px);font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+ .final p{color:var(--ink2);font-size:18px;max-width:580px;margin:18px auto 0;line-height:1.6}
+ .final .price-line{font-size:15px;color:var(--ink3);margin:14px auto 0;max-width:560px}
+ .final .price-line b{color:var(--ink2);font-weight:600}
+ .final-cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:32px 0 0}
+ .final-cta .btn{padding:14px 24px;font-size:15.5px;border-radius:12px}
+ .final-cta .btn svg{width:18px;height:18px}
+
+ /* ---------- footer ---------- */
+ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px}
+ .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+ .disc{max-width:620px;line-height:1.5}
+ .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+ .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+ .foot-also p{margin-top:4px;line-height:1.5}
+ .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+ .foot-also a:hover{color:var(--ink)}
+ .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+ .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+ .foot-legal a:hover{color:var(--ink)}
+
+ /* ---------- reveal ---------- */
+ .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+ .reveal.in{opacity:1;transform:none}
+ @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+ /* ---------- focus ---------- */
+ :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+ .skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:#fff;color:var(--indigo);
+ padding:10px 16px;border:1px solid var(--line2);border-radius:0 0 10px 0;font-weight:600;font-size:14px}
+ .skip-link:focus{left:0}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+ <div class="wrap nav-in">
+ <a class="brand" href="/#top"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+ <nav class="nav-links" aria-label="Primary">
+ <a href="/#shift">Compare</a>
+ <a href="/#learning">Self-Learning</a>
+ <a href="/#agents">The Agents</a>
+ <a href="/#pricing">Pricing</a>
+ <a href="/#offer">Get a Demo</a>
+ <a href="/blog/">Blog</a>
+ <a href="/faq.html">FAQ</a>
+ <a class="btn btn-ghost" href="https://os.topbuilderai.com" rel="noopener">Log in</a>
+ <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+ </nav>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO -->
+ <section class="section hero" id="top">
+ <div class="wrap eh">
+ <span class="eh-eyebrow reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10"/><path d="M9 11l2 2 4-4"/></svg> Platform demo</span>
+ <h1 class="reveal">See Top Builder AI run your back office.</h1>
+ <p class="eh-sub reveal">Top Builder AI is eight self-learning agents that install on top of the ServiceTitan, Procore, or Buildertrend you already run, plus your QuickBooks. It does not replace your field software. It runs the back office those tools were never built to automate: the money, the materials, the people, and the paperwork. Every dollar and hour you see is computed by tested code, not guessed by a chatbot, so the numbers are exact and you can audit every one.</p>
+ <div class="eh-cta reveal">
+ <a class="btn btn-primary" href="https://book.topbuilderai.com" aria-label="Book a fit call with Top Builder AI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Book a fit call</a>
+ <a class="btn btn-ghost" href="#case-studies" aria-label="See the modeled scenarios"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="14" y2="17"/></svg> See the modeled scenarios</a>
+ </div>
+ </div>
+ </section>
+
+ <!-- DEMO VIDEO -->
+ <section class="section" id="walkthrough" style="padding-top:0">
+ <div class="wrap">
+ <div class="video-wrap reveal">
+ <div class="video-frame">
+ <!-- NOTE: the demo-walkthrough.mp4 source is a PLACEHOLDER until the real platform render is added. Replace /assets/demo-walkthrough.mp4 with the final file; the poster (cc-executive.png) shows the executive dashboard in the meantime. -->
+ <video controls preload="none" poster="/assets/cc-executive.png" style="width:100%" aria-label="Top Builder AI full platform walkthrough video">
+ <source src="/assets/demo-walkthrough.mp4" type="video/mp4" />
+ Your browser does not support embedded video. The platform walkthrough covers connecting your field software and QuickBooks, the eight back-office agents, and the leadership view.
+ </video>
+ <div class="video-play" aria-hidden="true">
+ <span class="glyph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+ </div>
+ </div>
+ <p class="video-cap">Full platform walkthrough</p>
+ </div>
+ </div>
+ </section>
+
+ <!-- HOW IT WORKS -->
+ <section class="section" id="how-it-works" style="padding-top:0">
+ <div class="wrap">
+ <span class="eyebrow reveal">How it works</span>
+ <h2 class="reveal">Five steps, from connect to the leadership view.</h2>
+ <p class="lede reveal">Top Builder AI sits in the gap between the field software you run and the books you close. Here is exactly what it does once it is connected.</p>
+
+ <div class="steps">
+
+ <!-- Step 1 -->
+ <article class="step-row reveal">
+ <div class="step-shot">
+ <img src="/assets/cc-dispatch.png" width="1280" height="800" loading="lazy"
+ alt="The Top Builder AI Front-Desk and Dispatch board pulling live jobs and calls in from connected ServiceTitan, Procore, and QuickBooks accounts." />
+ </div>
+ <div class="step-text">
+ <span class="num" aria-hidden="true">1</span>
+ <h3>It reads the field data you already have</h3>
+ <p>Connect your ServiceTitan or Procore account and your QuickBooks. The agents pull the jobs, time, invoices, and material costs you already track. Nothing changes in how your crews and office work day to day. You keep running the tools you run now.</p>
+ </div>
+ </article>
+
+ <!-- Step 2 -->
+ <article class="step-row flip reveal">
+ <div class="step-shot">
+ <img src="/assets/cc-agent-controls.png" width="1280" height="800" loading="lazy"
+ alt="The eight-agent Command Center sidebar beside the Dispatch board, with the Routing agent's suggested technician assignments and drive-time saved." />
+ </div>
+ <div class="step-text">
+ <span class="num" aria-hidden="true">2</span>
+ <h3>Eight agents do the back-office work</h3>
+ <p>Workforce, Financial, Inventory, Booking, Routing, Documents, Collections, and Pricebook each watch their corner of the business and write up exactly what to do next. Booking answers calls around the clock. Routing tightens the day's drive time. Collections chases the money that is sitting in aging.</p>
+ </div>
+ </article>
+
+ <!-- Step 3 -->
+ <article class="step-row reveal">
+ <div class="step-shot">
+ <img src="/assets/cc-financial.png" width="1280" height="800" loading="lazy"
+ alt="A Financial agent run opened to show the deterministic per-job numbers with a line-by-line breakdown beside the AI's plain-English narration." />
+ </div>
+ <div class="step-text">
+ <span class="num" aria-hidden="true">3</span>
+ <h3>The numbers are computed, not guessed</h3>
+ <p>Open any agent run and you see the figure, where it came from, and the math behind it. The AI writes the plain-English explanation, but it is structurally blocked from changing a single number. It cannot hallucinate a dollar amount, because it never touches the calculation.</p>
+ </div>
+ </article>
+
+ <!-- Step 4 -->
+ <article class="step-row flip reveal">
+ <div class="step-shot">
+ <img src="/assets/cc-agent-controls.png" width="1280" height="800" loading="lazy"
+ alt="The Agent Controls panel showing the Off, Approve, and Auto autonomy toggle for each agent, with the audit trail and an undo on a recent action." />
+ </div>
+ <div class="step-text">
+ <span class="num" aria-hidden="true">4</span>
+ <h3>You decide how much it does on its own</h3>
+ <p>Set each agent to Off, Approve-first, or Auto. Approve-first means nothing happens until you click yes. Every action is logged and reversible, so you can undo anything. Your shop's data stays walled off and never trains another contractor's agents.</p>
+ </div>
+ </article>
+
+ <!-- Step 5 -->
+ <article class="step-row reveal">
+ <div class="step-shot">
+ <img src="/assets/cc-org-2d.png" width="1280" height="800" loading="lazy"
+ alt="The 3D Organization view showing every person grouped by department on concentric shells, with a manager granting one employee access to a specific agent." />
+ </div>
+ <div class="step-text">
+ <span class="num" aria-hidden="true">5</span>
+ <h3>Leadership sees the whole company at a glance</h3>
+ <p>The 3D Org view shows every person grouped by department and which agents each one can use. Managers grant and revoke that access right on the sphere. Finance and HR stay walled off from the rest. It updates itself as people are hired and let go.</p>
+ </div>
+ </article>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- CASE STUDIES -->
+ <section class="section" id="case-studies" style="padding-top:0">
+ <div class="wrap">
+ <span class="eyebrow reveal">Modeled scenarios</span>
+ <h2 class="reveal">What the math supports for a shop like yours.</h2>
+ <p class="lede reveal">Two modeled scenarios for a representative HVAC contractor running ServiceTitan and QuickBooks. Both are illustrative benchmarks built from published 2026 industry data, not results from a named client.</p>
+
+ <div class="cases">
+
+ <!-- Case study 1 -->
+ <article class="case reveal">
+ <div class="case-head">
+ <span class="case-chip">Representative 14-tech residential HVAC contractor, around $7M annual revenue, ServiceTitan plus QuickBooks Online</span>
+ <h3>The jobs that quietly lost money: finding live margin before month-end</h3>
+ </div>
+ <div class="case-body">
+ <div class="case-block">
+ <div class="lbl">Challenge</div>
+ <p>This shop looked healthy on paper. The trucks were booked, revenue was up, and the company P&amp;L closed somewhere around 6 percent net most months, right at the residential HVAC median. The problem was that nobody knew which jobs made that money and which ones lost it until the books closed weeks later. Margin was a month-end surprise, not a daily number.</p>
+ <p>Three leaks ran underneath the surface. First, job costing happened after the fact. ServiceTitan held the field data and QuickBooks held the financial truth, but the two were reconciled by hand long after the crew left the site, so a job that ran over on labor or pulled extra parts only showed up as a thinner number on a report nobody read in time to act. Second, the flat-rate pricebook was stale. Material costs had climbed 12 to 18 percent since 2023 and parts were rising 5 to 10 percent a year, but the book had not kept pace, so a slice of the work was being sold below its real cost without anyone deciding to do that. Third, truck stock leaked. A tech grabbed a capacitor for one job and nobody recorded it, so the cost floated into general shrinkage instead of landing against the job that consumed it.</p>
+ </div>
+ <div class="case-block">
+ <div class="lbl">Approach</div>
+ <p>Top Builder AI installed on top of the systems the shop already ran. It did not replace ServiceTitan or QuickBooks. It sat between them as an integration bridge: field data flows out of ServiceTitan, Top Builder AI categorizes it, costs it, and reconciles it, and the result lands as financial truth in QuickBooks. The Financial agent computed margin per job continuously instead of at month-end, with every figure coming from pure, tested code so it was exact and auditable. The Pricebook agent re-costed the flat-rate book against current material and labor cost and proposed corrected prices for the owner to approve or reject. The Inventory agent tied truck stock to job numbers, so material cost reduced the job that consumed it instead of disappearing into general shrinkage. Every agent ran advisory by default, set to Off, Approve-first, or Auto, with data isolated to this shop under row-level security. Founder Cory Salisbury ran the install hands-on.</p>
+ </div>
+ <div class="case-block">
+ <div class="lbl">Results, modeled</div>
+ <div class="stat-grid">
+ <div class="stat">
+ <div class="val">+3 to +4 pts</div>
+ <div class="met">Net profit margin lift in year one, about 6% to roughly 9 to 10%</div>
+ <div class="basis">ACCA benchmarking puts the residential HVAC median near 5.8% net and the top quartile near 13.2%. Modeled as moving partway toward the achievable band, not to top-quartile, to stay conservative.</div>
+ </div>
+ <div class="stat">
+ <div class="val">~$210K to ~$280K</div>
+ <div class="met">Annual profit recovered</div>
+ <div class="basis">A 3 to 4 point net margin gain applied to about $7M revenue, where each point is roughly $70K. Recovery, not new sales: pricing work to its true cost and attributing material cost to the consuming job.</div>
+ </div>
+ <div class="stat">
+ <div class="val">15 to 30%</div>
+ <div class="met">Margin lift from re-costing the flat-rate book, modeled at the conservative end</div>
+ <div class="basis">Multiple 2026 pricing studies report 15 to 30% first-year margin improvement from structured pricing guides. Modeled at the low end given a shop already at median.</div>
+ </div>
+ <div class="stat">
+ <div class="val">12 to 18%</div>
+ <div class="met">Stale-pricebook material drift the agent corrects for</div>
+ <div class="basis">Published 2026 HVAC cost data on copper, aluminum, steel, and components, plus 5 to 10% parts increases per year. This is the gap a once-a-year repricing cadence leaves uncovered.</div>
+ </div>
+ <div class="stat">
+ <div class="val">Under 10%</div>
+ <div class="met">Inventory shrinkage target; parts cost recovered into per-job margin</div>
+ <div class="basis">ACCA HVAC guidance cites shops targeting 10% or less shrinkage. Attributing parts to job numbers moves that cost onto the consuming job, correcting an install's real versus on-paper gross.</div>
+ </div>
+ <div class="stat">
+ <div class="val">Same day</div>
+ <div class="met">Time from job completion to known margin, versus weeks at month-end</div>
+ <div class="basis">Deterministic per-job costing runs continuously off the ServiceTitan-to-QuickBooks bridge instead of a manual month-end reconciliation. Modeled, reflecting the design rather than a measured client cycle time.</div>
+ </div>
+ </div>
+ <blockquote class="case-quote">The kind of thing an owner tells us: we were busy all year and still wondered where the money went. Turns out a handful of jobs lost money every month and we never knew until the books closed, by then it was too late to do anything about it. Now I see the margin on a job the day we finish it, and the price book actually reflects what parts cost today.</blockquote>
+ <p class="case-time">Timeframe: modeled over a representative first-year engagement, with per-job margin visibility from the first reconciliation cycle.</p>
+ </div>
+ </div>
+ <p class="case-disc">Illustrative benchmark scenario, not a real named customer. Top Builder AI is pre-launch, so no live client results exist yet. Every figure above is modeled from published 2026 HVAC industry benchmarks (ACCA Financial Benchmarking Study and 2026 margin and pricing studies from Steph's Books, FieldCamp, ServiceTitan, BuildOps, and others) applied to a representative 14-tech, around $7M shop. The numbers describe what the math supports for a contractor at this profile, not a measured outcome from a specific company.</p>
+ </article>
+
+ <!-- Case study 2 -->
+ <article class="case reveal">
+ <div class="case-head">
+ <span class="case-chip">Representative 14-tech residential and light-commercial HVAC contractor, around $6M annual revenue, one office manager</span>
+ <h3>How a 14-tech HVAC shop clawed back 38 days of cash and 8 office hours a week without hiring</h3>
+ </div>
+ <div class="case-body">
+ <div class="case-block">
+ <div class="lbl">Challenge</div>
+ <p>A growing HVAC shop ran ServiceTitan in the field and QuickBooks in the office, with one office manager keying everything in between. She built invoices by hand from completed jobs, chased payments by phone when she had time, filed permits and warranty paperwork into folders nobody could find, and answered the phones. The cracks were predictable. Invoices went out days after the job closed. Accounts receivable aged to roughly 52 days, the upper end of the HVAC average, while best-run shops collect inside 35. Roughly 1.8% of revenue quietly turned into bad debt because nobody had time to work the 60-and-90-day column. The owner's real choice looked like hiring a second admin at $50,000 to $60,000 fully loaded, or watching collections and compliance slip further. Neither fixed the root problem: the office was doing by hand what the field systems already knew.</p>
+ </div>
+ <div class="case-block">
+ <div class="lbl">Approach</div>
+ <p>Top Builder AI installed on top of the existing ServiceTitan and QuickBooks stack. It did not replace either one. The integration bridge read completed-job data from ServiceTitan, and three back-office agents went to work. The Documents agent classified and filed every permit, warranty, and signed work order automatically, and flagged anything missing a signature. The Booking agent answered and triaged after-hours calls so jobs got on the board instead of going to voicemail. The Collections agent watched A/R aging in real time and drafted prioritized, dollar-accurate follow-ups the moment an invoice crossed each threshold. Every dollar and every aging day was computed by tested code, not guessed by the AI. The agents ran Approve-first at the start: she reviewed each draft for a few weeks, then moved the routine collections reminders to Auto once she trusted them, keeping full undo and a logged history. She went from keying data to approving decisions.</p>
+ </div>
+ <div class="case-block">
+ <div class="lbl">Results, modeled</div>
+ <div class="stat-grid">
+ <div class="stat">
+ <div class="val">52 to 34 days</div>
+ <div class="met">Days sales outstanding (DSO)</div>
+ <div class="basis">Modeled from the published HVAC DSO range of 35 to 55 days average, best-in-class under 35 (ClearReceivables and Construction Cost Accounting 2026). Earlier, dollar-accurate aging follow-up moves a high-average shop toward best-in-class.</div>
+ </div>
+ <div class="stat">
+ <div class="val">~$296K</div>
+ <div class="met">One-time working capital freed</div>
+ <div class="basis">On about $6M revenue, one DSO day ties up roughly $16,400 of cash ($6M / 365). Reclaiming 18 DSO days frees a one-time ~$296K already earned but uncollected. Cash pulled forward, not new revenue.</div>
+ </div>
+ <div class="stat">
+ <div class="val">~$54K / yr</div>
+ <div class="met">Bad debt recovered annually</div>
+ <div class="basis">Modeled at 1.8% of $6M (~$108K) written off because aged invoices were never worked, against data showing 32% of businesses lose 5 to 30% of revenue to bad debt (Old National Bank / PYMNTS 2025). Systematic follow-up recovers roughly half.</div>
+ </div>
+ <div class="stat">
+ <div class="val">~8 hrs / wk</div>
+ <div class="met">Office-manager hours reclaimed</div>
+ <div class="basis">Administrative-automation studies show 6 to 10 hours per week saved per employee on invoicing, follow-up, and data entry (Time etc; business.com 2026). Modeled at the midpoint across the combined work.</div>
+ </div>
+ <div class="stat">
+ <div class="val">$50K to $60K</div>
+ <div class="met">Avoided back-office hire, per year not spent</div>
+ <div class="basis">Reclaiming about 8 hours per week (~400 hours per year) absorbs the growth that would otherwise require a second admin. The figure is the fully loaded cost of one additional office role at 2026 small-business pay rates.</div>
+ </div>
+ <div class="stat">
+ <div class="val">90 days</div>
+ <div class="met">Timeframe modeled, with recovery front-loaded</div>
+ <div class="basis">Modeled over the first 90 days after install. The working-capital recovery is front-loaded as aged invoices get worked, while the hours and bad-debt gains continue month over month.</div>
+ </div>
+ </div>
+ <blockquote class="case-quote">The kind of thing an owner tells us: I was about to hire a second person in the office just to chase invoices and file paperwork. Instead the work got done on top of the systems I already pay for, my old aging finally got collected, and my office manager stopped drowning. I can see every number and undo anything. That is what I wanted.</blockquote>
+ <p class="case-time">Timeframe: modeled over the first 90 days after install, with the working-capital recovery front-loaded as aged invoices get worked and the hours and bad-debt gains continuing month over month.</p>
+ </div>
+ </div>
+ <p class="case-disc">Illustrative benchmark scenario, not a specific client. Top Builder AI is pre-launch, so no real customer results exist yet. Every figure above is modeled from published 2026 industry benchmarks (HVAC days-sales-outstanding ranges, small-business late-payment and bad-debt data, and administrative-time studies) applied to a representative shop, not measured from one company's books. Your numbers will differ based on your revenue, billing mix, and current process.</p>
+ </article>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- FINAL CTA -->
+ <section class="section" id="offer" style="padding-top:0">
+ <div class="wrap">
+ <div class="final reveal">
+ <span class="eyebrow">Get on the next cohort</span>
+ <h2>Claim a spot in the next quarterly cohort.</h2>
+ <p>We onboard a small cohort each quarter, hands-on, so every install gets done right. Real capacity, no countdowns. If your back office is ready to run itself, get on the next one.</p>
+ <p class="price-line"><b>$0 install this quarter (normally $8,000), or pay the install and keep monthly flexible.</b> Monthly scales with your team, from $3,000 for up to 25 people. Backed by a 30-day board-ready-or-free guarantee.</p>
+ <div class="final-cta">
+ <a class="btn btn-primary" href="https://book.topbuilderai.com" aria-label="Book a fit call with Top Builder AI"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Book a fit call</a>
+ <a class="btn btn-ghost" href="/#pricing" aria-label="See full pricing and tiers"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> See full pricing</a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<footer>
+ <div class="wrap foot-in">
+ <p class="disc">The AI back office for ServiceTitan contractors, Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+ <div class="foot-also">
+ <div class="h">Also from Cory Salisbury</div>
+ <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> · Construction bookkeeping and fractional CFO services for contractors.</p>
+ <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> · AI training platform that teaches teams to actually use AI at work.</p>
+ </div>
+ <div class="foot-legal">
+ <a href="/procore.html">Procore integration</a>
+ <a href="/privacy">Privacy</a>
+ <a href="/terms">Terms</a>
+ <a href="/security">Security</a>
+ <a href="/.well-known/security.txt">security.txt</a>
+ <a href="/blog/">Blog</a>
+ <a href="/faq.html">FAQ</a>
+ </div>
+ <div>© 2026 Top Builder AI · topbuilderai.com · Salisbury Bookkeeping, LLC</div>
+ </div>
+</footer>
+
+<!-- JSON-LD: VideoObject + breadcrumb for the demo page -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+ {"@type":"WebPage","@id":"https://topbuilderai.com/demo.html#webpage",
+ "url":"https://topbuilderai.com/demo.html",
+ "name":"See Top Builder AI Run Your Back Office, Platform Demo & Modeled Scenarios",
+ "description":"A full platform walkthrough of Top Builder AI running the back office on top of ServiceTitan, Procore, and QuickBooks, plus two modeled HVAC scenarios.",
+ "isPartOf":{"@id":"https://topbuilderai.com/#organization"}},
+ {"@type":"Organization","@id":"https://topbuilderai.com/#organization",
+ "name":"Top Builder AI","url":"https://topbuilderai.com",
+ "legalName":"Salisbury Bookkeeping LLC",
+ "founder":{"@id":"https://salisburybookkeeping.com/#cory-salisbury"}},
+ {"@type":"Person","@id":"https://salisburybookkeeping.com/#cory-salisbury",
+ "name":"Cory Salisbury","jobTitle":"Founder",
+ "sameAs":["https://salisburybookkeeping.com","https://topbuilderai.com","https://neuron-hq.com"]}
+ ]
+}
+</script>
+
+<script>
+ // scroll reveal, bulletproof: in-view elements reveal immediately, the rest animate on scroll,
+ // and a final safety net guarantees content can never stay invisible.
+ const show=(el)=>el.classList.add('in');
+ const els=[...document.querySelectorAll('.reveal')];
+ els.forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%6,5)*40)+'ms'});
+ const io=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){show(e.target);o.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+ requestAnimationFrame(()=>{els.forEach(el=>{
+ if(el.getBoundingClientRect().top < (window.innerHeight||800)*0.95){show(el);}else{io.observe(el);}
+ });});
+ setTimeout(()=>els.forEach(show),2500); // never leave anything hidden
+</script>
+<!-- WebMCP marketing manifest (publish-as-we-go standing rule): feature-detected, no-op without WebMCP. -->
+<script src="/webmcp.js" defer></script>
+</body>
+</html>

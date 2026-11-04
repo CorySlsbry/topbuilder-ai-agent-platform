@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <!-- ==========================================================================
+    Top Builder OS icon sprite — style 8 "live line", blue (Cory 2026-08-13).
+    ONE source for the marketing site AND the OS app. Rules:
+      - 24x24 grid, stroke = currentColor (the page decides the blue), 1.8pt,
+        round caps. No fills except deliberate accents.
+      - every stroke carries fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" so motion.css can draw it in on reveal;
+        without motion.css/js the glyph renders fully drawn (safe default).
+      - NO status dots baked in. A dot is status, not subject — pages add
+        <circle class="tbi-dot"> (marketing) or a real badge (app) only where
+        something is actually live.
+    Usage: <svg class="tbi"><use href="/assets/icons.svg#tb-ledger"/></svg>
+  ========================================================================== -->
+  <defs>
+
+    <!-- ── the trade ─────────────────────────────────────────────────── -->
+    <symbol id="tb-crane" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7 21V4M3.5 21h7M3.5 4h17M7 4l6.5 5.5M17 4v6.5"/>
+      <rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="14.4" y="10.5" width="5.2" height="3.4" rx="1"/>
+    </symbol>
+    <symbol id="tb-hardhat" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 15.5a7 7 0 0 1 14 0"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M2.5 15.5h19"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M10 9.2V6.5a2 2 0 0 1 4 0v2.7"/>
+    </symbol>
+    <symbol id="tb-wrench" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M15 6.2a4.3 4.3 0 0 0-5.8 5.8L4 17.2 6.8 20l5.2-5.2a4.3 4.3 0 0 0 5.8-5.8l-2.7 2.7-2.4-.7-.7-2.4z"/>
+    </symbol>
+    <symbol id="tb-truck" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M2.5 6.5h11v10h-11zM13.5 10h4l3 3.2v3.3h-7"/>
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" cx="7" cy="18.4" r="1.9"/>
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" cx="17" cy="18.4" r="1.9"/>
+    </symbol>
+    <symbol id="tb-calendar" viewBox="0 0 24 24">
+      <rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="3.5" y="5" width="17" height="15.5" rx="2.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3.5 9.8h17M8 2.8v4M16 2.8v4"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M7.5 14h3M13.5 14h3M7.5 17.2h3"/>
+    </symbol>
+    <symbol id="tb-clipboard" viewBox="0 0 24 24">
+      <rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="5" y="4" width="14" height="17" rx="2.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9 4.2V3a1.6 1.6 0 0 1 1.6-1.6h2.8A1.6 1.6 0 0 1 15 3v1.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8.5 10.5l2 2 4.5-4.5M8.5 16.5h7"/>
+    </symbol>
+
+    <!-- ── the money ─────────────────────────────────────────────────── -->
+    <symbol id="tb-ledger" viewBox="0 0 24 24">
+      <rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="4" y="3.2" width="16" height="17.6" rx="2.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 8h8M8 12h8M8 16h5"/>
+    </symbol>
+    <symbol id="tb-dollar" viewBox="0 0 24 24">
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" cx="12" cy="12" r="8.6"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 6.6v10.8"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M14.9 9.3c0-1.1-1.3-1.8-2.9-1.8s-2.9.7-2.9 1.9 1.2 1.7 2.9 2 2.9 1 2.9 2.1-1.3 1.9-2.9 1.9-2.9-.7-2.9-1.8"/>
+    </symbol>
+    <symbol id="tb-chart" viewBox="0 0 24 24">
+      <rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="3.6" y="13" width="4" height="7.4" rx="1.1"/>
+      <rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="10" y="8.6" width="4" height="11.8" rx="1.1"/>
+      <rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="16.4" y="4.4" width="4" height="16" rx="1.1"/>
+    </symbol>
+    <symbol id="tb-bank" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 9.2L12 3.6l9 5.6M4.5 9.5v8M9.75 9.5v8M14.25 9.5v8M19.5 9.5v8M3 20.4h18"/>
+    </symbol>
+    <symbol id="tb-invoice" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M6 2.8h9.5L19 6.3V21.2H6z"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M15.2 3v3.6H19M9 11h6M9 14.4h6M9 17.8h3.5"/>
+    </symbol>
+    <symbol id="tb-leak" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3.2c3.2 4 6 7.2 6 10.6a6 6 0 0 1-12 0c0-3.4 2.8-6.6 6-10.6z"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9.4 14.2a2.7 2.7 0 0 0 2.4 2.6"/>
+    </symbol>
+
+    <!-- ── the office ────────────────────────────────────────────────── -->
+    <symbol id="tb-phone" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M21 16.5v2.6a1.9 1.9 0 0 1-2.1 1.9 18.6 18.6 0 0 1-8.1-2.9 18.3 18.3 0 0 1-5.6-5.6A18.6 18.6 0 0 1 2.3 4.4 1.9 1.9 0 0 1 4.2 2.3h2.6a1.9 1.9 0 0 1 1.9 1.6c.1.9.4 1.9.7 2.7a1.9 1.9 0 0 1-.5 2L7.7 9.8a15 15 0 0 0 5.9 5.9l1.2-1.2a1.9 1.9 0 0 1 2-.5c.8.3 1.8.6 2.7.7a1.9 1.9 0 0 1 1.5 1.8z"/>
+    </symbol>
+    <symbol id="tb-inbox" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3.5 13.5L6 5.5h12l2.5 8"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3.5 13.5h5l1.4 2.6h4.2l1.4-2.6h5V19a1.8 1.8 0 0 1-1.8 1.8H5.3A1.8 1.8 0 0 1 3.5 19z"/>
+    </symbol>
+    <symbol id="tb-clock" viewBox="0 0 24 24">
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" cx="12" cy="12" r="8.8"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 7.2V12l3.4 2.2"/>
+    </symbol>
+    <symbol id="tb-moon" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 14.2A8.4 8.4 0 0 1 9.8 4 8.7 8.7 0 1 0 20 14.2z"/>
+    </symbol>
+
+    <!-- ── the promises ──────────────────────────────────────────────── -->
+    <symbol id="tb-brain" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9.5 21V6.7A3.2 3.2 0 0 1 12.7 3.5 3.2 3.2 0 0 1 16 6.7v.5a4 4 0 0 1 3 3.9 4 4 0 0 1-1.6 3.2 3.6 3.6 0 0 1-3.4 4.9"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9.5 6.9a4 4 0 0 0-4.4 4 4 4 0 0 0 1.5 3.1 3.6 3.6 0 0 0 3 5.1"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M9.5 12.5h3.2M12.7 9.2v6.6"/>
+    </symbol>
+    <symbol id="tb-lock" viewBox="0 0 24 24">
+      <rect fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" x="4.8" y="10.4" width="14.4" height="10" rx="2.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 10.4V7.6a4 4 0 0 1 8 0v2.8"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 14.4v2.4"/>
+    </symbol>
+    <symbol id="tb-shield" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 2.8l7.5 3v6c0 4.6-3.2 7.8-7.5 9.4-4.3-1.6-7.5-4.8-7.5-9.4v-6z"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12l2.3 2.3 4.1-4.6"/>
+    </symbol>
+    <symbol id="tb-check" viewBox="0 0 24 24">
+      <circle fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" cx="12" cy="12" r="8.8"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M8 12.4l2.8 2.8 5.2-6"/>
+    </symbol>
+    <symbol id="tb-bolt" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13.2 2.8L5.6 13.4h5.2L10.8 21.2l7.6-10.6h-5.2z"/>
+    </symbol>
+    <symbol id="tb-export" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 15V3.6M7.8 7.4L12 3.2l4.2 4.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4.5 14.5v4.2A1.8 1.8 0 0 0 6.3 20.5h11.4a1.8 1.8 0 0 0 1.8-1.8v-4.2"/>
+    </symbol>
+  </defs>
+</svg>

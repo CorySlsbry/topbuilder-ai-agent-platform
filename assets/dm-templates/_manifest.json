@@ -1,0 +1,29 @@
+{
+  "type": "dm-templates",
+  "brand": "top-builder-ai",
+  "created": "2026-07-10",
+  "items": [
+    {
+      "file": "comment-calculator-flow.json",
+      "label": "TBAI Comment CALCULATOR DM Flow",
+      "description": "Instagram/TikTok comment-to-DM automation flow. Keyword: CALCULATOR. Sends ServiceTitan Automation Calculator link after follow.",
+      "keyword": "CALCULATOR",
+      "lead_magnet": "ServiceTitan Automation Calculator",
+      "lead_magnet_url": "https://topbuilderai.com/calculator",
+      "platforms": ["instagram", "tiktok"],
+      "status": "ready-when-accounts-created"
+    },
+    {
+      "file": "comment-profit-flow.json",
+      "label": "TBAI Comment PROFIT DM Flow",
+      "description": "Instagram/TikTok comment-to-DM automation flow. Keyword: PROFIT. Sends Job Profit Analyzer link after follow.",
+      "keyword": "PROFIT",
+      "lead_magnet": "Job Profit Analyzer",
+      "lead_magnet_url": "https://topbuilderai.com/job-profit",
+      "platforms": ["instagram", "tiktok"],
+      "status": "ready-when-accounts-created",
+      "created": "2026-07-11",
+      "reusable": true
+    }
+  ]
+}

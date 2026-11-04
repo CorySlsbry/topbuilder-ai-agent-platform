@@ -1,0 +1,5 @@
+[
+  { "customer_segment": "commercial",  "avg_days_to_pay": 38, "sample_size": 220 },
+  { "customer_segment": "residential", "avg_days_to_pay": 28, "sample_size": 180 },
+  { "customer_segment": "government",   "avg_days_to_pay": 62, "sample_size": 40 }
+]

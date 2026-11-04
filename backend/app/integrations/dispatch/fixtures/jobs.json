@@ -1,0 +1,13 @@
+[
+  { "id": "D01", "customer_name": "Whitfield Residence", "trade": "hvac", "job_type": "ac_no_cool", "x": 4, "y": 3, "duration_min": 60, "priority": 8, "required_skill": "hvac", "window_start_min": 480, "window_end_min": 720 },
+  { "id": "D02", "customer_name": "Mercer Building", "trade": "plumbing", "job_type": "water_heater", "x": 9, "y": 13, "duration_min": 90, "priority": 5, "required_skill": "plumbing", "window_start_min": 480, "window_end_min": 1020 },
+  { "id": "D03", "customer_name": "Santos Home", "trade": "hvac", "job_type": "furnace", "x": 16, "y": 5, "duration_min": 60, "priority": 5, "required_skill": "hvac", "window_start_min": 540, "window_end_min": 900 },
+  { "id": "D04", "customer_name": "Okafor Property", "trade": "electrical", "job_type": "panel", "x": 3, "y": 17, "duration_min": 120, "priority": 7, "required_skill": "electrical", "window_start_min": 480, "window_end_min": 780 },
+  { "id": "D05", "customer_name": "Park Residence", "trade": "drains", "job_type": "clog", "x": 7, "y": 15, "duration_min": 60, "priority": 4, "required_skill": "drains", "window_start_min": 600, "window_end_min": 1020 },
+  { "id": "D06", "customer_name": "Nguyen Home", "trade": "hvac", "job_type": "maintenance", "x": 2, "y": 4, "duration_min": 60, "priority": 5, "required_skill": "hvac", "window_start_min": 480, "window_end_min": 1020 },
+  { "id": "D07", "customer_name": "Brooks Office", "trade": "plumbing", "job_type": "leak", "x": 10, "y": 12, "duration_min": 90, "priority": 6, "required_skill": "plumbing", "window_start_min": 480, "window_end_min": 900 },
+  { "id": "D08", "customer_name": "Alvarez Residence", "trade": "drains", "job_type": "sewer_backup", "x": 9, "y": 16, "duration_min": 60, "priority": 8, "required_skill": "drains", "window_start_min": 480, "window_end_min": 720 },
+  { "id": "D09", "customer_name": "Castellano Home", "trade": "electrical", "job_type": "ev_charger", "x": 4, "y": 15, "duration_min": 60, "priority": 5, "required_skill": "electrical", "window_start_min": 600, "window_end_min": 1020 },
+  { "id": "D10", "customer_name": "Romero Home", "trade": "hvac", "job_type": "thermostat", "x": 14, "y": 6, "duration_min": 60, "priority": 4, "required_skill": "hvac", "window_start_min": 660, "window_end_min": 1020 },
+  { "id": "D11", "customer_name": "Doyle Roofing Job", "trade": "roofing", "job_type": "roof_leak", "x": 12, "y": 12, "duration_min": 60, "priority": 5, "required_skill": "roofing", "window_start_min": 480, "window_end_min": 1020 }
+]

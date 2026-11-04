@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<title>Top Builder AI FAQ: the Eight Agents, Pricing, the Guarantee, and the Operator Behind It</title>
+<meta name="description" content="Plain-text answers about Top Builder AI: what the eight self-learning agents do on ServiceTitan, how it differs from ServiceTitan Max, $0 install this quarter (normally $8,000), monthly from $3,000, the board-ready-or-free guarantee, data safety, and founder Cory Salisbury." />
+<link rel="canonical" href="https://topbuilderai.com/faq.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/faq.html" />
+<meta property="og:title" content="Top Builder AI FAQ: the Eight Agents, Pricing, the Guarantee, and the Operator" />
+<meta property="og:description" content="Plain-text answers about the eight self-learning agents, how Top Builder AI differs from ServiceTitan Max, pricing, the guarantee, data safety, and the operator behind it." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* ADA-verified enterprise-light palette (WCAG 2.2 AA, all text pairs >=4.5:1). */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --inkem:#FFFFFF;
+    --maxw:1140px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  .serif{font-family:"Instrument Serif",Georgia,serif; font-weight:400; letter-spacing:.2px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  a{color:inherit; text-decoration:none}
+  .mono{font-variant-numeric:tabular-nums; font-feature-settings:"tnum"}
+
+  /* focus-visible (ADA keyboard) */
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+
+  /* ---------- ambient background (light) ---------- */
+  .glow{position:fixed; inset:0; z-index:0; pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:46%;right:-10%;width:680px;height:680px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+    box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  .btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+  .btn-ghost:hover{background:var(--bg2);border-color:var(--ink3);transform:translateY(-1px)}
+  @media(max-width:760px){
+    .nav-links a:not(.btn){display:none}
+    .nav-in{height:auto;min-height:54px;padding:9px 0;gap:10px;flex-wrap:nowrap}
+    .brand{font-size:14px;gap:7px;white-space:nowrap;flex-shrink:0}
+    .brand svg{width:22px;height:22px}
+    .nav-links{gap:8px;flex-shrink:0}
+    .nav-links .btn{padding:8px 12px;font-size:12.5px;border-radius:9px}
+  }
+  @media(max-width:430px){
+    .wrap{padding:0 16px}
+    .brand{font-size:13px;gap:6px}
+    .brand svg{width:20px;height:20px}
+    .nav-links{gap:6px}
+    .nav-links .btn{padding:7px 10px;font-size:12px}
+  }
+
+  /* ---------- page head ---------- */
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  .pagehead{padding:64px 0 10px}
+  .pagehead h1{font-size:clamp(34px,5.2vw,58px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin-top:16px}
+  .pagehead .lede{color:var(--ink2);font-size:18px;max-width:680px;margin-top:18px}
+  .pagehead .upd{margin-top:14px;font-size:13px;color:var(--ink3)}
+
+  /* ---------- Q&A list (plain headings + paragraphs, no accordions) ---------- */
+  .qa-list{max-width:880px;margin-top:34px;border-top:1px solid var(--line)}
+  .qa{padding:30px 0;border-bottom:1px solid var(--line)}
+  .qa h2{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.3;display:flex;gap:14px;align-items:baseline;color:var(--ink)}
+  .qa h2 .qn{flex:none;font-size:13px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums}
+  .qa p{color:var(--ink2);font-size:15.5px;margin-top:12px;max-width:780px}
+  .qa a{color:var(--indigo)}
+  .qa a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- bottom CTA ---------- */
+  .final{border:1px solid var(--line2);border-radius:26px;padding:46px 36px;text-align:center;margin:70px 0 90px;
+    background:linear-gradient(180deg,rgba(37,99,235,.08),var(--panel2));box-shadow:0 24px 60px -40px rgba(37,99,235,.3)}
+  .final h2{font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;font-weight:600;color:var(--ink)}
+  .final p{color:var(--ink2);font-size:17px;max-width:560px;margin:14px auto 0}
+  .final .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;justify-content:center}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;margin-top:6px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/">Blog</a>
+      <a class="here" href="/faq.html" aria-current="page">FAQ</a>
+      <a class="btn btn-ghost" href="https://os.topbuilderai.com" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="pagehead">
+    <div class="wrap">
+      <span class="eyebrow">Straight answers</span>
+      <h1>Top Builder AI, <span class="serif" style="color:var(--indigo)">in plain answers.</span></h1>
+      <p class="lede">Every question a serious operator asks before booking the fit call: the eight agents, how this differs from ServiceTitan Max, the pricing, the guarantee, the safety rails, and the operator behind it. Answers first, no accordions.</p>
+      <p class="upd">Updated July 1, 2026 · <a href="/" style="color:var(--indigo)">Back to the main page</a></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="qa-list">
+
+        <article class="qa">
+          <h2><span class="qn">01</span>Does Top Builder AI replace ServiceTitan?</h2>
+          <p>No. It makes ServiceTitan more valuable. Top Builder AI plugs into the ServiceTitan you already run, never touches your front office, and runs the back-office work it leaves to QuickBooks: Money, Materials, People, and Paperwork. Nothing gets ripped out, your team keeps the scheduling board and CRM they already know, and your data is not moved. For scale: across the trades, ServiceTitan processed $62.0 billion of gross transaction volume in the 12 months ended July 31, 2024, up 23% year over year (<a href="https://www.sec.gov/Archives/edgar/data/1638826/000119312524260611/d577298ds1.htm" rel="noopener" target="_blank">ServiceTitan, Inc. Form S-1, SEC filing (2024)</a>), and as of January 31, 2024 it served roughly 8,000 active customers, each with over $10,000 in annualized billings (<a href="https://www.sec.gov/Archives/edgar/data/1638826/000119312524260611/d577298ds1.htm" rel="noopener" target="_blank">ServiceTitan, Inc. Form S-1, SEC filing (2024)</a>). Top Builder AI is built to sit on top of that platform, not to replace it.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">02</span>ServiceTitan already has AI agents. How is this different?</h2>
+          <p>ServiceTitan's agents are good and getting better, especially Atlas, their new agentic AI. We differ in three honest ways. Ours learn from your shop's own approvals and corrections, while Titan Intelligence learns from aggregate data across every contractor. Ours stay advisory by default, you approve before anything happens, while Atlas takes action on its own. And we run on your actual QuickBooks books, not on ServiceTitan's data. Then we add the back-office work ServiceTitan leaves manual or to QuickBooks: automated Collections, Financial reconciled to your ledger, Inventory, Workforce, Documents, and Pricebook re-costing.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">03</span>How is Top Builder AI different from ServiceTitan Max?</h2>
+          <p>ServiceTitan Max is front-office AI: booking, dispatch, field work, dynamic pricing, and the Atlas agent. ServiceTitan's broader platform adds job costing and bill capture, but those run on its own data with your books in QuickBooks. We do not compete with it there. We run the back-office work it leaves manual or leaves to QuickBooks. Its A/R follow-up is manual, so our Collections agent works the aging list 24/7 and drafts the dunning. We reconcile to your actual QuickBooks general ledger, and where ServiceTitan's AI optimizes on your metrics, our agents learn from the calls you approve and the edits you make. We plug in alongside it and never touch your system of record. Manual A/R is expensive across the trades: 82% of contractors now report payment delays of over 30 days, up from 49% just two years earlier (<a href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener" target="_blank">Rabbet 2024 Construction Payments Report (2024)</a>).</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">04</span>Will the AI change my numbers or hallucinate a figure?</h2>
+          <p>It can't. Every dollar and hour is computed by deterministic, tested code. The AI only narrates and advises, and the learning layer is structurally blocked from touching a figure. The math stays exact, auditable, and isolated to your account. Only the wording and the judgment improve over time.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">05</span>Can the agents take actions on their own?</h2>
+          <p>Only if you let them. Every agent ships advisory by default: it proposes, you approve. You can set each one to Off, Approve-first, or Auto, per agent, with full undo and an audit trail on every action. You see value in advisory mode before anything writes back to your systems.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">06</span>Is my data separate from other contractors?</h2>
+          <p>Yes. Every tenant is isolated at the database level with row-level security, credentials are encrypted, and your data never trains another shop's agents. A rule your agents learn for your account stays in your account, never leaves it, and never benefits another contractor.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">07</span>What do the eight agents actually do?</h2>
+          <p>Two run your front line alongside ServiceTitan's own agents: Booking 24/7 qualifies, slots, and values every inbound call, and Routing and Dispatch optimizes assignments by drive time, margin, parts, and overtime. Six run the back-office work ServiceTitan leaves manual or to QuickBooks: Financial projects cash and flags margin leakage, Inventory catches unbilled materials and prorates partial consumables, Workforce forecasts avoidable overtime and capacity, Documents files every inbound doc, Collections works the A/R aging worklist 24/7 and drafts the dunning, and Pricebook keeps materials costs current and re-prices every item under the sold-hour model. Money, Materials, People, Paperwork, A/R, Pricebook. The A/R work is the largest single drain across the industry: slow payments cost the U.S. construction industry an estimated $280 billion in 2024 (<a href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener" target="_blank">Rabbet 2024 Construction Payments Report (2024)</a>).</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">08</span>How does the self-learning work?</h2>
+          <p>The agents learn from what you approve and what you edit. Three matching corrections become a candidate rule. The candidate must pass a safety check and a regression test, then you approve it, and it rolls out gradually with monitoring and rollback. Nothing changes behavior until a human signs off, and the learning layer can never touch a number. AI in the small-business back office is no longer early: 68% of small businesses now report using AI regularly, up from 48% in July 2024 (<a href="https://quickbooks.intuit.com/r/small-business-data/april-2025-survey/" rel="noopener" target="_blank">Intuit QuickBooks Small Business Insights survey (2025)</a>).</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">09</span>What does Top Builder AI cost?</h2>
+          <p>Two paths, side by side. This quarter the Back-Office Command Install is $0 (normally $8,000), so you start with no install fee and keep your monthly flexible. Or pay the install and keep monthly flexible from day one. Either way, the monthly starts at $3,000 and scales with the people who use the system, so a small shop never subsidizes a large firm. The install runs in days, starts in advisory mode, and is backed by the 30-day board-ready-or-free guarantee.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">10</span>What does the install include?</h2>
+          <p>All eight self-learning agents installed and tuned on your ServiceTitan and QuickBooks, the Command Center dashboard plus a mobile field app for your techs, per-account isolation, a direct line to the developer, and 30 days of free feature requests. The install runs in days, not months, and starts in advisory mode so you see value before anything writes back.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">11</span>What does the monthly cover, and why does it scale with my team?</h2>
+          <p>The monthly covers hosting, the compute the agents run on, ongoing model and safety updates, and the nightly learning that keeps your agents improving. It starts at $3,000 and scales with the number of people actually using the system, so a 10-person shop never subsidizes a 250-person firm. You only pay for the seats in use. Skilled-trade labor is the scarce, expensive input the agents are built to protect: across the trades, employment of electricians is projected to grow 9% from 2024 to 2034, much faster than the 3% average for all occupations, with about 81,000 openings each year over the decade (<a href="https://www.bls.gov/ooh/construction-and-extraction/electricians.htm" rel="noopener" target="_blank">U.S. Bureau of Labor Statistics, Occupational Outlook Handbook (2024)</a>).</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">12</span>What is the guarantee?</h2>
+          <p>Board-ready or it's free. If your first month of reports isn't something you'd hand to a partner or a lender, your install fee is refunded in full, and you keep everything the agents produced that month. That is the whole condition. The risk sits with the operator who installs it, not with your shop.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">13</span>How does the onboarding cohort work?</h2>
+          <p>We onboard a small cohort each quarter so every install gets hands-on attention from the developer rather than a ticket queue. This quarter the install is $0 (normally $8,000) for shops that come on board in the cohort. When the quarter's slots are full, the next cohort opens. Book the fit call to see whether this quarter is a fit for your shop.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">14</span>How fast is the install, and what do you need from me?</h2>
+          <p>Days, not months. We need your ServiceTitan app credentials and your QuickBooks connection. We start in advisory mode so you see value before anything writes back, then flip on live data when you're comfortable. Credentials are encrypted and every account runs with row-level isolation from day one.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">15</span>What is the fit call?</h2>
+          <p>A 30-minute call straight with the developer, including a real teardown of where your ServiceTitan is leaking booked work. No pitch and no obligation. It answers one question: whether your shop is a fit for this quarter's onboarding cohort. <a href="https://book.topbuilderai.com">Pick a time</a> and you get a calendar invite straight onto the developer's calendar.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">16</span>Who owns the data the agents work on?</h2>
+          <p>You do. The agents run on the ServiceTitan and QuickBooks accounts you already own, so every customer record, job, and dollar stays in your systems. Nothing is migrated to a new platform. The rules your agents learn stay in your account, never leave it, and never train another contractor's agents.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">17</span>What happens if I cancel?</h2>
+          <p>Your business keeps running exactly as it did, because nothing was moved. ServiceTitan and QuickBooks remain your systems of record, and the agents simply stop proposing. The monthly covers hosting, agent compute, updates, and the nightly learning, so it ends when you do.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">18</span>Do I own the software, and am I locked in?</h2>
+          <p>No, and you don't need to be. The platform code stays ours, which is what keeps it improving every week and keeps every contractor's data isolated and secure. What's yours is unambiguous and exportable any day in standard formats: your data, your configuration, and your agents' learned playbook. If you ever leave, you keep operating instead of starting over. We can migrate your data to a database you own, run everything on your own API keys, or stand up a frozen local copy that keeps working from where it left off. Only the weekly learning and new agents stop. You are never held hostage.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">19</span>What systems does Top Builder AI support?</h2>
+          <p>The platform is dynamic and adapts to the system your shop already runs. ServiceTitan is the flagship integration, the deepest one and the one whose AI agents we go head to head with. The same adapter layer covers Housecall Pro, Jobber, FieldEdge, Service Fusion, Workiz, JobNimbus, AccuLynx, Buildertrend, and Procore. The agents read your jobs, calls, parts, and paperwork from whichever platform runs your shop.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">20</span>Does Top Builder AI work with Buildertrend?</h2>
+          <p>Yes. Buildertrend shops run the back-office agents today: Workforce, Routing, Documents, Financial, and Collections, with accounting connections activated per customer, plus Pricebook re-costing through vendor price-file uploads. Booking and Inventory are ServiceTitan-only today. ServiceTitan remains the flagship and deepest integration. Book the fit call and we will map exactly what applies to your stack.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">21</span>Does Top Builder AI work with Procore?</h2>
+          <p>Yes. Commercial contractors on Procore run Workforce, Routing, Documents, Financial, and Collections, with accounting connections activated per customer, plus Pricebook re-costing through vendor price-file uploads. Booking and Inventory are ServiceTitan-only today. ServiceTitan remains the flagship and deepest integration. Start with the fit call and we will map what applies to your operation.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">22</span>What does Top Builder AI do on Procore?</h2>
+          <p>It runs the back office between Procore and QuickBooks. Workforce watches labor and overtime, Routing tightens crew assignments, Documents files every inbound doc, Financial reconciles job numbers to your books, and Collections works the A/R aging list, with accounting connections activated per customer. Pricebook re-costs your book from vendor price-file uploads. Every agent stays advisory by default: it proposes, you approve.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">23</span>What does Procore's Agent Studio not cover?</h2>
+          <p>Procore's Agent Studio builds agents that work inside Procore, on Procore's own data, and it is a real capability. It is not built to run the work between Procore and your QuickBooks books: collections on your real aging list, reconciliation to your general ledger, and pricebook re-costing from vendor price files. Top Builder AI runs that layer, advisory by default, so the two are complementary rather than competing.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">24</span>Do I need ServiceTitan to use Top Builder AI with Procore?</h2>
+          <p>No. Procore connects directly, alongside your QuickBooks. A Procore shop runs six of the eight agents today: Workforce, Routing, Documents, Financial, and Collections, with accounting connections activated per customer, plus Pricebook via vendor price-file uploads. Booking and Inventory are ServiceTitan-only today. The install, the advisory-by-default gate, and the 30-day board-ready-or-free guarantee are the same either way.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">25</span>Can I automate collections for my Buildertrend business?</h2>
+          <p>Yes. The Collections agent reads open invoices and jobs from the Buildertrend you already run, reconciles them against QuickBooks once your accounting connection is activated, scores the aging list by age, balance, and history, and drafts the follow-up. Nothing reaches a customer until you approve it. You stop hand-triaging which invoices to chase and start approving a ranked queue instead.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">26</span>Which agents work with Buildertrend today?</h2>
+          <p>Five plus one. Workforce, Routing, Documents, Financial, and Collections run on Buildertrend today, with accounting connections activated per customer, and Pricebook runs through vendor price-file uploads. Booking and Inventory are ServiceTitan-only today. Every agent that runs on your stack is advisory by default, with per-agent Off, Approve-first, or Auto controls, full undo, and an audit trail.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">27</span>How does the install work for a Buildertrend shop?</h2>
+          <p>Same install, different connector. We connect your Buildertrend and your QuickBooks, tune the agents on your real jobs and books, and start everything in advisory mode so you see value before anything writes back. The install runs in days, is $0 this quarter (normally $8,000), carries a monthly from $3,000, and is backed by the 30-day board-ready-or-free guarantee.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">28</span>Who is behind Top Builder AI?</h2>
+          <p>Cory Salisbury, founder and developer. Cory spent 7+ years as a Tesla Master Technician, with prior experience at SpaceX and Rivian, and also runs Salisbury Bookkeeping, a construction bookkeeping and fractional CFO firm. He installs the agents, tunes them to your shop, and answers when you call. Operators in the onboarding cohort work with him directly, not a ticket queue.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">29</span>Is Top Builder AI related to Salisbury Bookkeeping?</h2>
+          <p>Yes. Top Builder AI is the AI-operations brand of Salisbury Bookkeeping LLC, based in Eagle Mountain, Utah. Same founder, Cory Salisbury, and same legal entity. Salisbury Bookkeeping handles construction bookkeeping and fractional CFO work for contractors at <a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a>, while Top Builder AI installs the eight self-learning agents on the systems contractors already run.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">30</span>What else does Cory Salisbury run?</h2>
+          <p>Three properties. Salisbury Bookkeeping at <a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> provides construction bookkeeping and fractional CFO services for contractors. Top Builder AI at topbuilderai.com installs eight self-learning AI agents on the ServiceTitan contractors already run. Neuron at <a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> is an AI training platform that teaches teams to actually use AI at work. All three are founded and operated by Cory Salisbury.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">31</span>How do I contact Top Builder AI?</h2>
+          <p>Email <a href="mailto:support@topbuilderai.com">support@topbuilderai.com</a>, or <a href="https://book.topbuilderai.com">book the fit call</a>: pick a time and you get a calendar invite straight onto the developer's calendar. Top Builder AI is the AI-operations brand of Salisbury Bookkeeping LLC in Eagle Mountain, Utah, and works with contractors across the United States.</p>
+        </article>
+
+      </div>
+
+      <div class="final">
+        <h2>Still have a question only your shop can answer?</h2>
+        <p>Bring it to the fit call: 30 minutes with the developer, a real teardown on your own ServiceTitan data, no pitch.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://book.topbuilderai.com">Book your fit call</a>
+          <a class="btn btn-ghost" href="mailto:support@topbuilderai.com?subject=Top%20Builder%20AI%20fit%20call">Or email support@topbuilderai.com</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/></g></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People and Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> · Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> · AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div>
+      <div>© 2026 Top Builder AI · topbuilderai.com</div>
+      <div class="foot-legal">
+        <a href="/faq.html">FAQ</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"https://topbuilderai.com/faq.html#faqpage",
+  "url":"https://topbuilderai.com/faq.html",
+  "name":"Top Builder AI FAQ",
+  "dateModified":"2026-07-01",
+  "mainEntity":[
+    {"@type":"Question","name":"Does Top Builder AI replace ServiceTitan?","acceptedAnswer":{"@type":"Answer","text":"No. It makes ServiceTitan more valuable. Top Builder AI plugs into the ServiceTitan you already run, never touches your front office, and runs the back-office work it leaves to QuickBooks: Money, Materials, People, and Paperwork. Nothing gets ripped out, your team keeps the scheduling board and CRM they already know, and your data is not moved."}},
+    {"@type":"Question","name":"ServiceTitan already has AI agents. How is this different?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan's agents are good and getting better, especially Atlas, their new agentic AI. We differ in three honest ways. Ours learn from your shop's own approvals and corrections, while Titan Intelligence learns from aggregate data across every contractor. Ours stay advisory by default, you approve before anything happens, while Atlas takes action on its own. And we run on your actual QuickBooks books, not on ServiceTitan's data. Then we add the back-office work ServiceTitan leaves manual or to QuickBooks: automated Collections, Financial reconciled to your ledger, Inventory, Workforce, Documents, and Pricebook re-costing."}},
+    {"@type":"Question","name":"How is Top Builder AI different from ServiceTitan Max?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan Max is front-office AI: booking, dispatch, field work, dynamic pricing, and the Atlas agent. ServiceTitan's broader platform adds job costing and bill capture, but those run on its own data with your books in QuickBooks. We do not compete with it there. We run the back-office work it leaves manual or leaves to QuickBooks. Its A/R follow-up is manual, so our Collections agent works the aging list 24/7 and drafts the dunning. We reconcile to your actual QuickBooks general ledger, and where ServiceTitan's AI optimizes on your metrics, our agents learn from the calls you approve and the edits you make. We plug in alongside it and never touch your system of record."}},
+    {"@type":"Question","name":"Will the AI change my numbers or hallucinate a figure?","acceptedAnswer":{"@type":"Answer","text":"It can't. Every dollar and hour is computed by deterministic, tested code. The AI only narrates and advises, and the learning layer is structurally blocked from touching a figure. The math stays exact, auditable, and isolated to your account. Only the wording and the judgment improve over time."}},
+    {"@type":"Question","name":"Can the agents take actions on their own?","acceptedAnswer":{"@type":"Answer","text":"Only if you let them. Every agent ships advisory by default: it proposes, you approve. You can set each one to Off, Approve-first, or Auto, per agent, with full undo and an audit trail on every action. You see value in advisory mode before anything writes back to your systems."}},
+    {"@type":"Question","name":"Is my data separate from other contractors?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every tenant is isolated at the database level with row-level security, credentials are encrypted, and your data never trains another shop's agents. A rule your agents learn for your account stays in your account, never leaves it, and never benefits another contractor."}},
+    {"@type":"Question","name":"What do the eight agents actually do?","acceptedAnswer":{"@type":"Answer","text":"Two run your front line alongside ServiceTitan's own agents: Booking 24/7 qualifies, slots, and values every inbound call, and Routing and Dispatch optimizes assignments by drive time, margin, parts, and overtime. Six run the back-office work ServiceTitan leaves manual or to QuickBooks: Financial projects cash and flags margin leakage, Inventory catches unbilled materials and prorates partial consumables, Workforce forecasts avoidable overtime and capacity, Documents files every inbound doc, Collections works the A/R aging worklist 24/7 and drafts the dunning, and Pricebook keeps materials costs current and re-prices every item under the sold-hour model. Money, Materials, People, Paperwork, A/R, Pricebook."}},
+    {"@type":"Question","name":"How does the self-learning work?","acceptedAnswer":{"@type":"Answer","text":"The agents learn from what you approve and what you edit. Three matching corrections become a candidate rule. The candidate must pass a safety check and a regression test, then you approve it, and it rolls out gradually with monitoring and rollback. Nothing changes behavior until a human signs off, and the learning layer can never touch a number."}},
+    {"@type":"Question","name":"What does Top Builder AI cost?","acceptedAnswer":{"@type":"Answer","text":"Two paths, side by side. This quarter the Back-Office Command Install is $0 (normally $8,000), so you start with no install fee and keep your monthly flexible. Or pay the install and keep monthly flexible from day one. Either way, the monthly starts at $3,000 and scales with the people who use the system, so a small shop never subsidizes a large firm. The install runs in days, starts in advisory mode, and is backed by the 30-day board-ready-or-free guarantee."}},
+    {"@type":"Question","name":"What does the install include?","acceptedAnswer":{"@type":"Answer","text":"All eight self-learning agents installed and tuned on your ServiceTitan and QuickBooks, the Command Center dashboard plus a mobile field app for your techs, per-account isolation, a direct line to the developer, and 30 days of free feature requests. The install runs in days, not months, and starts in advisory mode so you see value before anything writes back."}},
+    {"@type":"Question","name":"What does the monthly cover, and why does it scale with my team?","acceptedAnswer":{"@type":"Answer","text":"The monthly covers hosting, the compute the agents run on, ongoing model and safety updates, and the nightly learning that keeps your agents improving. It starts at $3,000 and scales with the number of people actually using the system, so a 10-person shop never subsidizes a 250-person firm. You only pay for the seats in use."}},
+    {"@type":"Question","name":"What is the guarantee?","acceptedAnswer":{"@type":"Answer","text":"Board-ready or it's free. If your first month of reports isn't something you'd hand to a partner or a lender, your install fee is refunded in full, and you keep everything the agents produced that month. That is the whole condition. The risk sits with the operator who installs it, not with your shop."}},
+    {"@type":"Question","name":"How does the onboarding cohort work?","acceptedAnswer":{"@type":"Answer","text":"We onboard a small cohort each quarter so every install gets hands-on attention from the developer rather than a ticket queue. This quarter the install is $0 (normally $8,000) for shops that come on board in the cohort. When the quarter's slots are full, the next cohort opens. Book the fit call to see whether this quarter is a fit for your shop."}},
+    {"@type":"Question","name":"How fast is the install, and what do you need from me?","acceptedAnswer":{"@type":"Answer","text":"Days, not months. We need your ServiceTitan app credentials and your QuickBooks connection. We start in advisory mode so you see value before anything writes back, then flip on live data when you're comfortable. Credentials are encrypted and every account runs with row-level isolation from day one."}},
+    {"@type":"Question","name":"What is the fit call?","acceptedAnswer":{"@type":"Answer","text":"A 30-minute call straight with the developer, including a real teardown of where your ServiceTitan is leaking booked work. No pitch and no obligation. It answers one question: whether your shop is a fit for this quarter's onboarding cohort. Pick a time and you get a calendar invite straight onto the developer's calendar."}},
+    {"@type":"Question","name":"Who owns the data the agents work on?","acceptedAnswer":{"@type":"Answer","text":"You do. The agents run on the ServiceTitan and QuickBooks accounts you already own, so every customer record, job, and dollar stays in your systems. Nothing is migrated to a new platform. The rules your agents learn stay in your account, never leave it, and never train another contractor's agents."}},
+    {"@type":"Question","name":"What happens if I cancel?","acceptedAnswer":{"@type":"Answer","text":"Your business keeps running exactly as it did, because nothing was moved. ServiceTitan and QuickBooks remain your systems of record, and the agents simply stop proposing. The monthly covers hosting, agent compute, updates, and the nightly learning, so it ends when you do."}},
+    {"@type":"Question","name":"Do I own the software, and am I locked in?","acceptedAnswer":{"@type":"Answer","text":"No, and you don't need to be. The platform code stays ours, which is what keeps it improving every week and keeps every contractor's data isolated and secure. What's yours is unambiguous and exportable any day in standard formats: your data, your configuration, and your agents' learned playbook. If you ever leave, you keep operating instead of starting over. We can migrate your data to a database you own, run everything on your own API keys, or stand up a frozen local copy that keeps working from where it left off. Only the weekly learning and new agents stop. You are never held hostage."}},
+    {"@type":"Question","name":"What systems does Top Builder AI support?","acceptedAnswer":{"@type":"Answer","text":"The platform is dynamic and adapts to the system your shop already runs. ServiceTitan is the flagship integration, the deepest one and the one whose AI agents we go head to head with. The same adapter layer covers Housecall Pro, Jobber, FieldEdge, Service Fusion, Workiz, JobNimbus, AccuLynx, Buildertrend, and Procore. The agents read your jobs, calls, parts, and paperwork from whichever platform runs your shop."}},
+    {"@type":"Question","name":"Does Top Builder AI work with Buildertrend?","acceptedAnswer":{"@type":"Answer","text":"Yes. Buildertrend shops run the back-office agents today: Workforce, Routing, Documents, Financial, and Collections, with accounting connections activated per customer, plus Pricebook re-costing through vendor price-file uploads. Booking and Inventory are ServiceTitan-only today. ServiceTitan remains the flagship and deepest integration. Book the fit call and we will map exactly what applies to your stack."}},
+    {"@type":"Question","name":"Does Top Builder AI work with Procore?","acceptedAnswer":{"@type":"Answer","text":"Yes. Commercial contractors on Procore run Workforce, Routing, Documents, Financial, and Collections, with accounting connections activated per customer, plus Pricebook re-costing through vendor price-file uploads. Booking and Inventory are ServiceTitan-only today. ServiceTitan remains the flagship and deepest integration. Start with the fit call and we will map what applies to your operation."}},
+    {"@type":"Question","name":"What does Top Builder AI do on Procore?","acceptedAnswer":{"@type":"Answer","text":"It runs the back office between Procore and QuickBooks. Workforce watches labor and overtime, Routing tightens crew assignments, Documents files every inbound doc, Financial reconciles job numbers to your books, and Collections works the A/R aging list, with accounting connections activated per customer. Pricebook re-costs your book from vendor price-file uploads. Every agent stays advisory by default: it proposes, you approve."}},
+    {"@type":"Question","name":"What does Procore's Agent Studio not cover?","acceptedAnswer":{"@type":"Answer","text":"Procore's Agent Studio builds agents that work inside Procore, on Procore's own data, and it is a real capability. It is not built to run the work between Procore and your QuickBooks books: collections on your real aging list, reconciliation to your general ledger, and pricebook re-costing from vendor price files. Top Builder AI runs that layer, advisory by default, so the two are complementary rather than competing."}},
+    {"@type":"Question","name":"Do I need ServiceTitan to use Top Builder AI with Procore?","acceptedAnswer":{"@type":"Answer","text":"No. Procore connects directly, alongside your QuickBooks. A Procore shop runs six of the eight agents today: Workforce, Routing, Documents, Financial, and Collections, with accounting connections activated per customer, plus Pricebook via vendor price-file uploads. Booking and Inventory are ServiceTitan-only today. The install, the advisory-by-default gate, and the 30-day board-ready-or-free guarantee are the same either way."}},
+    {"@type":"Question","name":"Can I automate collections for my Buildertrend business?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Collections agent reads open invoices and jobs from the Buildertrend you already run, reconciles them against QuickBooks once your accounting connection is activated, scores the aging list by age, balance, and history, and drafts the follow-up. Nothing reaches a customer until you approve it. You stop hand-triaging which invoices to chase and start approving a ranked queue instead."}},
+    {"@type":"Question","name":"Which agents work with Buildertrend today?","acceptedAnswer":{"@type":"Answer","text":"Five plus one. Workforce, Routing, Documents, Financial, and Collections run on Buildertrend today, with accounting connections activated per customer, and Pricebook runs through vendor price-file uploads. Booking and Inventory are ServiceTitan-only today. Every agent that runs on your stack is advisory by default, with per-agent Off, Approve-first, or Auto controls, full undo, and an audit trail."}},
+    {"@type":"Question","name":"How does the install work for a Buildertrend shop?","acceptedAnswer":{"@type":"Answer","text":"Same install, different connector. We connect your Buildertrend and your QuickBooks, tune the agents on your real jobs and books, and start everything in advisory mode so you see value before anything writes back. The install runs in days, is $0 this quarter (normally $8,000), carries a monthly from $3,000, and is backed by the 30-day board-ready-or-free guarantee."}},
+    {"@type":"Question","name":"Who is behind Top Builder AI?","acceptedAnswer":{"@type":"Answer","text":"Cory Salisbury, founder and developer. Cory spent 7+ years as a Tesla Master Technician, with prior experience at SpaceX and Rivian, and also runs Salisbury Bookkeeping, a construction bookkeeping and fractional CFO firm. He installs the agents, tunes them to your shop, and answers when you call. Operators in the onboarding cohort work with him directly, not a ticket queue."}},
+    {"@type":"Question","name":"Is Top Builder AI related to Salisbury Bookkeeping?","acceptedAnswer":{"@type":"Answer","text":"Yes. Top Builder AI is the AI-operations brand of Salisbury Bookkeeping LLC, based in Eagle Mountain, Utah. Same founder, Cory Salisbury, and same legal entity. Salisbury Bookkeeping handles construction bookkeeping and fractional CFO work for contractors at salisburybookkeeping.com, while Top Builder AI installs the eight self-learning agents on the systems contractors already run."}},
+    {"@type":"Question","name":"What else does Cory Salisbury run?","acceptedAnswer":{"@type":"Answer","text":"Three properties. Salisbury Bookkeeping at salisburybookkeeping.com provides construction bookkeeping and fractional CFO services for contractors. Top Builder AI at topbuilderai.com installs eight self-learning AI agents on the ServiceTitan contractors already run. Neuron at neuron-hq.com is an AI training platform that teaches teams to actually use AI at work. All three are founded and operated by Cory Salisbury."}},
+    {"@type":"Question","name":"How do I contact Top Builder AI?","acceptedAnswer":{"@type":"Answer","text":"Email support@topbuilderai.com, or book the fit call: pick a time and you get a calendar invite straight onto the developer's calendar. Top Builder AI is the AI-operations brand of Salisbury Bookkeeping LLC in Eagle Mountain, Utah, and works with contractors across the United States."}}
+  ]
+}
+</script>
+</body>
+</html>

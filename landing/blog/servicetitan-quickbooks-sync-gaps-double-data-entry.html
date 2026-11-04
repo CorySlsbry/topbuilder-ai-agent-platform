@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>6 QuickBooks Sync Gaps That Force Contractors Into Double Data Entry (Crews Under 20 Techs)</title>
+<meta name="description" content="Whichever field-service platform you run, ServiceTitan, Jobber, Housecall Pro, Buildertrend, or Service Fusion, its own QuickBooks integration docs admit a specific gap that forces someone to re-key or manually reconcile something. Six sourced gaps, one comparison table." />
+<link rel="canonical" href="https://topbuilderai.com/blog/servicetitan-quickbooks-sync-gaps-double-data-entry.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="6 QuickBooks Sync Gaps That Force Contractors Into Double Data Entry" />
+<meta property="og:description" content="ServiceTitan, Jobber, Housecall Pro, Buildertrend, and Service Fusion each have a documented QuickBooks sync gap, sourced to each vendor's own docs. Plus the one QuickBooks feature that actually fixes it, and why it isn't wired to any of them." />
+<meta property="og:url" content="https://topbuilderai.com/blog/servicetitan-quickbooks-sync-gaps-double-data-entry.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+  .updated{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--emerald);font-weight:600;border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:3px 11px;background:rgba(4,120,87,.06)}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:38px;color:var(--ink);line-height:1.15;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:16%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .no{color:var(--ink3)}
+  .table-take{font-size:14px;color:var(--ink3);margin-top:-12px 0 26px;padding:0 2px}
+  @media(max-width:620px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:9px 10px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .howwe{border:1px dashed var(--line2);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--panel2)}
+  .howwe .h{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+  .howwe p{margin:0;font-size:15px;color:var(--ink2);line-height:1.6}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/servicetitan-quickbooks-sync-gaps-double-data-entry.html"},
+  "headline":"6 QuickBooks Sync Gaps That Force Contractors Into Double Data Entry (Crews Under 20 Techs)",
+  "description":"Whichever field-service platform you run, ServiceTitan, Jobber, Housecall Pro, Buildertrend, or Service Fusion, its own QuickBooks integration docs admit a specific gap that forces someone to re-key or manually reconcile something. Six sourced gaps, one comparison table.",
+  "datePublished":"2026-08-17",
+  "dateModified":"2026-08-17",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["QuickBooks Online integration gaps","double data entry for contractors","ServiceTitan QuickBooks sync","Jobber QuickBooks integration","Housecall Pro QuickBooks integration","Buildertrend QuickBooks integration","Service Fusion QuickBooks integration","QuickBooks Online Projects","job costing software for contractors"],
+  "keywords":"QuickBooks sync gaps, double data entry contractors, ServiceTitan QuickBooks integration, Jobber QuickBooks integration, Housecall Pro QuickBooks integration, Buildertrend QuickBooks integration, Service Fusion QuickBooks integration, QuickBooks Online Projects"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does ServiceTitan sync job-level labor cost to QuickBooks automatically?","acceptedAnswer":{"@type":"Answer","text":"Not fully, and not on its own. ServiceTitan's own reconciliation documentation covers matching customers, service locations, vendors, and pricebook items between the two systems, exact and strong matches sync with no action required, but the documentation does not address job-level labor cost or burden mapping at all. That gap is covered elsewhere in ServiceTitan's own docs (the burden rate field is manual), not in the QuickBooks sync itself."}},
+    {"@type":"Question","name":"Does Jobber sync job-level labor cost to QuickBooks automatically?","acceptedAnswer":{"@type":"Answer","text":"No. Jobber's own QuickBooks integration FAQ lists what syncs, clients, products and services, invoices, payments, and timesheets, and job costing is not on that list. Jobber's own help article on how items sync confirms the cost field that moves over is the product or service's unit cost, not labor, and that on the payroll side only the total hours per team member appear, not a cost tied to a specific job."}},
+    {"@type":"Question","name":"What does Jobber's timesheet sync to QuickBooks actually send?","acceptedAnswer":{"@type":"Answer","text":"Hours, not job-costed labor dollars. Per Jobber's own help documentation, timesheets sync to QuickBooks so that only the total hours per team member appear, formatted for payroll. Nothing in Jobber's own sync documentation ties those hours, at a burdened rate, back to the specific job they were worked on inside QuickBooks."}},
+    {"@type":"Question","name":"Does Housecall Pro sync job costing to QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"Housecall Pro's own help article on what syncs to QuickBooks Online never mentions it. The article documents invoices, payments, customer records, and price book items syncing automatically and one-way from Housecall Pro to QuickBooks Online. Job costing, labor cost, and technician hours do not appear anywhere in that list, which means the number a shop most wants, what a job actually cost in labor, is not something the integration is documented to move."}},
+    {"@type":"Question","name":"What does Housecall Pro's QuickBooks integration actually sync?","acceptedAnswer":{"@type":"Answer","text":"Invoices, payments, customer records, and price book items, one-way from Housecall Pro to QuickBooks Online. Housecall Pro's own documentation states the sync is one-directional, that estimates do not push over to QuickBooks Online at all, and that anything deleted or canceled in Housecall Pro has to be manually deleted or canceled in QuickBooks separately."}},
+    {"@type":"Question","name":"Can Buildertrend time entries push to QuickBooks as billable?","acceptedAnswer":{"@type":"Answer","text":"No. Buildertrend's own QuickBooks FAQ asks this exact question and answers it directly: time entries cannot push to QuickBooks as billable, though they can be edited once they land in QuickBooks. Whether a time entry pushes at all depends on an accounting setting being enabled first; if it is off, someone has to manually send each approved entry."}},
+    {"@type":"Question","name":"Does Buildertrend sync labor cost to QuickBooks automatically?","acceptedAnswer":{"@type":"Answer","text":"Conditionally, and not as a billable cost. Buildertrend's own integration overview states approved time entries push automatically only if a specific setting, creating a QuickBooks time activity from an approved time clock shift, is turned on; otherwise a person sends them manually. Even when it is on, Buildertrend's own FAQ confirms those entries cannot push as billable, so a person still has to attach the cost to the right job inside QuickBooks."}},
+    {"@type":"Question","name":"Does Service Fusion sync purchase orders to QuickBooks by default?","acceptedAnswer":{"@type":"Answer","text":"No. Service Fusion's own help article on syncing purchase orders with QuickBooks Online states the sync toggle for purchase orders defaults to off, and turning it on requires first selecting an Accounts Payable account in the QuickBooks Online settings. Until that setup happens, committed material cost sitting in an open purchase order simply does not reach QuickBooks."}},
+    {"@type":"Question","name":"What does QuickBooks Online Projects require?","acceptedAnswer":{"@type":"Answer","text":"QuickBooks Online Plus, Advanced, or Accountant. Intuit's own help documentation for setting up Projects states plainly, if you have QuickBooks Online Plus or Advanced you can use Projects to track income and costs, and covers adding labor costs to a project directly. A shop on Simple Start or Essentials does not have access to the one QuickBooks feature actually built to tie job-level labor cost to a specific project."}},
+    {"@type":"Question","name":"Does QuickBooks Online Projects fix the job-costing gap for all five platforms in this list?","acceptedAnswer":{"@type":"Answer","text":"It fixes the QuickBooks side of the gap, but nothing in any of the five platforms' own integration documentation describes automatically feeding time entries or labor cost into a QuickBooks Online Project. Projects still has to be set up and maintained inside QuickBooks itself, on a paid tier, independent of whichever field-service platform is doing the scheduling and invoicing."}},
+    {"@type":"Question","name":"Is this a reason to switch off ServiceTitan, Jobber, Housecall Pro, Buildertrend, or Service Fusion?","acceptedAnswer":{"@type":"Answer","text":"No. Every platform in this list does what it is built to do, scheduling, dispatch, invoicing, and getting paid, well. The gap described here is narrower and specific to each vendor's own QuickBooks sync mechanics, not a verdict on which platform to run. Switching platforms carries its own real cost and risk that this piece does not cover."}},
+    {"@type":"Question","name":"Why isn't FieldEdge on this list?","acceptedAnswer":{"@type":"Answer","text":"Because FieldEdge's own marketing and help pages describe its QuickBooks integration only in general terms, real-time sync, less manual entry, without specifying which fields move automatically or documenting a specific gap the way ServiceTitan, Jobber, Housecall Pro, Buildertrend, and Service Fusion each do in their own help articles. Rather than guess at a mechanism FieldEdge does not document, Service Fusion took the fifth platform slot because its own help article states a specific, verifiable default."}},
+    {"@type":"Question","name":"Does Top Builder AI have a shipped integration for Jobber, Housecall Pro, FieldEdge, or Buildertrend today?","acceptedAnswer":{"@type":"Answer","text":"Buildertrend, yes, through the Buildertrend partner process. Jobber, Housecall Pro, and FieldEdge are on Top Builder AI's supported adapter list, but the platform's real, verified, deployed integration with a live Financial agent reconciling actual books is ServiceTitan plus QuickBooks. This post names the sync gap in each vendor's own documentation; it does not claim Top Builder AI already closes every one of them today."}},
+    {"@type":"Question","name":"What does one of these sync gaps look like in practice?","acceptedAnswer":{"@type":"Answer","text":"This example is illustrative, not a client result. A remodeler on Buildertrend approves 40 hours of framing-crew time in a week. The time entries push to QuickBooks because the accounting setting is enabled, but because they cannot push as billable, the office still has to open QuickBooks and manually attach those hours to the right job before the week's labor cost shows up in that job's numbers, exactly the re-keying step the sync was supposed to remove."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; QuickBooks Sync Gaps</div>
+    <span class="kicker">QuickBooks &middot; Field Service Software &middot; Double Data Entry</span>
+    <h1>6 QuickBooks Sync Gaps That Force Contractors Into Double Data Entry</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 17, 2026</span>
+      <span class="updated">Updated August 17, 2026</span>
+      <span class="pill">~12 min read</span>
+      <span class="pill">Crews Under 20 Techs, Any Platform</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_st-quickbooks.jpg" alt="A contractor's desk with a field-service platform and QuickBooks open side by side on a laptop, invoices stacked nearby" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">Whichever platform you run, ServiceTitan, Jobber, Housecall Pro, Buildertrend, or Service Fusion, its own QuickBooks integration documentation admits a specific place where the sync stops and a person has to re-key or manually reconcile something. None of the five sync true burdened, job-level labor cost to QuickBooks automatically, and the one QuickBooks feature actually built to do that, Projects, requires a paid plan upgrade and isn't wired to any of them out of the box. Below are six specific, sourced gaps, one per platform plus that shared structural pattern, each traced to the vendor's own current documentation.</p>
+
+      <p>This is not a "which platform should you pick" piece. Every tool named below does scheduling, dispatch, and invoicing well, and two other posts on this blog already cover platform pricing and the small-shop buying decision in depth. This one is narrower: once you already run one of these platforms alongside QuickBooks, exactly where does the sync leave a gap that turns into double data entry, and what does each vendor's own documentation say about it.</p>
+
+      <h2>ServiceTitan's QuickBooks Reconciliation Auto-Matches Only Exact and Strong Records</h2>
+      <p>ServiceTitan's own <a class="link" href="https://help.servicetitan.com/how-to/reconcile-servicetitan-with-quickbooks-lists" rel="noopener noreferrer">reconciliation documentation</a> states that when a customer, service location, or vendor matches on name plus address fields (an exact or strong match), the relationship is created automatically and no action is required. Weak or no matches don't get that treatment: someone has to open the reconciliation file and manually mark the match. The same documentation instructs a person to update the GL account in ServiceTitan or QuickBooks whenever an item's account is mismatched or missing, and item-type conflicts can require deactivating and recreating the item entirely.</p>
+      <p>Notably, that reconciliation documentation is about list-matching, customers, vendors, pricebook items, not job-level labor cost. Nothing in it addresses mapping labor or burden to QuickBooks, which lines up with a separate, already-documented gap: ServiceTitan's own burden rate field is manually entered per technician, not pulled from QuickBooks or payroll automatically.</p>
+
+      <h2>Jobber's QuickBooks Sync Moves Timesheets, Not Job-Level Labor Cost</h2>
+      <p>Jobber's own <a class="link" href="https://help.getjobber.com/hc/en-us/articles/12642621815831-QuickBooks-Integration-FAQs-NEW-QuickBooks-Integration" rel="noopener noreferrer">QuickBooks Integration FAQ</a> lists exactly what syncs to QuickBooks: clients, products and services, invoices, payments, and timesheets. Job costing isn't on that list. Jobber's own <a class="link" href="https://help.getjobber.com/hc/en-us/articles/10487017203223-How-Items-Sync-Between-Jobber-and-QuickBooks-Online-NEW-QuickBooks-Integration" rel="noopener noreferrer">help article on how items sync</a> confirms that the "cost" field moving over is a product or service's unit cost, not a labor rate, and that on the payroll side, only the total hours per team member appear, not hours tied to a specific job's cost.</p>
+      <p>So the sync does move real data, hours worked, but a shop that wants to know what a job's labor actually cost still has to take those hours out of the payroll view and manually attach them, at a burdened rate, to the right job inside QuickBooks.</p>
+
+      <h2>Housecall Pro's QuickBooks Integration Never Mentions Job Costing</h2>
+      <p>Housecall Pro's own <a class="link" href="https://help.housecallpro.com/en/articles/6293215-quickbooks-online-syncing-information-from-housecall-pro" rel="noopener noreferrer">help article on syncing information to QuickBooks Online</a> documents invoices, payments, customer records, and price book items syncing automatically, one-way from Housecall Pro into QuickBooks Online. Job costing, labor cost, and technician hours do not appear anywhere in that list of what syncs. The same article notes that estimates do not push to QuickBooks Online at all, and that anything deleted or canceled inside Housecall Pro has to be separately, manually deleted or canceled in QuickBooks.</p>
+      <p>An absence in a vendor's own sync documentation isn't a bug report, but it is informative: if job-level labor cost isn't in the list of what moves automatically, a shop that wants that number is building it by hand, every time.</p>
+
+      <h2>Buildertrend Time Entries Don't Push to QuickBooks as Billable</h2>
+      <p>Buildertrend's own <a class="link" href="https://buildertrend.com/help-article/quickbooks-faqs/" rel="noopener noreferrer">QuickBooks FAQ</a> asks this exact question and answers it directly: "Can Buildertrend time entries be pushed to QuickBooks as billable? No, but they can be edited once in QuickBooks." Whether a time entry pushes at all depends on a setting, creating a QuickBooks time activity from an approved time clock shift, being turned on in the first place; if it's off, someone has to manually send each approved entry, per Buildertrend's own <a class="link" href="https://buildertrend.com/help-article/quickbooks-online-integration-overview/" rel="noopener noreferrer">QuickBooks Online integration overview</a>.</p>
+      <p>Bills and invoices fare better; Buildertrend's own documentation describes those pushing automatically when a "send to QuickBooks" option is checked. Labor is the piece that still needs a person to finish the job inside QuickBooks after it lands.</p>
+
+      <h2>Service Fusion's QuickBooks Purchase-Order Sync Defaults to Off</h2>
+      <p>Service Fusion's own <a class="link" href="https://servicefusion.zendesk.com/hc/en-us/articles/360051315632-Syncing-Purchase-Orders-with-QuickBooks-Online" rel="noopener noreferrer">help article on syncing purchase orders with QuickBooks Online</a> states that the purchase order sync toggle defaults to off, and turning it on requires first selecting an Accounts Payable account in the QuickBooks Online settings. Until a person completes that setup, committed material cost sitting in an open purchase order inside Service Fusion simply doesn't reach QuickBooks, automatically or otherwise.</p>
+      <p>Service Fusion's own <a class="link" href="https://www.servicefusion.com/quickbooks-online-integration" rel="noopener noreferrer">integration page</a> confirms invoices, payments, and customer records sync, but it doesn't mention job costing or labor cost anywhere, the same pattern as Housecall Pro above.</p>
+
+      <h2>QuickBooks Online Projects, the Fix for All Five, Requires Plus or Advanced</h2>
+      <p>Intuit's own <a class="link" href="https://quickbooks.intuit.com/learn-support/en-us/help-article/job-costing/set-use-projects-quickbooks-online/L1r1S3lKX_US_en_US" rel="noopener noreferrer">help documentation for setting up Projects</a> states plainly: "If you have QuickBooks Online Plus or Advanced you can use Projects to track income and costs." Projects, not Class tracking, is the QuickBooks Online feature actually built to tie labor costs and time entries to a specific job or project. A shop on Simple Start or Essentials doesn't have access to it at all.</p>
+      <p>And even on Plus or Advanced, Projects has to be configured and maintained inside QuickBooks itself. Nowhere in ServiceTitan's, Jobber's, Housecall Pro's, Buildertrend's, or Service Fusion's own integration documentation is there a description of automatically feeding time entries or labor cost into a QuickBooks Online Project. The one feature that closes the gap sits on the other side of a plan upgrade, disconnected from whichever field-service platform is doing the scheduling.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="QuickBooks sync comparison across five field-service platforms">
+          <thead><tr><th>Platform</th><th>What syncs automatically</th><th>What still requires manual entry or setup</th></tr></thead>
+          <tbody>
+            <tr><td>ServiceTitan</td><td>Exact/strong-match customers, vendors, pricebook items; invoices, payments</td><td class="no">Weak/no-match records, GL account mismatches, item-type conflicts</td></tr>
+            <tr><td>Jobber</td><td>Clients, products/services, invoices, payments, timesheet hours</td><td class="no">Job-level labor cost (not synced at all, only total hours)</td></tr>
+            <tr><td>Housecall Pro</td><td>Invoices, payments, customer records, price book items</td><td class="no">Job costing, labor cost, technician hours (never mentioned as syncing)</td></tr>
+            <tr><td>Buildertrend</td><td>Bills/invoices (if flagged), time entries (if setting enabled)</td><td class="no">Time entries as billable cost (never); manual send if the setting is off</td></tr>
+            <tr><td>Service Fusion</td><td>Invoices, payments, customer records</td><td class="no">Purchase orders (off by default); job costing, labor cost (not covered)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">Every platform above syncs revenue and customer data cleanly. Job-level labor cost is the one number none of them are documented to move automatically, and the QuickBooks feature built to hold it, Projects, sits behind a Plus or Advanced upgrade none of the five wire into.</p>
+
+      <div class="howwe">
+        <div class="h">How we chose these six</div>
+        <p>Each gap above traces to that platform's own current help documentation or integration page, opened directly, not a competitor's claim or a third-party buying guide. We planned to cover FieldEdge as the fifth platform, but FieldEdge's own marketing and help pages describe its QuickBooks integration only in general terms ("real-time sync," "less manual entry") without documenting which fields move automatically or naming a specific gap the way the other four vendors do in their own articles; its help center also sits behind a gated support portal we couldn't open directly. Rather than guess at a mechanism FieldEdge doesn't publish, we substituted Service Fusion, whose own help article states a specific, verifiable default (purchase-order sync is off until a person turns it on). Where a vendor's documentation was silent on job costing, we treated the silence as the finding, not as license to invent a number.</p>
+      </div>
+
+      <h2>What does one of these gaps look like in practice?</h2>
+      <p>The example below is illustrative, built to show the mechanism, not a client result.</p>
+
+      <figure class="stat">
+        <div class="cap">Illustrative walkthrough &middot; one crew, one week, on Buildertrend</div>
+        <div class="body">
+          <div class="val">40 approved hours, still hand-attached to the job</div>
+          <div class="lab">A remodeler approves 40 hours of framing-crew time for the week. Because the QuickBooks time-activity setting is enabled, the entries push over automatically. But per Buildertrend's own FAQ, they can't push as billable, so the office still opens QuickBooks and manually attaches those 40 hours to the right job before that week's labor cost shows up against it, the exact re-keying step the sync was supposed to remove.</div>
+          <div class="src">Illustrative example, not a client result.</div>
+        </div>
+      </figure>
+
+      <h2>How does this connect to the rest of the back office?</h2>
+      <p>A sync gap that quietly turns into double data entry is the same category of problem whether it shows up as a missing GL account, an un-costed timesheet, or a purchase order sitting outside QuickBooks. The <a class="link" href="/blog/connect-servicetitan-quickbooks-automated-job-costing.html">companion guide on connecting ServiceTitan to QuickBooks for automated job costing</a> covers the categorization layer that closes this specific gap on ServiceTitan, and <a class="link" href="/blog/how-to-know-if-a-servicetitan-job-made-money.html">why a ServiceTitan job's margin number goes stale</a> covers what happens downstream once the labor cost is missing. If you're also weighing whether to switch platforms rather than close the sync gap on the one you run, <a class="link" href="/blog/add-ai-to-servicetitan-vs-replace-it.html">the honest comparison of adding AI versus replacing ServiceTitan</a> covers that decision separately; this post isn't a verdict on which platform to run.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Run your own reconciliation report</b> and count how many weak/no-match or GL-mismatch items show up this month, not just this week.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Check whether your labor sync setting is even on</b> (Buildertrend, Service Fusion's PO toggle), since several of these gaps are a setting, not a limitation.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Confirm your QuickBooks plan tier</b> before assuming Projects is available; Simple Start and Essentials don't have it.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Time the re-keying</b> your office already does each week to close this gap by hand; that number is the real cost of the sync stopping where it does.</div></div>
+      </div>
+
+      <ul>
+        <li><b>No shipped self-serve sync-gap fixer today.</b> This is a sourced method, delivered as a configured install against a shop's real ServiceTitan and QuickBooks data, not existing software you sign up for.</li>
+        <li><b>No invented numbers or mechanisms.</b> Every gap traces to that platform's own current documentation; where a vendor's docs were vague, we said so and dropped or substituted the item rather than guess.</li>
+        <li><b>Doesn't claim integration Top Builder AI doesn't have.</b> The real, deployed, verified integration is ServiceTitan plus QuickBooks; Buildertrend runs through its partner program; Jobber, Housecall Pro, and FieldEdge are on the supported adapter list, not claimed as live job-costing fixes here.</li>
+        <li><b>A person still approves every correction.</b> Nothing described here auto-edits your books, GL accounts, or time entries.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>See which of these gaps your setup is actually carrying</h2>
+        <p>Most shops have never counted how much re-keying their QuickBooks sync leaves behind in a real month. A fit call walks through what turns up in yours.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Does ServiceTitan sync job-level labor cost to QuickBooks automatically?</div>
+      <div class="a">Not fully, and not on its own. ServiceTitan's own reconciliation documentation covers matching customers, service locations, vendors, and pricebook items between the two systems, exact and strong matches sync with no action required, but the documentation does not address job-level labor cost or burden mapping at all. That gap is covered elsewhere in ServiceTitan's own docs (the burden rate field is manual), not in the QuickBooks sync itself.</div>
+
+      <div class="q">Does Jobber sync job-level labor cost to QuickBooks automatically?</div>
+      <div class="a">No. Jobber's own QuickBooks integration FAQ lists what syncs, clients, products and services, invoices, payments, and timesheets, and job costing is not on that list. Jobber's own help article on how items sync confirms the cost field that moves over is the product or service's unit cost, not labor, and that on the payroll side only the total hours per team member appear, not a cost tied to a specific job.</div>
+
+      <div class="q">What does Jobber's timesheet sync to QuickBooks actually send?</div>
+      <div class="a">Hours, not job-costed labor dollars. Per Jobber's own help documentation, timesheets sync to QuickBooks so that only the total hours per team member appear, formatted for payroll. Nothing in Jobber's own sync documentation ties those hours, at a burdened rate, back to the specific job they were worked on inside QuickBooks.</div>
+
+      <div class="q">Does Housecall Pro sync job costing to QuickBooks?</div>
+      <div class="a">Housecall Pro's own help article on what syncs to QuickBooks Online never mentions it. The article documents invoices, payments, customer records, and price book items syncing automatically and one-way from Housecall Pro to QuickBooks Online. Job costing, labor cost, and technician hours do not appear anywhere in that list, which means the number a shop most wants, what a job actually cost in labor, is not something the integration is documented to move.</div>
+
+      <div class="q">What does Housecall Pro's QuickBooks integration actually sync?</div>
+      <div class="a">Invoices, payments, customer records, and price book items, one-way from Housecall Pro to QuickBooks Online. Housecall Pro's own documentation states the sync is one-directional, that estimates do not push over to QuickBooks Online at all, and that anything deleted or canceled in Housecall Pro has to be manually deleted or canceled in QuickBooks separately.</div>
+
+      <div class="q">Can Buildertrend time entries push to QuickBooks as billable?</div>
+      <div class="a">No. Buildertrend's own QuickBooks FAQ asks this exact question and answers it directly: time entries cannot push to QuickBooks as billable, though they can be edited once they land in QuickBooks. Whether a time entry pushes at all depends on an accounting setting being enabled first; if it is off, someone has to manually send each approved entry.</div>
+
+      <div class="q">Does Buildertrend sync labor cost to QuickBooks automatically?</div>
+      <div class="a">Conditionally, and not as a billable cost. Buildertrend's own integration overview states approved time entries push automatically only if a specific setting, creating a QuickBooks time activity from an approved time clock shift, is turned on; otherwise a person sends them manually. Even when it is on, Buildertrend's own FAQ confirms those entries cannot push as billable, so a person still has to attach the cost to the right job inside QuickBooks.</div>
+
+      <div class="q">Does Service Fusion sync purchase orders to QuickBooks by default?</div>
+      <div class="a">No. Service Fusion's own help article on syncing purchase orders with QuickBooks Online states the sync toggle for purchase orders defaults to off, and turning it on requires first selecting an Accounts Payable account in the QuickBooks Online settings. Until that setup happens, committed material cost sitting in an open purchase order simply does not reach QuickBooks.</div>
+
+      <div class="q">What does QuickBooks Online Projects require?</div>
+      <div class="a">QuickBooks Online Plus, Advanced, or Accountant. Intuit's own help documentation for setting up Projects states plainly, if you have QuickBooks Online Plus or Advanced you can use Projects to track income and costs, and covers adding labor costs to a project directly. A shop on Simple Start or Essentials does not have access to the one QuickBooks feature actually built to tie job-level labor cost to a specific project.</div>
+
+      <div class="q">Does QuickBooks Online Projects fix the job-costing gap for all five platforms in this list?</div>
+      <div class="a">It fixes the QuickBooks side of the gap, but nothing in any of the five platforms' own integration documentation describes automatically feeding time entries or labor cost into a QuickBooks Online Project. Projects still has to be set up and maintained inside QuickBooks itself, on a paid tier, independent of whichever field-service platform is doing the scheduling and invoicing.</div>
+
+      <div class="q">Is this a reason to switch off ServiceTitan, Jobber, Housecall Pro, Buildertrend, or Service Fusion?</div>
+      <div class="a">No. Every platform in this list does what it is built to do, scheduling, dispatch, invoicing, and getting paid, well. The gap described here is narrower and specific to each vendor's own QuickBooks sync mechanics, not a verdict on which platform to run. Switching platforms carries its own real cost and risk that this piece does not cover.</div>
+
+      <div class="q">Why isn't FieldEdge on this list?</div>
+      <div class="a">Because FieldEdge's own marketing and help pages describe its QuickBooks integration only in general terms, real-time sync, less manual entry, without specifying which fields move automatically or documenting a specific gap the way ServiceTitan, Jobber, Housecall Pro, Buildertrend, and Service Fusion each do in their own help articles. Rather than guess at a mechanism FieldEdge does not document, Service Fusion took the fifth platform slot because its own help article states a specific, verifiable default.</div>
+
+      <div class="q">Does Top Builder AI have a shipped integration for Jobber, Housecall Pro, FieldEdge, or Buildertrend today?</div>
+      <div class="a">Buildertrend, yes, through the Buildertrend partner process. Jobber, Housecall Pro, and FieldEdge are on Top Builder AI's supported adapter list, but the platform's real, verified, deployed integration with a live Financial agent reconciling actual books is ServiceTitan plus QuickBooks. This post names the sync gap in each vendor's own documentation; it does not claim Top Builder AI already closes every one of them today.</div>
+
+      <div class="q">What does one of these sync gaps look like in practice?</div>
+      <div class="a">This example is illustrative, not a client result. A remodeler on Buildertrend approves 40 hours of framing-crew time in a week. The time entries push to QuickBooks because the accounting setting is enabled, but because they cannot push as billable, the office still has to open QuickBooks and manually attach those hours to the right job before the week's labor cost shows up in that job's numbers, exactly the re-keying step the sync was supposed to remove.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

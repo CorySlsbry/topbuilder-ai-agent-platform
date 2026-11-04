@@ -1,0 +1,74 @@
+[
+  {
+    "job_type": "maintenance_tuneup",
+    "trade": "hvac",
+    "mean_hours": 1.5,
+    "stddev_hours": 0.4,
+    "sample_size": 540,
+    "completion_rate": 0.99
+  },
+  {
+    "job_type": "ac_repair",
+    "trade": "hvac",
+    "mean_hours": 2.5,
+    "stddev_hours": 0.8,
+    "sample_size": 320,
+    "completion_rate": 0.86
+  },
+  {
+    "job_type": "furnace_repair",
+    "trade": "hvac",
+    "mean_hours": 2.8,
+    "stddev_hours": 0.9,
+    "sample_size": 210,
+    "completion_rate": 0.84
+  },
+  {
+    "job_type": "ac_install",
+    "trade": "hvac",
+    "mean_hours": 8.0,
+    "stddev_hours": 1.5,
+    "sample_size": 140,
+    "completion_rate": 0.95
+  },
+  {
+    "job_type": "drain_clear",
+    "trade": "plumbing",
+    "mean_hours": 1.8,
+    "stddev_hours": 0.6,
+    "sample_size": 260,
+    "completion_rate": 0.9
+  },
+  {
+    "job_type": "water_heater_install",
+    "trade": "plumbing",
+    "mean_hours": 4.5,
+    "stddev_hours": 1.0,
+    "sample_size": 95,
+    "completion_rate": 0.94
+  },
+  {
+    "job_type": "outlet_service",
+    "trade": "electrical",
+    "mean_hours": 1.2,
+    "stddev_hours": 0.4,
+    "sample_size": 300,
+    "completion_rate": 0.97
+  },
+  {
+    "job_type": "panel_upgrade",
+    "trade": "electrical",
+    "mean_hours": 6.0,
+    "stddev_hours": 1.2,
+    "sample_size": 70,
+    "completion_rate": 0.93
+  },
+  {
+    "job_type": "ductwork",
+    "trade": "install",
+    "mean_hours": 7.0,
+    "stddev_hours": 2.0,
+    "sample_size": 60,
+    "completion_rate": 0.9
+  }
+]

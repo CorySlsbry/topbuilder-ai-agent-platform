@@ -1,0 +1,53 @@
+﻿23:10:02  START Top Builder AI GEO cycle (fully-auto, long-form, model=claude-sonnet-5). Root=C:\Users\you\Downloads\ServiceTitan Agent platform
+The video render is running in the background and I'll be notified automatically when it completes (this uses the harness's tracked background-task mechanism, not an orphaned process ΓÇö the exact fix for what killed prior cycles). 
+
+Progress so far this GEO flywheel cycle for **Top Builder AI**:
+- Preflight passed (lane_guard, brand_guard, off-peak window open, YouTube channel-lock verified for the new dedicated "Top Builder" channel).
+- Read the vault: all 8 native buyer-query clusters are cleared; citation MEASURE already ran today and is guard-locked until 2026-08-09 (reused prior results, correctly not re-run); refresh check found nothing due; asset catalog reconciled clean.
+- Found the **Pricebook Pro long-form video** ~90% pre-built from an interrupted prior cycle (HeyGen intro already rendered, image pool ready, body script written, but never assembled/uploaded ΓÇö exactly the orphaned-background-render failure mode this skill warns about). This is the single most-flagged item in the backlog across the last several cycles, so I'm finishing it now.
+- Ran a real engagement check across all 15 published videos (logged).
+- Outreach: no new signal on the 4 queued targets since 2026-07-26, correctly held rather than manufacturing busywork.
+- Kicked off the blocking render+assemble+audio-mix command in the background (harness-tracked, so it will survive and notify me on completion ΓÇö not a PowerShell orphan).
+
+I'll pick this back up as soon as the render finishes to do the thumbnail, upload, VideoObject wiring, redeploy, and vault/Slack updates.
+23:18:54  DONE (claude exit 0). Log: C:\Users\you\Downloads\ServiceTitan Agent platform\video\tbai\geo-cron-logs\cycle_2026-08-02_2310.log
+{
+  "owed_count": 1,
+  "results": {
+    "lane": "top-builder-ai",
+    "kind": "short",
+    "owed": true,
+    "queued": 0,
+    "last_short": "2026-08-01T17:01:24+00:00",
+    "days_dry": 1.51,
+    "interval_h": 8.0,
+    "limit": "3/day",
+    "applicable": true,
+    "why": "1.51 days since the last short, dial is 3/day (every 8.0h) and the queue is empty \u2014 the producer is not producing",
+    "alert": {
+      "slacked": false,
+      "suppressed": "already alerted 2026-08-02T09:15:05+00:00 (<24h)"
+    }
+  }
+}
+23:18:54  short still owed - deferred to GEO-Shorts-Producer-TopBuilderAI (not a cycle failure).
+{
+  "owed_count": 1,
+  "results": {
+    "lane": "top-builder-ai",
+    "kind": "longform_video",
+    "owed": true,
+    "queued": 0,
+    "last_short": "2026-07-27T18:47:36+00:00",
+    "days_dry": 6.44,
+    "interval_h": 33.6,
+    "limit": "5/week",
+    "applicable": true,
+    "why": "6.44 days since the last longform_video, dial is 5/week (every 33.6h) \u2014 YouTube is a LONG-FORM surface and a short does not discharge it",
+    "alert": {
+      "slacked": false,
+      "suppressed": "already alerted 2026-08-02T09:15:05+00:00 (<24h)"
+    }
+  }
+}
+23:18:54  long-form still owed - deferred to GEO-Longform-Producer-TopBuilderAI (not a cycle failure).

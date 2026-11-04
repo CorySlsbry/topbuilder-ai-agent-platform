@@ -1,0 +1,71 @@
+{
+  "lane": "top-builder-ai",
+  "cluster": "procore-agent-studio-vs-third-party-ai",
+  "source_id": "8e5321fb0e557291",
+  "cycle": null,
+  "style": {
+    "vo_energy": "excited"
+  },
+  "beats": [
+    {
+      "name": "hook",
+      "visual": "avatar",
+      "vo": "Running Procore? Here's what their new AI agents can't see.",
+      "shots": [
+        {"weight": 1.0, "caption": {"mega": "CAN'T SEE"}}
+      ]
+    },
+    {
+      "name": "problem",
+      "visual": "broll",
+      "vo": "Procore just shipped its own AI agents for project data: draw schedules, RFIs, submittals.",
+      "shots": [
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\for-procore-problem-20260904-003914.mp4", "in": 0.2, "weight": 1.0, "caption": {"setup": "Procore just shipped", "payoff": "ITS OWN AI AGENTS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 0.2, "weight": 0.9},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\for-procore-problem-20260904-003914.mp4", "in": 1.7, "weight": 1.0, "caption": {"setup": "for your project data", "payoff": "SCHEDULES AND RFIS"}}
+      ]
+    },
+    {
+      "name": "agitation",
+      "visual": "broll",
+      "vo": "But your money still lives somewhere else. The A/R aging list, the vendor bills, a QuickBooks ledger nobody's reconciling.",
+      "shots": [
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-blog-comparison-20260818-111535.mp4", "in": 0.3, "weight": 1.0, "caption": {"setup": "But your money", "payoff": "LIVES SOMEWHERE ELSE"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\for-procore-problem-20260904-003914.mp4", "in": 0.5, "weight": 1.0, "caption": {"setup": "the A/R aging list", "payoff": "THE VENDOR BILLS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-blog-comparison-20260818-111535.mp4", "in": 1.6, "weight": 0.9},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 1.0, "weight": 1.0, "caption": {"setup": "a QuickBooks ledger", "payoff": "NOBODY'S RECONCILING"}}
+      ]
+    },
+    {
+      "name": "mechanism",
+      "visual": "broll",
+      "vo": "Top Builder AI runs alongside Procore and works that exact gap. Collections follow-up, A/P drafting, payroll checks, reconciled to your real books.",
+      "shots": [
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-blog-comparison-20260818-111535.mp4", "in": 0.6, "weight": 1.0, "caption": {"setup": "Top Builder AI runs", "payoff": "ALONGSIDE PROCORE"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 0.5, "weight": 0.9},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-blog-comparison-20260818-111535.mp4", "in": 2.0, "weight": 0.9, "caption": {"setup": "collections follow-up", "payoff": "A/P DRAFTING"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\for-procore-problem-20260904-003914.mp4", "in": 1.0, "weight": 1.0, "caption": {"setup": "payroll checks", "payoff": "RECONCILED TO YOUR BOOKS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-blog-comparison-20260818-111535.mp4", "in": 1.2, "weight": 0.9}
+      ]
+    },
+    {
+      "name": "proof",
+      "visual": "broll",
+      "vo": "Every figure comes from deterministic, tested code reading your actual ledger, never a guess from the AI.",
+      "shots": [
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-blog-comparison-20260818-111535.mp4", "in": 0.2, "weight": 1.0, "caption": {"setup": "Every figure comes from", "payoff": "TESTED CODE"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 0.7, "weight": 0.9},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-blog-comparison-20260818-111535.mp4", "in": 1.8, "weight": 1.0, "caption": {"setup": "reading your actual ledger", "payoff": "NEVER A GUESS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\broll\\clips\\top-builder-ai\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 1.2, "weight": 0.9}
+      ]
+    },
+    {
+      "name": "cta",
+      "visual": "avatar",
+      "vo": "See how it works alongside Procore at topbuilderai dot com.",
+      "shots": [
+        {"weight": 1.0}
+      ]
+    }
+  ]
+}

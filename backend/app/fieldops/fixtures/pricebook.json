@@ -1,0 +1,14 @@
+[
+  { "code": "SVC-AC-TUNE", "name": "AC Tune-Up", "category": "hvac", "unit_price_cents": 12900, "taxable": true },
+  { "code": "SVC-CAP", "name": "Capacitor Replacement", "category": "hvac", "unit_price_cents": 18900, "taxable": true },
+  { "code": "SVC-BLOWER", "name": "Blower Motor Replacement", "category": "hvac", "unit_price_cents": 42500, "taxable": true },
+  { "code": "SVC-REFRIG", "name": "Refrigerant Recharge", "category": "hvac", "unit_price_cents": 28000, "taxable": true },
+  { "code": "SVC-FILTER", "name": "Air Filter (each)", "category": "hvac", "unit_price_cents": 2400, "taxable": true },
+  { "code": "SVC-DRAIN", "name": "Drain Clearing", "category": "plumbing", "unit_price_cents": 24900, "taxable": true },
+  { "code": "SVC-WH-FLUSH", "name": "Water Heater Flush", "category": "plumbing", "unit_price_cents": 14900, "taxable": true },
+  { "code": "SVC-OUTLET", "name": "Outlet Install", "category": "electrical", "unit_price_cents": 16500, "taxable": true },
+  { "code": "SVC-PANEL", "name": "Panel Inspection", "category": "electrical", "unit_price_cents": 9900, "taxable": true },
+  { "code": "SVC-DIAG", "name": "Diagnostic Fee", "category": "general", "unit_price_cents": 8900, "taxable": true },
+  { "code": "SVC-PERMIT", "name": "Permit Filing", "category": "compliance", "unit_price_cents": 7500, "taxable": false },
+  { "code": "SVC-TRIP", "name": "Trip Charge", "category": "general", "unit_price_cents": 4900, "taxable": false }
+]

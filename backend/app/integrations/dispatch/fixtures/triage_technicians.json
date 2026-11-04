@@ -1,0 +1,6 @@
+[
+  { "id": "T_AARON", "name": "Aaron Scott", "skills": ["hvac", "install"], "home_x": 2, "home_y": 2, "shift_start_min": 480, "shift_end_min": 1020, "avg_ticket_cents": 145000, "conversion_pct": 62 },
+  { "id": "T_BEN", "name": "Ben Whitfield", "skills": ["hvac"], "home_x": 5, "home_y": 3, "shift_start_min": 480, "shift_end_min": 1020, "avg_ticket_cents": 78000, "conversion_pct": 41 },
+  { "id": "T_SAM", "name": "Sam Patel", "skills": ["plumbing", "drains"], "home_x": 9, "home_y": 12, "shift_start_min": 480, "shift_end_min": 1020, "avg_ticket_cents": 92000, "conversion_pct": 48 },
+  { "id": "T_LIA", "name": "Lia Nguyen", "skills": ["install", "hvac"], "home_x": 3, "home_y": 8, "shift_start_min": 480, "shift_end_min": 1020, "avg_ticket_cents": 60000, "conversion_pct": 35 }
+]

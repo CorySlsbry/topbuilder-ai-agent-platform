@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How Much Should a Roofing Contractor Charge Per Square to Actually Hit Margin?</title>
+<meta name="description" content="A roofing square is 100 sq ft, but the price per square that actually hits margin depends on a burdened labor rate most shops never calculate. Sourced burden math, real workers' comp rates, and the ServiceTitan pricebook gap, with a worked example." />
+<link rel="canonical" href="https://topbuilderai.com/blog/roofing-price-per-square-burdened-labor-margin.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How Much Should a Roofing Contractor Charge Per Square to Actually Hit Margin?" />
+<meta property="og:description" content="A roofing square is 100 sq ft, but the price per square that actually hits margin depends on a burdened labor rate most shops never calculate. Sourced burden math, real workers' comp rates, and the ServiceTitan pricebook gap." />
+<meta property="og:url" content="https://topbuilderai.com/blog/roofing-price-per-square-burdened-labor-margin.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_pricebook.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_pricebook.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+  .updated{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--emerald);font-weight:600;border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:3px 11px;background:rgba(4,120,87,.06)}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:38px;color:var(--ink);line-height:1.15;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:16%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .no{color:var(--ink3)}
+  .table-take{font-size:14px;color:var(--ink3);margin-top:-12px 0 26px;padding:0 2px}
+  @media(max-width:620px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:9px 10px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .howwe{border:1px dashed var(--line2);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--panel2)}
+  .howwe .h{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+  .howwe p{margin:0;font-size:15px;color:var(--ink2);line-height:1.6}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/roofing-price-per-square-burdened-labor-margin.html"},
+  "headline":"How Much Should a Roofing Contractor Charge Per Square to Actually Hit Margin?",
+  "description":"A roofing square is 100 sq ft, but the price per square that actually hits margin depends on a burdened labor rate most shops never calculate. Sourced burden math, real workers' comp rates, and the ServiceTitan pricebook gap, with a worked example.",
+  "datePublished":"2026-08-30T15:00:00Z",
+  "dateModified":"2026-08-30T15:00:00Z",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_pricebook.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["roofing price per square","burdened labor rate construction","roofing workers compensation rate","roofing job costing margin","ServiceTitan pricebook roofing","NRCA labor productivity standard"],
+  "keywords":"roofing price per square, burdened labor rate roofing, roofing workers comp class code 5551, roofing margin calculation, ServiceTitan roofing pricebook, sold-hour pricing model"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is a \"square\" in roofing, and why do contractors price by it instead of square footage?","acceptedAnswer":{"@type":"Answer","text":"A roofing square equals 100 square feet of roof surface, a unit contractors have used for over a century because it standardizes material and labor estimates across wildly different roof sizes. Pricing per square instead of per square foot of house lets a $400,000 home and a $180,000 home get compared on the same 100-square-foot unit of actual roof work."}},
+    {"@type":"Question","name":"Is $300 a square a fair number for an asphalt shingle reroof in 2026?","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on shingle grade, tear-off layers, and region. In 2026, installed asphalt shingle roofing nationally runs about $350 to $1,200 per square, so $300 a square sits below even the low end of that national range and is a red flag for margin unless it is a very simple, single-layer, entry-grade job in a low-labor-cost market."}},
+    {"@type":"Question","name":"What's a normal burden rate percentage for a roofing crew?","acceptedAnswer":{"@type":"Answer","text":"Construction labor burden, the payroll taxes, workers' comp, benefits, PTO, and safety costs layered on top of base wage, typically runs 25 to 40 percent above base pay. A worked example from a construction-accounting resource shows a $30-an-hour roofing installer costing $39 an hour once fully burdened, a 30 percent load."}},
+    {"@type":"Question","name":"How much does roofing workers' comp cost compared to other trades?","acceptedAnswer":{"@type":"Answer","text":"Roofing is rated under NCCI class code 5551, one of the highest-rated codes in the country because of fall risk, with voluntary-market rates commonly running $25 to $45 per $100 of payroll, and over $70 per $100 for a shop with a poor claims history. That single line item can outweigh every other burden component combined."}},
+    {"@type":"Question","name":"What NRCA productivity standard should a shop use to estimate labor hours per square?","acceptedAnswer":{"@type":"Answer","text":"NRCA-compiled data puts standard asphalt shingle installation at roughly 1.25 man-hours per square, a baseline covering only standard install labor, not tear-off, disposal, or complexity add-ons. Full labor-only costs, once those factors are included, commonly run $150 to $300 per square according to the same NRCA-compiled data."}},
+    {"@type":"Question","name":"Does a 20 percent markup on materials mean a 20 percent profit margin?","acceptedAnswer":{"@type":"Answer","text":"No. A markup is calculated on cost while margin is calculated on the final price, so well-run roofing companies target gross margins of 25 to 40 percent and net margins of 8 to 15 percent, numbers that require a materially higher markup than the margin percentage itself to actually hit."}},
+    {"@type":"Question","name":"Should overhead be built into the per-square price or added separately?","acceptedAnswer":{"@type":"Answer","text":"It should be built in as its own explicit line, not folded silently into the labor or materials number. A commonly recommended method divides total monthly overhead by total monthly labor hours to get an hourly overhead-recovery rate, which then gets applied to every bid the same way burdened labor and materials cost do."}},
+    {"@type":"Question","name":"Does Top Builder AI calculate a roofing shop's per-square price automatically today?","acceptedAnswer":{"@type":"Answer","text":"Not as a self-serve product feature. Top Builder AI's deployed Pricebook capability recomputes ServiceTitan item pricing deterministically under a sold-hour model (sold hours times a rate, plus materials cost and markup) whenever a vendor publishes new costs, but a shop still has to supply its true burdened sold-hour rate, and a roofing-specific per-square rollup is delivered through a done-for-you engagement, not a shipped self-serve toggle."}},
+    {"@type":"Question","name":"What's the fastest way to find a roofing shop's true burdened sold-hour rate?","acceptedAnswer":{"@type":"Answer","text":"Start from actual payroll, not a guess: take a crew's base hourly pay, add the shop's real payroll tax rate, its actual workers' comp rate for class code 5551, and its benefits and PTO cost, then divide the total burden dollars by base wage to get a burden percentage specific to that shop rather than borrowing an industry average built on a different state's workers' comp table."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Roofing Pricing &amp; Margin</div>
+    <span class="kicker">Roofing &middot; Per-Square Pricing &middot; Burdened Labor Rate</span>
+    <h1>How Much Should a Roofing Contractor Charge Per Square to Actually Hit Margin?</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 30, 2026</span>
+      <span class="updated">Updated August 30, 2026</span>
+      <span class="pill">~13 min read</span>
+      <span class="pill">Roofing Pricing &amp; Margin</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_pricebook.jpg" alt="A roofing pricebook screen showing per-item labor and material pricing next to a rooftop photo" loading="eager" width="1408" height="768" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">Not the number on a competitor's price sheet. In 2026, installed asphalt shingle roofing nationally runs about $350 to $1,200 per square (a "square" is 100 sq ft), but that range only tells a shop what the market will pay, not whether a given price clears its own costs. The number that matters is built from a fully burdened labor rate, base wage plus payroll taxes, workers' comp, benefits, and non-billable time, and roofing carries one of the highest burden loads of any trade because its workers' comp classification (NCCI code 5551) is rated for fall risk. A construction-accounting worked example shows a $30-an-hour installer actually costing $39 once burdened, a 30 percent swing most bid sheets never show. Below: what burden actually includes, what workers' comp alone adds for roofing, what ServiceTitan's own pricebook tools do and don't calculate, and a worked per-square example separating the labor floor from the price that should go on the invoice.</p>
+
+      <p>This is written for the shop bidding reroofs and retail asphalt-shingle jobs by the square, not the flat-rate service call. If pricing per square still runs on "what we charged last time" or a competitor's yard sign, this is the math that decides whether "we're slammed" and "we're actually making money" are the same sentence.</p>
+
+      <h2>What does "per square" actually mean in roofing pricing?</h2>
+      <p>A roofing square is 100 square feet of roof surface, a unit the trade has used for well over a century specifically because it standardizes material and labor estimates across roofs of wildly different sizes and shapes. A 2,400-square-foot single-story home and a 2,400-square-foot two-story with dormers can both get quoted, and compared, on the same 100-square-foot unit of actual roof work rather than on house square footage, which has almost nothing to do with how much roof there is to tear off and install.</p>
+      <p>That standardization is exactly why per-square pricing is useful, and exactly why it's dangerous when it's copied from someone else's number: the unit is standardized, but the cost to produce it, labor, workers' comp rate, and material vendor pricing, is not.</p>
+
+      <h2>What's a realistic price-per-square range for asphalt shingle roofing right now?</h2>
+      <p>In 2026, installed asphalt shingle roofing nationally runs about $350 to $1,200 per square, depending on shingle grade, roof pitch, and local labor rates, according to <a class="link" href="https://www.jobnimbus.com/blog/how-much-does-a-new-roof-really-cost-in-2025-the-numbers-you-need-to-know" rel="noopener noreferrer">JobNimbus's 2026 roofing cost breakdown</a>. That's the all-in installed price, labor and materials and markup together, wide enough that a number sitting inside the range can still be a losing job for one shop's cost structure and a strong-margin job for another's.</p>
+      <p>Labor-only costs run narrower and higher than most contractors expect. NRCA-compiled data puts per-square labor rates for basic asphalt shingle installation at $150 to $300 per square for labor alone, per <a class="link" href="https://nationalroofingauthority.com/roofing-labor-costs/" rel="noopener noreferrer">National Roofing Authority's roofing labor cost benchmarks</a>, before materials are added. That figure already reflects tear-off, disposal, and typical complexity, a different (and larger) number than the standard-productivity wage floor built out later in this post.</p>
+
+      <h2>What actually goes into a roofing crew's burdened labor rate?</h2>
+      <p>Burdened labor rate is the base hourly wage plus every mandatory cost of employing that person: payroll taxes, workers' compensation insurance, benefits, paid time off, and required safety training and PPE. Per <a class="link" href="https://www.miter.com/resources/fully-burdened-labor-costs-101/" rel="noopener noreferrer">Miter's construction labor-burden guide</a>, those components typically add 25 to 40 percent on top of base wage, and the guide's own worked example uses a $30-an-hour roofing installer: $9.00 an hour in burden brings the fully burdened cost to $39.00 an hour, a 30 percent load.</p>
+      <p>That 30 percent isn't a rounding error, it's real cash the shop pays regardless of whether it gets priced into the job. A shop quoting off base wage instead of burdened wage is underpricing every labor hour on every job by roughly a third before a single shingle gets nailed.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="What goes into a roofing crew's burdened labor rate">
+          <thead><tr><th>Burden component</th><th>What it covers</th><th>Sourced range</th></tr></thead>
+          <tbody>
+            <tr><td>Base wage</td><td>Straight hourly pay before anything is added</td><td class="no">Set by the shop</td></tr>
+            <tr><td>Payroll taxes</td><td>Employer FICA plus federal and state unemployment</td><td>Included in the 25&ndash;40% total below</td></tr>
+            <tr><td>Workers' compensation</td><td>NCCI class code 5551, "Roofing, all kinds"</td><td>$25&ndash;$45 per $100 of payroll before experience mod; over $70 with a poor claims history</td></tr>
+            <tr><td>Benefits &amp; PTO</td><td>Health insurance, retirement match, paid time off</td><td>Included in the 25&ndash;40% total below</td></tr>
+            <tr><td>Training &amp; PPE</td><td>Required safety certifications, fall-protection gear</td><td>Included in the 25&ndash;40% total below</td></tr>
+            <tr><td><strong>Total burden</strong></td><td>All of the above combined, on top of base wage</td><td><strong>Roughly 25&ndash;40%</strong> (a $30/hr roofer costs about $39/hr fully burdened)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">Workers' comp alone can move the needle more than every other burden line combined, and it's the one component almost no bid sheet itemizes on its own.</p>
+
+      <h2>Why does workers' comp alone move a roofer's burdened rate more than almost any other trade?</h2>
+      <p>Because roofing is rated under NCCI class code 5551, one of the highest-rated classifications in the country, specifically because of fall risk. Per <a class="link" href="https://www.cprbrokers.com/post/roofing-workers-compensation-insurance" rel="noopener noreferrer">CPR Brokers' explainer on roofing workers' comp</a>, voluntary-market rates for code 5551 commonly run $25 to $45 per $100 of payroll before any experience modifier, and a shop with a below-average safety record and a mod around 1.75 can see effective rates exceed $70 per $100. Roofing "consistently ranks among the most dangerous occupations tracked by the Bureau of Labor Statistics, with fatality rates several times the national average," per the same source, and falls are the primary driver.</p>
+
+      <figure class="stat">
+        <div class="cap">Roofing workers' comp &middot; NCCI class code 5551</div>
+        <div class="body">
+          <div class="val">$25&ndash;$45</div>
+          <div class="lab">Per $100 of payroll, voluntary market, before an experience modifier is applied. A shop with a poor claims history and a high experience mod can see effective rates run past $70 per $100, well above what most other construction trades pay for the same payroll dollar.</div>
+          <div class="src">Source: CPR Brokers, "Roofing Workers' Compensation Insurance," on NCCI class code 5551.</div>
+        </div>
+      </figure>
+
+      <h2>What's the actual formula for pricing a square to hit a real margin, not just cover cost?</h2>
+      <p>A defensible per-square price stacks four numbers, in this order: burdened labor cost for the hours the job actually takes, materials cost off the current vendor price, an hourly overhead-recovery rate, and a target margin applied to the total, not to any single line. Per <a class="link" href="https://www.jobnimbus.com/blog/how-to-price-a-roofing-job" rel="noopener noreferrer">JobNimbus's profit-focused roofing estimating guide</a>, a commonly recommended way to build the overhead line is dividing total monthly overhead by total monthly labor hours to get an hourly rate applied to every bid, and well-run roofing companies generally target gross margins of 25 to 40 percent and net margins of 8 to 15 percent once all of that is added up.</p>
+      <p>The mistake that quietly erases margin is treating markup and margin as the same number: markup is calculated on cost, margin on the final price. A 30 percent markup on cost works out to roughly a 23 percent gross margin, per the same JobNimbus guide, a gap that compounds across every job on the board.</p>
+
+      <h2>What does a per-square price actually have to cover, line by line?</h2>
+      <p>The table below is an illustrative worked example, not a quote for any real job, using NRCA's compiled productivity standard of roughly 1.25 man-hours per square (per <a class="link" href="https://roofpredict.com/blog/how-to-price-roofing-jobs-for-20-net-margin-after-overhead" rel="noopener noreferrer">RoofPredict's guide to pricing for a 20% net margin</a>) combined with a $26-an-hour base wage and a 32 percent burden load, the midpoint of the sourced range above.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Illustrative breakdown of what a per-square roofing price has to cover">
+          <thead><tr><th>Line item</th><th>Illustrative $/square</th><th>Where it comes from</th></tr></thead>
+          <tbody>
+            <tr><td>Burdened labor, standard productivity</td><td>$42.90</td><td>1.25 NRCA man-hours/square &times; an illustrative $34.32/hr burdened rate ($26 base &times; 1.32 burden)</td></tr>
+            <tr><td>Full labor line (tear-off, disposal, complexity, regional wage)</td><td>$150&ndash;$300</td><td>NRCA-compiled per-square labor-only range for basic asphalt shingle install</td></tr>
+            <tr><td>Materials (shingles, underlayment, flashing, fasteners)</td><td>Varies by grade/vendor</td><td>Tracked as a bill of materials off current vendor cost, not a flat figure</td></tr>
+            <tr><td>Overhead recovery</td><td>Monthly overhead &divide; monthly labor hours</td><td>JobNimbus-recommended hourly-rate method</td></tr>
+            <tr><td>Target margin</td><td>25&ndash;40% gross / 8&ndash;15% net</td><td>JobNimbus benchmark for well-run roofing shops</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">The $42.90 is a floor built from standard productivity, not a bid. Everything below the labor line, tear-off complexity, materials, overhead, and margin, is where the number that actually goes on the invoice gets built.</p>
+
+      <h2>Does ServiceTitan's own pricebook calculate price per square or burdened labor rate for you?</h2>
+      <p>No, not out of the box, on either count. ServiceTitan's Price Setup Wizard is built for flat-rate pricing, "costs, labor, and surcharges are bundled under a single price," and its labor input is a Billable Rate, "amount charged per hour for labor," per <a class="link" href="https://help.servicetitan.com/how-to/wizard-run" rel="noopener noreferrer">ServiceTitan's own Price Setup Wizard documentation</a>, not a burdened cost rate. Nothing in that workflow asks for payroll tax rate, comp class code, or benefits load.</p>
+      <p>Pricebook Pro's roofing-specific Price Insights feature comes closer but stops short: it shows "the minimum and maximum price for the service in your region," a regional benchmarking tool, per <a class="link" href="https://help.servicetitan.com/roofing/docs/manage-price-insights-with-pricebook-pro" rel="noopener noreferrer">ServiceTitan's own roofing Price Insights documentation</a>. That's what competitors charge, not what a shop's own burdened labor and current material costs require to hit a target margin, and neither Pricebook Pro's monthly content refresh nor Pricebook Connect's vendor-cost sync changes that, per <a class="link" href="https://help.servicetitan.com/how-to/pricebook-pro-and-pricebook-connect-key-differences" rel="noopener noreferrer">ServiceTitan's own comparison of the two</a>. The gap shows up elsewhere on this blog too: <a class="link" href="/blog/servicetitan-pricebook-pro-vs-self-learning-agent.html">ServiceTitan's own pricebook tools update generic content or surface vendor deltas</a>, but neither recomputes a price from a contractor's real burdened labor rate.</p>
+
+      <h2>What happens when a shop prices per square off gut feel instead of burden math?</h2>
+      <p>Picture an illustrative two-crew, roughly $1.8M-a-year roofing shop, the kind of composite shop this blog writes to. The owner quotes $325 a square because that's what a competitor's yard sign says and what "felt right" on the last few bids. Base wage for the crew runs $26 an hour; nobody has calculated the shop's real workers' comp rate under class code 5551 or added it, with payroll taxes and benefits, into a per-hour number. The $325 looks profitable against the invoice because the labor line on the job-cost report shows base wage, not the fully burdened cost.</p>
+      <p>At quarter-end the shop is "slammed," the crews never stop moving, and the bank balance still isn't where it should be. That's the burden gap showing up as cash flow instead of as a line item: every square priced at $325 quietly ate 25 to 40 percent more in true labor cost than the books ever showed, and it takes a full season of jobs to notice without burden math built into the price.</p>
+
+      <h2>How should rising material costs change the per-square number?</h2>
+      <p>They should move the price up on a documented, recurring basis, not get absorbed into margin until a bad quarter forces a reset. Per <a class="link" href="https://foxhavenroof.com/whats-driving-roofing-costs-higher-in-2026-7-key-factors-behind-rising-prices/" rel="noopener noreferrer">FoxHaven Roofing's 2026 cost breakdown</a>, citing NRCA data, construction material prices were 43.4 percent higher in November 2025 than in February 2020, a run-up a flat per-square price set once and never revisited will not track. A shop repricing only when a bid feels wrong is always pricing last quarter's material cost into this quarter's job.</p>
+
+      <div class="howwe">
+        <div class="h">How we verified this</div>
+        <p>Burden components and the 25&ndash;40% range (including the $30/hr &rarr; $39/hr example) come from <a class="link" href="https://www.miter.com/resources/fully-burdened-labor-costs-101/" rel="noopener noreferrer">Miter's fully burdened labor costs guide</a>. Class code 5551 and the $25&ndash;$45 (up to $70+) per-$100-of-payroll range come from <a class="link" href="https://www.cprbrokers.com/post/roofing-workers-compensation-insurance" rel="noopener noreferrer">CPR Brokers' roofing workers' compensation explainer</a>. The 2026 national price-per-square range ($350&ndash;$1,200) and the overhead/margin benchmarks come from JobNimbus's <a class="link" href="https://www.jobnimbus.com/blog/how-much-does-a-new-roof-really-cost-in-2025-the-numbers-you-need-to-know" rel="noopener noreferrer">2026 roofing cost guide</a> and <a class="link" href="https://www.jobnimbus.com/blog/how-to-price-a-roofing-job" rel="noopener noreferrer">roofing estimating guide</a>. NRCA-compiled labor-only rates ($150&ndash;$300/square) and the 1.25 man-hours/square productivity standard come from <a class="link" href="https://nationalroofingauthority.com/roofing-labor-costs/" rel="noopener noreferrer">National Roofing Authority's labor cost benchmarks</a> and <a class="link" href="https://roofpredict.com/blog/how-to-price-roofing-jobs-for-20-net-margin-after-overhead" rel="noopener noreferrer">RoofPredict's margin guide</a>. The 43.4% material-inflation figure (citing NRCA) comes from <a class="link" href="https://foxhavenroof.com/whats-driving-roofing-costs-higher-in-2026-7-key-factors-behind-rising-prices/" rel="noopener noreferrer">FoxHaven Roofing's 2026 cost-driver breakdown</a>. What ServiceTitan's own pricebook tools do and don't calculate comes from ServiceTitan's own docs: <a class="link" href="https://help.servicetitan.com/how-to/wizard-run" rel="noopener noreferrer">the Price Setup Wizard</a>, <a class="link" href="https://help.servicetitan.com/roofing/docs/manage-price-insights-with-pricebook-pro" rel="noopener noreferrer">roofing Price Insights</a>, and <a class="link" href="https://help.servicetitan.com/how-to/pricebook-pro-and-pricebook-connect-key-differences" rel="noopener noreferrer">Pricebook Pro vs. Connect</a>. The $42.90/square floor and the $1.8M-shop example are illustrative calculations built from the figures above, labeled as such, not reported client figures.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Pull your crew's actual base wage and your shop's real workers' comp rate for class code 5551.</b> Not an industry average, your carrier's actual rate and your actual experience modifier.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Add payroll taxes, benefits, and PTO to get a true burdened hourly rate.</b> Divide total burden dollars by base wage to see your shop's own burden percentage against the 25&ndash;40% sourced range above.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Price materials off current vendor cost, not last quarter's price sheet.</b> A 43.4% run-up since 2020 means a stale materials number is quietly eating margin on every job.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Add overhead recovery and a target margin on top of the total, not a markup on any single line.</b> Confirm the resulting per-square price against the market range before it goes on a bid.</div></div>
+      </div>
+
+      <ul>
+        <li><b>No invented client numbers.</b> The $1.8M-shop walkthrough and the $42.90/square calculation are labeled illustrative examples built from sourced figures, not a reported client's real numbers.</li>
+        <li><b>This isn't a pricing guarantee for any specific shop.</b> Wage rates, comp classifications, material vendor costs, and local market pricing all vary; the formula is the transferable part, not any single dollar figure in it.</li>
+        <li><b>Top Builder AI's Pricebook figures are computed by deterministic, tested code first</b>; the AI narrates the result in plain business language afterward, and a person approves every price change before anything posts.</li>
+        <li><b>No self-serve per-square pricing tool ships today.</b> The burdened sold-hour rate and roofing per-square rollup described here is built into a shop's real ServiceTitan pricebook through a done-for-you Teardown or 90-Day Install engagement, not a shipped self-serve toggle.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>Want your shop's real burdened sold-hour rate built into your pricebook?</h2>
+        <p>A fit call walks through your current pricebook, your actual payroll and comp numbers, and what a burden-rate-based per-square target looks like for your crews specifically.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>What else do roofing contractors ask about per-square pricing?</h2>
+
+      <div class="q">What is a "square" in roofing, and why do contractors price by it instead of square footage?</div>
+      <div class="a">A roofing square equals 100 square feet of roof surface, a unit contractors have used for over a century because it standardizes material and labor estimates across wildly different roof sizes. Pricing per square instead of per square foot of house lets a $400,000 home and a $180,000 home get compared on the same 100-square-foot unit of actual roof work.</div>
+
+      <div class="q">Is $300 a square a fair number for an asphalt shingle reroof in 2026?</div>
+      <div class="a">It depends entirely on shingle grade, tear-off layers, and region. In 2026, installed asphalt shingle roofing nationally runs about $350 to $1,200 per square, so $300 a square sits below even the low end of that national range and is a red flag for margin unless it is a very simple, single-layer, entry-grade job in a low-labor-cost market.</div>
+
+      <div class="q">What's a normal burden rate percentage for a roofing crew?</div>
+      <div class="a">Construction labor burden, the payroll taxes, workers' comp, benefits, PTO, and safety costs layered on top of base wage, typically runs 25 to 40 percent above base pay. A worked example from a construction-accounting resource shows a $30-an-hour roofing installer costing $39 an hour once fully burdened, a 30 percent load.</div>
+
+      <div class="q">How much does roofing workers' comp cost compared to other trades?</div>
+      <div class="a">Roofing is rated under NCCI class code 5551, one of the highest-rated codes in the country because of fall risk, with voluntary-market rates commonly running $25 to $45 per $100 of payroll, and over $70 per $100 for a shop with a poor claims history. That single line item can outweigh every other burden component combined.</div>
+
+      <div class="q">What NRCA productivity standard should a shop use to estimate labor hours per square?</div>
+      <div class="a">NRCA-compiled data puts standard asphalt shingle installation at roughly 1.25 man-hours per square, a baseline covering only standard install labor, not tear-off, disposal, or complexity add-ons. Full labor-only costs, once those factors are included, commonly run $150 to $300 per square according to the same NRCA-compiled data.</div>
+
+      <div class="q">Does a 20 percent markup on materials mean a 20 percent profit margin?</div>
+      <div class="a">No. A markup is calculated on cost while margin is calculated on the final price, so well-run roofing companies target gross margins of 25 to 40 percent and net margins of 8 to 15 percent, numbers that require a materially higher markup than the margin percentage itself to actually hit.</div>
+
+      <div class="q">Should overhead be built into the per-square price or added separately?</div>
+      <div class="a">It should be built in as its own explicit line, not folded silently into the labor or materials number. A commonly recommended method divides total monthly overhead by total monthly labor hours to get an hourly overhead-recovery rate, which then gets applied to every bid the same way burdened labor and materials cost do.</div>
+
+      <div class="q">Does Top Builder AI calculate a roofing shop's per-square price automatically today?</div>
+      <div class="a">Not as a self-serve product feature. Top Builder AI's deployed Pricebook capability recomputes ServiceTitan item pricing deterministically under a sold-hour model (sold hours times a rate, plus materials cost and markup) whenever a vendor publishes new costs, but a shop still has to supply its true burdened sold-hour rate, and a roofing-specific per-square rollup is delivered through a done-for-you engagement, not a shipped self-serve toggle.</div>
+
+      <div class="q">What's the fastest way to find a roofing shop's true burdened sold-hour rate?</div>
+      <div class="a">Start from actual payroll, not a guess: take a crew's base hourly pay, add the shop's real payroll tax rate, its actual workers' comp rate for class code 5551, and its benefits and PTO cost, then divide the total burden dollars by base wage to get a burden percentage specific to that shop rather than borrowing an industry average built on a different state's workers' comp table.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

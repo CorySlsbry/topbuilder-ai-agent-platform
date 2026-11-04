@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Automate Your EOS Scorecard From ServiceTitan and QuickBooks (2026)</title>
+<meta name="description" content="ServiceTitan's own KPI modules cap out at six metrics from ServiceTitan data only. An EOS Scorecard needs 5-15 measurables, and most of them live half in ServiceTitan and half in QuickBooks. Here is why so many contractors still build it by hand every Monday, and what an automated version actually looks like." />
+<link rel="canonical" href="https://topbuilderai.com/blog/automate-eos-scorecard-servicetitan-quickbooks.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Automate Your EOS Scorecard From ServiceTitan and QuickBooks (2026)" />
+<meta property="og:description" content="ServiceTitan's KPI modules show up to 6 metrics from ServiceTitan data only. An EOS Scorecard needs 5-15 measurables pulled from both ServiceTitan and QuickBooks. Here's the real gap, and how to close it." />
+<meta property="og:url" content="https://topbuilderai.com/blog/automate-eos-scorecard-servicetitan-quickbooks.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_eos-scorecard.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_eos-scorecard.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:var(--ink);line-height:1.1;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:34%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/automate-eos-scorecard-servicetitan-quickbooks.html"},
+  "headline":"Automate Your EOS Scorecard From ServiceTitan and QuickBooks (2026)",
+  "description":"ServiceTitan's KPI modules show up to 6 metrics from ServiceTitan data only. An EOS Scorecard needs 5-15 measurables, and most contractor scorecards need numbers from both ServiceTitan and QuickBooks. Here is the real gap and how to close it without another login.",
+  "datePublished":"2026-07-19",
+  "dateModified":"2026-07-24",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_eos-scorecard.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["EOS scorecard automation","ServiceTitan KPI dashboard","QuickBooks Online reporting","Entrepreneurial Operating System","Level 10 Meeting"],
+  "keywords":"automate EOS scorecard ServiceTitan QuickBooks, automated KPI dashboard ServiceTitan contractors, EOS scorecard for contractors, Level 10 Meeting numbers, Bloom Growth Ninety ServiceTitan"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Can ServiceTitan build my EOS Scorecard for me?","acceptedAnswer":{"@type":"Answer","text":"Partially. ServiceTitan's custom dashboards support KPI modules that show up to six metrics pulled from ServiceTitan's own data, updated in real time, and the feature requires the ServiceTitan Works package. That covers operational numbers like bookings, revenue, and conversion. It does not pull in QuickBooks Online data, so cash position, gross margin after cost of goods, and accounts receivable aging, the financial half of most EOS Scorecards, still has to be gathered separately."}},
+    {"@type":"Question","name":"What exactly is an EOS Scorecard?","acceptedAnswer":{"@type":"Answer","text":"In the Entrepreneurial Operating System (EOS), a Scorecard is a one-page tool that tracks five to fifteen weekly, activity-based measurables so a leadership team can spot a problem while it is still small. Each measurable needs a clear definition, a named owner, and a weekly goal. The team reviews it every week at the same meeting, marks each number on track or off track, and drops anything off track to the Issues List to solve using Identify, Discuss, Solve."}},
+    {"@type":"Question","name":"Why do most EOS Scorecards need data from both ServiceTitan and QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"A good Scorecard mixes leading operational indicators with lagging financial ones, on purpose. Jobs booked, calls answered, and technician utilization are operational numbers that live in ServiceTitan. Cash in the bank, gross margin, and accounts receivable over 60 days are financial numbers that live in QuickBooks Online. A Scorecard built from only one system tells half the story, which is why most contractor leadership teams end up pulling numbers from both places every single week."}},
+    {"@type":"Question","name":"Why do ServiceTitan and QuickBooks contractors still build their scorecard by hand every Monday?","acceptedAnswer":{"@type":"Answer","text":"Because the two systems were never built to talk to each other in EOS format. ServiceTitan's dashboard reports on ServiceTitan data. QuickBooks reports on QuickBooks data. Neither one knows the specific five to fifteen measurables a leadership team picked, or what order to put them in for a Level 10 Meeting. So someone, usually the office manager, opens both systems, copies the right numbers into a spreadsheet or an EOS tool like Ninety or Bloom Growth, and does it again next Monday."}},
+    {"@type":"Question","name":"How much time does building a scorecard by hand actually cost?","acceptedAnswer":{"@type":"Answer","text":"Intuit's own commissioned research found that 45% of QuickBooks Online customers using its AI-powered bank feed save 12 hours a month on bookkeeping and reporting tasks, which is the same category of manual reconciliation and data-pulling that scorecard prep falls into. For a shop compiling numbers from two systems every week, the reasonable range is 30 to 90 minutes a week just to gather the numbers, before the leadership team even starts discussing them."}},
+    {"@type":"Question","name":"What does a typical contractor's weekly scorecard actually contain?","acceptedAnswer":{"@type":"Answer","text":"A common HVAC or plumbing shop scorecard mixes ServiceTitan numbers such as jobs completed, revenue booked, average ticket, and technician utilization, with QuickBooks numbers such as cash on hand, accounts receivable over 60 days, and gross margin percent after cost of goods sold. A typical scorecard runs eight to twelve measurables, split close to evenly between the two systems, which is exactly why one dashboard alone rarely covers it."}},
+    {"@type":"Question","name":"How would an automated ServiceTitan and QuickBooks scorecard actually work?","acceptedAnswer":{"@type":"Answer","text":"It starts with the leadership team's own five to fifteen measurables, the same ones they already picked, not a generic template. Each measurable gets mapped to its real source: a ServiceTitan report for operational numbers, a QuickBooks Online query for financial ones. The numbers are pulled and assembled into the same one-page format the team already reviews at its Level 10 Meeting, delivered before the meeting starts instead of built the night before."}},
+    {"@type":"Question","name":"Does this replace the Level 10 Meeting or the leadership team's judgment?","acceptedAnswer":{"@type":"Answer","text":"No. The Scorecard is an input to the meeting, not a replacement for it. The leadership team still marks each number on track or off track, still runs Identify, Discuss, Solve on anything off track, and still makes every decision. Automating the data pull removes the hour of spreadsheet work before the meeting; it does not touch the judgment call happening inside it."}},
+    {"@type":"Question","name":"Is this the same as using an EOS software tool like Ninety or Bloom Growth?","acceptedAnswer":{"@type":"Answer","text":"No, and the two are complementary, not competing. Ninety and Bloom Growth are where a leadership team tracks Rocks, Issues, and the Scorecard itself. Neither one connects natively to ServiceTitan or QuickBooks to populate the numbers automatically, so someone still keys them in by hand every week. An automated ServiceTitan and QuickBooks pull can feed the numbers into whichever tool the team already uses, or into a plain one-page report if the team runs EOS off a spreadsheet."}},
+    {"@type":"Question","name":"What if my shop does not formally run EOS?","acceptedAnswer":{"@type":"Answer","text":"The same gap exists under a different name. Any leadership team that reviews the same weekly numbers, whether they call it a scorecard, a KPI dashboard, or just Monday morning numbers, runs into the same problem: the operational numbers live in ServiceTitan and the financial numbers live in QuickBooks, and nothing pulls both into one weekly view without someone doing it by hand."}},
+    {"@type":"Question","name":"Does this touch or change my QuickBooks general ledger?","acceptedAnswer":{"@type":"Answer","text":"No. Building a scorecard is a read-only reporting exercise. It reads the numbers that already exist in ServiceTitan and QuickBooks Online and assembles them into the format the leadership team reviews. It never posts a journal entry, changes an invoice, or edits a ledger balance."}},
+    {"@type":"Question","name":"How is this different from just hiring or assigning someone to compile it?","acceptedAnswer":{"@type":"Answer","text":"A person compiling it by hand is doing the same copy-and-paste work every single week, which is exactly the kind of repetitive, error-prone task that quietly gets deprioritized when the office gets busy, the pattern EOS Worldwide's own coaching content flags as the most common reason scorecards quietly stop being updated. Building the pull once means the numbers show up the same way every Monday whether the office is slammed or not."}},
+    {"@type":"Question","name":"What happens if a number looks wrong?","acceptedAnswer":{"@type":"Answer","text":"Every figure traces back to a specific ServiceTitan report or QuickBooks Online query, not a black-box calculation, so a wrong-looking number can be checked against its source in minutes instead of triggering a full reconciliation project. Nothing is AI-estimated or invented; the numbers are exactly what ServiceTitan and QuickBooks already show, just assembled into one place."}},
+    {"@type":"Question","name":"How does this fit with a Top Builder AI install?","acceptedAnswer":{"@type":"Answer","text":"Building the weekly ServiceTitan and QuickBooks scorecard pull is part of the reporting work done during a Top Builder AI Teardown and 90-Day Install, alongside reconciling the two systems and setting up the collections and job-costing views. It is scoped to the specific measurables a leadership team already picked, not sold as a generic dashboard."}},
+    {"@type":"Question","name":"How long does it take to get a working scorecard in place?","acceptedAnswer":{"@type":"Answer","text":"Once the leadership team's five to fifteen measurables and their sources in ServiceTitan and QuickBooks are confirmed, mapping and delivering the first automated scorecard is a days-not-months exercise, since the numbers already exist in both systems today. The work is in the mapping and the weekly delivery discipline, not in building new software the shop has to learn."}}
+  ]
+}
+</script>
+<!-- VideoObject JSON-LD (companion short) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Your EOS Scorecard Is Half-Built Until QuickBooks Joins the Meeting",
+  "description":"ServiceTitan's own KPI modules cap out at 6 metrics, from ServiceTitan data only. An EOS Scorecard needs 5-15 measurables, and close to half of them live in QuickBooks. A 60-second walkthrough of the gap and the fix.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/rusKtLr-fzc/maxresdefault.jpg",
+  "uploadDate":"2026-07-24T08:16:28Z",
+  "contentUrl":"https://www.youtube.com/watch?v=rusKtLr-fzc",
+  "embedUrl":"https://www.youtube.com/embed/rusKtLr-fzc",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; EOS Scorecard Automation</div>
+    <span class="kicker">ServiceTitan &middot; QuickBooks &middot; EOS</span>
+    <h1>Automate Your EOS Scorecard From ServiceTitan and QuickBooks (2026)</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published July 19, 2026</span>
+      <span class="pill">~11 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical</span>
+      <span class="pill">Updated July 24, 2026</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_eos-scorecard.jpg" alt="Office manager at a home-service contractor filling in a weekly numbers whiteboard by hand on a Monday morning" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video vshort"><iframe src="https://www.youtube.com/embed/rusKtLr-fzc" title="Your EOS Scorecard Is Half-Built Until QuickBooks Joins the Meeting" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The 60-second version of the gap below, straight from ServiceTitan's own KPI-module docs.</p>
+
+      <p class="answer">ServiceTitan's custom dashboards can show up to <strong>six KPIs</strong> pulled from ServiceTitan data, in real time, if the shop is on the Works package. An EOS Scorecard needs <strong>five to fifteen weekly measurables</strong>, and on almost every contractor's scorecard, roughly half of them are financial numbers, cash, gross margin, A/R aging, that live in QuickBooks Online, not ServiceTitan. Neither system knows about the other's numbers or the specific measurables a leadership team picked. So contractors running EOS on ServiceTitan and QuickBooks end up doing the same thing every Monday: opening both systems, copying the right numbers by hand into a spreadsheet or an EOS tool, and rebuilding the whole thing again next week. <strong>That manual step, not the EOS framework and not either piece of software, is the actual gap.</strong></p>
+
+      <p>If you run your leadership team's Level 10 Meeting off a scorecard someone rebuilds from scratch every Monday morning, you already know the pattern. The numbers are usually right. Getting them onto one page, from two different systems that were never built to talk to each other, is the part that eats the hour before the meeting even starts.</p>
+
+      <p>This is not a knock on ServiceTitan's dashboards or on QuickBooks Online, both do exactly what they were built to do. It is a specific, checkable gap in what happens between them.</p>
+
+      <h2>Can ServiceTitan build my EOS Scorecard for me?</h2>
+
+      <p>Partially, and it is worth knowing exactly where the line sits. According to <a class="link" href="https://help.servicetitan.com/docs/create-and-edit-kpi-modules-for-custom-dashboards" rel="noopener noreferrer">ServiceTitan's own documentation on KPI modules</a>, custom dashboards support modules that display <strong>up to six key performance indicators</strong> from a report template, updating in real time, and the feature is available on the <strong>ServiceTitan Works</strong> package. That is genuinely useful for tracking revenue, bookings, and conversion inside ServiceTitan.</p>
+
+      <p>What it does not do, by ServiceTitan's own description of the feature, is reach into QuickBooks Online. Cash position, gross margin after cost of goods sold, and accounts receivable aging, the numbers that live in your general ledger rather than your dispatch board, are simply not part of what a ServiceTitan KPI module can show. On a typical EOS Scorecard, those financial measurables are usually close to half the list.</p>
+
+      <h2>What exactly is an EOS Scorecard?</h2>
+
+      <p>In the <a class="link" href="https://www.eosworldwide.com/blog/the-eos-scorecard-how-to-measure-what-actually-drives-your-business" rel="noopener noreferrer">Entrepreneurial Operating System</a>, a Scorecard is a one-page tool that tracks <strong>five to fifteen weekly, activity-based measurables</strong> so a leadership team can see a problem coming before it shows up in the month-end financials. Each measurable needs three things: a clear definition, a named owner, and a weekly goal. The team reviews the same Scorecard, in the same order, every week at its Level 10 Meeting, marks each number on track or off track, and sends anything off track to the Issues List to work through using Identify, Discuss, Solve.</p>
+
+      <p>The whole design leans on the numbers being leading indicators, not a lagging report. A Scorecard that only shows what happened last month has already missed its window to matter.</p>
+
+      <figure class="stat">
+        <div class="cap">The EOS Scorecard, by definition</div>
+        <div class="body">
+          <div class="val">5&ndash;15 measurables</div>
+          <div class="lab">A Scorecard tracks between five and fifteen weekly, activity-based numbers, each with a clear definition, a named owner, and a weekly goal, reviewed every week at the same Level 10 Meeting.</div>
+          <div class="src">Source: EOS Worldwide, "The EOS Scorecard: How to Measure What Actually Drives Your Business" (2026).</div>
+        </div>
+      </figure>
+
+      <h2>Why do most EOS Scorecards need data from both ServiceTitan and QuickBooks?</h2>
+
+      <p>Because a good Scorecard is built to mix two kinds of numbers on purpose. Leading, operational measurables, jobs completed, calls booked, technician utilization, live inside ServiceTitan. Lagging, financial measurables, cash on hand, gross margin percent, accounts receivable over 60 days, live inside QuickBooks Online. A Scorecard built from only one system tells the leadership team half the story: strong booking numbers can sit right next to a cash position that is quietly getting worse, and a ServiceTitan-only dashboard has no way to show that in the same view.</p>
+
+      <p>That split is exactly why the six-KPI ceiling on ServiceTitan's own dashboard was never going to be the whole answer. It is not that ServiceTitan's dashboard is missing a feature. It is that the EOS Scorecard was designed to pull from more places than any one operations platform tracks.</p>
+
+      <h2>Why do ServiceTitan and QuickBooks contractors still build their scorecard by hand every Monday?</h2>
+
+      <p>The mechanism is the same in almost every shop. Sunday night or Monday morning, someone, usually the office manager, opens ServiceTitan and pulls the operational numbers. Then they open QuickBooks Online and pull the financial ones. Then they type all of it into a spreadsheet, or into an EOS tool like Ninety or Bloom Growth, in the specific order and format the leadership team is used to reviewing. Then the Level 10 Meeting starts, and next Monday the whole thing happens again.</p>
+
+      <p>Neither ServiceTitan nor QuickBooks Online has any concept of "our leadership team's five to fifteen measurables." Both systems report on their own data, well, and neither one was built to know what the other one is tracking. The EOS format itself, the specific weekly measurables a team picked in a planning session, exists only in the team's head and in whatever spreadsheet or tool they type it into by hand.</p>
+
+      <figure class="stat">
+        <div class="cap">Time spent on manual reporting and reconciliation</div>
+        <div class="body">
+          <div class="val">45% save 12 hrs/mo</div>
+          <div class="lab">45% of QuickBooks Online customers using Intuit's AI-powered bank feed save 12 hours a month on bookkeeping and reporting tasks, the same category of manual data-pulling scorecard prep falls into.</div>
+          <div class="src">Source: Intuit press release, "Intuit Introduces Ground-Breaking Virtual Team of AI Agents" (commissioned QBO customer survey, 2026).</div>
+        </div>
+      </figure>
+
+      <h2>What does a typical contractor's weekly scorecard actually contain?</h2>
+
+      <p>All figures below are <strong>illustrative</strong>, built to show a realistic split, not a specific client's numbers.</p>
+
+      <figure class="calc">
+        <div class="cap">Illustrative 10-measurable Scorecard for a 40-person HVAC and plumbing shop</div>
+        <div class="body">
+          <div class="lab">From ServiceTitan (operational)</div>
+          <table>
+            <tr><td>Jobs completed this week</td><td>142</td></tr>
+            <tr><td>Revenue booked this week</td><td>$187,400</td></tr>
+            <tr><td>Average ticket</td><td>$1,319</td></tr>
+            <tr><td>Technician utilization</td><td>71%</td></tr>
+            <tr><td>Membership renewals sold</td><td>18</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">From QuickBooks Online (financial)</div>
+          <table>
+            <tr><td>Cash on hand</td><td>$94,200</td></tr>
+            <tr><td>A/R over 60 days</td><td>$41,600</td></tr>
+            <tr><td>Gross margin %</td><td>38.5%</td></tr>
+            <tr><td>Overhead run rate (MTD)</td><td>$61,300</td></tr>
+            <tr><td>Payroll as % of revenue</td><td>29%</td></tr>
+          </table>
+        </div>
+        <figcaption>Ten measurables, five from each system. A ServiceTitan-only dashboard would show the first table and miss that A/R over 60 days is climbing while jobs completed looks strong, exactly the kind of gap a leadership team needs to catch on a Monday, not at month-end close.</figcaption>
+      </figure>
+
+      <h2>How would an automated ServiceTitan and QuickBooks scorecard actually work?</h2>
+
+      <p>The starting point is always the leadership team's own measurables, the ones already agreed on in a planning session, never a generic template swapped in for them.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Confirm the team's 5-15 measurables and their real source</b> Each one gets mapped to exactly where it lives: a specific ServiceTitan report for operational numbers, a specific QuickBooks Online query for financial ones.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Pull both systems on the same weekly cadence</b> The same numbers, gathered the same way, every week, whether the office is slammed or not.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Assemble into the one-page format the team already reviews</b> Same order, same layout the leadership team is used to, whether that is a plain report, a spreadsheet, or feeding into Ninety or Bloom Growth.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Deliver before the Level 10 Meeting</b> The team walks in with the numbers already assembled and spends the meeting on Identify, Discuss, Solve, not on data entry.</div></div>
+      </div>
+
+      <h2>Does this replace the Level 10 Meeting or the leadership team's judgment?</h2>
+
+      <p>No. The Scorecard is an input to the meeting, never a replacement for the people in the room. The leadership team still marks each measurable on track or off track, still decides what counts as off track for their business, and still runs Identify, Discuss, Solve on anything that needs it. Automating the pull removes the hour of spreadsheet assembly that happens before the meeting. It does not touch a single decision made inside it.</p>
+
+      <h2>Comparison: manual scorecard vs. ServiceTitan dashboard vs. an automated ServiceTitan + QuickBooks pull</h2>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Scorecard approach comparison">
+          <thead><tr><th>Capability</th><th>Manual (spreadsheet / Ninety / Bloom Growth)</th><th>ServiceTitan KPI modules</th><th>Automated ServiceTitan + QuickBooks pull</th></tr></thead>
+          <tbody>
+            <tr><td>Tracks the team's own 5-15 measurables</td><td class="yes">Yes, entered by hand</td><td class="no">Limited to 6 ServiceTitan-only metrics</td><td class="yes">Yes, mapped to the team's actual list</td></tr>
+            <tr><td>Includes QuickBooks financial numbers</td><td class="yes">Yes, if someone keys them in</td><td class="no">No — ServiceTitan data only</td><td class="yes">Yes, read directly from QBO</td></tr>
+            <tr><td>Weekly rebuild required</td><td class="no">Every week, by hand</td><td>&mdash;</td><td class="no">No — same pull runs every week</td></tr>
+            <tr><td>Ready before the Level 10 Meeting</td><td class="no">Only if someone finds the time</td><td class="yes">Real-time, ServiceTitan data only</td><td class="yes">Delivered on schedule every week</td></tr>
+            <tr><td>Replaces the leadership team's judgment</td><td class="no">No</td><td class="no">No</td><td class="no">No — proposes numbers only, team decides</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The short version: ServiceTitan's dashboard is a real, useful tool for ServiceTitan data, and EOS tools like Ninety and Bloom Growth are genuinely good at tracking Rocks and Issues once the numbers are in them. Neither one bridges the two systems. That is the specific gap a weekly automated pull closes, without asking the leadership team to change how they run the meeting.</p>
+
+      <h2>What if my shop does not formally run EOS?</h2>
+
+      <p>The same gap shows up under a different name. Any leadership team that reviews the same weekly numbers, whether they call it a scorecard, a KPI dashboard, or just "the Monday numbers," runs into the identical problem: the operational half lives in ServiceTitan, the financial half lives in QuickBooks, and nothing pulls both into one view without someone doing it by hand every week.</p>
+
+      <h2>What will this never do without your approval?</h2>
+
+      <ul>
+        <li><b>No changes to your general ledger.</b> Building a scorecard is read-only. It never posts a journal entry, edits an invoice, or changes a QuickBooks balance.</li>
+        <li><b>No invented numbers.</b> Every figure traces to a specific ServiceTitan report or QuickBooks Online query. Nothing is AI-estimated.</li>
+        <li><b>No replacing the leadership team.</b> The team still marks on track or off track, still runs Identify, Discuss, Solve, and still makes every call.</li>
+        <li><b>No generic template.</b> The measurables mapped are the ones your leadership team already picked, not a one-size-fits-all dashboard.</li>
+      </ul>
+
+      <h2>How does this fit into a Top Builder AI install?</h2>
+
+      <p>Mapping and building the weekly ServiceTitan and QuickBooks scorecard pull is part of the reporting work done during a Top Builder AI <a class="link" href="/faq.html">Teardown and 90-Day Install</a>, alongside reconciling the two systems and setting up the collections and job-costing views covered in the <a class="link" href="/blog/connect-servicetitan-quickbooks-automated-job-costing.html">ServiceTitan-QuickBooks job costing piece</a>. It is scoped around the specific measurables your leadership team already picked in your last planning session, not sold as a generic dashboard nobody asked for.</p>
+
+      <div class="cta">
+        <h2>Stop rebuilding the scorecard every Monday</h2>
+        <p>If your office manager is still copying numbers from ServiceTitan and QuickBooks into a spreadsheet every week, that is exactly the gap a mapped, automated pull closes. Book a 30-minute fit call and bring your actual measurables list.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Can ServiceTitan build my EOS Scorecard for me?</div>
+      <div class="a">Partially. ServiceTitan's custom dashboards support KPI modules that show up to six metrics pulled from ServiceTitan's own data, updated in real time, and the feature requires the ServiceTitan Works package. That covers operational numbers like bookings, revenue, and conversion. It does not pull in QuickBooks Online data, so cash position, gross margin after cost of goods, and accounts receivable aging, the financial half of most EOS Scorecards, still has to be gathered separately.</div>
+
+      <div class="q">What exactly is an EOS Scorecard?</div>
+      <div class="a">In the Entrepreneurial Operating System (EOS), a Scorecard is a one-page tool that tracks five to fifteen weekly, activity-based measurables so a leadership team can spot a problem while it is still small. Each measurable needs a clear definition, a named owner, and a weekly goal. The team reviews it every week at the same meeting, marks each number on track or off track, and drops anything off track to the Issues List to solve using Identify, Discuss, Solve.</div>
+
+      <div class="q">Why do most EOS Scorecards need data from both ServiceTitan and QuickBooks?</div>
+      <div class="a">A good Scorecard mixes leading operational indicators with lagging financial ones, on purpose. Jobs booked, calls answered, and technician utilization are operational numbers that live in ServiceTitan. Cash in the bank, gross margin, and accounts receivable over 60 days are financial numbers that live in QuickBooks Online. A Scorecard built from only one system tells half the story, which is why most contractor leadership teams end up pulling numbers from both places every single week.</div>
+
+      <div class="q">Why do ServiceTitan and QuickBooks contractors still build their scorecard by hand every Monday?</div>
+      <div class="a">Because the two systems were never built to talk to each other in EOS format. ServiceTitan's dashboard reports on ServiceTitan data. QuickBooks reports on QuickBooks data. Neither one knows the specific five to fifteen measurables a leadership team picked, or what order to put them in for a Level 10 Meeting. So someone, usually the office manager, opens both systems, copies the right numbers into a spreadsheet or an EOS tool like Ninety or Bloom Growth, and does it again next Monday.</div>
+
+      <div class="q">How much time does building a scorecard by hand actually cost?</div>
+      <div class="a">Intuit's own commissioned research found that 45% of QuickBooks Online customers using its AI-powered bank feed save 12 hours a month on bookkeeping and reporting tasks, which is the same category of manual reconciliation and data-pulling that scorecard prep falls into. For a shop compiling numbers from two systems every week, the reasonable range is 30 to 90 minutes a week just to gather the numbers, before the leadership team even starts discussing them.</div>
+
+      <div class="q">What does a typical contractor's weekly scorecard actually contain?</div>
+      <div class="a">A common HVAC or plumbing shop scorecard mixes ServiceTitan numbers such as jobs completed, revenue booked, average ticket, and technician utilization, with QuickBooks numbers such as cash on hand, accounts receivable over 60 days, and gross margin percent after cost of goods sold. A typical scorecard runs eight to twelve measurables, split close to evenly between the two systems, which is exactly why one dashboard alone rarely covers it.</div>
+
+      <div class="q">How would an automated ServiceTitan and QuickBooks scorecard actually work?</div>
+      <div class="a">It starts with the leadership team's own five to fifteen measurables, the same ones they already picked, not a generic template. Each measurable gets mapped to its real source: a ServiceTitan report for operational numbers, a QuickBooks Online query for financial ones. The numbers are pulled and assembled into the same one-page format the team already reviews at its Level 10 Meeting, delivered before the meeting starts instead of built the night before.</div>
+
+      <div class="q">Does this replace the Level 10 Meeting or the leadership team's judgment?</div>
+      <div class="a">No. The Scorecard is an input to the meeting, not a replacement for it. The leadership team still marks each number on track or off track, still runs Identify, Discuss, Solve on anything off track, and still makes every decision. Automating the data pull removes the hour of spreadsheet work before the meeting; it does not touch the judgment call happening inside it.</div>
+
+      <div class="q">Is this the same as using an EOS software tool like Ninety or Bloom Growth?</div>
+      <div class="a">No, and the two are complementary, not competing. Ninety and Bloom Growth are where a leadership team tracks Rocks, Issues, and the Scorecard itself. Neither one connects natively to ServiceTitan or QuickBooks to populate the numbers automatically, so someone still keys them in by hand every week. An automated ServiceTitan and QuickBooks pull can feed the numbers into whichever tool the team already uses, or into a plain one-page report if the team runs EOS off a spreadsheet.</div>
+
+      <div class="q">What if my shop does not formally run EOS?</div>
+      <div class="a">The same gap exists under a different name. Any leadership team that reviews the same weekly numbers, whether they call it a scorecard, a KPI dashboard, or just Monday morning numbers, runs into the same problem: the operational numbers live in ServiceTitan and the financial numbers live in QuickBooks, and nothing pulls both into one weekly view without someone doing it by hand.</div>
+
+      <div class="q">Does this touch or change my QuickBooks general ledger?</div>
+      <div class="a">No. Building a scorecard is a read-only reporting exercise. It reads the numbers that already exist in ServiceTitan and QuickBooks Online and assembles them into the format the leadership team reviews. It never posts a journal entry, changes an invoice, or edits a ledger balance.</div>
+
+      <div class="q">How is this different from just hiring or assigning someone to compile it?</div>
+      <div class="a">A person compiling it by hand is doing the same copy-and-paste work every single week, which is exactly the kind of repetitive, error-prone task that quietly gets deprioritized when the office gets busy, the pattern EOS Worldwide's own coaching content flags as the most common reason scorecards quietly stop being updated. Building the pull once means the numbers show up the same way every Monday whether the office is slammed or not.</div>
+
+      <div class="q">What happens if a number looks wrong?</div>
+      <div class="a">Every figure traces back to a specific ServiceTitan report or QuickBooks Online query, not a black-box calculation, so a wrong-looking number can be checked against its source in minutes instead of triggering a full reconciliation project. Nothing is AI-estimated or invented; the numbers are exactly what ServiceTitan and QuickBooks already show, just assembled into one place.</div>
+
+      <div class="q">How does this fit with a Top Builder AI install?</div>
+      <div class="a">Building the weekly ServiceTitan and QuickBooks scorecard pull is part of the reporting work done during a Top Builder AI Teardown and 90-Day Install, alongside reconciling the two systems and setting up the collections and job-costing views. It is scoped to the specific measurables a leadership team already picked, not sold as a generic dashboard.</div>
+
+      <div class="q">How long does it take to get a working scorecard in place?</div>
+      <div class="a">Once the leadership team's five to fifteen measurables and their sources in ServiceTitan and QuickBooks are confirmed, mapping and delivering the first automated scorecard is a days-not-months exercise, since the numbers already exist in both systems today. The work is in the mapping and the weekly delivery discipline, not in building new software the shop has to learn.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

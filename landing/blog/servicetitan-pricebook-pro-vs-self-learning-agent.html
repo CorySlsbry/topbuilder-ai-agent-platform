@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ServiceTitan Pricebook Pro vs. a Self-Learning Pricing Agent: What Each One Actually Updates (2026)</title>
+<meta name="description" content="ServiceTitan's own docs say Pricebook Pro refreshes generic content monthly and Pricebook Connect surfaces vendor cost deltas for you to apply by hand. Here's the gap neither one closes: repricing the whole book and the margin impact automatically." />
+<link rel="canonical" href="https://topbuilderai.com/blog/servicetitan-pricebook-pro-vs-self-learning-agent.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="ServiceTitan Pricebook Pro vs. a Self-Learning Pricing Agent: What Each One Actually Updates (2026)" />
+<meta property="og:description" content="ServiceTitan's own help docs show Pricebook Pro updates generic content monthly, and Pricebook Connect surfaces vendor cost deltas for a human to apply item by item. Here's what closes the gap." />
+<meta property="og:url" content="https://topbuilderai.com/blog/servicetitan-pricebook-pro-vs-self-learning-agent.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_pricebook.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_pricebook.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:var(--ink);line-height:1.1;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:34%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (long-form) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"ServiceTitan Pricebook Pro vs. a Self-Learning Pricing Agent",
+  "description":"ServiceTitan's own help docs show Pricebook Pro's content updates are generic and monthly, and Pricebook Connect surfaces vendor cost deltas for a human to apply item by item. The full breakdown of the gap, and how a self-learning Pricebook agent closes it.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/nZA10i-bcvI/maxresdefault.jpg",
+  "uploadDate":"2026-08-12T11:38:00Z",
+  "duration":"PT6M21S",
+  "contentUrl":"https://www.youtube.com/watch?v=nZA10i-bcvI",
+  "embedUrl":"https://www.youtube.com/embed/nZA10i-bcvI",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+<!-- VideoObject JSON-LD (companion short, offcut of the pricebook cluster) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Do You Still Need Something Else If You Have ServiceTitan Pricebook Pro?",
+  "description":"ServiceTitan's own docs show Pricebook Pro refreshes monthly and Pricebook Connect surfaces vendor cost deltas for you to apply by hand. A 33-second walkthrough of the gap a self-learning Pricebook agent closes.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/r69_lAaG7Uk/maxresdefault.jpg",
+  "uploadDate":"2026-07-31T05:28:19Z",
+  "duration":"PT33S",
+  "contentUrl":"https://www.youtube.com/watch?v=r69_lAaG7Uk",
+  "embedUrl":"https://www.youtube.com/embed/r69_lAaG7Uk",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/servicetitan-pricebook-pro-vs-self-learning-agent.html"},
+  "headline":"ServiceTitan Pricebook Pro vs. a Self-Learning Pricing Agent: What Each One Actually Updates (2026)",
+  "description":"ServiceTitan's own help docs show Pricebook Pro refreshes generic content monthly and Pricebook Connect surfaces vendor cost deltas for a human to apply item by item. Here's the gap: repricing the whole book and the margin impact automatically.",
+  "datePublished":"2026-07-30",
+  "dateModified":"2026-08-12",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_pricebook.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan Pricebook Pro","ServiceTitan Pricebook Connect","AI pricebook automation","flat rate pricing HVAC","vendor cost sync"],
+  "keywords":"ServiceTitan Pricebook Pro vs, ServiceTitan Pricebook Connect, ServiceTitan Pricebook Pro alternative, automate ServiceTitan pricebook margin, HVAC flat rate pricebook AI"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"If I already pay for ServiceTitan's Pricebook Pro, do I still need something else?","acceptedAnswer":{"@type":"Answer","text":"For most contractors, yes, for one specific job Pricebook Pro was never built to do. Pricebook Pro refreshes ServiceTitan's own generic service content on a monthly cycle. Pricebook Connect, a separate mechanism, surfaces vendor-specific cost changes for you to review and apply by hand, item by item. Neither one recomputes every affected flat-rate price across your whole book the moment a vendor cost changes, and neither shows you the margin dollar impact of that change before you approve it."}},
+    {"@type":"Question","name":"Does Pricebook Pro update vendor costs automatically?","acceptedAnswer":{"@type":"Answer","text":"Not in the way most contractors assume. According to ServiceTitan's own help documentation comparing the two products, Pricebook Pro content, the generic services, images, descriptions, and sold hours, is updated monthly by ServiceTitan. Pricebook Connect is the separate piece that carries vendor and manufacturer-specific cost changes, and its updates happen at the discretion of the supplier, not on a fixed schedule tied to your book."}},
+    {"@type":"Question","name":"Is Pricebook Connect the same thing as Pricebook Pro?","acceptedAnswer":{"@type":"Answer","text":"No, they are two different products that solve two different problems. Pricebook Pro is an add-on subscription that provides pre-built flat-rate services with generic materials attached. Pricebook Connect is the marketplace mechanism that syncs vendor and manufacturer catalogs into ServiceTitan, and it is included on accounts with a supply chain integration enabled, or bundled with a Pricebook Pro subscription. You can have one without the other."}},
+    {"@type":"Question","name":"What does Pricebook Connect actually do when a vendor raises a price?","acceptedAnswer":{"@type":"Answer","text":"Per ServiceTitan's own documentation, once a material item is mapped to a vendor catalog, an updated cost appears in Pricebook Connect's Updates screen with an asterisk on the Cost column and the dollar change shown underneath, for example a move from $20.25 to $24.25 displays as plus $4.25. Costs sync overnight and can take up to 24 hours to appear. A person then applies that update, manually or through a bulk action, to that specific material item."}},
+    {"@type":"Question","name":"So what is the actual gap between those two tools and a self-learning pricing agent?","acceptedAnswer":{"@type":"Answer","text":"The material-level cost delta is only step one. A single material line, a specific copper fitting or a filter SKU, is usually built into dozens of flat-rate service and assembly items across the book. Pricebook Connect shows you that one material's cost moved. It does not automatically recompute the sold price of every service item containing that material, and it does not show you the total margin dollars at stake across the affected items before you approve anything."}},
+    {"@type":"Question","name":"How does a self-learning Pricebook agent close that gap?","acceptedAnswer":{"@type":"Answer","text":"The Pricebook agent in Top Builder AI ingests the same vendor cost update, matches every material line across every affected service and assembly item, and recomputes each one's price under your sold-hour pricing model: sold hours times your labor rate, plus materials cost, plus your markup on materials. It totals the price and margin delta across the whole affected set, flags any item whose price move is beyond your set tolerance for a closer look, and a human approves the batch before anything writes back to ServiceTitan."}},
+    {"@type":"Question","name":"Does this replace Pricebook Pro or Pricebook Connect?","acceptedAnswer":{"@type":"Answer","text":"No. Pricebook Pro's generic content library and Pricebook Connect's vendor catalog sync are both still useful for what they do, keeping a broad, professional-looking book stocked with current supplier catalogs. The Pricebook agent sits on top of that data and does the recompute-and-flag work neither product does: turning one material cost change into a reviewed, margin-aware price update across the entire book in one batch instead of item by item."}},
+    {"@type":"Question","name":"Do I need Pricebook Connect for the agent to work?","acceptedAnswer":{"@type":"Answer","text":"It helps but is not required. The agent can ingest a vendor cost update from Pricebook Connect if you have it, or directly from a distributor's price file or feed, the same way a shop without Pricebook Connect already receives vendor pricing today. Either path feeds the same recompute engine."}},
+    {"@type":"Question","name":"How much does Pricebook Pro cost?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan does not publish a public price for Pricebook Pro. It is billed as an additional monthly add-on on top of the base subscription, and contractors get an exact number only after a sales conversation. That is consistent with ServiceTitan's broader pricing model, where the base plans are also quote-based rather than publicly listed."}},
+    {"@type":"Question","name":"How does the agent decide which price changes need a closer look?","acceptedAnswer":{"@type":"Answer","text":"Every recomputed item carries a price-delta percentage and a margin-dollar delta versus its current price. Items whose price move crosses your configured tolerance are flagged for a closer look in the review batch; items inside tolerance are still shown, but grouped so the reviewer can approve routine, small moves quickly and focus attention on the handful of items with a real margin swing."}},
+    {"@type":"Question","name":"Does the agent ever change a price without my approval?","acceptedAnswer":{"@type":"Answer","text":"No. Every recompute is a proposal: old price, new price, the delta, and the margin impact, shown to a human before anything writes back to ServiceTitan. The agent computes the math with deterministic, tested code; it does not decide pricing strategy or push a change unattended."}},
+    {"@type":"Question","name":"What if the same material is used in dozens of different service items?","acceptedAnswer":{"@type":"Answer","text":"That is exactly the case Pricebook Connect's item-by-item review does not scale well for. The agent matches a changed vendor SKU against every item in the book that uses it, however many that is, and recomputes all of them in the same pass, so a single copper price increase shows up as one reviewed batch instead of a search-and-update job across dozens of separate service and assembly items."}},
+    {"@type":"Question","name":"How does this connect to the rest of the back office?","acceptedAnswer":{"@type":"Answer","text":"The same margin-delta data the Pricebook agent surfaces on a repricing batch feeds the Financial agent's job-costing and margin reporting, so a vendor cost increase absorbed into the book this week shows up in the same-month margin picture instead of being discovered three months later when a job that used to run at 40 percent margin quietly runs at 31."}},
+    {"@type":"Question","name":"What will the agent never do without my approval?","acceptedAnswer":{"@type":"Answer","text":"It never writes a price change to ServiceTitan without a human approving the batch, never invents a vendor cost or a margin figure, and never silently changes your markup or sold-hour rate assumptions. Every number in a proposed batch comes from deterministic code reading your actual pricebook structure and the vendor's actual cost update; the approved write is reversible back to the prior price."}},
+    {"@type":"Question","name":"How long before I see the difference versus reviewing Pricebook Connect updates manually?","acceptedAnswer":{"@type":"Answer","text":"The first vendor price file run after setup is usually the tell: instead of a list of individual material cost deltas to manually cross-reference against a spreadsheet of which services use them, the office gets one reviewed batch showing every affected service item, its price and margin change, and the handful flagged for a closer look before anything is approved."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Pricebook Pro vs. Self-Learning Agent</div>
+    <span class="kicker">ServiceTitan &middot; Pricebook &middot; Margin</span>
+    <h1>ServiceTitan Pricebook Pro vs. a Self-Learning Pricing Agent: What Each One Actually Updates (2026)</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published July 30, 2026</span>
+      <span class="pill">~12 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical</span>
+      <span class="pill">Updated August 12, 2026</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_pricebook.jpg" alt="Contractor reviewing a flat-rate pricebook on a tablet next to a supply house materials shelf" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video"><iframe src="https://www.youtube.com/embed/nZA10i-bcvI" title="ServiceTitan Pricebook Pro vs. a Self-Learning Pricing Agent" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The full breakdown, on camera &mdash; or the <a class="link" href="https://youtu.be/r69_lAaG7Uk">33-second version</a>.</p>
+      <p class="video-cap">The 33-second version of the gap below, straight from ServiceTitan's own Pricebook Pro and Pricebook Connect documentation.</p>
+
+      <p class="answer">If you already pay for ServiceTitan's <strong>Pricebook Pro</strong>, you are probably still exposed to the exact problem it looks like it solves. By ServiceTitan's own help documentation, Pricebook Pro's content, generic services, images, descriptions, sold hours, gets refreshed <strong>monthly, by ServiceTitan</strong>. The separate <strong>Pricebook Connect</strong> mechanism carries real vendor-specific cost changes, but it surfaces them <strong>for you to apply by hand, item by item</strong>, at whatever cadence your supplier chooses to publish. Neither product recomputes every flat-rate price across your whole book the moment one material's cost moves, and neither shows you the total margin dollars at stake before you approve anything. <strong>That recompute-and-flag step, one vendor cost change turned into one reviewed, margin-aware batch across the whole book, is the specific gap a self-learning Pricebook agent closes.</strong></p>
+
+      <p>This is not a criticism of Pricebook Pro or Pricebook Connect. Both do a real job well: Pricebook Pro gets a new shop from a blank book to a professional, sellable flat-rate catalog in a day, and Pricebook Connect is a genuinely useful pipe for getting supplier catalogs and cost data into ServiceTitan in the first place. The question this post answers is narrower and more practical: once your book exists and a vendor raises a price, what actually happens to every service and assembly item built on top of that material, and who catches it?</p>
+
+      <h2>What does Pricebook Pro actually update, and how often?</h2>
+
+      <p>Per <a class="link" href="https://www.servicetitan.com/features/pro/pricebook" rel="noopener noreferrer">ServiceTitan's own Pricebook Pro feature page</a>, the product is built to get a shop from zero to a working flat-rate book fast: Smart Start, powered by Titan Intelligence, "automatically adds a few hundred common services personalized for you," and setup is designed to take about a day. Once running, the page states Pricebook Pro "delivers regular content updates to costs, images, descriptions, sold hours and more," alongside Regional Pricing Averages so a shop can see where its prices sit against its market, and Smart Recommendations aimed at upsells.</p>
+
+      <p>The detail that matters for this comparison is buried in ServiceTitan's own support documentation rather than the marketing page. According to <a class="link" href="https://help.servicetitan.com/v1/docs/pricebook-pro-and-pricebook-connect-differences" rel="noopener noreferrer">ServiceTitan's help article comparing Pricebook Pro and Pricebook Connect directly</a>, Pricebook Pro's content updates are <strong>generic items, updated monthly, by ServiceTitan</strong>, not your specific vendor's specific cost on your specific SKU, updated the week it actually changed.</p>
+
+      <h2>Isn't Pricebook Connect the same thing?</h2>
+
+      <p>No, and ServiceTitan is explicit about this in the same help article: Pricebook Pro and Pricebook Connect are <strong>separate products</strong>. Pricebook Connect is described as "the marketplace area where all vendor and manufacturer catalogs live," a mechanism that syncs updates to those catalogs. It comes included on accounts with a supply chain integration enabled, or bundled with a Pricebook Pro subscription, meaning you can have Pricebook Pro without a live Pricebook Connect feed, and vice versa.</p>
+
+      <p>Where Pricebook Pro's updates are ServiceTitan's own generic content on a monthly clock, Pricebook Connect's updates are <strong>vendor and manufacturer-specific</strong>, and they happen "at the discretion of the supplier," meaning whenever your distributor decides to publish a new price, not on a schedule you control.</p>
+
+      <figure class="stat">
+        <div class="cap">What ServiceTitan's own docs say about each product</div>
+        <div class="body">
+          <div class="val">Monthly vs. Supplier's discretion</div>
+          <div class="lab">Pricebook Pro content is generic and updated monthly by ServiceTitan. Pricebook Connect carries vendor-specific costs, updated whenever the supplier publishes, and surfaced for a human to apply.</div>
+          <div class="src">Source: help.servicetitan.com, "Pricebook Pro and Pricebook Connect Differences" (2026).</div>
+        </div>
+      </figure>
+
+      <h2>What actually happens when a vendor raises a price in Pricebook Connect?</h2>
+
+      <p>ServiceTitan's own walkthrough, <a class="link" href="https://help.servicetitan.com/docs/update-your-pricebook-with-pricebook-connect" rel="noopener noreferrer">"Update your pricebook with Pricebook Connect"</a>, describes the real mechanic clearly. Once a material item is mapped to a vendor catalog, cost changes sync overnight, allow up to 24 hours, and appear in Pricebook > Pricebook Connect > Updates <strong>for you to apply</strong>, manually or through a bulk action. A changed cost shows an asterisk in the Cost column with the dollar delta underneath it, ServiceTitan's own example is a material moving from $20.25 to $24.25, displayed as plus $4.25.</p>
+
+      <p>That is a real, useful signal, and it is also exactly one material line. A single fitting or filter SKU is typically built into dozens of separate flat-rate service and assembly items across a shop's book. Pricebook Connect's Updates screen tells you the material's cost moved. It does not, by ServiceTitan's own documented workflow, walk you through every service item that material touches, recompute each one's flat-rate price under your labor and markup model, and total the margin dollars at stake before you approve the batch.</p>
+
+      <h2>So what is the gap, in one sentence?</h2>
+
+      <p>Pricebook Pro keeps the book's generic content current on ServiceTitan's calendar. Pricebook Connect surfaces a vendor's cost change on the supplier's calendar, one material at a time, for a human to apply. <strong>Neither one turns "this material's cost went up $4.25" into "these 14 service items are affected, here is the price and margin delta on each, approve the batch."</strong> That recompute-and-total step is what a self-learning Pricebook agent adds on top of whichever of ServiceTitan's own tools you already have running.</p>
+
+      <h2>How does a self-learning Pricebook agent close that gap?</h2>
+
+      <p>The Pricebook agent in Top Builder AI ingests a vendor cost update, from Pricebook Connect if you run it, or directly from a distributor's price file the same way a shop without Pricebook Connect already receives one, and works the same math a fractional CFO would want checked by hand: for every item, price equals sold hours times your labor rate, plus materials cost, plus your markup applied to materials. When a material's unit cost changes, the agent recomputes materials cost and price for every item containing that material, not just the one line that changed.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Ingest the vendor cost update</b> From Pricebook Connect's feed or a distributor's price file, matching changed SKUs against every material line in the book.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Recompute every affected item</b> Sold hours &times; labor rate, plus new materials cost, plus your markup on materials, under your own sold-hour pricing model.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Total the price and margin delta across the batch</b> Old price, new price, the dollar and percent move, and the margin impact, for every item the update touches.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Flag anything beyond tolerance for a closer look</b> Routine small moves group together for a fast approve; items whose price swings past your set tolerance surface separately.</div></div>
+        <div class="step"><div class="num">5</div><div class="txt"><b>A human approves the batch</b> The write to ServiceTitan happens only after approval, and it is reversible back to the prior price.</div></div>
+      </div>
+
+      <h2>What does one vendor cost increase actually look like across the whole book?</h2>
+
+      <p>All figures below are <strong>illustrative</strong>, built to show the mechanism, not a client result.</p>
+
+      <figure class="calc">
+        <div class="cap">Illustrative repricing batch — one vendor cost increase</div>
+        <div class="body">
+          <div class="lab">The trigger</div>
+          <table>
+            <tr><td>Material</td><td>3/4" copper coupling</td></tr>
+            <tr><td>Old vendor cost</td><td>$20.25</td></tr>
+            <tr><td>New vendor cost</td><td>$24.25</td></tr>
+            <tr><td>Change</td><td>+$4.25 per unit</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">What the recompute finds</div>
+          <table>
+            <tr><td>Service &amp; assembly items using this material</td><td>14</td></tr>
+            <tr><td>Items with a price move inside tolerance</td><td>11 (routine, grouped for fast approval)</td></tr>
+            <tr><td>Items flagged beyond tolerance</td><td>3 (larger assemblies, bigger margin swing)</td></tr>
+            <tr class="tot"><td>Total margin dollars at stake, this batch</td><td class="price">reviewed as one approval, not 14 separate lookups</td></tr>
+          </table>
+        </div>
+        <figcaption>Pricebook Connect's Updates screen would show the $4.25 material delta on the one mapped item. The recompute is what turns that single delta into 14 reviewed price changes with the margin impact attached, instead of a manual search for which services use that fitting.</figcaption>
+      </figure>
+
+      <h2>How do manual review, Pricebook Pro + Connect, and the Pricebook agent actually compare?</h2>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Pricebook approach comparison">
+          <thead><tr><th>Capability</th><th>Manual</th><th>Pricebook Pro + Connect</th><th>Top Builder AI Pricebook agent</th></tr></thead>
+          <tbody>
+            <tr><td>Generic flat-rate content library</td><td class="no">Built from scratch</td><td class="yes">Yes — Smart Start + monthly refresh</td><td>&mdash; (sits on top of your existing book)</td></tr>
+            <tr><td>Vendor-specific cost sync</td><td class="no">Manual price-sheet lookup</td><td class="yes">Yes — Pricebook Connect, supplier's schedule</td><td class="yes">Ingests the same feed, or a price file directly</td></tr>
+            <tr><td>Cost delta surfaced per material</td><td class="no">No</td><td class="yes">Yes — asterisk + dollar delta, one item at a time</td><td class="yes">Same delta, matched across every item that uses it</td></tr>
+            <tr><td>Recomputes every affected service/assembly price</td><td class="no">No — manual, item by item</td><td class="no">Not part of the documented workflow</td><td class="yes">Yes — full batch, same pass</td></tr>
+            <tr><td>Total margin-dollar impact shown before approval</td><td class="no">No</td><td class="no">Not part of the documented workflow</td><td class="yes">Yes — per item and totaled for the batch</td></tr>
+            <tr><td>Flags out-of-tolerance items for extra review</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes — configurable tolerance</td></tr>
+            <tr><td>Writes changes automatically without approval</td><td>&mdash;</td><td class="no">No — you apply each update</td><td class="no">No — batch approved by a human, reversible</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The short version: Pricebook Pro and Pricebook Connect are both real, useful tools for what they are built to do, standing up a professional book fast and piping vendor catalogs into ServiceTitan. What neither one does, by ServiceTitan's own documented workflow, is turn a single cost change into a reviewed, margin-total picture of every price it touches. That is the specific layer the Pricebook agent adds, never replacing the human approval step.</p>
+
+      <h2>How does this connect to the rest of the back office?</h2>
+
+      <p>Pricebook is one of eight agents in Top Builder AI's back-office stack. The same margin-delta data the Pricebook agent surfaces on a repricing batch feeds the <strong>Financial agent's</strong> job-costing and margin reporting, so a vendor cost increase absorbed into the book this week shows up in the same-month margin picture instead of being discovered at quarter-end when a job that used to run at 40 percent margin has quietly been running at 31 for two months.</p>
+
+      <p>The <a class="link" href="/blog/ai-back-office-for-servicetitan.html">full back-office overview</a> covers all eight agents, and the <a class="link" href="/blog/automate-servicetitan-pricebook-vendor-costs.html">original pricebook-freshness guide</a> walks through the ingest-and-recompute mechanics in more depth if you have not connected a vendor feed yet.</p>
+
+      <h2>What will the agent never do without my approval?</h2>
+
+      <ul>
+        <li><b>No automatic price writes.</b> Every recomputed batch is a proposal, old price, new price, delta, margin impact, reviewed before anything writes back to ServiceTitan.</li>
+        <li><b>No invented costs or margins.</b> Every number comes from deterministic, tested code reading your actual pricebook structure and the vendor's actual cost update.</li>
+        <li><b>No silent changes to your pricing model.</b> Your sold-hour rate and markup assumptions are inputs the agent reads, not values it adjusts on its own.</li>
+        <li><b>Every approved write is reversible</b> back to the prior price if a batch needs to be undone.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>See what a real vendor cost increase does to your book</h2>
+        <p>If you have never traced one material cost change all the way through to every service item it touches, that is exactly what a fit call walks through with a real page from your pricebook.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">If I already pay for ServiceTitan's Pricebook Pro, do I still need something else?</div>
+      <div class="a">For most contractors, yes, for one specific job Pricebook Pro was never built to do. Pricebook Pro refreshes ServiceTitan's own generic service content on a monthly cycle. Pricebook Connect, a separate mechanism, surfaces vendor-specific cost changes for you to review and apply by hand, item by item. Neither one recomputes every affected flat-rate price across your whole book the moment a vendor cost changes, and neither shows you the margin dollar impact of that change before you approve it.</div>
+
+      <div class="q">Does Pricebook Pro update vendor costs automatically?</div>
+      <div class="a">Not in the way most contractors assume. According to ServiceTitan's own help documentation comparing the two products, Pricebook Pro content, the generic services, images, descriptions, and sold hours, is updated monthly by ServiceTitan. Pricebook Connect is the separate piece that carries vendor and manufacturer-specific cost changes, and its updates happen at the discretion of the supplier, not on a fixed schedule tied to your book.</div>
+
+      <div class="q">Is Pricebook Connect the same thing as Pricebook Pro?</div>
+      <div class="a">No, they are two different products that solve two different problems. Pricebook Pro is an add-on subscription that provides pre-built flat-rate services with generic materials attached. Pricebook Connect is the marketplace mechanism that syncs vendor and manufacturer catalogs into ServiceTitan, and it is included on accounts with a supply chain integration enabled, or bundled with a Pricebook Pro subscription. You can have one without the other.</div>
+
+      <div class="q">What does Pricebook Connect actually do when a vendor raises a price?</div>
+      <div class="a">Per ServiceTitan's own documentation, once a material item is mapped to a vendor catalog, an updated cost appears in Pricebook Connect's Updates screen with an asterisk on the Cost column and the dollar change shown underneath, for example a move from $20.25 to $24.25 displays as plus $4.25. Costs sync overnight and can take up to 24 hours to appear. A person then applies that update, manually or through a bulk action, to that specific material item.</div>
+
+      <div class="q">So what is the actual gap between those two tools and a self-learning pricing agent?</div>
+      <div class="a">The material-level cost delta is only step one. A single material line, a specific copper fitting or a filter SKU, is usually built into dozens of flat-rate service and assembly items across the book. Pricebook Connect shows you that one material's cost moved. It does not automatically recompute the sold price of every service item containing that material, and it does not show you the total margin dollars at stake across the affected items before you approve anything.</div>
+
+      <div class="q">How does a self-learning Pricebook agent close that gap?</div>
+      <div class="a">The Pricebook agent in Top Builder AI ingests the same vendor cost update, matches every material line across every affected service and assembly item, and recomputes each one's price under your sold-hour pricing model: sold hours times your labor rate, plus materials cost, plus your markup on materials. It totals the price and margin delta across the whole affected set, flags any item whose price move is beyond your set tolerance for a closer look, and a human approves the batch before anything writes back to ServiceTitan.</div>
+
+      <div class="q">Does this replace Pricebook Pro or Pricebook Connect?</div>
+      <div class="a">No. Pricebook Pro's generic content library and Pricebook Connect's vendor catalog sync are both still useful for what they do, keeping a broad, professional-looking book stocked with current supplier catalogs. The Pricebook agent sits on top of that data and does the recompute-and-flag work neither product does: turning one material cost change into a reviewed, margin-aware price update across the entire book in one batch instead of item by item.</div>
+
+      <div class="q">Do I need Pricebook Connect for the agent to work?</div>
+      <div class="a">It helps but is not required. The agent can ingest a vendor cost update from Pricebook Connect if you have it, or directly from a distributor's price file or feed, the same way a shop without Pricebook Connect already receives vendor pricing today. Either path feeds the same recompute engine.</div>
+
+      <div class="q">How much does Pricebook Pro cost?</div>
+      <div class="a">ServiceTitan does not publish a public price for Pricebook Pro. It is billed as an additional monthly add-on on top of the base subscription, and contractors get an exact number only after a sales conversation. That is consistent with ServiceTitan's broader pricing model, where the base plans are also quote-based rather than publicly listed.</div>
+
+      <div class="q">How does the agent decide which price changes need a closer look?</div>
+      <div class="a">Every recomputed item carries a price-delta percentage and a margin-dollar delta versus its current price. Items whose price move crosses your configured tolerance are flagged for a closer look in the review batch; items inside tolerance are still shown, but grouped so the reviewer can approve routine, small moves quickly and focus attention on the handful of items with a real margin swing.</div>
+
+      <div class="q">Does the agent ever change a price without my approval?</div>
+      <div class="a">No. Every recompute is a proposal: old price, new price, the delta, and the margin impact, shown to a human before anything writes back to ServiceTitan. The agent computes the math with deterministic, tested code; it does not decide pricing strategy or push a change unattended.</div>
+
+      <div class="q">What if the same material is used in dozens of different service items?</div>
+      <div class="a">That is exactly the case Pricebook Connect's item-by-item review does not scale well for. The agent matches a changed vendor SKU against every item in the book that uses it, however many that is, and recomputes all of them in the same pass, so a single copper price increase shows up as one reviewed batch instead of a search-and-update job across dozens of separate service and assembly items.</div>
+
+      <div class="q">How does this connect to the rest of the back office?</div>
+      <div class="a">The same margin-delta data the Pricebook agent surfaces on a repricing batch feeds the Financial agent's job-costing and margin reporting, so a vendor cost increase absorbed into the book this week shows up in the same-month margin picture instead of being discovered three months later when a job that used to run at 40 percent margin quietly runs at 31.</div>
+
+      <div class="q">What will the agent never do without my approval?</div>
+      <div class="a">It never writes a price change to ServiceTitan without a human approving the batch, never invents a vendor cost or a margin figure, and never silently changes your markup or sold-hour rate assumptions. Every number in a proposed batch comes from deterministic code reading your actual pricebook structure and the vendor's actual cost update; the approved write is reversible back to the prior price.</div>
+
+      <div class="q">How long before I see the difference versus reviewing Pricebook Connect updates manually?</div>
+      <div class="a">The first vendor price file run after setup is usually the tell: instead of a list of individual material cost deltas to manually cross-reference against a spreadsheet of which services use them, the office gets one reviewed batch showing every affected service item, its price and margin change, and the handful flagged for a closer look before anything is approved.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

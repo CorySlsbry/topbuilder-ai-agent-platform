@@ -1,0 +1,6 @@
+[
+  {"id": "tech-001", "name": "Aaron Brooks", "role": "service", "hourly_rate": 40.0},
+  {"id": "tech-002", "name": "Beth Calloway", "role": "service", "hourly_rate": 40.0},
+  {"id": "tech-101", "name": "Carl Dominguez", "role": "install", "hourly_rate": 0.0},
+  {"id": "sales-201", "name": "Dana Everett", "role": "sales", "hourly_rate": 0.0}
+]

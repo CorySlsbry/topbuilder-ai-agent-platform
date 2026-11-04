@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Automate Invoice Collections for Your ServiceTitan Shop: The A/R Aging Playbook (2026)</title>
+<meta name="description" content="A practical guide for HVAC, plumbing, and electrical contractors on ServiceTitan: how to automate A/R collections using AI agents that reconcile against QuickBooks, score and prioritize the aging list, and propose outreach a human approves — so outstanding invoices get followed up on time, every time." />
+<link rel="canonical" href="https://topbuilderai.com/blog/servicetitan-ar-collections-automation.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Automate Invoice Collections for Your ServiceTitan Shop: The A/R Aging Playbook (2026)" />
+<meta property="og:description" content="Stop manually triaging the aging report. An AI agent reads your ServiceTitan open invoices, reconciles against QuickBooks to remove unapplied-payment noise, scores each invoice by age + balance + history + margin, and proposes the contact queue — a human approves before anything reaches a customer." />
+<meta property="og:url" content="https://topbuilderai.com/blog/servicetitan-ar-collections-automation.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_collections.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_collections.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Enterprise-light palette (WCAG 2.2 AA verified). Blue primary, green secondary. */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  /* article header */
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  /* article body */
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  /* stat callout */
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:var(--ink);line-height:1.1;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  /* worked-example callout */
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  /* comparison table */
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:34%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  /* process steps */
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  /* faq */
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  /* cta */
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  /* video slot */
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (companion video) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"How to Automate Invoice Collections for Your ServiceTitan Shop: The A/R Aging Playbook (2026)",
+  "description":"A walkthrough of automating A/R collections on ServiceTitan: reconcile against QuickBooks to remove unapplied-payment noise, score each invoice by age + balance + customer history + margin, and generate a ranked contact queue a human approves before any outreach reaches a customer.",
+  "thumbnailUrl":"https://topbuilderai.com/blog/_thumb_collections.jpg",
+  "uploadDate":"2026-06-24T12:24:46Z",
+  "duration":"PT9M16S",
+  "contentUrl":"https://www.youtube.com/watch?v=anBMN4FTKBc",
+  "embedUrl":"https://www.youtube.com/embed/anBMN4FTKBc",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/servicetitan-ar-collections-automation.html"},
+  "headline":"How to Automate Invoice Collections for Your ServiceTitan Shop: The A/R Aging Playbook (2026)",
+  "description":"A practical guide for HVAC, plumbing, and electrical contractors: how to automate A/R collections using AI agents that reconcile ServiceTitan against QuickBooks, score the aging list by priority, and propose a contact queue a human approves before any outreach reaches a customer.",
+  "datePublished":"2026-06-24",
+  "dateModified":"2026-06-24",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_collections.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan accounts receivable","HVAC invoice collections","A/R aging","QuickBooks reconciliation","contractor cash flow"],
+  "keywords":"automate invoice collections ServiceTitan, AI accounts receivable HVAC contractors, ServiceTitan AR aging, QuickBooks ServiceTitan reconciliation, collections automation field service"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does ServiceTitan have an AR collections tool built in?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan includes an accounts receivable module with aging reports, bulk statement printing, and online payment links. What it does not do is automatically prioritize which invoices to contact first, reconcile open balances against QuickBooks in real time, or propose the specific outreach for each invoice. Those steps require a human or an AI agent working on top of the native data."}},
+    {"@type":"Question","name":"Can AI send collection messages automatically, or does a human approve everything?","acceptedAnswer":{"@type":"Answer","text":"In Top Builder AI, no outreach goes to a customer without human approval. The Financial agent proposes the contact type, the message or call prompt, and the reason for each invoice, and an office manager approves, edits, or skips each one before anything is sent. Automated outreach without a human checkpoint creates relationship risk and ignores context the data cannot capture."}},
+    {"@type":"Question","name":"What is the difference between ServiceTitan AR and QuickBooks AR?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan's AR reflects the invoice status inside the field-service platform: billed, partially paid, open. QuickBooks AR reflects what the general ledger has actually received and reconciled. The two diverge when a payment is deposited in QuickBooks but not applied to the specific invoice in ServiceTitan, when credits or adjustments are entered in one system but not the other, or when the batch sync lags behind real-time transactions."}},
+    {"@type":"Question","name":"How does an AI agent prioritize which invoices to collect first?","acceptedAnswer":{"@type":"Answer","text":"The prioritization model weighs four factors together: age in days, invoice balance, the customer's payment history, and job margin. A large commercial invoice at 65 days from a customer with a known payment pattern is scored differently than a smaller residential invoice at the same age. The output is a ranked contact queue, not a raw aging report, with a recommended first-touch action per invoice."}},
+    {"@type":"Question","name":"What is a reconciliation mismatch and why does it matter for collections?","acceptedAnswer":{"@type":"Answer","text":"A reconciliation mismatch is an invoice that ServiceTitan shows as open but QuickBooks shows as partially or fully settled, usually because a payment was deposited but not applied to the specific invoice in the field-service platform. Chasing a mismatch means calling a customer who already paid, which damages the relationship. The Financial agent removes mismatches from the chase queue and surfaces them as a bookkeeping cleanup task instead."}},
+    {"@type":"Question","name":"Does the agent work for both commercial and residential invoices?","acceptedAnswer":{"@type":"Answer","text":"Yes, with different recommended contact methods. Residential customers under 30 days typically respond well to a payment-link SMS. Commercial accounts generally respond better to direct calls with a specific invoice reference. The agent's recommendation reflects the invoice type and the customer's payment history, and the office manager can override the recommendation before approving any outreach."}},
+    {"@type":"Question","name":"Will an AI collections agent contact customers without telling me?","acceptedAnswer":{"@type":"Answer","text":"No. Top Builder AI's Financial agent is advisory. It proposes the contact but takes no action until a human approves it. This matters because the agent does not know about ongoing callbacks, disputes, or relationship context the office team holds. The approval step is where that context applies before anything reaches the customer."}},
+    {"@type":"Question","name":"How does the agent handle disputed invoices?","acceptedAnswer":{"@type":"Answer","text":"The agent flags invoices that have an associated callback task or open dispute note in ServiceTitan and excludes them from the standard chase queue. They appear in a separate review list so the office team can resolve the underlying issue before any collections outreach. An unresolved dispute that gets chased as a normal invoice is one of the most common causes of a collectible invoice turning into a written-off one."}},
+    {"@type":"Question","name":"What does self-learning mean for the collections agent?","acceptedAnswer":{"@type":"Answer","text":"The Financial agent records the outcome of each approved outreach action, specifically whether the invoice was paid, partially paid, or required further follow-up after each contact type. Over time, it adjusts its recommendations per customer segment, for example learning that a specific commercial account category consistently pays within five business days of a call but rarely responds to SMS. The figures it reports are always computed by deterministic code, not by the AI model."}},
+    {"@type":"Question","name":"Can I connect Top Builder AI's Financial agent to my existing ServiceTitan and QuickBooks setup?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Financial agent connects to both ServiceTitan and QuickBooks Online using your existing credentials. It reads the open-invoice report from ServiceTitan and the accounts receivable balance from QuickBooks to perform the reconciliation. No Zapier, no manual exports. The integration uses the same architecture as the other seven Top Builder AI agents already running on live ServiceTitan and QuickBooks installs."}},
+    {"@type":"Question","name":"How long before I see a reduction in outstanding AR?","acceptedAnswer":{"@type":"Answer","text":"The first cycle produces value immediately by surfacing any reconciliation mismatches that inflate the apparent aging, and by ranking the genuine open invoices so the day's follow-up effort goes to the highest-priority items first. How quickly the total outstanding balance falls depends on the invoice volume, customer mix, and how consistently the office acts on the daily contact queue. Most shops see measurable movement in the 60-plus bucket within the first two to three weeks of consistent use."}},
+    {"@type":"Question","name":"Does the agent write to ServiceTitan or QuickBooks directly?","acceptedAnswer":{"@type":"Answer","text":"It reads from both systems. For outreach actions, all logging of approved contacts goes back into ServiceTitan as activity notes. The agent does not write payment records to QuickBooks directly; that is the bookkeeper's step after money clears. The distinction matters for audit integrity: the agent proposes and logs; humans and the accounting system confirm and record."}},
+    {"@type":"Question","name":"What is a typical DSO for an HVAC or plumbing shop on ServiceTitan?","acceptedAnswer":{"@type":"Answer","text":"Days Sales Outstanding varies by customer mix. A predominantly residential shop with online payment links typically collects within 10 to 20 days. A mixed residential and commercial shop often runs 30 to 45 days. A shop doing significant commercial work with net-30 or net-60 terms can easily sit at 50 to 70 days DSO as a structural baseline. The collections agent is most impactful for shops where the outstanding balance includes invoices well beyond their stated terms."}},
+    {"@type":"Question","name":"What happens to invoices that are too old to collect through normal follow-up?","acceptedAnswer":{"@type":"Answer","text":"The agent escalates invoices above a configurable age and balance threshold to a separate review queue and recommends a formal demand approach, such as a certified demand letter or referral to a collections agency. The specific threshold is set per shop. The agent documents the escalation and the prior contact history so whoever handles it has the full record without reconstructing it from ServiceTitan notes manually."}},
+    {"@type":"Question","name":"Is the collections output auditable?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every agent action, including the scoring run, the proposed outreach, the approver identity, the contact timestamp, and the outcome, is logged to the audit trail. The figures in the scoring model are computed by deterministic tested code, so the same inputs produce the same ranking every time. The language model explains the result; it never calculates a balance or makes up a contact history."}},
+    {"@type":"Question","name":"How does automating collections connect to the broader back-office picture?","acceptedAnswer":{"@type":"Answer","text":"The Financial agent's collections data feeds the cash-position report alongside cleared QuickBooks transactions and outstanding payables. The combined view lets an owner or fractional CFO answer the cash forecast question, specifically what cash will clear this week and next, rather than relying on billed revenue as a proxy. That is the difference between a board-ready financial summary and an accounting-only closing statement."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; A/R Collections Automation</div>
+    <span class="kicker">ServiceTitan &middot; Collections &middot; Cash Flow</span>
+    <h1>How to Automate Invoice Collections for Your ServiceTitan Shop: The A/R Aging Playbook (2026)</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published June 24, 2026</span>
+      <span class="pill">~13 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical</span>
+    </div>
+  </section>
+
+  <div class="video" style="max-width:var(--measure);margin:26px auto 0">
+    <iframe src="https://www.youtube.com/embed/anBMN4FTKBc" title="How to Automate Invoice Collections for Your ServiceTitan Shop: The A/R Aging Playbook" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">To automate invoice collections on ServiceTitan, connect an AI agent to your open-invoice report, cross-reference it against QuickBooks to strip out unapplied-payment noise, score each remaining open invoice by age, balance, customer history, and job margin, then generate a ranked contact queue, text-payment-link for residential, call prompt for commercial, escalation flag for 90-plus, that an office person approves before any outreach reaches a customer. Top Builder AI's <strong>Financial agent</strong> runs this loop on a configurable cadence: it reconciles the two systems, ranks what to chase first and why, proposes the specific action for each invoice, and logs every approved contact back to ServiceTitan. <strong>Nothing reaches a customer without a human decision.</strong></p>
+
+      <p>You can have a full dispatch board and a strong gross margin on paper and still run out of operating cash because the invoices you billed six weeks ago are still sitting in a pending column nobody is getting to. A ServiceTitan shop doing $700,000 a month in billings at a 45-day average collection cycle is carrying over $1 million in open receivables at any given point. That is not an accounting problem, it is a cash-flow problem, and it has a specific cause: the aging list exists, but a prioritized, ready-to-act queue does not.</p>
+
+      <p>This is not a fringe problem in the trades. Slow payments cost the U.S. construction sector a staggering $280 billion in 2024, and delayed payments increased costs by 14% of total construction spending that year, according to the <a class="link" href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener noreferrer">Rabbet 2024 Construction Payments Report (2024)</a>. When cash sits in the A/R column instead of the bank, it is eroding margin on every dollar of work the shop does.</p>
+
+      <p>ServiceTitan's 2026 "AI in the Trades" report found that <strong>74% of residential contractors see AI as key to operational efficiency</strong>. A/R collection is one of the areas where the gap between what the platform can do natively and what a purpose-built agent can do is widest, because the bottleneck is not billing, it is prioritized follow-up across dozens of open invoices while the office team is also running dispatch, scheduling, and customer service.</p>
+
+      <h2>Why do contractors leave so much money sitting in the A/R column?</h2>
+
+      <p>The mechanism is consistent across shops of every size. An invoice is generated in ServiceTitan when the technician closes the job. It gets emailed or texted to the customer. Some pay immediately, especially residential customers who pay by card in the field. Many do not. The residential customers who got a paper invoice forget. The commercial accounts have their own payment cycles, and $3,000 owed to a subcontractor does not always rise to the top of their AP queue by the 30-day mark.</p>
+
+      <p>The office team knows this. They have the aging report. What they do not have is a prioritized queue that tells them which of the 40 open invoices to call today, in what order, and what to say to each one. So the work defaults to oldest-first, or biggest-first, or whoever-happens-to-be-at-the-front-desk-first. Systematic follow-up, the kind that actually reduces Days Sales Outstanding, requires a scoring model the team does not have time to build manually every morning.</p>
+
+      <p>The trend is getting worse, not better. Across the industry, 82% of contractors now report payment delays of over 30 days, up from only 49% two years prior, per the <a class="link" href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener noreferrer">Rabbet 2024 Construction Payments Report (2024)</a>. A separate survey of 250 U.S. general contractors and subcontractors found that 70% regularly face delayed payments, and that contractors inflate bids by an average of 8% to protect themselves against slow payment, according to <a class="link" href="https://www.businesswire.com/news/home/20250521182315/en/Constructions-Cash-Crunch-70-of-Contractors-Say-Payment-Delays-Threaten-Industry" rel="noopener noreferrer">Built / Talker Research (2025)</a>. The slow-pay problem is quietly inflating the price of every job in the market.</p>
+
+      <style>
+        /* Scoped 2-bar chart (tba-arch-*); overlap-proof by construction. */
+        .tba-arch{margin:30px 0}
+        .tba-arch .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+        .tba-arch .body{padding:14px 22px 18px}
+        .tba-arch-plot{display:flex;align-items:flex-end;justify-content:center;gap:clamp(28px,12vw,72px);
+          min-height:240px;padding:0 6px}
+        .tba-arch-col{display:flex;flex-direction:column;align-items:center;flex:1 1 0;max-width:150px;min-width:0}
+        .tba-arch-val{font-family:"Instrument Serif",Georgia,serif;font-size:clamp(28px,7vw,40px);line-height:1;
+          color:var(--ink);font-variant-numeric:tabular-nums;font-feature-settings:"tnum";margin-bottom:10px}
+        .tba-arch-col.is-now .tba-arch-val{color:var(--indigo-2)}
+        .tba-arch-track{width:100%;height:170px;display:flex;align-items:flex-end}
+        .tba-arch-bar{width:100%;border-radius:9px 9px 0 0;min-height:8px}
+        .tba-arch-col.is-prior .tba-arch-bar{background:var(--line2)}
+        .tba-arch-col.is-now .tba-arch-bar{background:linear-gradient(180deg,var(--indigo),var(--indigo-2))}
+        .tba-arch-yr{margin-top:12px;font-size:13.5px;font-weight:600;color:var(--ink2);text-align:center}
+        .tba-arch-sub{margin-top:2px;font-size:12px;color:var(--ink3);text-align:center;line-height:1.4}
+        .tba-arch figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+        .tba-arch figcaption a{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+        .tba-arch figcaption a:hover{border-bottom-color:var(--emerald)}
+        @media(max-width:430px){.tba-arch .body{padding:12px 14px 16px}.tba-arch figcaption{padding:0 14px 16px}}
+      </style>
+      <figure class="calc tba-arch" aria-label="Bar chart: share of contractors facing payment delays over 30 days, by year">
+        <div class="cap">Contractors facing 30+ day payment delays</div>
+        <div class="body">
+          <div class="tba-arch-plot">
+            <div class="tba-arch-col is-prior">
+              <div class="tba-arch-val">~49%</div>
+              <div class="tba-arch-track"><div class="tba-arch-bar" style="height:49%"></div></div>
+              <div class="tba-arch-yr">Earlier</div>
+              <div class="tba-arch-sub">Two years prior</div>
+            </div>
+            <div class="tba-arch-col is-now">
+              <div class="tba-arch-val">82%</div>
+              <div class="tba-arch-track"><div class="tba-arch-bar" style="height:82%"></div></div>
+              <div class="tba-arch-yr">2024</div>
+              <div class="tba-arch-sub">Latest</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>The share of contractors reporting payment delays of over 30 days jumped from roughly 49% to 82% in two years, per the <a href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener noreferrer">Rabbet 2024 Construction Payments Report (2024)</a>. Late payment is now the norm, not the exception, which is exactly why a prioritized chase queue matters.</figcaption>
+      </figure>
+
+      <figure class="stat">
+        <div class="cap">The A/R math</div>
+        <div class="body">
+          <div class="val">$1.05 M</div>
+          <div class="lab">Illustrative outstanding A/R for a $700k/month ServiceTitan shop at a 45-day average collection cycle: $700k &times; 1.5 months &equals; $1.05M sitting in open invoices.</div>
+          <div class="src">Illustrative calculation. Real DSO varies by customer mix and payment method.</div>
+        </div>
+      </figure>
+
+      <p>A second force multiplies the problem: the data itself is unreliable. The ServiceTitan aging report and the QuickBooks accounts receivable balance often do not match, because payments flow through both systems on different schedules and sometimes do not reconcile cleanly. Before you can prioritize the chase, you have to trust the list. Most shops do not yet have a process that guarantees that trust automatically.</p>
+
+      <h2>Does ServiceTitan's native A/R module handle collections, and where does it leave gaps?</h2>
+
+      <p>ServiceTitan has solid invoicing and collections infrastructure. Technicians can email or text invoices from the truck. Customers can pay online through the invoice link. The <a class="link" href="https://www.servicetitan.com/guides/contractor-playbook/collections" rel="noopener noreferrer">ServiceTitan Contractor Playbook on Collections</a> documents the native AR workflow in detail. The aging report shows open balances by bucket: 0 to 30 days, 31 to 60, 61 to 90, and 90 and over. Bulk statement printing and emailing exist for volume follow-up. For many shops this is sufficient infrastructure for the problem they have.</p>
+
+      <p>Where it leaves a gap is prioritization and reconciliation. The aging report is a list, not a ranked queue. Every invoice in the 31-to-60 bucket looks the same, whether it is a $300 residential tune-up or a $14,000 commercial installation with a relationship that took three years to build. ServiceTitan does not know which one to call first, what to say, or whether the customer had a callback issue that should be resolved before any outreach goes out.</p>
+
+      <p>The platform also does not reconcile against QuickBooks automatically in real time. The two-way sync moves revenue and invoice status between systems, but it runs on a batch schedule. Between runs, a payment deposited in QuickBooks may not yet have cleared the corresponding invoice in ServiceTitan. The aging report in ServiceTitan may show an invoice as open when the money has already landed in the bank account.</p>
+
+      <h3>What makes an invoice go stale between ServiceTitan and QuickBooks?</h3>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Unapplied payments</b> A check or ACH arrives and is deposited in QuickBooks, but it is not linked to the specific invoice in ServiceTitan. ServiceTitan still shows the invoice open; QuickBooks shows the deposit without an invoice reference.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Credits and adjustments</b> A service credit or adjustment is issued in one system but not mirrored in the other, creating a phantom balance that makes an invoice appear larger or smaller than it actually is.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Multi-invoice commercial customers</b> A single check from a commercial account covers three invoices from the same month. The check is applied in QuickBooks to a general AR balance; the individual invoice links take extra steps in ServiceTitan that often get skipped during a busy week.</div></div>
+      </div>
+
+      <p>Chasing a reconciliation mismatch means calling a customer who already paid. That call costs goodwill. If it happens twice with the same account, it costs the relationship. The reconciliation has to precede the collection, and right now that reconciliation is a manual step that most shops skip or do quarterly at best.</p>
+
+      <h2>Why don't ServiceTitan and QuickBooks A/R match, and why does it matter?</h2>
+
+      <p>The practical question an office manager has to answer before making any collections call is: does this customer actually owe this money right now? The answer lives in two systems that neither system reconciles on its own in real time.</p>
+
+      <p>ServiceTitan knows the job, the invoice, and any payments received through its own payment processing. QuickBooks knows the bank deposits, the applied payments, the journal entries, and the credit memos. Where these two ledgers agree, you have a clean balance. Where they diverge, you have a reconciliation task disguised as a collections task.</p>
+
+      <p>The Financial agent resolves this by pulling both ledgers at the start of every cycle, matching customers and invoice references across the two systems, and flagging any invoice where the systems disagree. Those flagged invoices come out of the chase queue entirely and land in a separate cleanup list for the bookkeeper. What remains is the genuine outstanding balance, the invoices where both systems agree the money has not arrived.</p>
+
+      <p>That cleanup step alone, before any outreach is proposed, is often the most valuable output of the first cycle. Many shops find that 10 to 20 percent of their apparent 60-plus aging is actually reconciliation noise, not delinquency. Fixing that noise does not collect any cash directly, but it stops the office from burning goodwill on customers who have already paid.</p>
+
+      <p>The manual version of this work is expensive in staff hours. In broader business research, 65% of mid-sized businesses said they spend 14 hours per week on average on the administrative tasks tied to collecting payments, and those firms reported being owed $304,066 on average in late customer payments, according to <a class="link" href="https://quickbooks.intuit.com/r/midsize-business/midsize-payments-research/" rel="noopener noreferrer">QuickBooks / Intuit late-payments research (2021)</a>. That is the labor a prioritized, reconciled contact queue is designed to compress.</p>
+
+      <h2>How does the AI Financial agent actually run a collections cycle?</h2>
+
+      <p>After setup, the Financial agent runs on a configurable cadence: daily for high-volume shops, every two to three days for smaller operations. Each cycle has four steps.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Ingest the open-invoice report from ServiceTitan</b> Invoice number, balance, customer, job type, technician, invoice date, last payment event, and any associated callback tasks or open dispute notes.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Cross-reference against QuickBooks AR</b> Pull the QBO accounts receivable balance for the same customer set. Flag reconciliation mismatches, invoices where ST shows open and QBO shows a settled deposit, and route them to the bookkeeper queue. Remove them from the collections queue.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Score and rank the genuine open invoices</b> Weight each by age, balance, customer payment history, and job margin. The output is a ranked list with a recommended first-touch action type: payment-link SMS, call prompt with brief, or escalation flag above threshold.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Propose the contact queue for human approval</b> Each proposed action shows the customer, the balance, the recommended approach, and the reason. The office manager approves, edits, or skips each one. Approved actions log back to ServiceTitan. Nothing sends without a human decision.</div></div>
+      </div>
+
+      <h2>How does the agent decide which invoices to chase first?</h2>
+
+      <p>The aging report treats every invoice in the same bucket as equal priority. The scoring model does not. It weights four factors together to produce a ranked queue, not an alphabetical or oldest-first list.</p>
+
+      <p><strong>Age.</strong> Older invoices weight more heavily because the probability of full collection decreases with time. An invoice at 75 days has a different risk profile from one at 38 days, even if the balance is identical. The weighting is not linear; the risk acceleration is steeper past 60 days.</p>
+
+      <p><strong>Balance.</strong> Larger balances represent more gross profit dollars in the uncollected pile. A $9,200 commercial invoice at 42 days outranks a $280 residential tune-up at 58 days for the same daily contact budget. The model does not ignore small balances, but it allocates priority proportionally.</p>
+
+      <p><strong>Customer payment history.</strong> A customer with a pattern of paying promptly after the first reminder needs a different first touch than one with a history of requiring two or three contacts. The model uses the logged outcomes of prior cycles to refine this dimension per customer over time. New customers with no history start at a moderate-priority default.</p>
+
+      <p><strong>Job margin.</strong> The Financial agent knows the margin estimate on each job from the ServiceTitan job costing data. A high-margin job uncollected is a larger net loss than a thin-margin job at the same dollar amount. The model reflects that a $6,000 install at 58% gross margin is a bigger financial exposure than an $8,000 installation job at 18% margin.</p>
+
+      <p>The combined score produces a ranking that the office manager sees as a queue, not as a raw report. The top of the queue is the invoice where the combination of age, balance, history, and margin says "contact today, here is how."</p>
+
+      <h2>Worked example: a 10-tech HVAC shop, one cycle</h2>
+
+      <p>All figures below are <strong>illustrative</strong> to demonstrate the process. They are not a client result.</p>
+
+      <figure class="calc">
+        <div class="cap">Illustrative A/R snapshot — 10-tech HVAC shop</div>
+        <div class="body">
+          <div class="lab">Monthly billings</div>
+          <table>
+            <tr><td>Monthly billings</td><td>$650,000</td></tr>
+            <tr><td>Outstanding A/R</td><td>$920,000</td></tr>
+            <tr class="tot"><td>Average collection cycle</td><td class="price">~42 days</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">A/R aging breakdown (before reconciliation)</div>
+          <table>
+            <tr><td>0 to 30 days</td><td>$380,000</td></tr>
+            <tr><td>31 to 60 days</td><td>$290,000</td></tr>
+            <tr><td>61 to 90 days</td><td>$170,000</td></tr>
+            <tr><td>90+ days</td><td>$80,000</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">After reconciliation pass</div>
+          <table>
+            <tr><td>Reconciliation mismatches removed from chase queue</td><td>$42,000</td></tr>
+            <tr><td>Genuine 61-plus open balance</td><td>$208,000</td></tr>
+            <tr><td>Same-day contact queue proposed (approved in ~8 min)</td><td>3 actions</td></tr>
+          </table>
+        </div>
+        <figcaption>The $42,000 removed was an unapplied QuickBooks payment tied to three commercial invoices. Bookkeeping fix, not a collections call.</figcaption>
+      </figure>
+
+      <p>The three proposed actions in this cycle:</p>
+      <ul>
+        <li><b>Payment-link SMS to a residential customer at 68 days, $3,840 balance.</b> Customer payment history shows 4 of 5 prior invoices paid within 24 hours of an SMS reminder. Recommended: first-touch text with a payment link.</li>
+        <li><b>Call prompt to a commercial property manager at 74 days, $18,400 balance.</b> Commercial tier; the agent recommends a voice call with the specific invoice number and a note that their prior contact for this account changed recently. Draft call brief provided.</li>
+        <li><b>Escalation flag on a 97-day account, $61,000 balance.</b> Above the shop's $50,000 threshold. Agent recommends a formal demand approach and notes a prior dispute on one of the three invoices that should be resolved first.</li>
+      </ul>
+
+      <p>The office manager approves the first two actions, edits the call brief on item two to reference the correct February job number, and skips item three to discuss with the owner. Total review time: 8 minutes.</p>
+
+      <h2>Comparison: manual vs. native ServiceTitan vs. AI-assisted</h2>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Collections approach comparison">
+          <thead><tr><th>Capability</th><th>Manual</th><th>ServiceTitan native A/R</th><th>Top Builder AI Financial agent</th></tr></thead>
+          <tbody>
+            <tr><td>Prioritized contact queue</td><td class="no">No</td><td class="no">Aging buckets only</td><td class="yes">Scored: age + balance + history + margin</td></tr>
+            <tr><td>Reconciles against QuickBooks</td><td class="no">Manual, per session</td><td class="no">Batch sync (may lag)</td><td class="yes">Every cycle; removes mismatches before chase</td></tr>
+            <tr><td>Proposed contact scripts</td><td class="no">Written from scratch</td><td class="no">Not included</td><td class="yes">Per-invoice draft; human approves</td></tr>
+            <tr><td>Escalation flags above threshold</td><td class="no">At owner's discretion</td><td class="no">Not included</td><td class="yes">Configurable per shop</td></tr>
+            <tr><td>Logs outreach to both systems</td><td class="no">Manual note</td><td class="no">ST notes only</td><td class="yes">Audit trail: timestamp, approver, outcome</td></tr>
+            <tr><td>Adjusts to customer payment patterns</td><td class="no">No</td><td class="no">No</td><td class="yes">Self-learning on the narration side (figures are deterministic)</td></tr>
+            <tr><td>Human approval required</td><td>&mdash;</td><td>&mdash;</td><td class="yes">Mandatory — no auto-outreach</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The short version: ServiceTitan's native module gives you the aging buckets and the payment rails, but the prioritized queue, the real-time QuickBooks reconciliation, and the per-invoice outreach drafts are the work an AI agent adds on top, always behind a human approval step.</p>
+
+      <h2>How does automating collections fit the rest of the back office?</h2>
+
+      <p>Collections is one of eight agents in Top Builder AI's back-office stack. The Financial agent handles collections and cash-position reporting. The Inventory agent watches material costs. The Workforce agent tracks labor and payroll. The Booking agent handles after-hours intake. All eight run on the same ServiceTitan and QuickBooks data already in the systems a contractor is running today.</p>
+
+      <p>The collections data the Financial agent manages feeds directly into the <strong>cash-position report</strong>: cleared cash from QuickBooks, expected collections based on the scored aging queue, and outstanding payables from the vendor side. The combined picture is what an owner needs to answer a bank or investor question: not "what did we bill last month" but "what cash will clear this week, and what is committed to go out."</p>
+
+      <p>That cash-position report is the output that most fractional CFOs and CPA firms spend several hours per week building manually from QuickBooks exports. The Financial agent computes it from live data, updated on each cycle, so the number is always current rather than a week-old export.</p>
+
+      <p>The <a class="link" href="/blog/ai-back-office-for-servicetitan.html">full back-office overview</a> covers all eight agents and how the Financial, Inventory, Workforce, Booking, Routing, Documents, Pricebook, and Collections functions work together. The <a class="link" href="/blog/connect-servicetitan-quickbooks-automated-job-costing.html">ServiceTitan-to-QuickBooks job costing guide</a> covers the reconciliation architecture in more depth.</p>
+
+      <h2>What will the agent never do without my approval?</h2>
+
+      <p>A few properties of the Financial agent are non-negotiable, regardless of shop size or volume:</p>
+
+      <ul>
+        <li><b>No automated outreach.</b> Every proposed contact requires a human to approve it first. The agent has no visibility into the relationship context, ongoing disputes, or scheduling issues the office team knows about.</li>
+        <li><b>No fabricated figures.</b> Every balance, every aging calculation, every margin figure comes from deterministic, tested code. The language model explains the result in plain language; it never generates or adjusts a number.</li>
+        <li><b>Fully reversible.</b> If an outreach action logs back to ServiceTitan incorrectly, or an escalation is misapplied, the prior state can be restored. The agent does not make irreversible writes.</li>
+        <li><b>Dispute-aware.</b> The agent reads associated callback tasks and dispute notes from ServiceTitan. An invoice with an unresolved dispute never enters the standard chase queue; it goes to a separate review list.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>Your outstanding A/R is a solvable problem</h2>
+        <p>If your aging report has invoices older than 60 days and your QuickBooks balance does not match what ServiceTitan shows as open, those are the two signals the Financial agent addresses first. Book a 30-minute fit call and we will run the reconciliation check against your actual books.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Does ServiceTitan have an AR collections tool built in?</div>
+      <div class="a">ServiceTitan includes an accounts receivable module with aging reports, bulk statement printing, and online payment links. What it does not do is automatically prioritize which invoices to contact first, reconcile open balances against QuickBooks in real time, or propose the specific outreach for each invoice. Those steps require a human or an AI agent working on top of the native data.</div>
+
+      <div class="q">Can AI send collection messages automatically, or does a human approve everything?</div>
+      <div class="a">In Top Builder AI, no outreach goes to a customer without human approval. The Financial agent proposes the contact type, the message or call prompt, and the reason for each invoice, and an office manager approves, edits, or skips each one before anything is sent. Automated outreach without a human checkpoint creates relationship risk and ignores context the data cannot capture.</div>
+
+      <div class="q">What is the difference between ServiceTitan AR and QuickBooks AR?</div>
+      <div class="a">ServiceTitan's AR reflects the invoice status inside the field-service platform: billed, partially paid, open. QuickBooks AR reflects what the general ledger has actually received and reconciled. The two diverge when a payment is deposited in QuickBooks but not applied to the specific invoice in ServiceTitan, when credits or adjustments are entered in one system but not the other, or when the batch sync lags behind real-time transactions.</div>
+
+      <div class="q">How does an AI agent prioritize which invoices to collect first?</div>
+      <div class="a">The prioritization model weighs four factors together: age in days, invoice balance, the customer's payment history, and job margin. A large commercial invoice at 65 days from a customer with a known payment pattern is scored differently than a smaller residential invoice at the same age. The output is a ranked contact queue, not a raw aging report, with a recommended first-touch action per invoice.</div>
+
+      <div class="q">What is a reconciliation mismatch and why does it matter for collections?</div>
+      <div class="a">A reconciliation mismatch is an invoice that ServiceTitan shows as open but QuickBooks shows as partially or fully settled, usually because a payment was deposited but not applied to the specific invoice in the field-service platform. Chasing a mismatch means calling a customer who already paid, which damages the relationship. The Financial agent removes mismatches from the chase queue and surfaces them as a bookkeeping cleanup task instead.</div>
+
+      <div class="q">Does the agent work for both commercial and residential invoices?</div>
+      <div class="a">Yes, with different recommended contact methods. Residential customers under 30 days typically respond well to a payment-link SMS. Commercial accounts generally respond better to direct calls with a specific invoice reference. The agent's recommendation reflects the invoice type and the customer's payment history, and the office manager can override the recommendation before approving any outreach.</div>
+
+      <div class="q">Will an AI collections agent contact customers without telling me?</div>
+      <div class="a">No. Top Builder AI's Financial agent is advisory. It proposes the contact but takes no action until a human approves it. This matters because the agent does not know about ongoing callbacks, disputes, or relationship context the office team holds. The approval step is where that context applies before anything reaches the customer.</div>
+
+      <div class="q">How does the agent handle disputed invoices?</div>
+      <div class="a">The agent flags invoices that have an associated callback task or open dispute note in ServiceTitan and excludes them from the standard chase queue. They appear in a separate review list so the office team can resolve the underlying issue before any collections outreach. An unresolved dispute that gets chased as a normal invoice is one of the most common causes of a collectible invoice turning into a written-off one.</div>
+
+      <div class="q">What does self-learning mean for the collections agent?</div>
+      <div class="a">The Financial agent records the outcome of each approved outreach action, specifically whether the invoice was paid, partially paid, or required further follow-up after each contact type. Over time, it adjusts its recommendations per customer segment, for example learning that a specific commercial account category consistently pays within five business days of a call but rarely responds to SMS. The figures it reports are always computed by deterministic tested code, not by the AI model.</div>
+
+      <div class="q">Can I connect Top Builder AI's Financial agent to my existing ServiceTitan and QuickBooks setup?</div>
+      <div class="a">Yes. The Financial agent connects to both ServiceTitan and QuickBooks Online using your existing credentials. It reads the open-invoice report from ServiceTitan and the accounts receivable balance from QuickBooks to perform the reconciliation. No Zapier, no manual exports. The integration uses the same architecture as the other seven Top Builder AI agents already running on live ServiceTitan and QuickBooks installs.</div>
+
+      <div class="q">How long before I see a reduction in outstanding AR?</div>
+      <div class="a">The first cycle produces value immediately by surfacing any reconciliation mismatches that inflate the apparent aging, and by ranking the genuine open invoices so the day's follow-up effort goes to the highest-priority items first. How quickly the total outstanding balance falls depends on invoice volume, customer mix, and how consistently the office acts on the daily contact queue. Most shops see measurable movement in the 60-plus bucket within the first two to three weeks of consistent use.</div>
+
+      <div class="q">Does the agent write to ServiceTitan or QuickBooks directly?</div>
+      <div class="a">It reads from both systems. For outreach actions, all logging of approved contacts goes back into ServiceTitan as activity notes. The agent does not write payment records to QuickBooks directly; that is the bookkeeper's step after money clears. The distinction matters for audit integrity: the agent proposes and logs; humans and the accounting system confirm and record.</div>
+
+      <div class="q">What is a typical DSO for an HVAC or plumbing shop on ServiceTitan?</div>
+      <div class="a">Days Sales Outstanding varies by customer mix. A predominantly residential shop with online payment links typically collects within 10 to 20 days. A mixed residential and commercial shop often runs 30 to 45 days. A shop doing significant commercial work with net-30 or net-60 terms can easily sit at 50 to 70 days DSO as a structural baseline. The collections agent is most impactful for shops where the outstanding balance includes invoices well beyond their stated terms.</div>
+
+      <div class="q">What happens to invoices that are too old to collect through normal follow-up?</div>
+      <div class="a">The agent escalates invoices above a configurable age and balance threshold to a separate review queue and recommends a formal demand approach, such as a certified demand letter or referral to a collections agency. The specific threshold is set per shop. The agent documents the escalation and the prior contact history so whoever handles it has the full record without reconstructing it from ServiceTitan notes manually.</div>
+
+      <div class="q">How does automating collections connect to the broader back-office picture?</div>
+      <div class="a">The Financial agent's collections data feeds the cash-position report alongside cleared QuickBooks transactions and outstanding payables. The combined view lets an owner or fractional CFO answer the cash forecast question, specifically what cash will clear this week and next, rather than relying on billed revenue as a proxy. That is the difference between a board-ready financial summary and an accounting-only closing statement.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

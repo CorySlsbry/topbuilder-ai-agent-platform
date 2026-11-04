@@ -1,0 +1,10 @@
+[
+  { "sku": "SKU-COMP", "on_hand": 4,   "avg_daily_usage": 0.6, "lead_time_days": 12, "safety_stock": 3,  "current_reorder_point": 10, "usage_sample_days": 140 },
+  { "sku": "SKU-FILT", "on_hand": 300, "avg_daily_usage": 8,   "lead_time_days": 5,  "safety_stock": 60, "current_reorder_point": 100, "usage_sample_days": 180 },
+  { "sku": "SKU-THRM", "on_hand": 6,   "avg_daily_usage": 1.0, "lead_time_days": 8,  "safety_stock": 4,  "current_reorder_point": 12, "usage_sample_days": 45 },
+  { "sku": "SKU-CAP",  "on_hand": 8,   "avg_daily_usage": 3,   "lead_time_days": 4,  "safety_stock": 12, "current_reorder_point": 24, "usage_sample_days": 200 },
+  { "sku": "SKU-COIL", "on_hand": 20,  "avg_daily_usage": 0.4, "lead_time_days": 10, "safety_stock": 3,  "current_reorder_point": 7,  "usage_sample_days": 110 },
+  { "sku": "SKU-RFGR", "on_hand": 2,   "avg_daily_usage": 0.5, "lead_time_days": 14, "safety_stock": 2,  "current_reorder_point": 9,  "usage_sample_days": 90 },
+  { "sku": "SKU-CONT", "on_hand": 40,  "avg_daily_usage": 2,   "lead_time_days": 4,  "safety_stock": 15, "current_reorder_point": 23, "usage_sample_days": 160 },
+  { "sku": "SKU-DUCT", "on_hand": 25,  "avg_daily_usage": 1,   "lead_time_days": 6,  "safety_stock": 8,  "current_reorder_point": 14, "usage_sample_days": 120 }
+]

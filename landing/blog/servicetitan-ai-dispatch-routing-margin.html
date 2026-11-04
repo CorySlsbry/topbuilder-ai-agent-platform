@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Dispatch & Routing for ServiceTitan: Priority, Drive Time, and Margin — Not Just the Calendar (2026)</title>
+<meta name="description" content="ServiceTitan's Dispatch Pro optimizes for predicted revenue minus drive cost. It does not weigh job margin, overtime risk, or what a reassignment costs the next day. Here is how an AI Routing agent adds priority + drive time + margin on top of the dispatch board you already run, always behind a human approval step." />
+<link rel="canonical" href="https://topbuilderai.com/blog/servicetitan-ai-dispatch-routing-margin.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI Dispatch & Routing for ServiceTitan: Priority, Drive Time, and Margin — Not Just the Calendar (2026)" />
+<meta property="og:description" content="ServiceTitan's own Dispatch Pro documentation shows its algorithm optimizes predicted job value minus drive cost — total revenue, not margin. Here's the gap, and how a margin-aware Routing agent closes it." />
+<meta property="og:url" content="https://topbuilderai.com/blog/servicetitan-ai-dispatch-routing-margin.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_dispatch.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_dispatch.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:var(--ink);line-height:1.1;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:34%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (companion short) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"ServiceTitan Dispatch Pro Optimizes Revenue, Not Margin (Here's Proof)",
+  "description":"ServiceTitan's own Dispatch Pro documentation is public about what its algorithm optimizes: predicted job value minus drive cost equals total revenue. A 60-second walkthrough of the gap and a worked example.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/DoTZBsDLswc/maxresdefault.jpg",
+  "uploadDate":"2026-07-19T08:05:57Z",
+  "contentUrl":"https://www.youtube.com/watch?v=DoTZBsDLswc",
+  "embedUrl":"https://www.youtube.com/embed/DoTZBsDLswc",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/servicetitan-ai-dispatch-routing-margin.html"},
+  "headline":"AI Dispatch & Routing for ServiceTitan: Priority, Drive Time, and Margin — Not Just the Calendar (2026)",
+  "description":"ServiceTitan's Dispatch Pro optimizes for predicted revenue minus drive cost. It does not weigh job margin, overtime risk, or what a reassignment costs the next day. Here is how an AI Routing agent adds priority + drive time + margin on top of the dispatch board you already run.",
+  "datePublished":"2026-07-17",
+  "dateModified":"2026-07-19",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_dispatch.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan dispatch","AI routing for contractors","field service margin optimization","drive time reduction","technician scheduling"],
+  "keywords":"AI dispatch routing ServiceTitan, ServiceTitan Dispatch Pro margin, priority based dispatch HVAC, drive time optimization field service, technician routing margin"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does ServiceTitan's Dispatch Pro already optimize for margin?","acceptedAnswer":{"@type":"Answer","text":"No. According to ServiceTitan's own Dispatch Pro documentation, the algorithm computes predicted job value of the assigned technician minus drive cost to equal total revenue, and simulates hundreds of scenarios to find the board setup predicted to generate the most revenue for the day. Revenue and margin are not the same number. A high-revenue assignment that triggers overtime or pulls a technician off a higher-margin job later in the week can be a net loss even though the dispatch board shows a win."}},
+    {"@type":"Question","name":"What exactly does Dispatch Pro's algorithm optimize for?","acceptedAnswer":{"@type":"Answer","text":"Per ServiceTitan's help documentation, Dispatch Pro applies hard constraints first (Dispatch Pro-enabled technicians, correct zone, matching skills, shift availability, maximum drive time, performance ranking), then ranks the remaining candidates by predicted job value minus drive cost. It learns from each technician's total sales, average ticket, sold memberships, and lead-generation probability over the last 30 days and 12 months. Job margin, labor cost, and overtime exposure are not inputs to that formula."}},
+    {"@type":"Question","name":"What is the real difference between routing for revenue and routing for margin?","acceptedAnswer":{"@type":"Answer","text":"Revenue is what the invoice will likely total. Margin is what is left after labor cost, including any overtime premium, parts cost, and the opportunity cost of pulling a technician off a better-margin job later in the schedule. Two technicians can produce the same predicted revenue on a call and still represent very different margin outcomes once labor cost and downstream schedule effects are counted."}},
+    {"@type":"Question","name":"How does an AI Routing agent add margin awareness without replacing Dispatch Pro or the dispatch board?","acceptedAnswer":{"@type":"Answer","text":"The Routing agent in Top Builder AI reads the same ServiceTitan data Dispatch Pro reads, plus each technician's current hours worked toward overtime and their next scheduled job's margin. It runs alongside the native dispatch board, not instead of it, and surfaces a recommended assignment with the margin reasoning attached. The dispatcher sees both the revenue-ranked suggestion and the margin-aware one, and approves the assignment."}},
+    {"@type":"Question","name":"How does the agent weigh priority against margin?","acceptedAnswer":{"@type":"Answer","text":"Priority is a floor, not a factor to trade off. A P1 no-heat or no-AC emergency call gets dispatched regardless of margin impact; the safety and reputational cost of an unanswered emergency outweighs any margin calculation. Margin scoring applies within a priority tier, choosing among the technicians who can legitimately fill a P1, P2, or P3 slot in the required window."}},
+    {"@type":"Question","name":"Does the agent ever override a technician assignment automatically?","acceptedAnswer":{"@type":"Answer","text":"No. The Routing agent proposes; the dispatcher approves, edits, or overrides. It has no visibility into a technician's personal circumstances, a customer relationship history, or a same-day complaint the dispatcher already knows about. Automated dispatch without a human checkpoint removes judgment the office genuinely needs."}},
+    {"@type":"Question","name":"How does overtime risk factor into a dispatch decision?","acceptedAnswer":{"@type":"Answer","text":"The agent tracks each technician's hours worked against their shift and weekly overtime threshold. Sending a technician already close to overtime into a new call carries a real labor-cost premium, typically time-and-a-half, that does not show up in a revenue-only ranking. The agent flags when the highest revenue-ranked technician is also the one about to trigger overtime, so the dispatcher can weigh that cost against the alternative."}},
+    {"@type":"Question","name":"What data does the Routing agent need from ServiceTitan?","acceptedAnswer":{"@type":"Answer","text":"The open dispatch board, technician shift and hours-worked data, job type and priority tier, estimated job value and drive time (the same inputs Dispatch Pro already computes), and each technician's already-scheduled jobs for margin comparison. It reads this data; it does not require a separate system or a Zapier connection."}},
+    {"@type":"Question","name":"Does this replace my dispatcher?","acceptedAnswer":{"@type":"Answer","text":"No. The dispatcher makes the final call on every assignment. The agent's job is to surface the margin and overtime tradeoff that a revenue-only board does not show, in the seconds before the dispatcher clicks assign, not to remove the dispatcher from the loop."}},
+    {"@type":"Question","name":"How does drive time get weighed against margin?","acceptedAnswer":{"@type":"Answer","text":"Drive time already factors into Dispatch Pro's revenue formula as a cost subtracted from predicted job value. The Routing agent keeps that drive-cost input and adds the labor-cost and downstream-schedule dimensions on top, so a technician with slightly longer drive time but no overtime exposure and no schedule conflict can outrank a technician with shorter drive time who would trigger both."}},
+    {"@type":"Question","name":"What happens when there is no margin-positive choice, only a least-bad one?","acceptedAnswer":{"@type":"Answer","text":"The agent surfaces the tradeoff explicitly rather than hiding it inside a single ranked score. For a P1 emergency with no technician available under normal conditions, it will show the dispatcher the overtime cost or the schedule disruption each candidate creates, so the decision is made with full information rather than defaulting silently to whichever technician the board ranks first."}},
+    {"@type":"Question","name":"Does the agent affect technician commission or incentive structures?","acceptedAnswer":{"@type":"Answer","text":"No. Commission and incentive structures are set by the shop and remain unchanged. The agent's recommendation is about which assignment protects margin for the business; it does not alter how a technician is paid for the job once assigned."}},
+    {"@type":"Question","name":"How does dispatch and routing connect to the rest of Top Builder AI's back office?","acceptedAnswer":{"@type":"Answer","text":"The Routing agent's overtime and margin data feeds the Workforce agent's labor-cost tracking and the Financial agent's job-margin reporting, so a dispatch decision made at 2pm is visible in the same-week cash and labor picture instead of surfacing only at payroll close or month-end reconciliation."}},
+    {"@type":"Question","name":"What will the agent never do without my approval?","acceptedAnswer":{"@type":"Answer","text":"It never assigns a technician, never overrides a dispatcher's manual placement, and never fabricates a margin or labor-cost figure. Every number comes from deterministic, tested code reading live ServiceTitan and payroll data; the language model explains the tradeoff in plain language, it does not calculate or invent one."}},
+    {"@type":"Question","name":"How long before I see a margin improvement from routing?","acceptedAnswer":{"@type":"Answer","text":"The first week typically surfaces the pattern: which recurring assignments are quietly triggering overtime, and which technicians are repeatedly pulled off higher-margin work for lower-margin emergency fills. Fixing the pattern the dispatcher can now see is what moves the number, and that starts as soon as the office begins acting on the margin-aware recommendation."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; AI Dispatch & Routing</div>
+    <span class="kicker">ServiceTitan &middot; Dispatch &middot; Margin</span>
+    <h1>AI Dispatch & Routing for ServiceTitan: Priority, Drive Time, and Margin — Not Just the Calendar (2026)</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published July 17, 2026</span>
+      <span class="pill">~12 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical</span>
+      <span class="pill">Updated July 19, 2026</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_dispatch.jpg" alt="Dispatcher reviewing a route board with service trucks staged in the lot outside a home-service back office" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video vshort"><iframe src="https://www.youtube.com/embed/DoTZBsDLswc" title="ServiceTitan Dispatch Pro Optimizes Revenue, Not Margin (Here's Proof)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The 60-second version of the gap below, straight from ServiceTitan's own Dispatch Pro formula.</p>
+
+      <p class="answer">ServiceTitan's Dispatch Pro already routes technicians by predicted job value, priority, and drive time. What it optimizes is, in ServiceTitan's own words, <strong>predicted job value of the assigned technician minus drive cost, equals total revenue</strong>. That is a revenue formula, not a margin formula. It does not know a technician is 20 minutes from triggering overtime, and it does not know that sending them to this call bumps a higher-margin install off tomorrow's schedule. An <strong>AI Routing agent</strong> reads the same dispatch board, adds labor cost, overtime exposure, and downstream schedule impact to the ranking, and shows the dispatcher the margin-aware pick next to the revenue-ranked one. <strong>The dispatcher still makes every call. The agent just makes the tradeoff visible before the click, not after the payroll run.</strong></p>
+
+      <p>A dispatch board can look full and profitable all day and still bleed margin nobody notices until the biweekly payroll run shows more overtime than expected, or the fractional CFO's job-costing report shows a normally-strong install job came in thin because the lead technician was pulled for two emergency calls that week. The board did its job: every slot got filled, every call got answered. The board just was not built to ask whether filling that slot with that technician was the profitable choice.</p>
+
+      <p>This is not a knock on ServiceTitan's dispatch tooling, which is genuinely good at what it is built to do. It is a specific, provable gap in what the formula counts.</p>
+
+      <h2>Why does a "good" dispatch day sometimes turn into a bad margin week?</h2>
+
+      <p>The mechanism is the same in almost every shop that runs into this. A P1 no-heat or no-AC call comes in mid-afternoon. Two or three technicians could plausibly take it. The dispatch board, running on predicted revenue and drive time, correctly ranks the technician who will likely generate the highest ticket with the shortest drive as the top pick. The dispatcher assigns them. The call closes well. Revenue for the day looks right.</p>
+
+      <p>What the board did not weigh: that technician was 25 minutes from their overtime threshold, so the call added a time-and-a-half premium to labor cost that never shows up on the dispatch screen. Or that technician had a $4,200 install booked as the first job tomorrow morning that now gets pushed, or handed to a less experienced tech, because today ran long. Neither of those costs is visible on the board in the moment. Both of them are visible three weeks later in a P&L line the owner cannot trace back to a specific Tuesday.</p>
+
+      <p>Field service operations that run on unoptimized routing typically see drive time consume roughly <strong>25 to 30 percent of a technician's workday</strong>, and a 15 to 20 percent reduction in that drive time can add <strong>one to two extra billable jobs per technician per day</strong>, according to <a class="link" href="https://www.msidata.com/field-service-optimization/" rel="noopener noreferrer">MSI Data's 2026 Field Service Optimization guide</a>. Drive time is real money. It is also only one input in the decision, and it is the one input every dispatch tool already optimizes for. Margin and overtime exposure are the inputs nobody's board is tracking in real time.</p>
+
+      <h2>Does ServiceTitan's Dispatch Pro already solve this?</h2>
+
+      <p>It solves a meaningfully related but different problem. According to <a class="link" href="https://help.servicetitan.com/docs/dispatch-pro-overview" rel="noopener noreferrer">ServiceTitan's own Dispatch Pro documentation</a>, the algorithm applies a sequence of hard constraints, Dispatch Pro-enabled technicians, correct zone or business unit, matching job-type skills, availability within the arrival window, maximum drive-time range, and technician performance ranking, and among the technicians who pass those filters, it computes: <strong>predicted job value of assigned technician minus drive cost equals total revenue</strong>. It then simulates hundreds of scenarios across the day's board to find the setup predicted to generate the most revenue, learning from each technician's total sales, average ticket, sold memberships, and lead-generation rate over the trailing 30 days and 12 months.</p>
+
+      <p>That is a sophisticated, genuinely useful algorithm, and on ServiceTitan's own feature page it reports real results: customers using Dispatch Pro see <strong>drive time decrease by 6%</strong>, dispatcher efficiency roughly double, and average ticket size increase by 14%, alongside 1.5x revenue growth over a six-month measurement window, per <a class="link" href="https://www.servicetitan.com/features/pro/dispatch" rel="noopener noreferrer">ServiceTitan's Dispatch Pro feature page</a>. None of that is in question. What is missing from the formula, by ServiceTitan's own description of it, is labor cost, overtime exposure, and the margin on the job the technician gets pulled away from.</p>
+
+      <figure class="stat">
+        <div class="cap">What Dispatch Pro's own formula counts</div>
+        <div class="body">
+          <div class="val">Revenue − Drive Cost</div>
+          <div class="lab">ServiceTitan's documented Dispatch Pro formula: predicted job value of the assigned technician, minus drive cost, equals total revenue. Labor cost, overtime premium, and the margin of the job a technician is pulled from are not inputs.</div>
+          <div class="src">Source: help.servicetitan.com, "Dispatch Pro Overview" (2026).</div>
+        </div>
+      </figure>
+
+      <h2>What is the real difference between routing for revenue and routing for margin?</h2>
+
+      <p>Revenue is the number on the invoice. Margin is what is left after every real cost of producing that invoice, including a cost most dispatch boards never see in the moment: the labor premium of the specific technician doing the specific job at that specific hour, and the schedule cost of what else that technician was supposed to be doing.</p>
+
+      <p>Two technicians can look identical on a revenue-ranked board and represent very different margin outcomes. A technician mid-shift with no overtime exposure and an open slot tomorrow costs the shop its normal labor rate. A technician close to their weekly overtime threshold, or already booked on a higher-margin job the next morning, costs more than the board shows, even if their predicted ticket value is marginally higher. <a class="link" href="https://www.servicetitan.com/blog/field-service-metrics" rel="noopener noreferrer">ServiceTitan's own field service metrics guide</a> puts a strong technician utilization benchmark at 60 to 80 percent of billable hours; every unplanned overtime hour or bumped install pulls a shop away from that benchmark in a way a revenue-only dispatch decision cannot see coming.</p>
+
+      <h2>How does an AI Routing agent add margin and priority, without replacing the dispatch board?</h2>
+
+      <p>The Routing agent in Top Builder AI does not compete with Dispatch Pro or replace ServiceTitan's dispatch board. It reads the same underlying data, the open board, technician shift and hours-worked status, job priority tier, estimated job value and drive time, plus two inputs that are not part of ServiceTitan's own formula: real-time overtime exposure per technician, and the margin of each technician's already-scheduled upcoming jobs.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Read the live dispatch board</b> Open jobs, priority tier (P1/P2/P3), technician availability, and the same predicted-value and drive-time figures Dispatch Pro already computes.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Pull hours-worked and overtime status per technician</b> From the payroll/time-tracking data already flowing through the Workforce agent, so the agent knows who is close to a premium-rate threshold before a new assignment pushes them over it.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Check each candidate's next scheduled job</b> If reassigning a technician to this call bumps or delays a higher-margin job already on their board, that cost is weighed against the revenue gain of the current call.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Surface the margin-aware recommendation alongside the revenue-ranked one</b> The dispatcher sees both, with the reasoning attached, and assigns. Nothing routes automatically.</div></div>
+      </div>
+
+      <h2>How does the agent decide who goes where, in what order?</h2>
+
+      <p><strong>Priority.</strong> A P1 no-heat or no-AC emergency is a floor, not a tradeable input. It gets filled regardless of margin impact; the reputational and safety cost of an unanswered emergency outranks any margin calculation. Margin scoring applies within a priority tier, among the technicians who can legitimately fill a given P1, P2, or P3 slot in the required window.</p>
+
+      <p><strong>Drive time.</strong> Kept exactly as Dispatch Pro already computes it, a real cost subtracted from predicted value.</p>
+
+      <p><strong>Overtime exposure.</strong> A technician within roughly 30 minutes of a weekly or daily overtime threshold carries a real time-and-a-half labor premium on the assignment. The agent flags this explicitly rather than letting it hide inside a single revenue score.</p>
+
+      <p><strong>Downstream schedule impact.</strong> If assigning this technician means bumping, delaying, or reassigning a higher-margin job already on their board, that cost is shown, not buried. A $6,000 install at strong margin tomorrow morning is a real number to weigh against a same-day emergency fill.</p>
+
+      <h2>Worked example: a 12-tech HVAC and plumbing shop, one afternoon</h2>
+
+      <p>All figures below are <strong>illustrative</strong>, built to demonstrate the tradeoff the formula misses. They are not a client result.</p>
+
+      <figure class="calc">
+        <div class="cap">Illustrative dispatch decision — 2:15pm P1 no-heat call</div>
+        <div class="body">
+          <div class="lab">Candidate A — revenue-ranked pick</div>
+          <table>
+            <tr><td>Predicted job value</td><td>$420</td></tr>
+            <tr><td>Drive cost</td><td>&minus;$9</td></tr>
+            <tr class="tot"><td>Dispatch Pro revenue score</td><td class="price">$411 (top rank)</td></tr>
+            <tr><td>Hours into shift</td><td>7.5 of 8 (overtime in ~30 min)</td></tr>
+            <tr><td>Tomorrow 8am job on their board</td><td>$2,100 install, 52% margin</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">Candidate B — margin-aware pick</div>
+          <table>
+            <tr><td>Predicted job value</td><td>$360</td></tr>
+            <tr><td>Drive cost</td><td>&minus;$14</td></tr>
+            <tr class="tot"><td>Dispatch Pro revenue score</td><td>$346 (second rank)</td></tr>
+            <tr><td>Hours into shift</td><td>3.5 of 8 (no overtime exposure)</td></tr>
+            <tr><td>Next job on their board</td><td>$180 filter change, easily moved to tomorrow</td></tr>
+          </table>
+        </div>
+        <figcaption>Revenue-only, Candidate A wins by $65. Once overtime premium (~$28 for the last 30 minutes at 1.5x) and the risk to tomorrow's $2,100 install are counted, Candidate B is the better margin outcome even at a lower predicted ticket. The Routing agent surfaces both numbers; the dispatcher decides.</figcaption>
+      </figure>
+
+      <h2>Comparison: manual dispatch vs. ServiceTitan Dispatch Pro vs. Top Builder AI Routing agent</h2>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Dispatch approach comparison">
+          <thead><tr><th>Capability</th><th>Manual</th><th>ServiceTitan Dispatch Pro</th><th>Top Builder AI Routing agent</th></tr></thead>
+          <tbody>
+            <tr><td>Priority-tier aware (P1/P2/P3)</td><td class="no">At dispatcher's judgment</td><td class="yes">Yes, via constraints</td><td class="yes">Yes, as a non-negotiable floor</td></tr>
+            <tr><td>Drive-time optimized</td><td class="no">No</td><td class="yes">Yes — predicted value minus drive cost</td><td class="yes">Inherits the same drive-cost input</td></tr>
+            <tr><td>Overtime exposure factored in</td><td class="no">At dispatcher's memory</td><td class="no">Not in the documented formula</td><td class="yes">Flagged per technician, per assignment</td></tr>
+            <tr><td>Downstream schedule / margin impact</td><td class="no">No</td><td class="no">Not in the documented formula</td><td class="yes">Compares against the technician's next scheduled job margin</td></tr>
+            <tr><td>Replaces the dispatcher's final call</td><td>&mdash;</td><td class="no">No — dispatcher assigns</td><td class="no">No — proposes only, dispatcher assigns</td></tr>
+            <tr><td>Works alongside existing ServiceTitan board</td><td>&mdash;</td><td>&mdash;</td><td class="yes">Reads the same board; no separate system</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The short version: Dispatch Pro is a genuine upgrade over a manual board for revenue and drive time, ServiceTitan's own numbers on that are solid. What it does not claim to do, by its own documented formula, is weigh labor cost or downstream margin. That is the specific layer the Routing agent adds on top, never replacing the dispatcher's final decision.</p>
+
+      <h2>How does dispatch and routing fit the rest of the back office?</h2>
+
+      <p>Routing is one of eight agents in Top Builder AI's back-office stack. The overtime data the Routing agent surfaces at 2pm on a Tuesday is the same overtime data the <strong>Workforce agent</strong> uses to catch payroll cost before the check runs, and the same margin data the <strong>Financial agent</strong> uses in the job-costing and cash-position reports. A dispatch decision made in the moment is not supposed to be invisible until the biweekly payroll run or the month-end close, it is supposed to be one line in a system that already knows what a technician-hour and a job-margin point are worth.</p>
+
+      <p>The <a class="link" href="/blog/ai-back-office-for-servicetitan.html">full back-office overview</a> covers all eight agents and how Routing, Workforce, Financial, Inventory, Booking, Documents, Pricebook, and Collections work together on the same live ServiceTitan and QuickBooks data.</p>
+
+      <h2>What will the agent never do without my approval?</h2>
+
+      <ul>
+        <li><b>No automatic assignment.</b> The agent proposes a recommendation with reasoning attached; the dispatcher assigns every job.</li>
+        <li><b>No overriding a manual placement.</b> If a dispatcher assigns a technician for a reason the agent cannot see, a same-day complaint, a customer relationship, a personal circumstance, that decision stands.</li>
+        <li><b>No fabricated figures.</b> Every predicted value, drive cost, overtime premium, and margin number comes from deterministic, tested code reading live ServiceTitan and payroll data. The language model explains the tradeoff; it does not calculate or invent one.</li>
+        <li><b>Priority never gets traded for margin.</b> A P1 emergency is filled regardless of what the margin math says.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>See what your dispatch board is optimizing for</h2>
+        <p>If you have never checked whether your highest-revenue dispatch picks are also your highest-margin ones, that gap is exactly what the Routing agent surfaces first. Book a 30-minute fit call and we will walk through a real week of your board.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Does ServiceTitan's Dispatch Pro already optimize for margin?</div>
+      <div class="a">No. According to ServiceTitan's own Dispatch Pro documentation, the algorithm computes predicted job value of the assigned technician minus drive cost to equal total revenue, and simulates hundreds of scenarios to find the board setup predicted to generate the most revenue for the day. Revenue and margin are not the same number. A high-revenue assignment that triggers overtime or pulls a technician off a higher-margin job later in the week can be a net loss even though the dispatch board shows a win.</div>
+
+      <div class="q">What exactly does Dispatch Pro's algorithm optimize for?</div>
+      <div class="a">Per ServiceTitan's help documentation, Dispatch Pro applies hard constraints first (Dispatch Pro-enabled technicians, correct zone, matching skills, shift availability, maximum drive time, performance ranking), then ranks the remaining candidates by predicted job value minus drive cost. It learns from each technician's total sales, average ticket, sold memberships, and lead-generation probability over the last 30 days and 12 months. Job margin, labor cost, and overtime exposure are not inputs to that formula.</div>
+
+      <div class="q">What is the real difference between routing for revenue and routing for margin?</div>
+      <div class="a">Revenue is what the invoice will likely total. Margin is what is left after labor cost, including any overtime premium, parts cost, and the opportunity cost of pulling a technician off a better-margin job later in the schedule. Two technicians can produce the same predicted revenue on a call and still represent very different margin outcomes once labor cost and downstream schedule effects are counted.</div>
+
+      <div class="q">How does an AI Routing agent add margin awareness without replacing Dispatch Pro or the dispatch board?</div>
+      <div class="a">The Routing agent in Top Builder AI reads the same ServiceTitan data Dispatch Pro reads, plus each technician's current hours worked toward overtime and their next scheduled job's margin. It runs alongside the native dispatch board, not instead of it, and surfaces a recommended assignment with the margin reasoning attached. The dispatcher sees both the revenue-ranked suggestion and the margin-aware one, and approves the assignment.</div>
+
+      <div class="q">How does the agent weigh priority against margin?</div>
+      <div class="a">Priority is a floor, not a factor to trade off. A P1 no-heat or no-AC emergency call gets dispatched regardless of margin impact; the safety and reputational cost of an unanswered emergency outweighs any margin calculation. Margin scoring applies within a priority tier, choosing among the technicians who can legitimately fill a P1, P2, or P3 slot in the required window.</div>
+
+      <div class="q">Does the agent ever override a technician assignment automatically?</div>
+      <div class="a">No. The Routing agent proposes; the dispatcher approves, edits, or overrides. It has no visibility into a technician's personal circumstances, a customer relationship history, or a same-day complaint the dispatcher already knows about. Automated dispatch without a human checkpoint removes judgment the office genuinely needs.</div>
+
+      <div class="q">How does overtime risk factor into a dispatch decision?</div>
+      <div class="a">The agent tracks each technician's hours worked against their shift and weekly overtime threshold. Sending a technician already close to overtime into a new call carries a real labor-cost premium, typically time-and-a-half, that does not show up in a revenue-only ranking. The agent flags when the highest revenue-ranked technician is also the one about to trigger overtime, so the dispatcher can weigh that cost against the alternative.</div>
+
+      <div class="q">What data does the Routing agent need from ServiceTitan?</div>
+      <div class="a">The open dispatch board, technician shift and hours-worked data, job type and priority tier, estimated job value and drive time (the same inputs Dispatch Pro already computes), and each technician's already-scheduled jobs for margin comparison. It reads this data; it does not require a separate system or a Zapier connection.</div>
+
+      <div class="q">Does this replace my dispatcher?</div>
+      <div class="a">No. The dispatcher makes the final call on every assignment. The agent's job is to surface the margin and overtime tradeoff that a revenue-only board does not show, in the seconds before the dispatcher clicks assign, not to remove the dispatcher from the loop.</div>
+
+      <div class="q">How does drive time get weighed against margin?</div>
+      <div class="a">Drive time already factors into Dispatch Pro's revenue formula as a cost subtracted from predicted job value. The Routing agent keeps that drive-cost input and adds the labor-cost and downstream-schedule dimensions on top, so a technician with slightly longer drive time but no overtime exposure and no schedule conflict can outrank a technician with shorter drive time who would trigger both.</div>
+
+      <div class="q">What happens when there is no margin-positive choice, only a least-bad one?</div>
+      <div class="a">The agent surfaces the tradeoff explicitly rather than hiding it inside a single ranked score. For a P1 emergency with no technician available under normal conditions, it will show the dispatcher the overtime cost or the schedule disruption each candidate creates, so the decision is made with full information rather than defaulting silently to whichever technician the board ranks first.</div>
+
+      <div class="q">Does the agent affect technician commission or incentive structures?</div>
+      <div class="a">No. Commission and incentive structures are set by the shop and remain unchanged. The agent's recommendation is about which assignment protects margin for the business; it does not alter how a technician is paid for the job once assigned.</div>
+
+      <div class="q">How does dispatch and routing connect to the rest of Top Builder AI's back office?</div>
+      <div class="a">The Routing agent's overtime and margin data feeds the Workforce agent's labor-cost tracking and the Financial agent's job-margin reporting, so a dispatch decision made at 2pm is visible in the same-week cash and labor picture instead of surfacing only at payroll close or month-end reconciliation.</div>
+
+      <div class="q">What will the agent never do without my approval?</div>
+      <div class="a">It never assigns a technician, never overrides a dispatcher's manual placement, and never fabricates a margin or labor-cost figure. Every number comes from deterministic, tested code reading live ServiceTitan and payroll data; the language model explains the tradeoff in plain language, it does not calculate or invent one.</div>
+
+      <div class="q">How long before I see a margin improvement from routing?</div>
+      <div class="a">The first week typically surfaces the pattern: which recurring assignments are quietly triggering overtime, and which technicians are repeatedly pulled off higher-margin work for lower-margin emergency fills. Fixing the pattern the dispatcher can now see is what moves the number, and that starts as soon as the office begins acting on the margin-aware recommendation.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

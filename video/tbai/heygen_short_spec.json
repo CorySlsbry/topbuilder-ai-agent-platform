@@ -1,0 +1,16 @@
+{
+  "lane": "top-builder-ai",
+  "title": "The 18.5K Remodel That Hid Overspend",
+  "hook": "This example is illustrative, built to show the mechanism, not a client result.",
+  "script": "Let's make this concrete with one job. This example is illustrative, built to show the mechanism, not a client result. An eighteen thousand five hundred dollar fixed-price bathroom remodel, sixty percent through its schedule, has already used seventy eight percent of its material budget after a supply substitution, and two change-order hours are logged but not yet billed. Nothing forces anyone to compare sixty percent done against seventy eight percent spent. Nothing in the standard flyout, nothing in Budget vs Actual, nothing in the WIP report, surfaces that gap on its own. Whoever finds out, finds out whenever the invoice finally posts, weeks later. So how does a shop actually catch this while the job is still open?",
+  "audio_mp3": "C:\\Users\\you\\.geo-flywheel\\shorts\\top-builder-ai\\moment_430.mp3",
+  "cluster": "realtime-job-cost-tracking",
+  "source_id": "f935069d3c46c07a",
+  "cycle": null,
+  "broll": null,
+  "beat_indices": [
+    21,
+    22,
+    23
+  ]
+}

@@ -1,0 +1,11 @@
+[
+  { "channel": "call", "direction": "inbound", "contact_name": "Jane Whitfield", "contact_phone": "+16025550118", "subject": "AC dead — infant at home", "body": "It's 95 inside and the AC is totally dead. Can someone come tonight?", "status": "handled", "minutes_ago": 30, "customer_ref": "CUST-1001", "agent_handled": true },
+  { "channel": "sms", "direction": "inbound", "contact_name": "Kim Alvarez", "contact_phone": "+16025550221", "subject": "Sewer backing up", "body": "Sewage is backing up into the downstairs shower. Please send someone ASAP.", "status": "new", "minutes_ago": 12 },
+  { "channel": "call", "direction": "inbound", "contact_name": "Sam Okafor", "contact_phone": "+16025550152", "subject": "Burning smell from breaker panel", "body": "Half the house lost power. Feels urgent.", "status": "new", "minutes_ago": 20 },
+  { "channel": "voicemail", "direction": "inbound", "contact_name": "Maria Santos", "contact_phone": "+16025550144", "subject": "Furnace not blowing warm air", "body": "Need someone today if possible.", "status": "new", "minutes_ago": 75 },
+  { "channel": "email", "direction": "inbound", "contact_name": "Bob Mercer", "contact_email": "person1@example.com", "subject": "Water heater leaking", "body": "Not an emergency, but I'd like it looked at this week.", "status": "new", "minutes_ago": 140 },
+  { "channel": "web", "direction": "inbound", "contact_name": "Lee Park", "contact_email": "person2@example.com", "subject": "Kitchen drain slow", "body": "Booked you before — would like the same crew.", "status": "new", "minutes_ago": 210 },
+  { "channel": "sms", "direction": "inbound", "contact_name": "Dana Brooks", "contact_phone": "+16025550205", "subject": "Faucet won't stop dripping", "body": "Hoping for today.", "status": "new", "minutes_ago": 95 },
+  { "channel": "call", "direction": "inbound", "contact_name": "Roy Castellano", "contact_phone": "+16025550212", "subject": "EV charger tripped", "body": "The charger you installed tripped and won't reset.", "status": "new", "minutes_ago": 45 },
+  { "channel": "call", "direction": "inbound", "contact_name": null, "contact_phone": "+18005550199", "subject": "Robocall (screened)", "body": "Vehicle extended-warranty robocall — auto-screened.", "status": "handled", "minutes_ago": 55, "agent_handled": true }
+]

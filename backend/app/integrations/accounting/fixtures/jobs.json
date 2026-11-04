@@ -1,0 +1,8 @@
+[
+  { "id": "P-101", "name": "Riverside Plaza",        "customer_segment": "commercial",  "status": "in_progress", "contract_value": 420000, "budgeted_cost": 273000, "actual_cost_to_date": 210000, "percent_complete": 0.6,  "billed_to_date": 230000 },
+  { "id": "P-102", "name": "Oak Street Remodel",     "customer_segment": "residential", "status": "in_progress", "contract_value": 85000,  "budgeted_cost": 55250,  "actual_cost_to_date": 30000,  "percent_complete": 0.55, "billed_to_date": 40000 },
+  { "id": "P-103", "name": "Industrial HVAC Retrofit","customer_segment": "commercial", "status": "in_progress", "contract_value": 320000, "budgeted_cost": 208000, "actual_cost_to_date": 130000, "percent_complete": 0.7,  "billed_to_date": 210000 },
+  { "id": "P-104", "name": "Sunset Apartments",      "customer_segment": "residential", "status": "in_progress", "contract_value": 150000, "budgeted_cost": 97500,  "actual_cost_to_date": 48000,  "percent_complete": 0.5,  "billed_to_date": 60000 },
+  { "id": "P-105", "name": "Government Annex",        "customer_segment": "government",  "status": "in_progress", "contract_value": 600000, "budgeted_cost": 390000, "actual_cost_to_date": 180000, "percent_complete": 0.35, "billed_to_date": 150000 },
+  { "id": "P-106", "name": "Tech Campus Phase 1",     "customer_segment": "commercial", "status": "in_progress", "contract_value": 500000, "budgeted_cost": 325000, "actual_cost_to_date": 160000, "percent_complete": 0.4,  "billed_to_date": 230000 }
+]

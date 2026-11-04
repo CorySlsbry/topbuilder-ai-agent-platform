@@ -1,0 +1,92 @@
+[
+  {
+    "id": "t-h1",
+    "name": "Alice Nguyen",
+    "trade": "hvac",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 48,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-h2",
+    "name": "Ben Carter",
+    "trade": "hvac",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 48,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-h3",
+    "name": "Carlos Ortega",
+    "trade": "hvac",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 46,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-h4",
+    "name": "Dana Whitfield",
+    "trade": "hvac",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 46,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-p1",
+    "name": "Eve Robinson",
+    "trade": "plumbing",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 47,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-p2",
+    "name": "Frank Dubois",
+    "trade": "plumbing",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 47,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-e1",
+    "name": "Grace Lee",
+    "trade": "electrical",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 50,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-e2",
+    "name": "Henry Park",
+    "trade": "electrical",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 50,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-e3",
+    "name": "Ivan Petrov",
+    "trade": "electrical",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 49,
+    "overtime_multiplier": 1.5,
+    "active": true
+  },
+  {
+    "id": "t-g1",
+    "name": "Jack Moreno",
+    "trade": "install",
+    "contracted_weekly_hours": 40,
+    "hourly_cost": 44,
+    "overtime_multiplier": 1.5,
+    "active": true
+  }
+]

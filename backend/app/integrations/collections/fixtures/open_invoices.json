@@ -1,0 +1,11 @@
+[
+  { "id": "INV-1001", "customer_id": "natl-dispatch", "customer_name": "National Dispatch Group", "balance_cents": 12000000, "issued_offset": -77, "due_offset": -47, "doc_number": "1001", "customer_segment": "commercial" },
+  { "id": "INV-1002", "customer_id": "st-matthias", "customer_name": "Saint Matthias Anglican Church", "balance_cents": 12500000, "issued_offset": -160, "due_offset": -130, "doc_number": "1002", "customer_segment": "commercial" },
+  { "id": "INV-1003", "customer_id": "eb-reno", "customer_name": "EB Renovations / Erik Beiderwieden", "balance_cents": 4800000, "issued_offset": -105, "due_offset": -75, "doc_number": "1003", "customer_segment": "commercial" },
+  { "id": "INV-1004", "customer_id": "jolly-boys", "customer_name": "Jolly Boys Cannabis", "balance_cents": 4000000, "issued_offset": -50, "due_offset": -20, "doc_number": "1004", "customer_segment": "commercial" },
+  { "id": "INV-1005", "customer_id": "sam-campbell", "customer_name": "Sam Campbell", "balance_cents": 3000000, "issued_offset": -20, "due_offset": 10, "doc_number": "1005", "customer_segment": "residential" },
+  { "id": "INV-1006", "customer_id": "lindsey-dvg", "customer_name": "Lindsey Davidson van Gerven", "balance_cents": 6000000, "issued_offset": -125, "due_offset": -95, "doc_number": "1006", "customer_segment": "residential", "in_dispute": true },
+  { "id": "INV-1007", "customer_id": "michael-kennedy", "customer_name": "Michael Kennedy", "balance_cents": 2200000, "issued_offset": -65, "due_offset": -35, "doc_number": "1007", "customer_segment": "residential" },
+  { "id": "INV-1008", "customer_id": "natl-dispatch", "customer_name": "National Dispatch Group", "balance_cents": 3800000, "issued_offset": -52, "due_offset": -22, "doc_number": "1008", "customer_segment": "commercial" },
+  { "id": "INV-1009", "customer_id": "st-matthias", "customer_name": "Saint Matthias Anglican Church", "balance_cents": 4500000, "issued_offset": -98, "due_offset": -68, "doc_number": "1009", "customer_segment": "commercial" }
+]

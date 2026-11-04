@@ -1,0 +1,9 @@
+{
+  "skipped": true,
+  "guard": "measure_guard",
+  "allowed": false,
+  "last": "2026-08-19T07:16:33",
+  "next_ok": "2026-08-26T07:16:33",
+  "reason": "'citations' for 'Top Builder AI' ran 2026-08-19T07:16:33 \u2014 weekly window (7d) not elapsed; next paid run 2026-08-26 07:16. GEO_ALLOW_MEASURE=1 to force.",
+  "hint": "reuse the last measure.json / citation-history; --force to override"
+}

@@ -1,0 +1,38 @@
+﻿23:10:02  START Top Builder AI GEO cycle (fully-auto, long-form, model=claude-sonnet-5). Root=C:\Users\you\Downloads\ServiceTitan Agent platform
+The long-form render is running in the background and I'll be notified automatically when it completes (or woken as a fallback in ~20 minutes). I'll pick up the remaining steps ΓÇö verification, upload, blog wiring, deploy, and reporting ΓÇö as soon as it's done.
+23:21:16  DONE (claude exit 0). Log: C:\Users\you\Downloads\ServiceTitan Agent platform\video\tbai\geo-cron-logs\cycle_2026-08-01_2310.log
+{
+  "owed_count": 0,
+  "results": {
+    "lane": "top-builder-ai",
+    "kind": "short",
+    "owed": false,
+    "queued": 0,
+    "last_short": "2026-08-01T17:01:24+00:00",
+    "days_dry": 0.51,
+    "interval_h": 8.0,
+    "limit": "3/day",
+    "applicable": true,
+    "why": "last short 0.51d ago, inside 2.0x the 8.0h interval"
+  }
+}
+{
+  "owed_count": 1,
+  "results": {
+    "lane": "top-builder-ai",
+    "kind": "longform_video",
+    "owed": true,
+    "queued": 0,
+    "last_short": "2026-07-27T18:47:36+00:00",
+    "days_dry": 5.44,
+    "interval_h": 33.6,
+    "limit": "5/week",
+    "applicable": true,
+    "why": "5.44 days since the last longform_video, dial is 5/week (every 33.6h) \u2014 YouTube is a LONG-FORM surface and a short does not discharge it",
+    "alert": {
+      "slacked": false,
+      "suppressed": "already alerted 2026-08-01T08:34:54+00:00 (<24h)"
+    }
+  }
+}
+23:21:16  LONGFORM GATE FAILED: no long-form video for top-builder-ai (Slack paged).

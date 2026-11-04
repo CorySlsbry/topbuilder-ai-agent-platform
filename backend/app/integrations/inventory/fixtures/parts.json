@@ -1,0 +1,10 @@
+[
+  { "sku": "SKU-COMP", "name": "Compressor 3T",     "category": "hvac",        "unit_cost": 420, "billable_price": 560, "margin_class": "high" },
+  { "sku": "SKU-FILT", "name": "MERV-13 Filter",    "category": "hvac",        "unit_cost": 9,   "billable_price": 22,  "margin_class": "standard" },
+  { "sku": "SKU-THRM", "name": "Smart Thermostat",  "category": "controls",    "unit_cost": 70,  "billable_price": 165, "margin_class": "high" },
+  { "sku": "SKU-CAP",  "name": "Run Capacitor",     "category": "hvac",        "unit_cost": 12,  "billable_price": 40,  "margin_class": "high" },
+  { "sku": "SKU-COIL", "name": "Evaporator Coil",   "category": "hvac",        "unit_cost": 260, "billable_price": 380, "margin_class": "standard" },
+  { "sku": "SKU-RFGR", "name": "R-410A (25lb)",     "category": "refrigerant", "unit_cost": 180, "billable_price": 320, "margin_class": "high" },
+  { "sku": "SKU-CONT", "name": "Contactor",         "category": "electrical",  "unit_cost": 18,  "billable_price": 55,  "margin_class": "standard" },
+  { "sku": "SKU-DUCT", "name": "Flex Duct 25ft",    "category": "install",     "unit_cost": 35,  "billable_price": 70,  "margin_class": "standard" }
+]

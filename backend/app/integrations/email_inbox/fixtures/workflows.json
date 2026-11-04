@@ -1,0 +1,5 @@
+[
+  { "id": "WF-101", "name": "Review request", "emails_sent": 150, "opens": 63, "replies": 27, "booked_jobs": 0 },
+  { "id": "WF-102", "name": "Estimate follow-up", "emails_sent": 200, "opens": 38, "replies": 8, "booked_jobs": 2 },
+  { "id": "WF-103", "name": "Booking confirmation", "emails_sent": 120, "opens": 72, "replies": 18, "booked_jobs": 0 }
+]

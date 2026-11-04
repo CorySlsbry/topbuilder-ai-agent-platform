@@ -1,0 +1,9 @@
+[
+  { "customer_id": "natl-dispatch", "email": "person1@example.com", "phone": "+12505550101", "sms_opt_in": true },
+  { "customer_id": "st-matthias", "email": "person2@example.com", "phone": "+12505550102", "sms_opt_in": false },
+  { "customer_id": "eb-reno", "email": "person3@example.com", "phone": "+12505550103", "sms_opt_in": true, "do_not_call": true },
+  { "customer_id": "jolly-boys", "email": "person4@example.com", "phone": "+12505550104", "sms_opt_in": true },
+  { "customer_id": "sam-campbell", "email": "sam.campbell@example.com", "phone": "+12505550105" },
+  { "customer_id": "lindsey-dvg", "email": "lindsey@example.com", "phone": "+12505550106" },
+  { "customer_id": "michael-kennedy", "email": "michael.kennedy@example.com", "phone": "+12505550107", "sms_opt_in": false }
+]

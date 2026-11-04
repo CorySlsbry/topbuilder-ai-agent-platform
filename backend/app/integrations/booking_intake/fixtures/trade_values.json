@@ -1,0 +1,6 @@
+[
+  { "trade": "hvac", "avg_job_value": 485 },
+  { "trade": "plumbing", "avg_job_value": 365 },
+  { "trade": "electrical", "avg_job_value": 540 },
+  { "trade": "drains", "avg_job_value": 295 }
+]

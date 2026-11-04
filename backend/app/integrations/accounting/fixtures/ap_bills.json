@@ -1,0 +1,7 @@
+[
+  { "id": "AP-1", "vendor": "Ferguson",  "amount": 60000, "due_offset": 12 },
+  { "id": "AP-2", "vendor": "Graybar",   "amount": 45000, "due_offset": 25 },
+  { "id": "AP-3", "vendor": "White Cap",  "amount": 80000, "due_offset": 40 },
+  { "id": "AP-4", "vendor": "HD Supply", "amount": 30000, "due_offset": 70 },
+  { "id": "AP-5", "vendor": "Fastenal",  "amount": 55000, "due_offset": 85 }
+]

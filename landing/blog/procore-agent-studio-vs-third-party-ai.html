@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Procore AI and Agent Studio vs Third-Party Agents: What Each Covers (2026)</title>
+<meta name="description" content="An honest comparison for contractors: Procore's AI and Agent Studio run on Procore's own project, financial, and document data, and the specifics are Procore's to define. A third-party back-office agent platform like Top Builder AI runs the work that lives outside Procore's data, in your QuickBooks general ledger: collections follow-up, A/P drafting from vendor bills, ledger reconciliation, and payroll checks. They are complementary, not competitors. Here is what each covers and how to decide." />
+<link rel="canonical" href="https://topbuilderai.com/blog/procore-agent-studio-vs-third-party-ai.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Procore AI and Agent Studio vs Third-Party Agents: What Each Covers (2026)" />
+<meta property="og:description" content="Procore's AI runs on Procore's data. A third-party back-office platform runs the QuickBooks-ledger work outside it: collections, A/P drafting, reconciliation. An honest comparison, with the concessions stated plainly." />
+<meta property="og:url" content="https://topbuilderai.com/blog/procore-agent-studio-vs-third-party-ai.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_procore-agentstudio.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_procore-agentstudio.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Enterprise-light palette (WCAG 2.2 AA, all text pairs >=4.5:1). */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px;background:#fff}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,#EEF3FF,#FFFFFF);
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:700;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.35)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo-2),var(--emerald))}
+  .col li b{color:var(--ink);font-weight:600}
+
+  /* concede band */
+  .concede{margin:30px 0;border:1px solid rgba(4,120,87,.3);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(4,120,87,.05),var(--panel));padding:22px 24px}
+  .concede .h{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--emerald)}
+  .concede p{margin:10px 0 0;font-size:15px;color:var(--ink2);line-height:1.65}
+  .concede b{color:var(--ink)}
+
+  /* comparison table */
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:26%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:700;letter-spacing:-.02em;margin:10px 0 8px}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,#EEF3FF,#F8FAFC);padding:34px 30px;text-align:center;box-shadow:0 24px 56px -36px rgba(37,99,235,.4)}
+  .cta h2{font-size:26px;font-weight:700;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
+<!-- VideoObject JSON-LD (long-form) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Procore Is Shipping AI Agents -- Do You Still Need a Third-Party One?",
+  "description":"Procore's Agent Studio runs on Procore's own project, financial, and document data -- and Procore defines what it does. A third-party AI back office runs the work that lives outside that data, in your QuickBooks general ledger: collections follow-up, A/P drafting from vendor bills, ledger reconciliation, and payroll checks.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/Elv78ZlKJ2s/maxresdefault.jpg",
+  "uploadDate":"2026-08-25T18:28:18Z",
+  "duration":"PT11M12S",
+  "contentUrl":"https://www.youtube.com/watch?v=Elv78ZlKJ2s",
+  "embedUrl":"https://www.youtube.com/embed/Elv78ZlKJ2s",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/procore-agent-studio-vs-third-party-ai.html"},
+  "headline":"Procore AI and Agent Studio vs Third-Party Agents: What Each Covers (2026)",
+  "description":"An honest comparison for contractors: Procore's AI and Agent Studio run on Procore's own project, financial, and document data, and the specifics are Procore's to define. A third-party back-office agent platform runs the work that lives outside Procore's data, in the QuickBooks general ledger: collections follow-up, A/P drafting from vendor bills, ledger reconciliation, and payroll checks. Complementary, not competitors.",
+  "datePublished":"2026-07-01",
+  "dateModified":"2026-08-25",
+  "inLanguage":"en-US",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["Procore AI","Procore Agent Studio","third-party AI agents for construction","QuickBooks ledger back office","construction collections automation"],
+  "keywords":"Procore Agent Studio, Procore AI agents, third-party AI for Procore, Procore QuickBooks reconciliation, construction back office AI"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What are Procore's AI and Agent Studio?","acceptedAnswer":{"@type":"Answer","text":"Procore has been building AI across its platform, and it has described Agent Studio as a way to configure AI agents that work on Procore's own data and workflows. As of mid-2026, the honest summary is that Procore's AI capabilities run on Procore's project, financial, and document data, and the specifics, what ships, what it is called, and what each agent can do, are Procore's to define. Check Procore's current documentation for the feature-by-feature detail rather than a third party's paraphrase."}},
+    {"@type":"Question","name":"Does Top Builder AI compete with Procore's AI?","acceptedAnswer":{"@type":"Answer","text":"No, and the boundary is the data. Procore's AI works on Procore's data, and anything that makes the project side smarter is good for the same contractor we serve. Top Builder AI runs the back office that lives outside Procore's data, in the QuickBooks general ledger: collections follow-up, A/P drafting from emailed vendor bills, reconciliation between the project platform and the books, and payroll checks. A shop can and should evaluate both, because they answer different questions."}},
+    {"@type":"Question","name":"What can a third-party back-office agent do that Procore's AI does not?","acceptedAnswer":{"@type":"Answer","text":"Work the ledger side. The books live in QuickBooks, so an agent scoped to Procore's data cannot reconcile the general ledger, chase the A/R aging list against what actually posted to the bank, draft the A/P entry for a bill that lives in an email inbox, or verify payroll math. Top Builder AI's Financial, Collections, Documents, and Workforce agents run exactly that work, reconciled to the actual QuickBooks general ledger, with every action human-approved."}},
+    {"@type":"Question","name":"Can I use Procore's AI and Top Builder AI together?","acceptedAnswer":{"@type":"Answer","text":"Yes, and that is the sensible setup. Keep Procore as your system of record and use whatever Procore AI features fit your project workflows. Add Top Builder AI alongside it for the QuickBooks-ledger back office. Top Builder AI connects to Procore through a read-only OAuth integration and never touches your system of record, so nothing conflicts: the two layers read the same project data and act in different places."}},
+    {"@type":"Question","name":"Is my data safe with a third-party agent platform?","acceptedAnswer":{"@type":"Answer","text":"The posture is documented and verifiable: read-only OAuth by default, per-tenant isolation enforced at the database level, AES-256 encryption at rest and TLS 1.2+ in transit, and a strict rule that customer data is used for inference only, never to train a model. Every figure is computed by deterministic, tested code, every action runs through a propose, approve, execute gate, and everything is audited and reversible. The full detail is on the Procore install and data-handling guide at topbuilderai.com/procore.html."}},
+    {"@type":"Question","name":"What does Top Builder AI cost for a Procore shop?","acceptedAnswer":{"@type":"Answer","text":"$3,000 per month for up to 25 people using the system, $4,500 per month for 26 to 75, and it scales from there, with pricing published in plain text on the pricing page. The one-time install is $0 this quarter (normally $8,000), backed by a 30-day board-ready-or-free guarantee. Procore contractors get five agents, Workforce, Routing, Documents, Financial, and Collections, plus the Pricebook engine via vendor price-file upload."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/agents.html">The Agents</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/for-procore.html">For Procore</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Procore AI vs third-party agents</div>
+    <span class="kicker">Procore &middot; An honest comparison</span>
+    <h1>Procore AI and Agent Studio vs Third-Party Agents: What Each Covers (2026)</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published July 1, 2026</span>
+      <span class="pill">~9 min read</span>
+      <span class="pill">GCs &middot; Specialty trades</span>
+    </div>
+  </section>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video"><iframe src="https://www.youtube.com/embed/Elv78ZlKJ2s" title="Procore Is Shipping AI Agents -- Do You Still Need a Third-Party One?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The full walkthrough of the boundary, on camera: what Procore's Agent Studio can see, where the third-party layer picks up, and how to run both together.</p>
+
+      <p class="answer"><strong>Procore's AI and Agent Studio run on Procore's own data.</strong> Procore has been building AI across its platform, and it has described Agent Studio as a way to configure agents that work on Procore's project, financial, and document data; as of mid-2026 the specifics are Procore's to define, and its own documentation is the right source for them. A <strong>third-party back-office agent platform</strong> like Top Builder AI runs the work that lives <em>outside</em> Procore's data, in your QuickBooks general ledger: collections follow-up on the A/R aging list, A/P drafting from emailed vendor bills, reconciliation between what Procore says a job cost and what QuickBooks says actually posted, and payroll checks before payday. The two are <strong>complementary, not competitors</strong>: one makes the project side smarter, the other runs the books side, human-approved, with every figure computed by deterministic, tested code. This post lays out the boundary honestly, concedes what belongs to Procore, and shows how to decide what your shop needs.</p>
+
+      <p>The comparison question comes up on almost every fit call now: "Procore is adding AI agents, so why would I add yours?" It is the right question, and it deserves a straight answer rather than a competitive dodge. The straight answer is that the boundary between the two is not quality or ambition; it is <strong>data</strong>. An agent can only act on data it can see, and the most consequential back-office data in a construction business, the general ledger, does not live in Procore.</p>
+
+      <h2>What are Procore's AI and Agent Studio?</h2>
+
+      <p>Procore has said it is building AI throughout its platform, and it has described Agent Studio as a way for customers to configure AI agents that work across Procore's data and workflows. As of mid-2026, that is the responsible summary: the capabilities run on Procore's own project, financial, and document data, and what ships, what it is named, and what each agent can do are Procore's to define. We deliberately do not paraphrase Procore's feature list here, because it is evolving and their documentation, not a third party's blog, is the right source for specifics.</p>
+
+      <p>What we can say from our side of the integration is structural. Procore's platform holds the project record: budgets, prime contracts, commitments, change orders, direct costs, invoicing, RFIs, submittals, daily logs, documents. Any AI that Procore builds has first-class access to that record, and that is a real advantage inside it. It is the same reason our own agents read Procore's data through the official integration rather than trying to reconstruct it.</p>
+
+      <div class="concede">
+        <div class="h">What belongs to Procore, plainly</div>
+        <p>If your question lives inside Procore's data, project workflows, document handling within the platform, coordination, anything where the record and the action both live in Procore, <b>Procore's own AI is the natural first answer</b>, and configuring it through Procore's tooling keeps you inside a platform you already trust. We do not compete there, and a comparison that pretended otherwise would not be worth your time.</p>
+      </div>
+
+      <h2>What lives outside Procore's data?</h2>
+
+      <p>Your books. The general ledger that a lender, a bonding agent, or a partner actually trusts lives in QuickBooks, and a set of back-office jobs lives with it. The A/R follow-up question is not "what did we bill in Procore" but "what has actually not been paid, according to the ledger and the bank." The A/P question starts with a vendor bill in an email inbox and ends with a posted entry in QuickBooks. The margin question is only answerable when the project record and the ledger are reconciled. And the payroll question, is the overtime math right, do the claimed hours match the clocked hours, lives in timesheets and pay rules, not in a project workflow.</p>
+
+      <p>That outside-the-platform work is where contractors are bleeding. In 2024, <strong>82% of contractors reported payment delays of more than 30 days</strong>, up from 49% two years earlier, and slow payments were estimated to cost the U.S. construction sector roughly <strong>$280 billion</strong> that year (<a class="link" href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener" target="_blank">Rabbet 2024 Construction Payments Report (2024)</a>). And the manual reconciliation burden is steady overhead: firms with 10 to 99 employees report an average of <strong>25 hours a week on manual data entry or reconciling data across apps</strong> (<a class="link" href="https://www.intuit.com/enterprise/blog/research/business-solutions-survey-2024/" rel="noopener" target="_blank">Intuit QuickBooks Business Solutions Survey (2024)</a>). No agent scoped to a single platform's data can work that queue, because the queue spans two systems.</p>
+
+      <h2>Where does a third-party back-office platform fit?</h2>
+
+      <p>Top Builder AI installs alongside Procore, reads its data through the official read-only OAuth integration, reads the books through QuickBooks Online, and runs the ledger-side back office: five agents, Workforce, Routing, Documents, Financial, and Collections, plus a Pricebook engine fed by vendor price files. The comparison below is deliberately careful: the Procore column describes where its AI runs, not what any specific feature does, because those specifics are Procore's to define.</p>
+
+      <div class="tablewrap">
+        <table class="cmp">
+          <thead>
+            <tr><th>Dimension</th><th>Procore AI &amp; Agent Studio</th><th>Top Builder AI (third-party)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Where it runs</td><td>On Procore's own project, financial, and document data, inside the platform, as Procore defines it</td><td class="yes">Alongside Procore, on Procore data plus your QuickBooks general ledger</td></tr>
+            <tr><td>The books</td><td class="no">The general ledger lives in QuickBooks, outside Procore's data</td><td class="yes">Reconciles Procore to the actual QuickBooks ledger on every cycle</td></tr>
+            <tr><td>Collections on the A/R ledger</td><td class="no">Follow-up against the ledger and the bank is outside Procore's data</td><td class="yes">Collections agent works the aging list 24/7; every send needs a lead's approval</td></tr>
+            <tr><td>A/P from emailed vendor bills</td><td class="no">The bill in the inbox and the entry in QuickBooks are outside Procore's data</td><td class="yes">Documents agent drafts the A/P entry for your finance lead to approve</td></tr>
+            <tr><td>Payroll checks</td><td class="no">Pay-rule math and claimed-versus-clocked gaps live outside the project record</td><td class="yes">Workforce agent flags overtime and payroll gaps before payday</td></tr>
+            <tr><td>How figures are produced</td><td>As Procore defines; check its current documentation</td><td class="yes">Deterministic, tested code; the AI narrates and never computes a number</td></tr>
+            <tr><td>Action model</td><td>As Procore defines; check its current documentation</td><td class="yes">Propose, approve, execute; reversible, audited; leads required on money and legal actions</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Key takeaway:</strong> the "no" cells in the Procore column are not criticisms; they are geography. An agent acts on the data it can see, Procore's agents see Procore, and the ledger-side back office needs an agent that sees Procore <em>and</em> QuickBooks together.</p>
+
+      <h2>Can I run Procore's AI and a third-party platform together?</h2>
+
+      <p>Yes, and that is the setup we expect to become normal. Keep Procore as the system of record and adopt whatever Procore AI features fit your project workflows as they ship. Add the third-party layer for the QuickBooks-ledger back office. Because Top Builder AI connects read-only and never writes to Procore without an explicit, human-approved action, there is nothing to conflict: the two layers read the same project record and act in different places. The install mechanics, the exact Procore tools each agent reads, and the data-handling terms are documented on the <a class="link" href="/procore.html">Procore install guide</a>, and the plain-language overview is on the <a class="link" href="/for-procore.html">for-Procore page</a>.</p>
+
+      <p>The honest scope note applies here too: Procore contractors get five of our eight agents today plus the Pricebook engine via vendor price-file upload. Booking and Inventory are ServiceTitan-only, because Procore exposes no customer-intake or inventory feed. The agent-by-agent detail is on <a class="link" href="/agents.html">the agents page</a>.</p>
+
+      <h2>How should I decide what my shop needs?</h2>
+
+      <p>Ask where the pain lives. If the friction is inside the project, coordination, document workflows, the day-to-day of running jobs in Procore, start with Procore's own AI and its Agent Studio tooling, and judge it against Procore's current documentation. If the pain is in the books, an aging list nobody works, a ledger that disagrees with the project record, bills waiting in an inbox, payroll on trust, that work lives outside Procore's data, and it is exactly what a third-party back-office platform runs. Many shops have both kinds of pain, in which case the answer is both layers, not a choice between them.</p>
+
+      <p>On cost: Top Builder AI is <strong>$3,000 per month for up to 25 people</strong> using the system, $4,500 per month for 26 to 75, and it scales from there, published in plain text on the <a class="link" href="/pricing.html">pricing page</a>. The one-time install is $0 this quarter (normally $8,000), backed by a 30-day board-ready-or-free guarantee.</p>
+
+      <div class="cta">
+        <h2>Map the boundary on your own data</h2>
+        <p>A 30-minute fit call with the developer: we look at your Procore, your QuickBooks, and your aging list, and tell you honestly which work belongs to Procore's tools and which belongs to a ledger-side agent.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call</a>
+      </div>
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">What are Procore's AI and Agent Studio?</div>
+      <div class="a">Procore has been building AI across its platform, and it has described Agent Studio as a way to configure AI agents that work on Procore's own data and workflows. As of mid-2026, the honest summary is that Procore's AI capabilities run on Procore's project, financial, and document data, and the specifics, what ships, what it is called, and what each agent can do, are Procore's to define. Check Procore's current documentation for the feature-by-feature detail rather than a third party's paraphrase.</div>
+
+      <div class="q">Does Top Builder AI compete with Procore's AI?</div>
+      <div class="a">No, and the boundary is the data. Procore's AI works on Procore's data, and anything that makes the project side smarter is good for the same contractor we serve. Top Builder AI runs the back office that lives outside Procore's data, in the QuickBooks general ledger: collections follow-up, A/P drafting from emailed vendor bills, reconciliation between the project platform and the books, and payroll checks. A shop can and should evaluate both, because they answer different questions.</div>
+
+      <div class="q">What can a third-party back-office agent do that Procore's AI does not?</div>
+      <div class="a">Work the ledger side. The books live in QuickBooks, so an agent scoped to Procore's data cannot reconcile the general ledger, chase the A/R aging list against what actually posted to the bank, draft the A/P entry for a bill that lives in an email inbox, or verify payroll math. Top Builder AI's Financial, Collections, Documents, and Workforce agents run exactly that work, reconciled to the actual QuickBooks general ledger, with every action human-approved.</div>
+
+      <div class="q">Can I use Procore's AI and Top Builder AI together?</div>
+      <div class="a">Yes, and that is the sensible setup. Keep Procore as your system of record and use whatever Procore AI features fit your project workflows. Add Top Builder AI alongside it for the QuickBooks-ledger back office. Top Builder AI connects to Procore through a read-only OAuth integration and never touches your system of record, so nothing conflicts: the two layers read the same project data and act in different places.</div>
+
+      <div class="q">Is my data safe with a third-party agent platform?</div>
+      <div class="a">The posture is documented and verifiable: read-only OAuth by default, per-tenant isolation enforced at the database level, AES-256 encryption at rest and TLS 1.2+ in transit, and a strict rule that customer data is used for inference only, never to train a model. Every figure is computed by deterministic, tested code, every action runs through a propose, approve, execute gate, and everything is audited and reversible. The full detail is on the Procore install and data-handling guide at topbuilderai.com/procore.html.</div>
+
+      <div class="q">What does Top Builder AI cost for a Procore shop?</div>
+      <div class="a">$3,000 per month for up to 25 people using the system, $4,500 per month for 26 to 75, and it scales from there, with pricing published in plain text on the pricing page. The one-time install is $0 this quarter (normally $8,000), backed by a 30-day board-ready-or-free guarantee. Procore contractors get five agents, Workforce, Routing, Documents, Financial, and Collections, plus the Pricebook engine via vendor price-file upload.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <p class="disc"><b>Top Builder AI</b>, the AI back office for ServiceTitan, Procore, and Buildertrend contractors: Money, Materials, People &amp; Paperwork, reconciled to your actual QuickBooks books. Installed alongside your platform; never touches the system of record. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment. A <b>Salisbury Bookkeeping LLC</b> brand.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/for-procore.html">For Procore</a>
+      <a href="/procore.html">Procore install guide</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

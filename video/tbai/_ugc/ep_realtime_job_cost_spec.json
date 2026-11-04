@@ -1,0 +1,27 @@
+{
+  "lane": "top-builder-ai",
+  "style": {"end_hold": 1.8},
+  "beats": [
+    {
+      "vo": "You don't find out a job lost money until the paperwork's a foot tall and the job's already closed.",
+      "clip": "C:/Users/you/.claude/skills/geo-flywheel/references/character-sheets/top-builder-ai/clips/paper_tower.mp4"
+    },
+    {
+      "vo": "Top Builder AI walks in and takes the whole stack off your desk.",
+      "clip": "C:/Users/you/.claude/skills/geo-flywheel/references/character-sheets/top-builder-ai/clips/bot_movesin.mp4"
+    },
+    {
+      "vo": "It sorts every invoice and labor hour straight into the right job, automatically.",
+      "clip": "C:/Users/you/.claude/skills/geo-flywheel/references/character-sheets/top-builder-ai/clips/sort_trays.mp4"
+    },
+    {
+      "vo": "You just approve the numbers. Real margins, while the job is still open.",
+      "clip": "C:/Users/you/.claude/skills/geo-flywheel/references/character-sheets/top-builder-ai/clips/human_okay.mp4"
+    },
+    {
+      "vo": "No more guessing on any job. Look up top builder ai dot com.",
+      "caption": "No more guessing on any job. topbuilderai.com",
+      "clip": "C:/Users/you/.claude/skills/geo-flywheel/references/character-sheets/top-builder-ai/clips/duo_thumbsup.mp4"
+    }
+  ]
+}

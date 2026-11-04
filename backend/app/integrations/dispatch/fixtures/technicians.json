@@ -1,0 +1,6 @@
+[
+  { "id": "T1", "name": "Marco Reyes", "skills": ["hvac"], "home_x": 3, "home_y": 3, "shift_start_min": 480, "shift_end_min": 1020 },
+  { "id": "T2", "name": "Dana Kim", "skills": ["hvac"], "home_x": 15, "home_y": 4, "shift_start_min": 480, "shift_end_min": 1020 },
+  { "id": "T3", "name": "Sam Patel", "skills": ["plumbing", "drains"], "home_x": 8, "home_y": 14, "shift_start_min": 480, "shift_end_min": 1020 },
+  { "id": "T4", "name": "Lia Nguyen", "skills": ["electrical"], "home_x": 2, "home_y": 16, "shift_start_min": 480, "shift_end_min": 1020 }
+]

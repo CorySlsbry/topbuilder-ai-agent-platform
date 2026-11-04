@@ -1,0 +1,6 @@
+[
+  {"worker_id": "tech-101", "job_id": "J-5100", "kind": "piece", "amount_cents": 80000},
+  {"worker_id": "tech-101", "job_id": "J-5101", "kind": "piece", "amount_cents": 120000},
+  {"worker_id": "sales-201", "job_id": "C-9001", "kind": "commission", "amount_cents": 50000},
+  {"worker_id": "sales-201", "job_id": "C-9002", "kind": "commission", "amount_cents": 70000}
+]

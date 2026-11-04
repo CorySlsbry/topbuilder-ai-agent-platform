@@ -1,0 +1,3 @@
+[
+  { "customer_id": "jolly-boys", "promised_date_offset": 5, "promised_amount_cents": 4000000, "recorded_at_offset": -3, "note": "AP confirmed payment will go out Friday" }
+]

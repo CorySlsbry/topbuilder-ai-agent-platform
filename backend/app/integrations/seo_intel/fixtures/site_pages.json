@@ -1,0 +1,47 @@
+[
+  {
+    "page": "Homepage",
+    "url": "https://demo-contractor.example/",
+    "word_count": 2400,
+    "verifiable_facts": 18,
+    "faq_count": 0,
+    "is_faq_page": false,
+    "freshness_days": 14
+  },
+  {
+    "page": "AC Repair",
+    "url": "https://demo-contractor.example/services/ac-repair",
+    "word_count": 2200,
+    "verifiable_facts": 6,
+    "faq_count": 0,
+    "is_faq_page": false,
+    "freshness_days": 21
+  },
+  {
+    "page": "FAQ",
+    "url": "https://demo-contractor.example/faq",
+    "word_count": 1450,
+    "verifiable_facts": 12,
+    "faq_count": 8,
+    "is_faq_page": true,
+    "freshness_days": 9
+  },
+  {
+    "page": "About Us",
+    "url": "https://demo-contractor.example/about",
+    "word_count": 1160,
+    "verifiable_facts": 9,
+    "faq_count": 0,
+    "is_faq_page": false,
+    "freshness_days": 210
+  },
+  {
+    "page": "Water Heater Installation Cost Guide",
+    "url": "https://demo-contractor.example/guides/water-heater-installation-cost",
+    "word_count": 2610,
+    "verifiable_facts": 18,
+    "faq_count": 0,
+    "is_faq_page": false,
+    "freshness_days": 7
+  }
+]

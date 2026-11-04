@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jobber vs Housecall Pro: Which One Shows You If a Job Made Money?</title>
+<meta name="description" content="Neither Jobber nor Housecall Pro shows true job profit out of the box. Sourced from each vendor's own pricing, job-costing, and QuickBooks docs, plus what actually closes the gap." />
+<link rel="canonical" href="https://topbuilderai.com/blog/jobber-vs-housecall-pro-job-costing.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Jobber vs Housecall Pro: Which One Shows You If a Job Made Money?" />
+<meta property="og:description" content="Both platforms sell job costing one paid tier up, and neither one's QuickBooks Online sync carries that number into your actual books. Sourced from each vendor's own docs." />
+<meta property="og:url" content="https://topbuilderai.com/blog/jobber-vs-housecall-pro-job-costing.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_st-alternative.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_st-alternative.png" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+  .updated{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--emerald);font-weight:600;border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:3px 11px;background:rgba(4,120,87,.06)}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:38px;color:var(--ink);line-height:1.15;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:16%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .no{color:var(--ink3)}
+  .table-take{font-size:14px;color:var(--ink3);margin-top:-12px 0 26px;padding:0 2px}
+  @media(max-width:620px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:9px 10px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .howwe{border:1px dashed var(--line2);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--panel2)}
+  .howwe .h{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+  .howwe p{margin:0;font-size:15px;color:var(--ink2);line-height:1.6}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (companion video) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Jobber vs Housecall Pro: Which One Shows You If a Job Made Money?",
+  "description":"Jobber gates Job Costing behind its third plan (Grow) and Automated Job Costing behind its top plan (Plus). Housecall Pro gates job costing behind its middle plan (Essentials). Straight from each vendor's own pricing and help docs: what each platform's job-costing screen actually tracks, why neither one's QuickBooks sync carries that profit number into your real books, and the monthly reconciliation check that closes the gap either way.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/cj5cB2ElUwo/maxresdefault.jpg",
+  "uploadDate":"2026-08-28T18:56:33Z",
+  "duration":"PT14M6S",
+  "contentUrl":"https://www.youtube.com/watch?v=cj5cB2ElUwo",
+  "embedUrl":"https://www.youtube.com/embed/cj5cB2ElUwo",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/jobber-vs-housecall-pro-job-costing.html"},
+  "headline":"Jobber vs Housecall Pro: Which One Actually Shows You If a Job Made Money?",
+  "description":"Neither Jobber nor Housecall Pro shows true per-job profit out of the box. Sourced from each vendor's own pricing, job-costing, and QuickBooks Online sync documentation, plus what actually closes the gap for a small crew.",
+  "datePublished":"2026-08-18T12:00:00Z",
+  "dateModified":"2026-08-30T12:00:00Z",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_st-alternative.png",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["Jobber vs Housecall Pro","job costing software","QuickBooks Online sync","Jobber pricing","Housecall Pro pricing","field service software for small contractors","per-job profit tracking"],
+  "keywords":"Jobber vs Housecall Pro, job costing, QuickBooks Online sync, Jobber pricing, Housecall Pro pricing, job profit tracking, field service software small contractors"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does Jobber tell you whether a job made money?","acceptedAnswer":{"@type":"Answer","text":"Only if you're on the Grow plan or higher. Jobber's own Job Costing help article shows profit as revenue minus labor (from timesheets), materials (from line items), and logged expenses, but the feature isn't available on the Core or Connect plans, and it doesn't calculate anything on its own without those numbers entered first."}},
+    {"@type":"Question","name":"Does Housecall Pro tell you whether a job made money?","acceptedAnswer":{"@type":"Answer","text":"Only after Job Costing is enabled, which appears at the Essentials plan and above per Housecall Pro's own pricing page. Housecall Pro's own set-up guide calculates profit margin as gross profit divided by job revenue, where gross profit subtracts labor, materials, commissions, and miscellaneous costs, each of which has to be entered or configured first."}},
+    {"@type":"Question","name":"Which Jobber plan do I need for job costing?","acceptedAnswer":{"@type":"Answer","text":"Grow, the third of Jobber's four plans, priced at $105/mo billed annually or $199/mo month-to-month per Jobber's own pricing page at the time this was checked (verify current pricing on Jobber's site). Automated Job Costing, which captures line-item costs and expenses without manual entry, requires the top Plus plan instead."}},
+    {"@type":"Question","name":"Which Housecall Pro plan do I need for job costing?","acceptedAnswer":{"@type":"Answer","text":"Essentials, the middle of Housecall Pro's three plans, priced at $149/mo billed annually per Housecall Pro's own pricing page at the time this was checked (verify current pricing on Housecall Pro's site). The entry-level Basic plan includes neither job costing nor QuickBooks Online sync."}},
+    {"@type":"Question","name":"Does Jobber's QuickBooks sync include labor cost?","acceptedAnswer":{"@type":"Answer","text":"No. Jobber's own QuickBooks Integration FAQ lists exactly what syncs: clients, products and services, invoices, payments, and timesheets. Job costing isn't on that list. The timesheet sync moves total hours per team member, not a labor cost tied to a specific job."}},
+    {"@type":"Question","name":"Does Housecall Pro's QuickBooks sync include labor cost?","acceptedAnswer":{"@type":"Answer","text":"No. Housecall Pro's own help article on what syncs to QuickBooks Online lists invoices, payments, new customer records, and new price book items moving one-way into QuickBooks. Job costing and labor costs don't appear anywhere in that list."}},
+    {"@type":"Question","name":"Can QuickBooks Online Projects fix this for either platform?","acceptedAnswer":{"@type":"Answer","text":"It's the QuickBooks feature actually built to hold job-level labor cost, but it requires the Plus or Advanced plan per Intuit's own help documentation, and neither Jobber's nor Housecall Pro's own integration docs describe automatically feeding time entries or labor cost into a QuickBooks Online Project."}},
+    {"@type":"Question","name":"Is the profit number in Jobber's job costing screen the same number my books show?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Jobber's own Job Costing help article states that after an initial cost import from QuickBooks Online, Jobber becomes the source of truth for costs, meaning the two numbers can diverge from that point forward, with nothing in Jobber's own docs describing an ongoing reconciliation between them."}},
+    {"@type":"Question","name":"Does either platform calculate burdened labor cost automatically from payroll?","acceptedAnswer":{"@type":"Answer","text":"No. Jobber's own docs describe an hourly labor cost rate applied to timesheet hours, and Housecall Pro's own set-up guide describes a fully loaded rate combining base pay with employer-paid taxes, insurance, and benefits, but in both cases a person enters or configures that rate; neither platform's docs describe pulling it live from a payroll system."}},
+    {"@type":"Question","name":"What happens if I update an employee's labor rate in Housecall Pro?","acceptedAnswer":{"@type":"Answer","text":"It only applies going forward. Housecall Pro's own Job Costing set-up guide states plainly that adding or updating an employee's labor rate after the fact will not retroactively update the labor costs already calculated on past jobs."}},
+    {"@type":"Question","name":"Does Jobber's job costing ever double-count a cost?","acceptedAnswer":{"@type":"Answer","text":"It can. Jobber's own Job Costing help article warns that if a job has both a line-item cost on a quote and a logged expense for the same cost, Jobber currently counts both against profitability, which can understate the true margin until someone catches it."}},
+    {"@type":"Question","name":"Can a crew use either app in the field without help from the office?","acceptedAnswer":{"@type":"Answer","text":"For scheduling, job details, and payment, yes. Housecall Pro's own mobile app page confirms offline access to schedules and job details plus in-field card, check, and financing payments; Jobber's own mobile app page confirms clock-in/out, job details, quotes, and auto-generated invoices from the field. Neither vendor's mobile app page documents in-field material-cost or job-cost entry in detail."}},
+    {"@type":"Question","name":"Is this a reason to switch from Jobber to Housecall Pro, or the other way around?","acceptedAnswer":{"@type":"Answer","text":"No. Both platforms do scheduling, dispatch, invoicing, and payments well, and this comparison is narrow: what each one's own job-costing feature tracks and what its QuickBooks sync actually moves. Switching field platforms carries its own real cost and risk that this piece doesn't cover."}},
+    {"@type":"Question","name":"Does Top Builder AI or Top Builder OS have a live self-serve integration with Jobber or Housecall Pro today?","acceptedAnswer":{"@type":"Answer","text":"No self-serve product ships today. Top Builder AI/OS closes this specific gap through a done-for-you Teardown/Install engagement, a human-delivered install that reconciles whichever field platform a shop already runs against its actual QuickBooks books, not existing software a contractor signs up for and connects alone."}},
+    {"@type":"Question","name":"What actually closes the job-costing gap for a shop running Jobber or Housecall Pro?","acceptedAnswer":{"@type":"Answer","text":"A reconciliation layer that computes burdened labor cost the same way every time and checks it against the real QuickBooks general ledger, not just the field app's own job-costing screen. That's delivered through Top Builder AI/OS's Teardown/Install, where every figure is deterministic and the owner approves every number before it's treated as final."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Jobber vs Housecall Pro</div>
+    <span class="kicker">Jobber &middot; Housecall Pro &middot; Job Costing</span>
+    <h1>Jobber vs Housecall Pro: Which One Actually Shows You If a Job Made Money?</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 18, 2026</span>
+      <span class="updated">Updated August 30, 2026</span>
+      <span class="pill">~12 min read</span>
+      <span class="pill">1-10 Person Crews</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_st-alternative.png" alt="A contractor working late at a laptop, weighing job-costing screens between two field-service platforms" loading="eager" width="1408" height="768" />
+  </div>
+
+  <div class="video"><iframe src="https://www.youtube.com/embed/cj5cB2ElUwo" title="Jobber vs Housecall Pro: Which One Shows You If a Job Made Money?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">Neither one, not out of the box. Jobber and Housecall Pro both sell a job-costing feature that tells you a job's profit, but on both platforms it sits one paid plan above the entry tier, it lives inside the field app, and neither platform's QuickBooks Online sync carries that profit number into QuickBooks at all. Jobber's own <a class="link" href="https://www.getjobber.com/pricing/" rel="noopener noreferrer">pricing page</a> gates Job Costing behind the Grow plan; Housecall Pro's own <a class="link" href="https://www.housecallpro.com/pricing/" rel="noopener noreferrer">pricing page</a> gates it behind Essentials. Below is what each vendor's own docs say their job-costing feature actually tracks, what their QuickBooks sync actually moves, and the one gap both of them leave open.</p>
+
+      <p>This isn't a "which platform is better" piece. Jobber and Housecall Pro both do scheduling, dispatch, and invoicing well, and this blog already has an <a class="link" href="/blog/best-servicetitan-alternative-small-trades-job-costing.html">honest comparison of small-shop platform options</a> that covers the wider buying decision. This one is narrower, and it's the question a lot of owners actually type into a search bar at 11pm: once you've picked one of these two, does it actually tell you what a job made, or does that number still live somewhere else.</p>
+
+      <h2>What does Jobber cost, and which plan actually includes job costing?</h2>
+      <p>Jobber runs four plans, and Job Costing isn't on the cheapest two. Per Jobber's own <a class="link" href="https://www.getjobber.com/pricing/" rel="noopener noreferrer">pricing page</a> (checked at the time this was written; verify current pricing on Jobber's site), the tiers are Core at $21/mo billed annually ($49/mo month-to-month), Connect at $70/mo annually ($139/mo month-to-month), Grow at $105/mo annually ($199/mo month-to-month), and Plus at $280/mo annually ($499/mo month-to-month).</p>
+      <p>Job Costing itself, described on that same pricing page as tracking "profitability with job costing," first appears on the Grow plan. Automated Job Costing, which captures line-item and expense data with less manual entry, is a Plus-only feature. A shop on Core or Connect, meaning anyone paying under $105/mo annually, has no job-costing screen in Jobber at all.</p>
+
+      <h2>What does Housecall Pro cost, and which plan actually includes job costing?</h2>
+      <p>Housecall Pro runs three plans, and job costing shows up on the middle one. Per Housecall Pro's own <a class="link" href="https://www.housecallpro.com/pricing/" rel="noopener noreferrer">pricing page</a> (checked at the time this was written; verify current pricing on Housecall Pro's site), Basic runs $59/mo billed annually, Essentials runs $149/mo billed annually, and MAX runs $299/mo billed annually.</p>
+      <p>The Essentials tier description states it lets a shop "track and report the costs associated with each job," and that same tier is where QuickBooks Online sync first appears. A shop on the $59/mo Basic plan gets online booking, invoicing, payments, and dispatch, but no job costing and no QuickBooks sync.</p>
+
+      <h2>What does Jobber's job costing feature actually track on a job?</h2>
+      <p>Three things: labor, materials, and expenses, with profit calculated as revenue minus total cost. Per Jobber's own <a class="link" href="https://help.getjobber.com/hc/en-us/articles/14343244961175-Job-Costing" rel="noopener noreferrer">Job Costing help article</a>, labor cost comes from each employee's hourly labor rate (meant to include wage, benefits, and taxes) multiplied by their timesheet hours on that job; material cost comes from line-item unit costs; expenses are whatever gets logged directly against the job.</p>
+      <p>The same article documents real limitations worth knowing before trusting the number. A labor-rate change "will apply to their future time sheet hours, not any past time sheets," so old jobs don't get recalculated. If a job has both a line-item cost on a quote and a logged expense for the same cost, Jobber's own docs admit it "currently counts both against your profitability," a double-count that can understate margin. And "reporting is not available for job costs on recurring jobs," so a maintenance-plan customer's profitability doesn't show up in the job-costing report at all.</p>
+
+      <h2>What does Housecall Pro's job costing feature actually track on a job?</h2>
+      <p>Five cost categories, with a profit-margin formula on top. Per Housecall Pro's own <a class="link" href="https://help.housecallpro.com/en/articles/6536636-job-costing-complete-set-up-guide" rel="noopener noreferrer">Job Costing set-up guide</a>, it tracks labor (a "fully loaded rate," meaning base hourly pay plus employer-paid taxes, insurance, and benefits, multiplied by time on the job including travel time), materials, miscellaneous expenses like permits or parking, commissions, and service line-item unit costs. Per Housecall Pro's own <a class="link" href="https://help.housecallpro.com/en/articles/6596631-job-costing-reports" rel="noopener noreferrer">Job Costing Reports article</a>, profit margin is defined as gross profit divided by job revenue, where gross profit is revenue minus all of those cost categories combined.</p>
+      <p>The same set-up guide flags a limitation that matters for accuracy: "adding or updating an employee's labor rate after the fact will not retroactively update the labor costs" already calculated on past jobs. A shop that raises pay rates mid-year and doesn't re-check old job-costing reports is looking at numbers built on stale labor cost.</p>
+
+      <h2>Does Jobber's QuickBooks sync carry that job-cost number into your books?</h2>
+      <p>No. Per Jobber's own <a class="link" href="https://help.getjobber.com/hc/en-us/articles/12642621815831-QuickBooks-Integration-FAQs-NEW-QuickBooks-Integration" rel="noopener noreferrer">QuickBooks Integration FAQ</a>, the sync moves clients, products and services, invoices, payments, and timesheets, one-way, from Jobber into QuickBooks Online. Job costing isn't on that list, and per Jobber's own <a class="link" href="https://help.getjobber.com/hc/en-us/articles/10487017203223-How-Items-Sync-Between-Jobber-and-QuickBooks-Online-NEW-QuickBooks-Integration" rel="noopener noreferrer">items-sync article</a>, the timesheet sync moves total hours per team member, not a labor cost tied to a specific job.</p>
+      <p>There's a subtler wrinkle here too. The same Job Costing help article states that after an initial, one-time cost import from QuickBooks Online, "Jobber becomes the source of truth for costs," meaning whatever Jobber's job-costing screen shows from that point forward can drift away from what QuickBooks shows, with nothing in Jobber's own docs describing an ongoing two-way reconciliation between the two numbers.</p>
+
+      <h2>Does Housecall Pro's QuickBooks sync carry that job-cost number into your books?</h2>
+      <p>No. Per Housecall Pro's own <a class="link" href="https://help.housecallpro.com/en/articles/6293215-quickbooks-online-syncing-information-from-housecall-pro" rel="noopener noreferrer">help article on syncing to QuickBooks Online</a>, the integration moves invoices, payments, new customer records, and new price book items, one-way, from Housecall Pro into QuickBooks Online. Job costing and labor costs don't appear anywhere in that list of what syncs, and the same article notes that estimates never transfer to QuickBooks Online at all, and that anything deleted or canceled in Housecall Pro has to be deleted separately, by hand, in QuickBooks.</p>
+      <p>So a shop can build a fully loaded labor-rate job-costing report inside Housecall Pro's Essentials plan, and none of the labor cost, materials cost, or resulting profit number in that report ever reaches the QuickBooks file the CPA actually opens.</p>
+
+      <h2>What's the job-costing gap Jobber and Housecall Pro actually share?</h2>
+      <p>Both platforms compute a per-job profit number from data entered inside the field app itself, timesheets, labor rates, line items, and that number never lands in QuickBooks, the one place a shop's actual books, tax return, and CPA all live. That's the same structural gap this blog documented across ServiceTitan, Buildertrend, and Service Fusion in a <a class="link" href="/blog/servicetitan-quickbooks-sync-gaps-double-data-entry.html">companion post on QuickBooks sync gaps</a>: it's an industry-wide pattern, not a Jobber or Housecall Pro problem specifically.</p>
+      <p>The QuickBooks feature actually built to hold job-level labor cost inside QuickBooks itself is <a class="link" href="https://quickbooks.intuit.com/learn-support/en-us/help-article/job-costing/set-use-projects-quickbooks-online/L1r1S3lKX_US_en_US" rel="noopener noreferrer">QuickBooks Online Projects</a>, and per Intuit's own help documentation, it requires the Plus or Advanced plan. Neither Jobber's nor Housecall Pro's own integration docs describe automatically feeding time entries or labor cost into a QuickBooks Online Project, so even a shop paying for Projects still has to build that bridge by hand.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Jobber vs Housecall Pro comparison on job costing, QuickBooks sync, pricing, and mobile field use">
+          <thead><tr><th>Category</th><th>Jobber</th><th>Housecall Pro</th></tr></thead>
+          <tbody>
+            <tr><td>Job costing (in-app)</td><td>Labor (timesheets x hourly rate), materials (line items), expenses; profit = revenue &minus; costs</td><td>Labor (fully loaded rate x time incl. travel), materials, misc. expenses, commissions, service line items; profit margin = gross profit &divide; revenue</td></tr>
+            <tr><td>QuickBooks Online sync depth</td><td class="no">One-way: clients, products/services, invoices, payments, timesheet hours only, no job costing</td><td class="no">One-way: invoices, payments, new customers, new price book items only, no job costing, no estimates</td></tr>
+            <tr><td>Plan where job costing unlocks</td><td>Grow, $105/mo annual ($199/mo month-to-month)*</td><td>Essentials, $149/mo annual*</td></tr>
+            <tr><td>Mobile field use (confirmed)</td><td>Clock in/out, job details, quotes, auto invoices, photos, customer texts</td><td>Clock in/out, job/customer details, card/check/financing payment, offline schedule access</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">*Pricing changes; verify current figures on each vendor's own pricing page before deciding. Both platforms put job costing one paid tier above their base plan, and neither one's QuickBooks Online sync carries that number into the books your CPA and your bookkeeper actually work from.</p>
+
+      <h2>What actually closes that gap for a small crew running Jobber or Housecall Pro?</h2>
+      <p>A layer that checks the field app's job-costing number against the real QuickBooks general ledger, computing burdened labor cost the same way every time instead of trusting whichever screen happens to be open. Top Builder AI/OS closes this specific gap through a done-for-you Teardown/Install engagement, not a piece of software a contractor signs up for and connects alone. It's a human-delivered install that reconciles whichever field platform a shop already runs, Jobber, Housecall Pro, or ServiceTitan, against its actual QuickBooks books, and every dollar it produces comes from deterministic, tested computation, never a guess.</p>
+
+      <ul>
+        <li><b>No shipped self-serve fixer for Jobber or Housecall Pro today.</b> This is a sourced method delivered as a configured install against a shop's real data, not existing software you sign up for.</li>
+        <li><b>No invented numbers.</b> Every pricing, feature, and sync claim above traces to that vendor's own current pricing page or help documentation, opened directly.</li>
+        <li><b>No specific integration claimed that isn't verified.</b> This post names what Jobber's and Housecall Pro's own docs say syncs and doesn't; it doesn't claim a live, self-serve connection to either platform exists today.</li>
+        <li><b>A person approves every number.</b> Nothing described here auto-edits a shop's books, labor rates, or job records.</li>
+      </ul>
+
+      <div class="howwe">
+        <div class="h">How we verified this</div>
+        <p>Every pricing figure and feature claim above traces to that vendor's own current pricing page or help center article, opened directly: Jobber's <a class="link" href="https://www.getjobber.com/pricing/" rel="noopener noreferrer">pricing page</a>, its <a class="link" href="https://help.getjobber.com/hc/en-us/articles/12642621815831-QuickBooks-Integration-FAQs-NEW-QuickBooks-Integration" rel="noopener noreferrer">QuickBooks Integration FAQ</a>, its <a class="link" href="https://help.getjobber.com/hc/en-us/articles/10487017203223-How-Items-Sync-Between-Jobber-and-QuickBooks-Online-NEW-QuickBooks-Integration" rel="noopener noreferrer">items-sync article</a>, and its <a class="link" href="https://help.getjobber.com/hc/en-us/articles/14343244961175-Job-Costing" rel="noopener noreferrer">Job Costing help article</a>; Housecall Pro's <a class="link" href="https://www.housecallpro.com/pricing/" rel="noopener noreferrer">pricing page</a>, its <a class="link" href="https://help.housecallpro.com/en/articles/6293215-quickbooks-online-syncing-information-from-housecall-pro" rel="noopener noreferrer">QuickBooks sync article</a>, its <a class="link" href="https://help.housecallpro.com/en/articles/6536636-job-costing-complete-set-up-guide" rel="noopener noreferrer">Job Costing set-up guide</a>, and its <a class="link" href="https://help.housecallpro.com/en/articles/6596631-job-costing-reports" rel="noopener noreferrer">Job Costing Reports article</a>; and Intuit's own <a class="link" href="https://quickbooks.intuit.com/learn-support/en-us/help-article/job-costing/set-use-projects-quickbooks-online/L1r1S3lKX_US_en_US" rel="noopener noreferrer">QuickBooks Online Projects documentation</a>. Where a vendor's own mobile-app page didn't document a capability (in-field material or job-cost entry, for either platform), we said so rather than assume it exists. SaaS pricing changes; the figures above reflect what each vendor's page showed at the time this was written.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Check which plan you're actually on</b> against the tier where job costing unlocks (Grow for Jobber, Essentials for Housecall Pro) before assuming the feature is even active.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Pull up the job-costing screen and your QuickBooks P&L side by side</b> for the same month and see if the two profit numbers actually agree.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Confirm your labor rates are current</b> in whichever platform you run; both vendors' own docs confirm rate changes don't retroactively fix past job costs.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Time how long it takes your office to reconcile the two numbers by hand</b> each month; that's the real cost of the gap, not a feature you're missing.</div></div>
+      </div>
+
+      <div class="cta">
+        <h2>Want to see what your own Jobber or Housecall Pro numbers actually show?</h2>
+        <p>Most shops have never put their field app's job-costing screen next to their real QuickBooks numbers for the same month. A fit call walks through what turns up in yours.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>What else do contractors ask about Jobber, Housecall Pro, and job costing?</h2>
+
+      <div class="q">Does Jobber tell you whether a job made money?</div>
+      <div class="a">Only if you're on the Grow plan or higher. Jobber's own Job Costing help article shows profit as revenue minus labor (from timesheets), materials (from line items), and logged expenses, but the feature isn't available on the Core or Connect plans, and it doesn't calculate anything on its own without those numbers entered first.</div>
+
+      <div class="q">Does Housecall Pro tell you whether a job made money?</div>
+      <div class="a">Only after Job Costing is enabled, which appears at the Essentials plan and above per Housecall Pro's own pricing page. Housecall Pro's own set-up guide calculates profit margin as gross profit divided by job revenue, where gross profit subtracts labor, materials, commissions, and miscellaneous costs, each of which has to be entered or configured first.</div>
+
+      <div class="q">Which Jobber plan do I need for job costing?</div>
+      <div class="a">Grow, the third of Jobber's four plans, priced at $105/mo billed annually or $199/mo month-to-month per Jobber's own pricing page at the time this was checked (verify current pricing on Jobber's site). Automated Job Costing, which captures line-item costs and expenses without manual entry, requires the top Plus plan instead.</div>
+
+      <div class="q">Which Housecall Pro plan do I need for job costing?</div>
+      <div class="a">Essentials, the middle of Housecall Pro's three plans, priced at $149/mo billed annually per Housecall Pro's own pricing page at the time this was checked (verify current pricing on Housecall Pro's site). The entry-level Basic plan includes neither job costing nor QuickBooks Online sync.</div>
+
+      <div class="q">Does Jobber's QuickBooks sync include labor cost?</div>
+      <div class="a">No. Jobber's own QuickBooks Integration FAQ lists exactly what syncs: clients, products and services, invoices, payments, and timesheets. Job costing isn't on that list. The timesheet sync moves total hours per team member, not a labor cost tied to a specific job.</div>
+
+      <div class="q">Does Housecall Pro's QuickBooks sync include labor cost?</div>
+      <div class="a">No. Housecall Pro's own help article on what syncs to QuickBooks Online lists invoices, payments, new customer records, and new price book items moving one-way into QuickBooks. Job costing and labor costs don't appear anywhere in that list.</div>
+
+      <div class="q">Can QuickBooks Online Projects fix this for either platform?</div>
+      <div class="a">It's the QuickBooks feature actually built to hold job-level labor cost, but it requires the Plus or Advanced plan per Intuit's own help documentation, and neither Jobber's nor Housecall Pro's own integration docs describe automatically feeding time entries or labor cost into a QuickBooks Online Project.</div>
+
+      <div class="q">Is the profit number in Jobber's job costing screen the same number my books show?</div>
+      <div class="a">Not necessarily. Jobber's own Job Costing help article states that after an initial cost import from QuickBooks Online, Jobber becomes the source of truth for costs, meaning the two numbers can diverge from that point forward, with nothing in Jobber's own docs describing an ongoing reconciliation between them.</div>
+
+      <div class="q">Does either platform calculate burdened labor cost automatically from payroll?</div>
+      <div class="a">No. Jobber's own docs describe an hourly labor cost rate applied to timesheet hours, and Housecall Pro's own set-up guide describes a fully loaded rate combining base pay with employer-paid taxes, insurance, and benefits, but in both cases a person enters or configures that rate; neither platform's docs describe pulling it live from a payroll system.</div>
+
+      <div class="q">What happens if I update an employee's labor rate in Housecall Pro?</div>
+      <div class="a">It only applies going forward. Housecall Pro's own Job Costing set-up guide states plainly that adding or updating an employee's labor rate after the fact will not retroactively update the labor costs already calculated on past jobs.</div>
+
+      <div class="q">Does Jobber's job costing ever double-count a cost?</div>
+      <div class="a">It can. Jobber's own Job Costing help article warns that if a job has both a line-item cost on a quote and a logged expense for the same cost, Jobber currently counts both against profitability, which can understate the true margin until someone catches it.</div>
+
+      <div class="q">Can a crew use either app in the field without help from the office?</div>
+      <div class="a">For scheduling, job details, and payment, yes. Housecall Pro's own mobile app page confirms offline access to schedules and job details plus in-field card, check, and financing payments; Jobber's own mobile app page confirms clock-in/out, job details, quotes, and auto-generated invoices from the field. Neither vendor's mobile app page documents in-field material-cost or job-cost entry in detail.</div>
+
+      <div class="q">Is this a reason to switch from Jobber to Housecall Pro, or the other way around?</div>
+      <div class="a">No. Both platforms do scheduling, dispatch, invoicing, and payments well, and this comparison is narrow: what each one's own job-costing feature tracks and what its QuickBooks sync actually moves. Switching field platforms carries its own real cost and risk that this piece doesn't cover.</div>
+
+      <div class="q">Does Top Builder AI or Top Builder OS have a live self-serve integration with Jobber or Housecall Pro today?</div>
+      <div class="a">No self-serve product ships today. Top Builder AI/OS closes this specific gap through a done-for-you Teardown/Install engagement, a human-delivered install that reconciles whichever field platform a shop already runs against its actual QuickBooks books, not existing software a contractor signs up for and connects alone.</div>
+
+      <div class="q">What actually closes the job-costing gap for a shop running Jobber or Housecall Pro?</div>
+      <div class="a">A reconciliation layer that computes burdened labor cost the same way every time and checks it against the real QuickBooks general ledger, not just the field app's own job-costing screen. That's delivered through Top Builder AI/OS's Teardown/Install, where every figure is deterministic and the owner approves every number before it's treated as final.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

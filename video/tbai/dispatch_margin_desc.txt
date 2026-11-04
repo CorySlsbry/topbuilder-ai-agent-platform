@@ -1,0 +1,6 @@
+ServiceTitan's own Dispatch Pro documentation is public about what its algorithm optimizes: predicted job value minus drive cost equals total revenue. That's a revenue formula — it doesn't know a technician is 20 minutes from overtime, or that sending them to a call bumps a higher-margin install off tomorrow's board.
+
+Full breakdown (with the worked example): https://topbuilderai.com/blog/servicetitan-ai-dispatch-routing-margin.html
+Top Builder AI: https://topbuilderai.com
+
+#ServiceTitan #Dispatch #FieldService #HVAC #Plumbing

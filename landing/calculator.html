@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ServiceTitan Automation Calculator | Top Builder AI</title>
+<meta name="description" content="Plug in your team size and hours spent on each back-office task. See exactly which systems to automate first, projected savings, and a 90-day timeline.">
+<link rel="canonical" href="https://topbuilderai.com/calculator" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/calculator" />
+<meta property="og:title" content="ServiceTitan Automation Calculator | Top Builder AI" />
+<meta property="og:description" content="Plug in your team size and hours. See exactly which systems to automate first, how much you'd save, and a 90-day implementation timeline." />
+<meta property="og:image" content="https://topbuilderai.com/assets/cc-executive.png" />
+<meta property="og:site_name" content="Top Builder AI" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ServiceTitan Automation Calculator | Top Builder AI" />
+<meta name="twitter:description" content="See which back-office systems to automate first and how much you'd save. Takes 2 minutes." />
+<meta name="twitter:image" content="https://topbuilderai.com/assets/cc-executive.png" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<style>
+/* ========================================
+   TOKENS
+   ======================================== */
+:root {
+  color-scheme: dark;
+  --bg-deep: #0C1222;
+  --bg-surface: #1A2332;
+  --bg-card: #1F2937;
+  --bg-raised: #243044;
+  --bg-input: #151D2B;
+
+  --text-primary: #E8ECF1;
+  --text-secondary: #8494A7;
+  --text-muted: #556171;
+
+  --accent: #F97316;
+  --accent-hover: #FB923C;
+  --accent-dim: rgba(249, 115, 22, 0.12);
+  --accent-border: rgba(249, 115, 22, 0.25);
+  --blue: #3B82F6;
+  --blue-dim: rgba(59, 130, 246, 0.12);
+
+  --border: #1E2D3D;
+  --border-light: #2A3A4A;
+
+  --green: #34D399;
+  --amber: #FBBF24;
+  --red: #F87171;
+
+  --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Cascadia Code', 'SF Mono', 'Consolas', 'Liberation Mono', monospace;
+
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-lg: 12px;
+
+  --max-w: 1200px;
+  --gap: 24px;
+}
+
+/* ========================================
+   RESET + BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); }
+
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: var(--text-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   PAGE STRUCTURE
+   ======================================== */
+.page-wrap {
+  min-height: 100vh;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.02) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--blue));
+  z-index: 100;
+}
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  padding: 28px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-mark {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.brand-tagline {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-secondary);
+}
+
+/* ========================================
+   HERO (compact -- the calculator IS the hero)
+   ======================================== */
+.hero {
+  padding: 48px 0 32px;
+}
+
+.hero h1 {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+  color: var(--text-primary);
+}
+
+.hero h1 span { color: var(--accent); }
+
+.hero-sub {
+  margin-top: 12px;
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.55;
+}
+
+/* ========================================
+   CALCULATOR LAYOUT
+   ======================================== */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 32px;
+  align-items: start;
+  padding-bottom: 64px;
+}
+
+.calc-outputs-col {
+  position: sticky;
+  top: 24px;
+}
+
+/* ========================================
+   INPUT CARDS
+   ======================================== */
+.input-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.input-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.slider-row {
+  margin-bottom: 20px;
+}
+.slider-row:last-child { margin-bottom: 0; }
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.slider-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.slider-val {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  min-width: 56px;
+  text-align: right;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(to right, var(--accent) var(--fill, 0%), var(--bg-raised) var(--fill, 0%));
+  transition: opacity 0.15s;
+}
+input[type="range"]:hover { opacity: 0.9; }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg-surface);
+  box-shadow: 0 0 0 1px rgba(249,115,22,0.3);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(249,115,22,0.15);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg-surface);
+  box-shadow: 0 0 0 1px rgba(249,115,22,0.3);
+  cursor: pointer;
+}
+
+.slider-range {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.capacity-note {
+  margin-top: 16px;
+  padding: 10px 14px;
+  background: var(--accent-dim);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.capacity-note strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Select dropdown */
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px; /* 16px minimum so iOS Safari doesn't zoom on focus */
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.select-wrap select:hover { border-color: var(--accent-border); }
+.select-wrap select:focus { border-color: var(--accent); }
+
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--text-secondary);
+  pointer-events: none;
+}
+
+/* ========================================
+   OUTPUT DASHBOARD
+   ======================================== */
+.output-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.output-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  transition: text-shadow 0.4s ease-out;
+}
+
+.metric-value.updating {
+  text-shadow: 0 0 16px rgba(249, 115, 22, 0.4);
+}
+
+.metric-value.accent { color: var(--accent); }
+.metric-value.blue { color: var(--blue); }
+
+.metric-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Big number */
+.big-number-card {
+  background: linear-gradient(135deg, var(--bg-surface) 0%, #1E2A38 100%);
+  border: 1px solid var(--accent-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  margin-top: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.big-number-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(249, 115, 22, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.big-number-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.big-number {
+  font-family: var(--font-mono);
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  transition: text-shadow 0.5s ease-out;
+  position: relative;
+}
+
+.big-number.updating {
+  text-shadow: 0 0 30px rgba(249, 115, 22, 0.5), 0 0 60px rgba(249, 115, 22, 0.2);
+}
+
+.big-number-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  position: relative;
+}
+
+/* ========================================
+   EMAIL GATE
+   ======================================== */
+.gate-section {
+  padding: 64px 0;
+  text-align: center;
+}
+
+.gate-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  position: relative;
+}
+
+.gate-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 0 0 2px 2px;
+}
+
+.gate-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.gate-desc {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  line-height: 1.55;
+}
+
+.gate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gate-input {
+  padding: 12px 16px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px; /* 16px minimum so iOS Safari doesn't zoom on focus */
+  outline: none;
+  transition: border-color 0.15s;
+}
+.gate-input::placeholder { color: var(--text-muted); }
+.gate-input:focus { border-color: var(--accent); }
+
+.gate-btn {
+  padding: 14px 24px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  margin-top: 4px;
+}
+.gate-btn:hover { background: var(--accent-hover); }
+.gate-btn:active { transform: scale(0.98); }
+
+.gate-disclaimer {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+.gate-error {
+  color: var(--red);
+  font-size: 13px;
+  margin-top: 8px;
+  display: none;
+}
+
+/* ========================================
+   PRIORITY MATRIX
+   ======================================== */
+.matrix-section {
+  padding: 0 0 64px;
+}
+
+.section-header {
+  margin-bottom: 32px;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.section-desc {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 600px;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.matrix-table thead th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  padding: 14px 16px;
+  text-align: left;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+}
+
+.matrix-table tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  vertical-align: middle;
+  font-variant-numeric: tabular-nums;
+}
+.matrix-table tbody tr:last-child td { border-bottom: none; }
+
+.matrix-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+.matrix-rank {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--accent);
+  width: 36px;
+}
+
+.matrix-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.matrix-bar-wrap {
+  width: 100%;
+  min-width: 80px;
+}
+
+.matrix-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg-raised);
+  overflow: hidden;
+  position: relative;
+}
+
+.matrix-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--accent);
+  transition: width 0.5s ease-out;
+}
+
+.matrix-hours {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.matrix-savings {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--green);
+  white-space: nowrap;
+}
+
+.diff-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.diff-badge.easy { background: rgba(52, 211, 153, 0.12); color: var(--green); }
+.diff-badge.medium { background: rgba(251, 191, 36, 0.12); color: var(--amber); }
+.diff-badge.hard { background: rgba(248, 113, 113, 0.12); color: var(--red); }
+
+/* Matrix responsive */
+.matrix-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================
+   COMPANION GUIDE
+   ======================================== */
+.guide-section {
+  padding: 0 0 64px;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.auto-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.2s;
+}
+.auto-card:hover { border-color: var(--border-light); }
+
+.auto-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.auto-card-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-dim);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.auto-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.auto-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.auto-card-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--blue-dim);
+  color: var(--blue);
+}
+
+.auto-card-integration {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  line-height: 1.5;
+}
+
+.auto-card-integration strong {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* ========================================
+   TIMELINE
+   ======================================== */
+.timeline-section {
+  padding: 0 0 64px;
+}
+
+.timeline-track {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  margin-top: 32px;
+}
+
+.timeline-phase {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.timeline-bar {
+  height: 6px;
+}
+.phase-1 .timeline-bar { background: var(--green); }
+.phase-2 .timeline-bar { background: var(--accent); }
+.phase-3 .timeline-bar { background: var(--blue); }
+
+.timeline-body {
+  padding: 20px;
+}
+
+.timeline-phase-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.phase-1 .timeline-phase-label { color: var(--green); }
+.phase-2 .timeline-phase-label { color: var(--accent); }
+.phase-3 .timeline-phase-label { color: var(--blue); }
+
+.timeline-phase-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.timeline-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.timeline-items li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding-left: 16px;
+  position: relative;
+}
+
+.timeline-items li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+}
+.phase-1 .timeline-items li::before { background: var(--green); }
+.phase-2 .timeline-items li::before { background: var(--accent); }
+.phase-3 .timeline-items li::before { background: var(--blue); }
+
+/* ========================================
+   CTA BAND
+   ======================================== */
+.cta-band {
+  padding: 48px 0;
+  text-align: center;
+  background: linear-gradient(180deg, transparent, rgba(249, 115, 22, 0.04) 50%, transparent);
+}
+
+.cta-band h2 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.cta-band p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.cta-link {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.15s, transform 0.1s;
+}
+.cta-link:hover { background: var(--accent-hover); color: #fff; }
+.cta-link:active { transform: scale(0.98); }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer a { color: var(--text-secondary); }
+.footer a:hover { color: var(--accent); }
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.gated { display: none; }
+.gated.visible { display: block; }
+
+.gate-section.hidden { display: none; }
+
+/* Fade-in animation for gated content */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-animate {
+  animation: revealUp 0.6s ease-out both;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 960px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+  .calc-outputs-col {
+    position: static;
+  }
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  :root { --gap: 16px; }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero { padding: 36px 0 24px; }
+
+  .hero h1 { font-size: 22px; }
+
+  .input-section { padding: 18px; }
+
+  .output-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gate-inner { padding: 28px 20px; }
+
+  .matrix-table thead th,
+  .matrix-table tbody td {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .timeline-track {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .big-number { font-size: 28px; }
+
+  .cta-link {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .big-number, .metric-value {
+    transition: none !important;
+  }
+  .reveal-animate { animation: none; }
+  .matrix-bar-fill { transition: none; }
+}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"ServiceTitan Automation Calculator","description":"Calculate which back-office systems to automate first and projected annual savings for ServiceTitan contractors.","url":"https://topbuilderai.com/calculator","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com"}}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+
+<div class="page-wrap">
+  <div class="top-bar"></div>
+
+  <!-- HEADER -->
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        Top Builder AI
+      </div>
+      <span class="brand-tagline">AI Back-Office Automation for Contractors</span>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>The ServiceTitan <span>Automation Calculator</span></h1>
+      <p class="hero-sub">See exactly how much admin work costs your operation, and what happens when you automate it.</p>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="calc-grid">
+      <div class="calc-inputs-col">
+
+        <!-- Operation Basics -->
+        <div class="input-section">
+          <div class="input-section-label">Your Operation</div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Number of technicians</span>
+              <span class="slider-val" id="valTechs">10</span>
+            </div>
+            <input type="range" id="sliderTechs" min="1" max="50" value="10" step="1" aria-label="Number of technicians">
+            <div class="slider-range"><span>1</span><span>50</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Average ticket size</span>
+              <span class="slider-val" id="valTicket">$500</span>
+            </div>
+            <input type="range" id="sliderTicket" min="150" max="2000" value="500" step="50" aria-label="Average ticket size">
+            <div class="slider-range"><span>$150</span><span>$2,000</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Jobs per tech per day</span>
+              <span class="slider-val" id="valJobs">4</span>
+            </div>
+            <input type="range" id="sliderJobs" min="1" max="8" value="4" step="1" aria-label="Jobs per tech per day">
+            <div class="slider-range"><span>1</span><span>8</span></div>
+          </div>
+
+          <div class="capacity-note" id="capacityNote">
+            At full capacity: <strong>$20,000/day</strong> across <strong>40 jobs</strong>
+          </div>
+        </div>
+
+        <!-- Admin Hours -->
+        <div class="input-section">
+          <div class="input-section-label">Hours/week your team spends on</div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Pricebook updates</span>
+              <span class="slider-val" id="valPricebook">3 hrs</span>
+            </div>
+            <input type="range" id="sliderPricebook" min="0" max="10" value="3" step="0.5" aria-label="Hours on pricebook updates">
+            <div class="slider-range"><span>0</span><span>10 hrs</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Job costing / invoicing</span>
+              <span class="slider-val" id="valJobCosting">5 hrs</span>
+            </div>
+            <input type="range" id="sliderJobCosting" min="0" max="15" value="5" step="0.5" aria-label="Hours on job costing">
+            <div class="slider-range"><span>0</span><span>15 hrs</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">A/R collections follow-up</span>
+              <span class="slider-val" id="valAR">4 hrs</span>
+            </div>
+            <input type="range" id="sliderAR" min="0" max="10" value="4" step="0.5" aria-label="Hours on AR collections">
+            <div class="slider-range"><span>0</span><span>10 hrs</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Dispatch / scheduling</span>
+              <span class="slider-val" id="valDispatch">6 hrs</span>
+            </div>
+            <input type="range" id="sliderDispatch" min="0" max="15" value="6" step="0.5" aria-label="Hours on dispatch">
+            <div class="slider-range"><span>0</span><span>15 hrs</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Payroll prep</span>
+              <span class="slider-val" id="valPayroll">3 hrs</span>
+            </div>
+            <input type="range" id="sliderPayroll" min="0" max="10" value="3" step="0.5" aria-label="Hours on payroll">
+            <div class="slider-range"><span>0</span><span>10 hrs</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Reporting</span>
+              <span class="slider-val" id="valReporting">2 hrs</span>
+            </div>
+            <input type="range" id="sliderReporting" min="0" max="5" value="2" step="0.5" aria-label="Hours on reporting">
+            <div class="slider-range"><span>0</span><span>5 hrs</span></div>
+          </div>
+        </div>
+
+        <!-- Cash Flow -->
+        <div class="input-section">
+          <div class="input-section-label">Cash Flow</div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Average days to collect payment</span>
+              <span class="slider-val" id="valCollection">45 days</span>
+            </div>
+            <input type="range" id="sliderCollection" min="15" max="90" value="45" step="1" aria-label="Days to collect payment">
+            <div class="slider-range"><span>15 days</span><span>90 days</span></div>
+          </div>
+
+          <div class="slider-row">
+            <div class="slider-header">
+              <span class="slider-name">Monthly revenue</span>
+            </div>
+            <div class="select-wrap">
+              <select id="selectRevenue" aria-label="Monthly revenue range">
+                <option value="75000">$50K - $100K</option>
+                <option value="175000" selected>$100K - $250K</option>
+                <option value="375000">$250K - $500K</option>
+                <option value="750000">$500K - $1M</option>
+                <option value="1250000">$1M+</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTPUTS -->
+      <div class="calc-outputs-col">
+        <div class="output-card">
+          <div class="output-card-grid">
+            <div class="metric-card">
+              <div class="metric-label">Admin Hours / Week</div>
+              <div class="metric-value" id="outHours">23</div>
+              <div class="metric-note">across 6 workflows</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Annual Admin Cost</div>
+              <div class="metric-value" id="outAdminCost">$41,860</div>
+              <div class="metric-note">at $35/hr avg. rate</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Automation Savings</div>
+              <div class="metric-value accent" id="outSavings">$29,302</div>
+              <div class="metric-note">assumes 70% reduction</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Cash Flow Freed</div>
+              <div class="metric-value blue" id="outCashFlow">$129,452</div>
+              <div class="metric-note">assumes 50% faster collection</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="big-number-card">
+          <div class="big-number-label">Projected first-year impact</div>
+          <div class="big-number" id="outBigNumber">$158,754</div>
+          <div class="big-number-sub">savings + working capital freed</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- EMAIL GATE -->
+  <section class="gate-section" id="gateSection">
+    <div class="container">
+      <div class="gate-inner">
+        <h2 class="gate-title">Unlock Your Automation Roadmap</h2>
+        <p class="gate-desc">See which workflows to automate first, ranked by ROI for your operation, plus the complete 90-day implementation playbook.</p>
+        <form class="gate-form" id="gateForm" autocomplete="on">
+          <input class="gate-input" type="text" id="gateName" placeholder="Full name" required autocomplete="name">
+          <input class="gate-input" type="email" id="gateEmail" placeholder="Work email" required autocomplete="email">
+          <input class="gate-input" type="text" id="gateCompany" placeholder="Company name" required autocomplete="organization">
+          <button class="gate-btn" type="submit">Get My Automation Roadmap</button>
+        </form>
+        <div class="gate-error" id="gateError">Please fill in all fields with a valid email.</div>
+        <p class="gate-disclaimer">Your ranked roadmap and the full playbook unlock instantly below. No spam, ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GATED CONTENT -->
+  <div class="gated" id="gatedContent">
+
+    <!-- PRIORITY MATRIX -->
+    <section class="matrix-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Your Automation Priorities</div>
+          <h2 class="section-title">Automation Priority Matrix</h2>
+          <p class="section-desc">Ranked by ROI based on your operation's numbers. Start at the top.</p>
+        </div>
+        <div class="matrix-table-scroll">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th style="width:40px">#</th>
+                <th>Workflow</th>
+                <th>ROI Impact</th>
+                <th>Now</th>
+                <th>After</th>
+                <th>Annual Savings</th>
+                <th>Difficulty</th>
+              </tr>
+            </thead>
+            <tbody id="matrixBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPANION GUIDE -->
+    <section class="guide-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">The Playbook</div>
+          <h2 class="section-title">10 Highest-ROI ServiceTitan Automations</h2>
+          <p class="section-desc">Each automation below integrates with your existing ServiceTitan setup. No rip-and-replace.</p>
+        </div>
+
+        <div class="guide-grid">
+          <!-- 1 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">01</div>
+              <div class="auto-card-title">Pricebook Sync</div>
+            </div>
+            <p class="auto-card-desc">Connects to supplier pricing feeds and auto-updates your ServiceTitan pricebook to maintain target margins. When a supplier raises material costs, the system recalculates your flat-rate pricing, flags items where margins have eroded below threshold, and queues price changes for manager approval before pushing to techs in the field.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">3-6 hrs/week saved</span>
+              <span class="diff-badge medium">Medium</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Pricebook API for read/write, Custom Fields for margin tracking. Requires supplier price feed access (CSV upload or API).
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">02</div>
+              <div class="auto-card-title">Job Costing Automation</div>
+            </div>
+            <p class="auto-card-desc">Pulls completed job data including technician time-on-site, materials used, and equipment charges. Cross-references against estimates to calculate actual job margin in real-time. Flags any job falling below your target gross profit percentage. Weekly digest shows margin trends by job type, technician, and department so you spot problems before they compound.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">5-8 hrs/week saved</span>
+              <span class="diff-badge hard">Hard</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Jobs API, Timesheet data, and Inventory records. Requires consistent material tracking on every job for accurate costing.
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">03</div>
+              <div class="auto-card-title">A/R Collections Sequence</div>
+            </div>
+            <p class="auto-card-desc">Monitors aging invoices and triggers a multi-channel collection sequence. Day 7: friendly email with invoice attached and a one-click payment link. Day 14: SMS reminder. Day 21: call task assigned to your office manager with a pre-written script and account summary. Day 30: escalation alert to the owner. Adjusts tone and urgency based on customer payment history.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">4-8 hrs/week saved</span>
+              <span class="diff-badge easy">Easy</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Invoicing API and Customer Communications module. Connects to your email/SMS provider and payment gateway for automated links.
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">04</div>
+              <div class="auto-card-title">Dispatch Optimization</div>
+            </div>
+            <p class="auto-card-desc">A skill-based routing engine that matches incoming jobs to the right technician based on certifications, proximity, drive time, current workload, and close rate. Minimizes windshield time by clustering jobs geographically. Factors in equipment requirements and customer history so your best closers land on the highest-value calls.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">5-10 hrs/week saved</span>
+              <span class="diff-badge hard">Hard</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Dispatch Board API, Technician Profiles, and GPS/routing data. Requires up-to-date tech skill tags and equipment assignments.
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">05</div>
+              <div class="auto-card-title">Estimate Follow-Up</div>
+            </div>
+            <p class="auto-card-desc">Tracks every unsold estimate and triggers personalized follow-up. Day 1: thank-you email with estimate summary. Day 3: educational content about the proposed work. Day 7: personal check-in call task for your sales team. Day 14: modified offer or financing option. Reports close rates by follow-up stage so you know exactly where deals are falling out.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">3-5 hrs/week saved</span>
+              <span class="diff-badge easy">Easy</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Estimates API and Customer Portal. Connects to your email platform and CRM for sequence management.
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">06</div>
+              <div class="auto-card-title">Payroll Prep</div>
+            </div>
+            <p class="auto-card-desc">Extracts technician hours from ServiceTitan timesheets, cross-references with dispatched job times, and identifies discrepancies between clocked hours and time on site. Calculates overtime, commission, and spiff payments automatically. Generates payroll-ready exports formatted for your provider, flagging entries that need manual review before submission.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">4-8 hrs/week saved</span>
+              <span class="diff-badge medium">Medium</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Timesheet API, Payroll Export, and Commission structures. Requires defined commission/spiff rules and payroll provider import format specs.
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">07</div>
+              <div class="auto-card-title">Customer Reactivation</div>
+            </div>
+            <p class="auto-card-desc">Scans your customer database for accounts with no service activity in 12 or more months. Segments by last service type, equipment age, and lifetime value. Triggers targeted reactivation campaigns: maintenance reminders for lapsed maintenance agreement holders, seasonal tune-up offers, or equipment upgrade proposals for aging systems. Tracks reactivation rate and revenue recovered.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">2-4 hrs/week saved</span>
+              <span class="diff-badge easy">Easy</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Customer database and Equipment records. Requires a connected email/marketing platform for campaign delivery.
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">08</div>
+              <div class="auto-card-title">Warranty Tracking</div>
+            </div>
+            <p class="auto-card-desc">Monitors equipment and labor warranties across your entire installed base. Auto-flags warranties expiring in 30, 60, and 90 days. Triggers proactive outreach to customers before expiration with renewal and extended warranty options. Prevents costly warranty claim denials from missed filing deadlines and creates upsell opportunities for maintenance plans.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">2-3 hrs/week saved</span>
+              <span class="diff-badge medium">Medium</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Installed Equipment API and warranty date fields. Requires consistent equipment installation data entry by field techs.
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">09</div>
+              <div class="auto-card-title">Inventory Alerts</div>
+            </div>
+            <p class="auto-card-desc">Monitors truck stock and warehouse inventory against configurable reorder points. Auto-generates purchase orders when items hit minimum thresholds. Tracks usage patterns over time to optimize stock levels, reduce carrying costs, and prevent emergency supply runs that kill productivity. Alerts dispatchers when a tech's truck is missing parts needed for the next job.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">3-5 hrs/week saved</span>
+              <span class="diff-badge medium">Medium</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Inventory and Truck Replenishment APIs. Connects to supplier ordering portals for automated PO submission.
+            </div>
+          </div>
+
+          <!-- 10 -->
+          <div class="auto-card">
+            <div class="auto-card-head">
+              <div class="auto-card-num">10</div>
+              <div class="auto-card-title">Review Generation</div>
+            </div>
+            <p class="auto-card-desc">Automatically requests reviews after completed jobs where the customer gave a 5-star satisfaction score. Sends a timed follow-up (typically 2 hours post-completion) with direct links to Google Business Profile and relevant industry platforms. Monitors response rates and adjusts send timing for highest conversion. Flags negative feedback for immediate internal follow-up before it goes public.</p>
+            <div class="auto-card-meta">
+              <span class="meta-tag">1-3 hrs/week saved</span>
+              <span class="diff-badge easy">Easy</span>
+            </div>
+            <div class="auto-card-integration">
+              <strong>ServiceTitan integration:</strong> Job Completion webhooks and Customer Satisfaction data. Requires connected review platform APIs (Google, Yelp, etc.).
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 90-DAY TIMELINE -->
+    <section class="timeline-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Implementation Roadmap</div>
+          <h2 class="section-title">90-Day Automation Timeline</h2>
+          <p class="section-desc">A phased rollout that starts with the fastest wins and builds toward full back-office automation.</p>
+        </div>
+
+        <div class="timeline-track">
+          <div class="timeline-phase phase-1">
+            <div class="timeline-bar"></div>
+            <div class="timeline-body">
+              <div class="timeline-phase-label">Days 1-30</div>
+              <div class="timeline-phase-title">Quick Wins</div>
+              <ul class="timeline-items">
+                <li>A/R Collections Sequence</li>
+                <li>Review Generation</li>
+                <li>Estimate Follow-Up</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-phase phase-2">
+            <div class="timeline-bar"></div>
+            <div class="timeline-body">
+              <div class="timeline-phase-label">Days 31-60</div>
+              <div class="timeline-phase-title">Core Systems</div>
+              <ul class="timeline-items">
+                <li>Pricebook Sync</li>
+                <li>Job Costing Automation</li>
+                <li>Dispatch Optimization</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-phase phase-3">
+            <div class="timeline-bar"></div>
+            <div class="timeline-body">
+              <div class="timeline-phase-label">Days 61-90</div>
+              <div class="timeline-phase-title">Advanced Automation</div>
+              <ul class="timeline-items">
+                <li>Payroll Prep</li>
+                <li>Inventory Alerts</li>
+                <li>Customer Reactivation</li>
+                <li>Warranty Tracking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="container">
+        <h2>Ready to stop losing money to admin work?</h2>
+        <p>Talk to our team about automating your ServiceTitan back office.</p>
+        <a class="cta-link" href="https://topbuilderai.com" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      Built by <a href="https://topbuilderai.com" target="_blank" rel="noopener">Top Builder AI</a>. We automate contractor back offices so you can focus on the job site.
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ======== STORAGE HELPERS ======== */
+  function getStore(k) { try { return localStorage.getItem(k); } catch(e) { return null; } }
+  function setStore(k, v) { try { localStorage.setItem(k, v); } catch(e) {} }
+
+  /* ======== FORMAT ======== */
+  function fmtCurrency(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+  function fmtHours(n) {
+    return (n % 1 === 0 ? n : n.toFixed(1)) + ' hrs';
+  }
+
+  /* ======== REFS ======== */
+  var sliders = {
+    techs:      document.getElementById('sliderTechs'),
+    ticket:     document.getElementById('sliderTicket'),
+    jobs:       document.getElementById('sliderJobs'),
+    pricebook:  document.getElementById('sliderPricebook'),
+    jobCosting: document.getElementById('sliderJobCosting'),
+    ar:         document.getElementById('sliderAR'),
+    dispatch:   document.getElementById('sliderDispatch'),
+    payroll:    document.getElementById('sliderPayroll'),
+    reporting:  document.getElementById('sliderReporting'),
+    collection: document.getElementById('sliderCollection')
+  };
+
+  var vals = {
+    techs:      document.getElementById('valTechs'),
+    ticket:     document.getElementById('valTicket'),
+    jobs:       document.getElementById('valJobs'),
+    pricebook:  document.getElementById('valPricebook'),
+    jobCosting: document.getElementById('valJobCosting'),
+    ar:         document.getElementById('valAR'),
+    dispatch:   document.getElementById('valDispatch'),
+    payroll:    document.getElementById('valPayroll'),
+    reporting:  document.getElementById('valReporting'),
+    collection: document.getElementById('valCollection')
+  };
+
+  var revenueSelect = document.getElementById('selectRevenue');
+
+  var outHours    = document.getElementById('outHours');
+  var outAdmin    = document.getElementById('outAdminCost');
+  var outSavings  = document.getElementById('outSavings');
+  var outCash     = document.getElementById('outCashFlow');
+  var outBig      = document.getElementById('outBigNumber');
+  var capacityNote = document.getElementById('capacityNote');
+  var matrixBody  = document.getElementById('matrixBody');
+
+  /* ======== STATE ======== */
+  var prev = { hours: 23, admin: 41860, savings: 29302, cash: 129452, roi: 158754 };
+
+  /* ======== SLIDER FILL ======== */
+  function updateFill(s) {
+    var pct = ((s.value - s.min) / (s.max - s.min)) * 100;
+    s.style.setProperty('--fill', pct + '%');
+  }
+  Object.keys(sliders).forEach(function(k) { updateFill(sliders[k]); });
+
+  /* ======== WORKFLOW METADATA ======== */
+  var workflows = [
+    { key: 'pricebook',  name: 'Pricebook Sync & Pricing',  diff: 'medium', slider: sliders.pricebook },
+    { key: 'jobCosting', name: 'Job Costing & Invoicing',    diff: 'hard',   slider: sliders.jobCosting },
+    { key: 'ar',         name: 'A/R Collections Automation',  diff: 'easy',   slider: sliders.ar },
+    { key: 'dispatch',   name: 'Dispatch Optimization',       diff: 'hard',   slider: sliders.dispatch },
+    { key: 'payroll',    name: 'Payroll Automation',           diff: 'medium', slider: sliders.payroll },
+    { key: 'reporting',  name: 'Automated Reporting',          diff: 'easy',   slider: sliders.reporting }
+  ];
+
+  /* ======== CALCULATE ======== */
+  function calculate() {
+    var techs  = +sliders.techs.value;
+    var ticket = +sliders.ticket.value;
+    var jobs   = +sliders.jobs.value;
+
+    var pb = +sliders.pricebook.value;
+    var jc = +sliders.jobCosting.value;
+    var ar = +sliders.ar.value;
+    var ds = +sliders.dispatch.value;
+    var py = +sliders.payroll.value;
+    var rp = +sliders.reporting.value;
+
+    var totalHours = pb + jc + ar + ds + py + rp;
+    var annualAdmin = totalHours * 35 * 52;
+    var automationSavings = annualAdmin * 0.70;
+
+    var collectionDays = +sliders.collection.value;
+    var monthlyRev = +revenueSelect.value;
+    var annualRev = monthlyRev * 12;
+    var daysSaved = collectionDays * 0.5;
+    var cashFlowImprovement = (annualRev / 365) * daysSaved;
+
+    var projectedROI = automationSavings + cashFlowImprovement;
+
+    var dailyCapacity = techs * jobs * ticket;
+
+    return {
+      totalHours: totalHours,
+      annualAdmin: annualAdmin,
+      automationSavings: automationSavings,
+      cashFlowImprovement: cashFlowImprovement,
+      projectedROI: projectedROI,
+      dailyCapacity: dailyCapacity,
+      totalJobs: techs * jobs,
+      workflowHours: { pricebook: pb, jobCosting: jc, ar: ar, dispatch: ds, payroll: py, reporting: rp }
+    };
+  }
+
+  /* ======== COUNTER ANIMATION ======== */
+  var animFrames = {};
+
+  function animateVal(el, from, to, duration, isCurrency) {
+    var id = el.id || Math.random();
+    if (animFrames[id]) cancelAnimationFrame(animFrames[id]);
+
+    if (Math.abs(to - from) < 1) {
+      el.textContent = isCurrency ? fmtCurrency(to) : Math.round(to).toLocaleString('en-US');
+      return;
+    }
+
+    el.classList.add('updating');
+    var start = performance.now();
+
+    function tick(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = from + (to - from) * eased;
+      el.textContent = isCurrency ? fmtCurrency(current) : Math.round(current).toLocaleString('en-US');
+      if (progress < 1) {
+        animFrames[id] = requestAnimationFrame(tick);
+      } else {
+        el.classList.remove('updating');
+      }
+    }
+
+    animFrames[id] = requestAnimationFrame(tick);
+  }
+
+  /* ======== UPDATE UI ======== */
+  function updateUI() {
+    /* Slider display values */
+    vals.techs.textContent      = sliders.techs.value;
+    vals.ticket.textContent     = '$' + (+sliders.ticket.value).toLocaleString('en-US');
+    vals.jobs.textContent       = sliders.jobs.value;
+    vals.pricebook.textContent  = fmtHours(+sliders.pricebook.value);
+    vals.jobCosting.textContent = fmtHours(+sliders.jobCosting.value);
+    vals.ar.textContent         = fmtHours(+sliders.ar.value);
+    vals.dispatch.textContent   = fmtHours(+sliders.dispatch.value);
+    vals.payroll.textContent    = fmtHours(+sliders.payroll.value);
+    vals.reporting.textContent  = fmtHours(+sliders.reporting.value);
+    vals.collection.textContent = sliders.collection.value + ' days';
+
+    /* Fill bars */
+    Object.keys(sliders).forEach(function(k) { updateFill(sliders[k]); });
+
+    /* Calculations */
+    var r = calculate();
+
+    /* Capacity note */
+    capacityNote.innerHTML = 'At full capacity: <strong>' + fmtCurrency(r.dailyCapacity) + '/day</strong> across <strong>' + r.totalJobs + ' jobs</strong>';
+
+    /* Animate output numbers */
+    animateVal(outHours,   prev.hours,   r.totalHours,           350, false);
+    animateVal(outAdmin,   prev.admin,   r.annualAdmin,          450, true);
+    animateVal(outSavings, prev.savings, r.automationSavings,    450, true);
+    animateVal(outCash,    prev.cash,    r.cashFlowImprovement,  450, true);
+    animateVal(outBig,     prev.roi,     r.projectedROI,         550, true);
+
+    prev = {
+      hours:   r.totalHours,
+      admin:   r.annualAdmin,
+      savings: r.automationSavings,
+      cash:    r.cashFlowImprovement,
+      roi:     r.projectedROI
+    };
+
+    /* Priority matrix (only if visible) */
+    if (document.getElementById('gatedContent').classList.contains('visible')) {
+      renderMatrix(r);
+    }
+  }
+
+  /* ======== PRIORITY MATRIX ======== */
+  function renderMatrix(r) {
+    var items = workflows.map(function(w) {
+      var hrs = r.workflowHours[w.key];
+      var autoHrs = +(hrs * 0.30).toFixed(1);
+      var saved = (hrs - autoHrs) * 35 * 52;
+      return {
+        name: w.name,
+        diff: w.diff,
+        hours: hrs,
+        autoHrs: autoHrs,
+        savings: saved
+      };
+    });
+
+    /* Sort by savings desc */
+    items.sort(function(a, b) { return b.savings - a.savings; });
+
+    var maxSavings = items[0] ? items[0].savings : 1;
+
+    var html = '';
+    items.forEach(function(item, i) {
+      var barPct = maxSavings > 0 ? (item.savings / maxSavings * 100) : 0;
+      html += '<tr>' +
+        '<td class="matrix-rank">' + (i + 1) + '</td>' +
+        '<td class="matrix-name">' + item.name + '</td>' +
+        '<td><div class="matrix-bar-wrap"><div class="matrix-bar"><div class="matrix-bar-fill" style="width:' + barPct + '%"></div></div></div></td>' +
+        '<td class="matrix-hours">' + fmtHours(item.hours) + '</td>' +
+        '<td class="matrix-hours">' + fmtHours(item.autoHrs) + '</td>' +
+        '<td class="matrix-savings">' + fmtCurrency(item.savings) + '/yr</td>' +
+        '<td><span class="diff-badge ' + item.diff + '">' + item.diff + '</span></td>' +
+        '</tr>';
+    });
+
+    matrixBody.innerHTML = html;
+  }
+
+  /* ======== EVENT LISTENERS ======== */
+  Object.keys(sliders).forEach(function(k) {
+    sliders[k].addEventListener('input', updateUI);
+  });
+  revenueSelect.addEventListener('change', updateUI);
+
+  /* ======== EMAIL GATE ======== */
+  var gateSection = document.getElementById('gateSection');
+  var gatedContent = document.getElementById('gatedContent');
+  var gateForm = document.getElementById('gateForm');
+  var gateError = document.getElementById('gateError');
+
+  function unlockContent(scrollToContent) {
+    gateSection.classList.add('hidden');
+    gatedContent.classList.add('visible');
+    gatedContent.classList.add('reveal-animate');
+    renderMatrix(calculate());
+    if (scrollToContent) {
+      setTimeout(function() {
+        gatedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+
+  /* Check localStorage on load (no auto-scroll for returning visitors) */
+  if (getStore('tb_calc_unlocked') === '1') {
+    unlockContent(false);
+  }
+
+  gateForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var name    = document.getElementById('gateName').value.trim();
+    var email   = document.getElementById('gateEmail').value.trim();
+    var company = document.getElementById('gateCompany').value.trim();
+
+    if (!name || !email || !company || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      gateError.style.display = 'block';
+      return;
+    }
+    gateError.style.display = 'none';
+
+    /* Store lead data */
+    setStore('tb_calc_unlocked', '1');
+    setStore('tb_calc_lead', JSON.stringify({ name: name, email: email, company: company, ts: Date.now() }));
+
+    unlockContent(true);
+  });
+
+  /* ======== INIT ======== */
+  updateUI();
+
+})();
+</script>
+</body>
+</html>

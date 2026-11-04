@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Security and Vulnerability Disclosure, Top Builder AI</title>
+<meta name="description" content="How to report a security vulnerability in Top Builder AI: scope, safe-harbor, what to expect, and our response targets. Operated by Salisbury Bookkeeping, LLC." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://topbuilderai.com/security" />
+<meta property="og:title" content="Security and Vulnerability Disclosure, Top Builder AI" />
+<meta property="og:description" content="How to report a security vulnerability in Top Builder AI: scope, safe-harbor, what to expect, and our response targets." />
+<meta property="og:url" content="https://topbuilderai.com/security" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Enterprise-light palette (WCAG 2.2 AA, deep-blue primary + refined-green secondary). */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --inkem:#FFFFFF;
+    --maxw:860px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--indigo);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1000px;height:560px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(22px)}
+  .glow::after{content:"";position:absolute;top:42%;right:-10%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* ---------- nav (matches index.html chrome) ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:1140px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:24px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a{color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink);text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+    box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:680px){.nav-links a:not(.home):not(.btn){display:none}}
+
+  .doc{padding:64px 0 40px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  h1{font-size:clamp(34px,5.4vw,52px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin:14px 0 0}
+  .lede{color:var(--ink2);font-size:18px;margin-top:22px;max-width:680px}
+
+  .quick{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+  @media(max-width:560px){.quick{grid-template-columns:1fr}}
+  .qc{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:20px 22px;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  .qc .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:700}
+  .qc p{margin-top:8px;color:var(--ink2);font-size:14.5px}
+  .qc b{color:var(--ink)}
+
+  .body{margin-top:48px}
+  .body section{margin-top:40px;scroll-margin-top:80px}
+  .body h2{font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:14px;display:flex;align-items:baseline;gap:12px}
+  .body h2 .n{font-size:13px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums;flex:none}
+  .body p{color:var(--ink2);font-size:15.5px;margin-bottom:14px}
+  .body ul{list-style:none;margin:6px 0 16px;display:flex;flex-direction:column;gap:10px}
+  .body li{color:var(--ink2);font-size:15px;padding-left:22px;position:relative}
+  .body li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--indigo-2),var(--emerald))}
+  .body li.no::before{background:var(--ink3)}
+  .body li b,.body p b{color:var(--ink);font-weight:600}
+  .body strong{color:var(--ink);font-weight:600}
+
+  .callout{border:1px solid rgba(4,120,87,.3);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(4,120,87,.06),var(--panel));padding:20px 24px;margin:8px 0 18px}
+  .callout b{color:var(--emerald)}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px;margin-top:56px;position:relative;z-index:1}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;max-width:1140px;margin:0 auto;padding:0 24px}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand home" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap doc">
+    <div class="eyebrow">Security</div>
+    <h1>Vulnerability Disclosure Policy</h1>
+    <p class="lede">We take the security of Top Builder AI and our customers' data seriously. If you have found a vulnerability, we want to hear about it, and we commit to working with you in good faith. This page explains how to report, what is in scope, and what you can expect from us.</p>
+
+    <div class="quick">
+      <div class="qc">
+        <div class="l">Report to</div>
+        <p><b><a href="mailto:support@salisburybookkeeping.com">support@salisburybookkeeping.com</a></b><br>Machine-readable contact: <a href="/.well-known/security.txt">/.well-known/security.txt</a></p>
+      </div>
+      <div class="qc">
+        <div class="l">First response</div>
+        <p>We acknowledge reports within <b>3 business days</b> and aim to validate within <b>10 business days</b>.</p>
+      </div>
+    </div>
+
+    <div class="body">
+      <section id="report">
+        <h2><span class="n">01</span> How to report</h2>
+        <p>Email <a href="mailto:support@salisburybookkeeping.com">support@salisburybookkeeping.com</a> with enough detail for us to reproduce the issue:</p>
+        <ul>
+          <li>A clear description of the vulnerability and its impact.</li>
+          <li>Step-by-step reproduction instructions, proof-of-concept, or a short screen recording.</li>
+          <li>The affected URL, endpoint, or component, and the date and time of your testing.</li>
+        </ul>
+        <p>Please report promptly after discovery and keep the details confidential until we have had a reasonable chance to remediate. We do not currently run a paid bug-bounty program, but we genuinely appreciate responsible disclosure and will credit you publicly if you wish.</p>
+      </section>
+
+      <section id="scope">
+        <h2><span class="n">02</span> Scope</h2>
+        <p><b>In scope:</b></p>
+        <ul>
+          <li>topbuilderai.com and its subpages.</li>
+          <li>The Top Builder AI web application and API.</li>
+          <li>The Top Builder AI booking service.</li>
+        </ul>
+        <p><b>Out of scope</b> (please do not test these):</p>
+        <ul>
+          <li class="no">Third-party services we integrate with (ServiceTitan, Buildertrend, Procore, QuickBooks, Supabase, Google Cloud, Anthropic, ElevenLabs). Report those to the respective vendor.</li>
+          <li class="no">Denial-of-service, volumetric, or load and stress testing; automated scanning that degrades the service.</li>
+          <li class="no">Social engineering, phishing, or physical attacks against our staff, customers, or facilities.</li>
+          <li class="no">Reports based solely on missing best-practice headers or theoretical issues without a demonstrated impact.</li>
+        </ul>
+      </section>
+
+      <section id="rules">
+        <h2><span class="n">03</span> Rules of engagement</h2>
+        <ul>
+          <li>Only test against accounts and data you own or are explicitly authorized to use. <b>Never access, modify, or exfiltrate another tenant's data.</b></li>
+          <li>Stop as soon as you have demonstrated a vulnerability; do not pivot, escalate, or maintain access.</li>
+          <li>Do not run automated tools that generate significant load.</li>
+          <li>Do not publicly disclose the issue until we confirm it is resolved or 90 days have passed and we have coordinated with you.</li>
+        </ul>
+      </section>
+
+      <section id="safe-harbor">
+        <h2><span class="n">04</span> Safe harbor</h2>
+        <div class="callout"><b>Good-faith research is welcome.</b> If you make a good-faith effort to comply with this policy during your research, we will consider your activity authorized, we will not pursue or support legal action against you for it, and we will work with you to understand and resolve the issue quickly. If legal action is brought by a third party against you for activity that complied with this policy, we will make it known that your actions were authorized. This safe harbor does not apply to actions that violate the law or harm our customers.</div>
+      </section>
+
+      <section id="expect">
+        <h2><span class="n">05</span> What to expect from us</h2>
+        <ul>
+          <li><b>Acknowledgement</b> within 3 business days of your report.</li>
+          <li><b>Validation</b> and an initial severity assessment, typically within 10 business days.</li>
+          <li><b>Remediation</b> prioritized by severity. Critical issues are addressed as quickly as practicable.</li>
+          <li><b>Updates</b> as we work the issue, and a notice when it is resolved.</li>
+          <li><b>Credit</b> for the discovery if you would like to be named.</li>
+        </ul>
+        <p>For a customer-affecting incident, we follow our internal incident-response process, including containment, assessment, and notification of affected customers and any required authorities.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors, Money, Materials, People and Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> · Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> · AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/security">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>© 2026 Top Builder AI · topbuilderai.com · Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How Top Builder AI works: the orchestration layer, eight agents, and the safety stack</title>
+<meta name="description" content="How Top Builder AI works: a self-learning orchestration layer that sits on top of the ServiceTitan, Buildertrend, or Procore you already run, with eight agents (Booking, Routing, Financial, Inventory, Workforce, Documents, Collections, Pricebook). Figures are deterministic and the AI never computes a number; every action is advisory by default with full undo and audit." />
+<link rel="canonical" href="https://topbuilderai.com/how-it-works.html" />
+<meta name="robots" content="index,follow" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://topbuilderai.com/how-it-works.html" />
+<meta property="og:title" content="How Top Builder AI works: orchestration, eight agents, and the safety stack" />
+<meta property="og:description" content="A self-learning orchestration layer on top of ServiceTitan, Buildertrend, or Procore. Eight agents, deterministic figures the AI never computes, advisory-by-default actions with full undo and audit." />
+<meta property="og:image" content="https://topbuilderai.com/assets/cc-executive.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How Top Builder AI works" />
+<meta name="twitter:description" content="A self-learning orchestration layer on top of ServiceTitan, Buildertrend, or Procore. Eight agents, deterministic figures, advisory-by-default actions with full undo and audit." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+ :root{
+ --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+ --line:#E2E8F0; --line2:#CBD5E1;
+ --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+ --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+ --inkem:#FFFFFF;
+ --maxw:1140px; --r:18px;
+ }
+ *{box-sizing:border-box;margin:0;padding:0}
+ html{scroll-behavior:smooth}
+ body{
+ font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+ background:var(--bg); color:var(--ink); line-height:1.55;
+ -webkit-font-smoothing:antialiased; overflow-x:hidden;
+ }
+ .serif{font-family:"Instrument Serif",Georgia,serif; font-weight:400; letter-spacing:.2px}
+ .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+ a{color:inherit; text-decoration:none}
+ .mono{font-variant-numeric:tabular-nums; font-feature-settings:"tnum"}
+
+ /* ---------- ambient background ---------- */
+ .glow{position:fixed; inset:0; z-index:0; pointer-events:none}
+ .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+ width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+ .glow::after{content:"";position:absolute;top:46%;right:-10%;width:680px;height:680px;
+ background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+ main{position:relative;z-index:1}
+
+ /* ---------- nav ---------- */
+ header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+ background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+ .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+ .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+ .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--ink2)}
+ .nav-links a:hover{color:var(--ink)}
+ .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+ white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+ .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+ box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+ .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+ .btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+ .btn-ghost:hover{background:var(--bg2);border-color:var(--ink3);transform:translateY(-1px)}
+ @media(max-width:760px){
+ .nav-links a:not(.btn){display:none}
+ .nav-in{height:auto;min-height:54px;padding:9px 0;gap:10px;flex-wrap:nowrap}
+ .brand{font-size:14px;gap:7px;white-space:nowrap;flex-shrink:0}
+ .brand svg{width:22px;height:22px}
+ .nav-links{gap:8px;flex-shrink:0}
+ .nav-links .btn{padding:8px 12px;font-size:12.5px;border-radius:9px}
+ }
+ @media(max-width:560px){.section{padding:64px 0}}
+ @media(max-width:430px){
+ .wrap{padding:0 16px}
+ .brand{font-size:13px;gap:6px}
+ .brand svg{width:20px;height:20px}
+ .nav-links{gap:6px}
+ .nav-links .btn{padding:7px 10px;font-size:12px}
+ }
+
+ :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+
+ /* ---------- chips / section heads ---------- */
+ .chip{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.3px;
+ padding:6px 13px;border-radius:999px;border:1px solid var(--line2);color:var(--ink2);background:#fff}
+ .chip .pulse{width:7px;height:7px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 0 rgba(4,120,87,.5);animation:pulse 2.2s infinite}
+ @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(4,120,87,.45)}70%{box-shadow:0 0 0 9px rgba(4,120,87,0)}100%{box-shadow:0 0 0 0 rgba(4,120,87,0)}}
+ .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+ .section{padding:88px 0;position:relative}
+ .section h2{font-size:clamp(27px,4.2vw,44px);line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:14px 0 0}
+ .lede{color:var(--ink2);font-size:18px;max-width:720px;margin-top:18px}
+
+ /* ---------- breadcrumb ---------- */
+ .crumbs{font-size:13px;color:var(--ink3);padding:18px 0 0}
+ .crumbs a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+ .crumbs a:hover{color:var(--ink)}
+ .crumbs span{color:var(--ink3)}
+
+ /* ---------- hero ---------- */
+ .hero{padding:36px 0 30px}
+ .hero h1{font-size:clamp(33px,5.4vw,56px);line-height:1.06;letter-spacing:-.025em;font-weight:800;color:var(--ink);max-width:20ch}
+ .hero .sub{font-size:clamp(16px,2.1vw,19px);line-height:1.6;color:var(--ink2);max-width:64ch;margin-top:20px}
+ .answer-box{margin-top:24px;border:1.5px solid #BFD3FF;border-radius:16px;
+ background:linear-gradient(180deg,#EEF3FF,#FFFFFF);padding:22px 24px;box-shadow:0 18px 44px -28px rgba(37,99,235,.45);max-width:760px}
+ .answer-box .lab{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+ .answer-box p{font-size:17px;line-height:1.6;color:var(--ink);margin-top:9px}
+ .answer-box p b{color:var(--ink)}
+ .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;align-items:center}
+ .hero-cta .btn{padding:13px 22px;font-size:15px;border-radius:12px}
+ .hero-cta .btn svg{width:18px;height:18px}
+
+ /* ---------- integration bridge ---------- */
+ .ib{max-width:760px;margin:40px 0 0}
+ .ib-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);margin-bottom:16px;text-align:center}
+ .ib-top{background:linear-gradient(180deg,#EEF3FF,#FFFFFF);border:1.5px solid #BFD3FF;border-radius:16px;padding:20px 18px;box-shadow:0 18px 44px -24px rgba(37,99,235,.5);text-align:center}
+ .ib-ttl{display:flex;align-items:center;justify-content:center;gap:10px;font-weight:800;font-size:19px;color:var(--ink);letter-spacing:-.01em}
+ .ib-mk{width:32px;height:32px;border-radius:8px;background:var(--indigo);display:inline-flex;align-items:center;justify-content:center}
+ .ib-mk svg{width:20px;height:20px}
+ .ib-sub{font-size:13px;color:var(--ink2);margin-top:6px}
+ .ib-agents{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:14px}
+ .ib-agent{font-size:11.5px;font-weight:600;color:var(--indigo);background:#EFF4FF;border:1px solid #DBE6FF;border-radius:7px;padding:4px 9px}
+ .ib-down{position:relative;display:flex;justify-content:center;gap:96px;height:50px;align-items:center}
+ .ib-down svg{height:50px;width:14px;overflow:visible}
+ .ib-dl{stroke:var(--line);stroke-width:2.5;fill:none}
+ .ib-dd{stroke:var(--indigo);stroke-width:2.5;fill:none;stroke-dasharray:6 12;stroke-linecap:round;animation:ib-flow 1.2s linear infinite}
+ .ib-ah{fill:var(--indigo)}
+ @keyframes ib-flow{to{stroke-dashoffset:-18}}
+ .ib-orch{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--ink3);background:var(--bg);padding:2px 10px;border:1px solid var(--line);border-radius:999px}
+ .ib-bottom{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+ .ib-blbl{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);text-align:center;margin-bottom:13px}
+ .ib-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+ .ib-sys{display:flex;flex-direction:column;gap:8px}
+ .ib-chip{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:8px 13px;justify-content:center}
+ .ib-chip .sq{width:15px;height:15px;border-radius:4px;flex:none;display:inline-block}
+ .ib-syncl{display:flex;flex-direction:column;align-items:center;color:var(--ink3);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;gap:3px}
+ .ib-syncl svg{width:56px;height:12px}
+ .ib-foot{text-align:center;font-size:12.5px;line-height:1.5;color:var(--ink2);margin-top:14px}
+ .ib-foot b{color:var(--ink)}
+ @media(prefers-reduced-motion:reduce){.ib-dd{animation:none}}
+
+ /* ---------- generic grid cards ---------- */
+ .grid{display:grid;gap:18px}
+ .g3{grid-template-columns:repeat(3,1fr)}
+ .g2{grid-template-columns:repeat(2,1fr)}
+ @media(max-width:880px){.g3{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}}
+ @media(max-width:560px){.g3{grid-template-columns:1fr}}
+ .card{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:24px;transition:transform .2s,border-color .2s,background .2s;box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+ .card:hover{transform:translateY(-3px);border-color:var(--line2);background:var(--panel2)}
+ .card .ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:19px;margin-bottom:14px;
+ background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.24)}
+ .card h3{font-size:17px;font-weight:600;letter-spacing:-.01em}
+ .card p{color:var(--ink2);font-size:14.5px;margin-top:8px}
+
+ /* ---------- numbered orchestration steps ---------- */
+ .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+ @media(max-width:880px){.flow{grid-template-columns:1fr 1fr}}
+ @media(max-width:520px){.flow{grid-template-columns:1fr}}
+ .fstep{border:1px solid var(--line);border-radius:14px;padding:20px 18px;background:var(--panel);box-shadow:0 1px 3px rgba(15,23,42,.06)}
+ .fstep .n{font-size:12px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums}
+ .fstep h3{font-size:16px;font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+ .fstep p{font-size:13.5px;color:var(--ink2);line-height:1.5}
+
+ /* ---------- agent rows ---------- */
+ .agents{display:flex;flex-direction:column;gap:14px;margin-top:38px}
+ .agent{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:flex-start;border:1px solid var(--line);border-radius:var(--r);
+ background:var(--panel);padding:24px 26px;box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -26px rgba(15,23,42,.5);transition:border-color .2s,background .2s}
+ .agent:hover{border-color:var(--line2);background:var(--panel2)}
+ @media(max-width:600px){.agent{grid-template-columns:1fr;gap:12px}}
+ .agent .hexico{width:54px;height:54px;flex:none}
+ .agent .hexico svg{width:54px;height:54px;display:block}
+ .agent .hx{fill:rgba(4,120,87,.1);stroke:var(--emerald);stroke-width:5;stroke-linejoin:round}
+ .agent .gl{fill:none;stroke:var(--emerald);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+ .agent .glf{fill:var(--emerald)}
+ .agent .hd{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+ .agent h3{font-size:18px;font-weight:600;letter-spacing:-.01em}
+ .agent .badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+ .agent .badge.vs{color:var(--indigo);background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.3)}
+ .agent .badge.only{color:var(--emerald);background:rgba(4,120,87,.08);border:1px solid rgba(4,120,87,.28)}
+ .agent p{color:var(--ink2);font-size:14.8px;margin-top:9px;line-height:1.55}
+
+ /* ---------- safety stack ---------- */
+ .safety{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:38px}
+ @media(max-width:760px){.safety{grid-template-columns:1fr}}
+ .scard{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:24px 26px;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+ .scard .ico{font-size:24px}
+ .scard h3{font-size:17px;font-weight:600;margin:12px 0 8px;letter-spacing:-.01em}
+ .scard p{color:var(--ink2);font-size:14.5px;line-height:1.55}
+ .scard p b{color:var(--ink)}
+ .firewall{margin-top:24px;border:1px solid rgba(4,120,87,.3);border-radius:var(--r);
+ background:linear-gradient(180deg,rgba(4,120,87,.06),var(--panel));padding:24px 26px;display:flex;gap:18px;align-items:flex-start}
+ .firewall .ico{font-size:24px}
+ .firewall b{color:var(--emerald)}
+ .firewall p{color:var(--ink2);font-size:14.8px;line-height:1.6}
+
+ /* ---------- self-learning loop ---------- */
+ .loop{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:36px}
+ @media(max-width:820px){.loop{grid-template-columns:1fr 1fr}}
+ .step{border:1px solid var(--line);border-radius:14px;padding:18px 16px;background:var(--panel);position:relative;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+ .step .n{font-size:12px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums}
+ .step h3{font-size:15px;font-weight:600;margin:7px 0 5px}
+ .step p{font-size:13px;color:var(--ink3);line-height:1.5}
+ .step.gate{border-color:rgba(180,83,9,.4);background:linear-gradient(180deg,rgba(180,83,9,.06),var(--panel))}
+ .step.gate .n{color:var(--amber)}
+
+ /* ---------- faq ---------- */
+ .faq{display:flex;flex-direction:column;gap:12px;margin-top:38px;max-width:880px}
+ details{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:4px 22px;transition:border-color .2s;box-shadow:0 1px 3px rgba(15,23,42,.05)}
+ details[open]{border-color:var(--line2);background:var(--panel2)}
+ summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:600;font-size:16px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+ summary::-webkit-details-marker{display:none}
+ summary .pm{flex:none;color:var(--indigo);font-size:20px;transition:transform .2s}
+ details[open] summary .pm{transform:rotate(45deg)}
+ details p{color:var(--ink2);font-size:14.5px;padding:0 0 20px;line-height:1.6}
+
+ /* ---------- final cta ---------- */
+ .final{border:1px solid var(--line2);border-radius:26px;padding:54px 40px;text-align:center;position:relative;overflow:hidden;
+ background:linear-gradient(180deg,rgba(37,99,235,.08),var(--panel2));box-shadow:0 24px 60px -40px rgba(37,99,235,.3)}
+ .final h2{font-size:clamp(28px,4.6vw,46px)}
+ .final p{color:var(--ink2);font-size:18px;max-width:580px;margin:18px auto 0}
+ .final .hero-cta{justify-content:center}
+
+ footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px}
+ .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+ .disc{max-width:620px;line-height:1.5}
+ .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+ .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+ .foot-also p{margin-top:4px;line-height:1.5}
+ .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+ .foot-also a:hover{color:var(--ink)}
+ .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+ .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+ .foot-legal a:hover{color:var(--ink)}
+
+ /* ---------- reveal ---------- */
+ .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+ .reveal.in{opacity:1;transform:none}
+ @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.pulse{animation:none}}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" style="position:absolute;left:-9999px;top:0;background:var(--indigo);color:#fff;padding:10px 16px;border-radius:8px;z-index:100" onfocus="this.style.left='12px';this.style.top='12px'" onblur="this.style.left='-9999px'">Skip to content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+ <div class="wrap nav-in">
+ <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+ <nav class="nav-links" aria-label="Primary">
+ <a href="/#shift">ServiceTitan vs Us</a>
+ <a href="/#learning">Self-Learning</a>
+ <a href="/#agents">The Agents</a>
+ <a href="/#pricing">Pricing</a>
+ <a href="/demo.html">Platform</a>
+ <a href="/blog/">Blog</a>
+ <a href="/faq.html">FAQ</a>
+ <a class="btn btn-ghost" href="https://os.topbuilderai.com" rel="noopener">Log in</a>
+ <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+ </nav>
+ </div>
+</header>
+
+<main id="main">
+
+ <!-- HERO + ANSWER-FIRST DEFINITION -->
+ <section class="section hero">
+ <div class="wrap">
+ <nav class="crumbs reveal" aria-label="Breadcrumb">
+ <a href="/">Home</a> <span>/</span> How it works
+ </nav>
+ <span class="eyebrow reveal" style="display:block;margin-top:20px">How it works</span>
+ <h1 class="reveal">How Top Builder AI works</h1>
+ <p class="sub reveal">One self-learning orchestration layer sits on top of the field software and the books you already run, coordinates eight specialized agents, and keeps a human in control of every action. Here is the model end to end: the orchestration layer, the eight agents, the safety stack, and the learning loop.</p>
+ <div class="answer-box reveal">
+ <div class="lab">In one sentence</div>
+ <p><b>Top Builder AI is a self-learning AI back office that plugs into ServiceTitan, Buildertrend, or Procore and orchestrates eight agents</b> to run the work between the field and QuickBooks (collections, reconciliation, pricebook, materials, payroll, dispatch, booking, and paperwork), where every figure is computed by deterministic code the AI never touches, and every action is advisory by default with full undo and an audit trail.</p>
+ </div>
+ <div class="hero-cta reveal">
+ <a class="btn btn-primary" href="https://book.topbuilderai.com" aria-label="Book your fit call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Book your fit call</a>
+ <a class="btn btn-ghost" href="/demo.html" aria-label="See the platform"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg> See the platform</a>
+ </div>
+
+ <!-- INTEGRATION BRIDGE -->
+ <section class="ib reveal" aria-label="How Top Builder AI fits your stack">
+ <div class="ib-eyebrow">How it fits your stack</div>
+ <div class="ib-top">
+ <div class="ib-ttl"><span class="ib-mk"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="50,24 73,37 73,63 50,76 27,63 27,37" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round"/><g fill="#fff"><circle cx="41" cy="45" r="3.6"/><circle cx="59" cy="45" r="3.6"/><circle cx="50" cy="57" r="3.4"/></g></svg></span> Top Builder AI . The Orchestration Layer</div>
+ <div class="ib-sub">Eight self-learning agents orchestrate every back-office process. Advisory by default, you approve.</div>
+ <div class="ib-agents"><span class="ib-agent">Booking</span><span class="ib-agent">Routing</span><span class="ib-agent">Financial</span><span class="ib-agent">Inventory</span><span class="ib-agent">Workforce</span><span class="ib-agent">Documents</span><span class="ib-agent">Collections</span><span class="ib-agent">Pricebook</span></div>
+ </div>
+ <div class="ib-down" aria-hidden="true">
+ <span class="ib-orch">orchestrates &amp; governs</span>
+ <svg viewBox="0 0 14 50" preserveAspectRatio="none"><line class="ib-dl" x1="7" y1="0" x2="7" y2="42"/><line class="ib-dd" x1="7" y1="0" x2="7" y2="42"/><polygon class="ib-ah" points="2,40 7,50 12,40"/></svg>
+ <svg viewBox="0 0 14 50" preserveAspectRatio="none"><line class="ib-dl" x1="7" y1="0" x2="7" y2="42"/><line class="ib-dd" x1="7" y1="0" x2="7" y2="42" style="animation-delay:.3s"/><polygon class="ib-ah" points="2,40 7,50 12,40"/></svg>
+ <svg viewBox="0 0 14 50" preserveAspectRatio="none"><line class="ib-dl" x1="7" y1="0" x2="7" y2="42"/><line class="ib-dd" x1="7" y1="0" x2="7" y2="42" style="animation-delay:.6s"/><polygon class="ib-ah" points="2,40 7,50 12,40"/></svg>
+ </div>
+ <div class="ib-bottom">
+ <div class="ib-blbl">Your systems, already connected</div>
+ <div class="ib-row">
+ <div class="ib-sys"><span class="ib-chip"><span class="sq" style="background:#3B5BDB"></span>ServiceTitan</span><span class="ib-chip"><span class="sq" style="background:#F2731C"></span>Procore</span></div>
+ <div class="ib-syncl"><svg viewBox="0 0 56 12" aria-hidden="true"><line x1="0" y1="6" x2="48" y2="6" stroke="#94A3B8" stroke-width="2"/><polygon points="46,1 56,6 46,11" fill="#94A3B8"/></svg>syncs to</div>
+ <div class="ib-sys"><span class="ib-chip"><span class="sq" style="background:#2CA01C"></span>QuickBooks</span></div>
+ </div>
+ <div class="ib-foot">Your field software already syncs to QuickBooks. <b>Top Builder AI sits on top and runs the work in between</b>: job costing, materials, payroll, A/R, and the books.</div>
+ </div>
+ </section>
+ </div>
+ </section>
+
+ <!-- ORCHESTRATION LAYER -->
+ <section class="section" id="orchestration" style="padding-top:24px">
+ <div class="wrap">
+ <span class="eyebrow reveal">The orchestration layer</span>
+ <h2 class="reveal">One layer reads your stack, routes the work, and keeps a human in control.</h2>
+ <p class="lede reveal">ServiceTitan, Buildertrend, or Procore runs your front office and already syncs to QuickBooks. Top Builder AI is the orchestration layer that sits on top: it pulls jobs, calls, parts, payroll, and paperwork from your platform and reads your real ledger from QuickBooks, then hands each piece of work to the agent that owns it. The agents share one cross-agent brain, so the Financial agent knows what Inventory found, and Routing weighs what Workforce forecast. Nothing fights your system of record. The orchestration layer reads, coordinates, and proposes; it does not silently write back.</p>
+ <div class="flow">
+ <div class="fstep reveal"><div class="n">01</div><h3>Connect</h3><p>The layer connects to your field platform and your QuickBooks, reading jobs, calls, parts, payroll, documents, and the general ledger on your own data.</p></div>
+ <div class="fstep reveal"><div class="n">02</div><h3>Route</h3><p>Each process is handed to the agent that owns it: a call to Booking, an aging invoice to Collections, a vendor price file to Pricebook.</p></div>
+ <div class="fstep reveal"><div class="n">03</div><h3>Coordinate</h3><p>Agents share one brain, so a margin signal, an overtime risk, and a missing part inform each other instead of living in eight silos.</p></div>
+ <div class="fstep reveal"><div class="n">04</div><h3>Propose</h3><p>Every result arrives as a proposal with its reasoning and a deterministic figure, ready for you to approve, edit, or decline.</p></div>
+ </div>
+ </div>
+ </section>
+
+ <!-- THE EIGHT AGENTS -->
+ <section class="section" id="agents" style="padding-top:24px">
+ <div class="wrap">
+ <span class="eyebrow reveal">The eight agents</span>
+ <h2 class="reveal">Two run alongside ServiceTitan. Six run the work it leaves to your books.</h2>
+ <p class="lede reveal">Each agent is a specialist with its own deterministic engine and its own slice of the back office. All eight share the same learning brain and the same safety stack. Here is what each one does.</p>
+ <div class="agents">
+
+ <div class="agent reveal">
+ <div class="hexico"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="hx" points="50,10 84,30 84,70 50,90 16,70 16,30"/><path class="gl" d="M40 38c0 13 9 22 22 22l5-5-9-5-4 4c-5-2-9-6-11-11l4-4-5-9z"/></svg></div>
+ <div>
+ <div class="hd"><h3>Booking</h3><span class="badge vs">Runs alongside ServiceTitan</span></div>
+ <p>The Booking agent answers, qualifies, and slots every inbound call 24/7, including the after-hours calls that otherwise go to voicemail and to the competitor who picked up. It values each opportunity against your job mix, screens out the unprofitable ones, and learns your booking rules over time, so the calls it books look more like the jobs you actually want. In a live demo it captured $2,895 in after-hours work that would have been lost.</p>
+ </div>
+ </div>
+
+ <div class="agent reveal">
+ <div class="hexico"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="hx" points="50,10 84,30 84,70 50,90 16,70 16,30"/><path class="gl" d="M30 40h22v18M52 46h10l8 8v6H30"/><circle class="gl" cx="39" cy="62" r="4"/><circle class="gl" cx="61" cy="62" r="4"/></svg></div>
+ <div>
+ <div class="hd"><h3>Routing and Dispatch</h3><span class="badge vs">Runs alongside ServiceTitan</span></div>
+ <p>The Routing and Dispatch agent builds drive-time-optimized assignments that also weigh margin, the parts on the truck, and looming overtime, not just the open slot on the calendar. It triages by priority (P1, P2, P3) so emergencies jump the queue, flags any job it cannot assign for a human dispatcher, and proposes the schedule rather than rewriting it behind your back. In a live demo it returned about 60 minutes per day of drive time across the crew.</p>
+ </div>
+ </div>
+
+ <div class="agent reveal">
+ <div class="hexico"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="hx" points="50,10 84,30 84,70 50,90 16,70 16,30"/><path class="gl" d="M50 32v36M58 40c-2-4-6-5-10-4-5 1-6 7-1 9l6 2c5 2 4 8-1 9-4 1-8 0-10-4"/></svg></div>
+ <div>
+ <div class="hd"><h3>Financial</h3><span class="badge only">No ServiceTitan agent</span></div>
+ <p>The Financial agent reconciles every job to your real QuickBooks general ledger, projects 30, 60, and 90-day cash, and flags margin leakage the day it appears instead of at month-end when it is too late to send the change order. Because it runs on your actual books rather than ServiceTitan's reporting data, the numbers are the ones your bank and your CPA will trust. In a live demo it surfaced $48,000 in margin leakage.</p>
+ </div>
+ </div>
+
+ <div class="agent reveal">
+ <div class="hexico"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="hx" points="50,10 84,30 84,70 50,90 16,70 16,30"/><path class="gl" d="M32 42l18-8 18 8v18l-18 8-18-8z"/><path class="gl" d="M32 42l18 8 18-8M50 50v18"/></svg></div>
+ <div>
+ <div class="hd"><h3>Inventory</h3><span class="badge only">No ServiceTitan agent</span></div>
+ <p>The Inventory agent tracks reorder points, raises shrinkage alerts, and catches truck stock and special-order parts that went out the door but never made it onto an invoice. It also runs vendor arbitrage, comparing supplier pricing so the cheaper source wins on the next order. In a live demo it found $4,120 in unbilled materials and $1,540 in vendor savings, all surfaced as proposals you approve.</p>
+ </div>
+ </div>
+
+ <div class="agent reveal">
+ <div class="hexico"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="hx" points="50,10 84,30 84,70 50,90 16,70 16,30"/><circle class="gl" cx="50" cy="42" r="8"/><path class="gl" d="M34 68c0-9 7-14 16-14s16 5 16 14"/></svg></div>
+ <div>
+ <div class="hd"><h3>Workforce</h3><span class="badge only">No ServiceTitan agent</span></div>
+ <p>The Workforce agent forecasts understaffing and avoidable overtime about a week out, broken down by trade and crew, so you can move a tech before the payroll run instead of discovering the cost after. It applies the correct overtime rules and pay classes and surfaces the claimed-versus-clocked gap. In a live demo it flagged 38 hours of overtime early enough to act on.</p>
+ </div>
+ </div>
+
+ <div class="agent reveal">
+ <div class="hexico"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="hx" points="50,10 84,30 84,70 50,90 16,70 16,30"/><path class="gl" d="M38 32h16l10 10v26H38z"/><path class="gl" d="M54 32v10h10M44 52h12M44 60h12"/></svg></div>
+ <div>
+ <div class="hd"><h3>Documents</h3><span class="badge only">No ServiceTitan agent</span></div>
+ <p>The Documents agent classifies, extracts, and files every inbound document to the right customer and the right folder: COIs, POs, signed estimates, and warranties that otherwise pile up unfiled until an audit or a dispute forces the dig. It pulls the line items off each document and flags anything that needs an e-signature, a human, or is about to expire. In a live demo it extracted $2,920 in line items.</p>
+ </div>
+ </div>
+
+ <div class="agent reveal">
+ <div class="hexico"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="hx" points="50,10 84,30 84,70 50,90 16,70 16,30"/><path class="gl" d="M34 68V54M50 68V42M66 68V36"/></svg></div>
+ <div>
+ <div class="hd"><h3>Collections</h3><span class="badge only">No ServiceTitan agent</span></div>
+ <p>The Collections agent works your A/R aging worklist 24/7, the part ServiceTitan leaves manual, and drafts the dunning email, SMS, and call for each overdue customer. It tracks every promise-to-pay, escalates as invoices age, and keeps the follow-up consistent so the aging list never sits untouched because the office was busy. The drafts wait for your approval before anything goes out.</p>
+ </div>
+ </div>
+
+ <div class="agent reveal">
+ <div class="hexico"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon class="hx" points="50,10 84,30 84,70 50,90 16,70 16,30"/><path class="gl" d="M34 34h16l16 16-16 16-16-16z"/><circle class="glf" cx="44" cy="44" r="3.4"/></svg></div>
+ <div>
+ <div class="hd"><h3>Pricebook</h3><span class="badge only">No ServiceTitan agent</span></div>
+ <p>The Pricebook agent keeps your materials costs current as vendor price files change and re-prices every affected item under your own sold-hour and margin model, so your book never quietly falls behind your real cost. Every re-price is a proposal you approve, not a silent change to what your techs quote in the field. In a live demo it re-priced the whole book to margin.</p>
+ </div>
+ </div>
+
+ </div>
+ <p class="reveal" style="margin-top:22px;font-size:14.5px;color:var(--ink3);max-width:720px">The figures above come from a live demo on fixture data. Your install runs every agent on your own ServiceTitan and QuickBooks data. <a href="/demo.html" style="color:var(--indigo)">See the platform &rarr;</a></p>
+ </div>
+ </section>
+
+ <!-- SAFETY STACK -->
+ <section class="section" id="safety" style="padding-top:24px">
+ <div class="wrap">
+ <span class="eyebrow reveal">The safety stack</span>
+ <h2 class="reveal">Built so the AI can be useful without being trusted with the math, or the keys.</h2>
+ <p class="lede reveal">The hardest part of an AI back office is not the intelligence, it is the guardrails. Five layers make the agents safe to run on a real contractor's money and data.</p>
+ <div class="safety">
+ <div class="scard reveal">
+ <div class="ico" aria-hidden="true">🔒</div>
+ <h3>Deterministic figures the AI never computes</h3>
+ <p>Every dollar and every hour is produced by pure, tested code, not by a language model. <b>The AI only narrates and advises</b>, so it cannot hallucinate a number or quietly drift a figure. The math stays exact and auditable; only the wording and judgment improve.</p>
+ </div>
+ <div class="scard reveal">
+ <div class="ico" aria-hidden="true">✋</div>
+ <h3>Advisory by default, propose then approve</h3>
+ <p>Agents ship advisory by default: each one <b>proposes, and you approve</b>. You set every agent to Off, Approve-first, or Auto, per agent, so nothing acts on your behalf until you decide it should. The agents earn autonomy one decision at a time.</p>
+ </div>
+ <div class="scard reveal">
+ <div class="ico" aria-hidden="true">↩️</div>
+ <h3>Full undo and a complete audit trail</h3>
+ <p>Every action the agents take is <b>reversible and logged</b>. A one-click undo reverses a write, and an append-only audit trail records who proposed what, who approved it, and when, so a partner, lender, or auditor can trace every decision.</p>
+ </div>
+ <div class="scard reveal">
+ <div class="ico" aria-hidden="true">🏢</div>
+ <h3>Per-tenant isolation</h3>
+ <p>Every shop's data is isolated at the database level with row-level security, and credentials are encrypted. <b>Your data never trains another contractor's agents</b>, and a rule learned for your account stays in your account. One firm can never see, or learn from, another.</p>
+ </div>
+ <div class="scard reveal">
+ <div class="ico" aria-hidden="true">🛡️</div>
+ <h3>Governed access</h3>
+ <p>Access is role-aware and enforced on the server, never from the browser. Department-scoped agents mean a tech sees the field app while finance sees the ledger, and <b>managers grant or revoke each person's agent access</b>, audited, on the org view. No one can self-grant.</p>
+ </div>
+ </div>
+ <div class="firewall reveal">
+ <div class="ico" aria-hidden="true">🔐</div>
+ <div>
+ <p><b>The numbers are locked. Only the judgment improves.</b> The deterministic-figure firewall is the load-bearing idea: because the learning layer sits only on the narration side, it is structurally blocked from touching a figure. The agents get better at how they advise you, while the math stays exact, auditable, and isolated to your account.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- SELF-LEARNING LOOP -->
+ <section class="section" id="learning" style="padding-top:24px">
+ <div class="wrap">
+ <span class="chip reveal"><span class="pulse"></span> The self-learning loop</span>
+ <h2 class="reveal">Agents that get sharper every week, <span class="serif" style="color:var(--indigo);font-size:1.05em">on purpose, and on a leash.</span></h2>
+ <p class="lede reveal">Most AI tools give you the same output on day 365 as on day 1. Top Builder AI learns from <b>what you approve and what you edit</b>, so it sounds more like your shop every month. The catch most vendors skip is that it learns safely, governed by an eval gate and a canary rollout.</p>
+ <div class="loop">
+ <div class="step reveal"><div class="n">01</div><h3>It proposes</h3><p>Every recommendation comes with its reasoning, never a black box.</p></div>
+ <div class="step reveal"><div class="n">02</div><h3>You approve or edit</h3><p>Your edits are the training signal. Three matching corrections become a candidate rule.</p></div>
+ <div class="step gate reveal"><div class="n">03</div><h3>The eval gate</h3><p>A candidate must pass a safety check and a regression test before it can ever go live.</p></div>
+ <div class="step reveal"><div class="n">04</div><h3>You approve the rule</h3><p>Nothing changes behavior until a human signs off. It is an approval queue, not autopilot.</p></div>
+ <div class="step reveal"><div class="n">05</div><h3>Canary rollout</h3><p>New rules roll out gradually, are monitored for drift, and roll back if they slip.</p></div>
+ </div>
+ <p class="reveal" style="margin-top:24px;font-size:14.5px;color:var(--ink3);max-width:720px">The loop runs on the narration side of the firewall only, so a learned rule changes how an agent advises, never what a figure is. A candidate rule reaches a human only after it clears the eval gate; an approved rule reaches your whole shop only after the canary proves it does not drift.</p>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="section" id="faq" style="padding-top:24px">
+ <div class="wrap">
+ <span class="eyebrow reveal">Straight answers</span>
+ <h2 class="reveal">How it works, in plain language.</h2>
+ <div class="faq">
+ <details class="reveal" open><summary>How does Top Builder AI work? <span class="pm">+</span></summary><p>Top Builder AI is a self-learning orchestration layer that plugs into the ServiceTitan, Buildertrend, or Procore you already run and reads your real books from QuickBooks. It coordinates eight specialized agents that run the back-office work between the field and the ledger: booking, routing, financial reconciliation, inventory, workforce, documents, collections, and pricebook. Every figure is computed by deterministic code the AI never touches, and every action is advisory by default, so the agents propose and you approve.</p></details>
+ <details class="reveal"><summary>Does it replace ServiceTitan or my field software? <span class="pm">+</span></summary><p>No, it sits on top and makes your field software more valuable. ServiceTitan, Buildertrend, or Procore keeps running your front office and syncing to QuickBooks. Top Builder AI orchestrates the work in between, the back-office processes your platform leaves manual or leaves to the books, without ever touching your system of record. Keep every front-office workflow your team already knows.</p></details>
+ <details class="reveal"><summary>What are the eight agents? <span class="pm">+</span></summary><p>Booking answers and slots every call 24/7. Routing and Dispatch optimizes assignments for drive time, margin, and overtime. Financial reconciles to your real QuickBooks ledger and projects cash. Inventory tracks parts, shrinkage, and unbilled materials. Workforce forecasts overtime and understaffing. Documents files every inbound document to the right place. Collections works the A/R aging list 24/7. Pricebook re-costs your book as vendor prices move. All eight share one learning brain.</p></details>
+ <details class="reveal"><summary>Will the AI change my numbers or hallucinate a figure? <span class="pm">+</span></summary><p>It cannot. Every dollar and hour is computed by deterministic, tested code, and the AI only narrates and advises. The learning layer is structurally blocked from touching a figure, so the math stays exact and auditable while only the wording and judgment improve over time. This deterministic-figure firewall is the core of the safety stack.</p></details>
+ <details class="reveal"><summary>Can the agents take actions on their own? <span class="pm">+</span></summary><p>Only if you let them. Every agent ships advisory by default: it proposes and you approve. You can set each one to Off, Approve-first, or Auto, per agent, and every action is reversible with a one-click undo and recorded in a complete audit trail. Nothing acts on your behalf until you decide it should.</p></details>
+ <details class="reveal"><summary>How does the self-learning loop stay safe? <span class="pm">+</span></summary><p>The agents learn from what you approve and what you edit. Three matching corrections become a candidate rule, which must pass an eval gate (a safety check plus a regression test) before a human ever sees it. A person then approves the rule, and it rolls out behind a canary percentage that is monitored for drift and rolled back if it slips. It is an approval queue, not autopilot.</p></details>
+ <details class="reveal"><summary>Is my data isolated from other contractors? <span class="pm">+</span></summary><p>Yes. Every tenant is isolated at the database level with row-level security, credentials are encrypted, and your data never trains another shop's agents. A rule learned for your account stays in your account. Access is role-aware and enforced on the server: managers grant or revoke each person's agent access, audited, and no one can self-grant.</p></details>
+ <details class="reveal"><summary>What does it cost and how is it installed? <span class="pm">+</span></summary><p>The monthly scales with team size: $3,000 for up to 25 people, $4,500 for 26 to 75, $6,000 for 76 to 125, $8,000 for 126 to 250, and custom above 250, billed off your connected ServiceTitan and QuickBooks employee count. The one-time install is $0 this quarter (normally $8,000), or you can pay the install and keep the monthly flexible. We onboard a small number of contractors each quarter, hands-on, with a 30-day board-ready-or-free guarantee.</p></details>
+ <details class="reveal"><summary>What systems does it connect to? <span class="pm">+</span></summary><p>The three major integrations are ServiceTitan (home services, the flagship), Buildertrend (residential builders and remodelers), and Procore (commercial construction). The same adapter layer also covers Housecall Pro, Jobber, FieldEdge, Service Fusion, Workiz, JobNimbus, and AccuLynx, one adapter layer across ten systems, and every install reads your real books from QuickBooks. Pick your system in the Command Center and the agents read from it and narrate in its language.</p></details>
+ </div>
+ <p class="reveal" style="margin-top:20px;font-size:14.5px;color:var(--ink3)">More questions? <a href="/faq.html" style="color:var(--indigo)">All 24 questions, answered in plain text &rarr;</a></p>
+ </div>
+ </section>
+
+ <!-- FINAL CTA -->
+ <section class="section" id="apply" style="padding-top:24px">
+ <div class="wrap">
+ <div class="final reveal">
+ <span class="chip" style="margin-bottom:6px"><span class="pulse"></span> This quarter's cohort · open</span>
+ <h2>See the orchestration layer run on your own data.</h2>
+ <p>Book a fit call and we will run a real teardown on your ServiceTitan and QuickBooks. The $0 install this quarter (normally $8,000), the developer on speed-dial, and a 30-day board-ready-or-free guarantee.</p>
+ <div class="hero-cta">
+ <a class="btn btn-primary" href="https://book.topbuilderai.com" style="font-size:15px">Book your fit call &rarr;</a>
+ <a class="btn btn-ghost" href="/demo.html">See the platform</a>
+ </div>
+ <p style="font-size:13px;color:var(--ink3);margin-top:22px">Pick a time and you will get a Google Meet invite, straight onto the developer's calendar.</p>
+ </div>
+ </div>
+ </section>
+
+</main>
+
+<footer>
+ <div class="wrap foot-in">
+ <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+ <p class="disc">The AI back office for ServiceTitan contractors, Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+ <div class="foot-also">
+ <div class="h">Also from Cory Salisbury</div>
+ <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> · Construction bookkeeping and fractional CFO services for contractors.</p>
+ <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> · AI training platform that teaches teams to actually use AI at work.</p>
+ </div>
+ <div class="foot-legal">
+ <a href="/procore.html">Procore integration</a>
+ <a href="/privacy">Privacy</a>
+ <a href="/terms">Terms</a>
+ <a href="/security">Security</a>
+ <a href="/.well-known/security.txt">security.txt</a>
+ <a href="/blog/">Blog</a>
+ <a href="/faq.html">FAQ</a>
+ </div>
+ <div>© 2026 Top Builder AI · topbuilderai.com · Salisbury Bookkeeping, LLC</div>
+ </div>
+</footer>
+
+<!-- JSON-LD: BreadcrumbList + FAQPage + Service (GEO/AEO multipliers) -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+ {"@type":"BreadcrumbList","@id":"https://topbuilderai.com/how-it-works.html#breadcrumb","itemListElement":[
+ {"@type":"ListItem","position":1,"name":"Home","item":"https://topbuilderai.com/"},
+ {"@type":"ListItem","position":2,"name":"How it works","item":"https://topbuilderai.com/how-it-works.html"}
+ ]},
+ {"@type":"Organization","@id":"https://topbuilderai.com/#organization",
+ "name":"Top Builder AI","url":"https://topbuilderai.com",
+ "legalName":"Salisbury Bookkeeping LLC",
+ "email":"support@topbuilderai.com",
+ "founder":{"@id":"https://salisburybookkeeping.com/#cory-salisbury"}},
+ {"@type":"Person","@id":"https://salisburybookkeeping.com/#cory-salisbury",
+ "name":"Cory Salisbury","jobTitle":"Founder",
+ "sameAs":["https://salisburybookkeeping.com","https://topbuilderai.com","https://neuron-hq.com"]},
+ {"@type":"Service","@id":"https://topbuilderai.com/how-it-works.html#service",
+ "name":"Top Builder AI, the self-learning AI back office for contractors",
+ "serviceType":"AI back-office orchestration for ServiceTitan, Buildertrend and Procore contractors",
+ "description":"A self-learning orchestration layer that plugs into ServiceTitan, Buildertrend or Procore and reads your real QuickBooks books, coordinating eight agents (Booking, Routing and Dispatch, Financial, Inventory, Workforce, Documents, Collections, Pricebook). Every figure is computed by deterministic code the AI never touches; every action is advisory by default with full undo, an audit trail, per-tenant isolation and governed access.",
+ "provider":{"@id":"https://topbuilderai.com/#organization"},
+ "areaServed":"US",
+ "offers":{"@type":"AggregateOffer","priceCurrency":"USD","lowPrice":"3000","highPrice":"8000","offerCount":"5","availability":"https://schema.org/LimitedAvailability","url":"https://book.topbuilderai.com"},
+ "hasOfferCatalog":{"@type":"OfferCatalog","name":"Eight self-learning agents","itemListElement":[
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Booking agent","description":"Answers, qualifies and slots every inbound call 24/7, including after-hours, and learns your booking rules over time."}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Routing and Dispatch agent","description":"Drive-time-optimized assignments that also weigh margin, parts and overtime, with P1, P2 and P3 triage."}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Financial agent","description":"Reconciles every job to your real QuickBooks general ledger, projects 30, 60 and 90-day cash, and flags margin leakage the day it appears."}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Inventory agent","description":"Reorder points, shrinkage alerts, unbilled materials and vendor-arbitrage savings."}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Workforce agent","description":"Forecasts understaffing and avoidable overtime about a week out, by trade and crew."}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Documents agent","description":"Classifies, extracts and files every inbound document to the right customer and folder."}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Collections agent","description":"Works the A/R aging worklist 24/7, drafts the dunning, and tracks every promise-to-pay."}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pricebook agent","description":"Re-costs your pricebook as vendor costs move, under your own sold-hour and margin model, human-approved."}}
+ ]}},
+ {"@type":"FAQPage","@id":"https://topbuilderai.com/how-it-works.html#faq","mainEntity":[
+ {"@type":"Question","name":"How does Top Builder AI work?","acceptedAnswer":{"@type":"Answer","text":"Top Builder AI is a self-learning orchestration layer that plugs into the ServiceTitan, Buildertrend or Procore you already run and reads your real books from QuickBooks. It coordinates eight specialized agents that run the back-office work between the field and the ledger: booking, routing, financial reconciliation, inventory, workforce, documents, collections and pricebook. Every figure is computed by deterministic code the AI never touches, and every action is advisory by default, so the agents propose and you approve."}},
+ {"@type":"Question","name":"Does it replace ServiceTitan or my field software?","acceptedAnswer":{"@type":"Answer","text":"No, it sits on top and makes your field software more valuable. ServiceTitan, Buildertrend or Procore keeps running your front office and syncing to QuickBooks. Top Builder AI orchestrates the work in between, the back-office processes your platform leaves manual or leaves to the books, without ever touching your system of record."}},
+ {"@type":"Question","name":"What are the eight agents?","acceptedAnswer":{"@type":"Answer","text":"Booking answers and slots every call 24/7. Routing and Dispatch optimizes assignments for drive time, margin and overtime. Financial reconciles to your real QuickBooks ledger and projects cash. Inventory tracks parts, shrinkage and unbilled materials. Workforce forecasts overtime and understaffing. Documents files every inbound document. Collections works the A/R aging list 24/7. Pricebook re-costs your book as vendor prices move. All eight share one learning brain."}},
+ {"@type":"Question","name":"Will the AI change my numbers or hallucinate a figure?","acceptedAnswer":{"@type":"Answer","text":"It cannot. Every dollar and hour is computed by deterministic, tested code, and the AI only narrates and advises. The learning layer is structurally blocked from touching a figure, so the math stays exact and auditable while only the wording and judgment improve over time."}},
+ {"@type":"Question","name":"Can the agents take actions on their own?","acceptedAnswer":{"@type":"Answer","text":"Only if you let them. Every agent ships advisory by default: it proposes and you approve. You can set each one to Off, Approve-first or Auto, per agent, and every action is reversible with a one-click undo and recorded in a complete audit trail."}},
+ {"@type":"Question","name":"How does the self-learning loop stay safe?","acceptedAnswer":{"@type":"Answer","text":"The agents learn from what you approve and what you edit. Three matching corrections become a candidate rule, which must pass an eval gate (a safety check plus a regression test) before a human ever sees it. A person then approves the rule, and it rolls out behind a canary percentage that is monitored for drift and rolled back if it slips."}},
+ {"@type":"Question","name":"Is my data isolated from other contractors?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every tenant is isolated at the database level with row-level security, credentials are encrypted, and your data never trains another shop's agents. A rule learned for your account stays in your account. Access is role-aware and enforced on the server: managers grant or revoke each person's agent access, audited, and no one can self-grant."}},
+ {"@type":"Question","name":"What does it cost and how is it installed?","acceptedAnswer":{"@type":"Answer","text":"The monthly scales with team size: $3,000 for up to 25 people, $4,500 for 26 to 75, $6,000 for 76 to 125, $8,000 for 126 to 250, and custom above 250, billed off your connected ServiceTitan and QuickBooks employee count. The one-time install is $0 this quarter (normally $8,000), or you can pay the install and keep the monthly flexible. We onboard a small number of contractors each quarter, hands-on, with a 30-day board-ready-or-free guarantee."}},
+ {"@type":"Question","name":"What systems does it connect to?","acceptedAnswer":{"@type":"Answer","text":"The three major integrations are ServiceTitan (home services, the flagship), Buildertrend (residential builders and remodelers), and Procore (commercial construction). The same adapter layer also covers Housecall Pro, Jobber, FieldEdge, Service Fusion, Workiz, JobNimbus and AccuLynx, one adapter layer across ten systems, and every install reads your real books from QuickBooks."}}
+ ]}
+ ]
+}
+</script>
+
+<script>
+ // scroll reveal: in-view elements reveal immediately, the rest animate on scroll,
+ // with a final safety net so content can never stay invisible.
+ const show=(el)=>el.classList.add('in');
+ const els=[...document.querySelectorAll('.reveal')];
+ els.forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%6,5)*40)+'ms'});
+ const io=new IntersectionObserver((es,o)=>{es.forEach(e=>{if(e.isIntersecting){show(e.target);o.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+ requestAnimationFrame(()=>{els.forEach(el=>{
+ if(el.getBoundingClientRect().top < (window.innerHeight||800)*0.95){show(el);}else{io.observe(el);}
+ });});
+ setTimeout(()=>els.forEach(show),2500);
+</script>
+<!-- WebMCP marketing manifest (publish-as-we-go standing rule): read-only + lead-capture tools so
+ browser AI agents can ACT on this page instead of scraping. Feature-detected, a no-op without WebMCP. -->
+<script src="/webmcp.js" defer></script>
+</body>
+</html>

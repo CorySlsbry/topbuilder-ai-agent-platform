@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Does ServiceTitan Track Certificate-of-Insurance Expiration Dates? (2026)</title>
+<meta name="description" content="ServiceTitan's own Forms and e-signature docs show no COI expiration tracking, yet ServiceTitan's own vendor contract requires it from its subs within 10 days. Here's the gap and the honest way to close it." />
+<link rel="canonical" href="https://topbuilderai.com/blog/servicetitan-coi-tracking-ai-documents-agent.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Does ServiceTitan Track Certificate-of-Insurance Expiration Dates? (2026)" />
+<meta property="og:description" content="ServiceTitan's own docs show Forms and e-signature don't track COI expiration. ServiceTitan's own vendor contract requires it anyway. Here's the gap and how to close it." />
+<meta property="og:url" content="https://topbuilderai.com/blog/servicetitan-coi-tracking-ai-documents-agent.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_backoffice.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_backoffice.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:var(--ink);line-height:1.1;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:34%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (companion short) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Does ServiceTitan Track Certificate of Insurance Expiration?",
+  "description":"By ServiceTitan's own docs, Forms and e-signature don't track certificate-of-insurance expiration dates. ServiceTitan's own vendor contract requires it anyway, within 10 days. A 38-second walkthrough of the gap a Documents agent closes.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/vDw1emWqQHM/maxresdefault.jpg",
+  "uploadDate":"2026-08-01T08:28:00Z",
+  "duration":"PT38S",
+  "contentUrl":"https://www.youtube.com/watch?v=vDw1emWqQHM",
+  "embedUrl":"https://www.youtube.com/embed/vDw1emWqQHM",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/servicetitan-coi-tracking-ai-documents-agent.html"},
+  "headline":"Does ServiceTitan Track Certificate-of-Insurance Expiration Dates? (2026)",
+  "description":"ServiceTitan's own Forms and e-signature docs show no COI expiration tracking, yet ServiceTitan's own vendor contract requires it from its subs within 10 days. Here's the gap and the honest way to close it.",
+  "datePublished":"2026-08-01",
+  "dateModified":"2026-08-01",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_backoffice.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan certificate of insurance","COI tracking software","ServiceTitan document management","AI document agent for contractors","subcontractor insurance compliance"],
+  "keywords":"ServiceTitan certificate of insurance tracking, COI expiration tracking ServiceTitan, ServiceTitan document management AI, AI document agent for contractors, subcontractor COI compliance HVAC"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does ServiceTitan track certificate-of-insurance expiration dates for you?","acceptedAnswer":{"@type":"Answer","text":"Not on its own, based on ServiceTitan's own published documentation. Its Forms feature collects checklists, photos, PDFs and customer signatures; its e-signature feature is scoped to service agreements sent to customers. Neither documented workflow classifies an incoming document, extracts an expiration date, or alerts anyone before a certificate of insurance lapses."}},
+    {"@type":"Question","name":"What does ServiceTitan's Forms feature actually track?","acceptedAnswer":{"@type":"Answer","text":"Per ServiceTitan's own help documentation, Forms is built to capture field data during a job: equipment details, checklists, photos, PDFs, and customer signatures on service agreements. It is a data-collection tool. The documentation does not describe automatic document classification, expiration-date extraction, or routing a captured document to a department or folder based on what it is."}},
+    {"@type":"Question","name":"Does ServiceTitan's e-signature feature cover certificates of insurance?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan's own how-to documentation scopes e-signature specifically to service agreements: you add a signature link and email it to a customer, and the system alerts you when that customer views or signs it. There is no documented certificate-of-insurance workflow, no vendor or subcontractor document type, and no expiration alerting."}},
+    {"@type":"Question","name":"If ServiceTitan doesn't track COI expiration, why does ServiceTitan itself require it?","acceptedAnswer":{"@type":"Answer","text":"Because ServiceTitan treats it as material risk when it is the one exposed. ServiceTitan's own Standard Vendor Terms and Conditions require any vendor it contracts with to provide a certificate of insurance within ten days of signing, naming ServiceTitan as additional insured, with at least thirty days' written notice before any coverage cancellation. ServiceTitan enforces this discipline on its own vendors. It does not build the equivalent tracking into the product it sells contractors to enforce on theirs."}},
+    {"@type":"Question","name":"What does a lapsed COI actually cost a contractor?","acceptedAnswer":{"@type":"Answer","text":"There is no single authoritative figure. A couple of compliance-software vendors that publish COI-tracking content put the cost of a claim involving an uninsured subcontractor in the range of $75,000 to $150,000, citing unspecified construction-industry data; we could not independently verify a primary source behind that range, so treat it as directional. What is verifiable is the mechanism: a general contractor or ServiceTitan itself can require proof of insurance before releasing payment or continuing a relationship, and a lapsed certificate nobody caught in time is what triggers that hold."}},
+    {"@type":"Question","name":"What do existing AI document management tools for contractors actually offer?","acceptedAnswer":{"@type":"Answer","text":"The closest generic content describes AI ingesting a certificate of insurance, extracting policy limits, and flagging deficiencies, but in purely educational terms with no named platform and no field-service context. The closest dedicated tool is a standalone certificate-of-insurance tracker with expiration reminders, but it is not built to know which ServiceTitan job or customer a document belongs to, or to route it anywhere inside your existing back office. Neither sits inside the system a ServiceTitan contractor already runs."}},
+    {"@type":"Question","name":"How does Top Builder AI's Documents agent close this gap?","acceptedAnswer":{"@type":"Answer","text":"It classifies each incoming document by type, matches it to the right customer and job, routes it to the owning department and ServiceTitan folder, and flags anything that needs a human: an e-signature still pending, a certificate of insurance approaching its expiration date, or anything it cannot classify with confidence. It does not decide compliance policy. It surfaces the document, the date, and the flag, and a human makes the call."}},
+    {"@type":"Question","name":"Does this replace ServiceTitan Forms or e-signature?","acceptedAnswer":{"@type":"Answer","text":"No. Forms and e-signature are still how a technician collects a checklist or a customer signs a service agreement in the field. The Documents agent sits alongside that, watching every document that lands in the office, whatever its source, classifying and routing it, and catching the expiration dates and pending signatures that a form built for field data collection was never designed to track."}},
+    {"@type":"Question","name":"What does this look like on one incoming document?","acceptedAnswer":{"@type":"Answer","text":"This example is illustrative, not a client result. A subcontractor emails a renewed certificate of insurance. The agent classifies it as a COI, matches it to that subcontractor's record, reads the new expiration date, and files it to the ServiceTitan vendor folder. Fourteen days before that new date, it flags the certificate again for review, the same way it would have flagged the lapse if the renewal had never arrived."}},
+    {"@type":"Question","name":"Does the Documents agent make compliance decisions on its own?","acceptedAnswer":{"@type":"Answer","text":"No. It classifies, matches, routes, and flags. Whether a lapsed certificate holds a payment, pauses a subcontractor relationship, or gets a grace period is a business decision a human makes. The agent's job is making sure that decision gets made before the lapse becomes a problem, not after."}},
+    {"@type":"Question","name":"What happens if a document doesn't match any existing customer or job?","acceptedAnswer":{"@type":"Answer","text":"It gets flagged as needs-human rather than filed on a guess. The agent is built to route confidently or ask, never to silently misfile a document against the wrong job because a name was close enough."}},
+    {"@type":"Question","name":"How does this connect to the rest of the back office?","acceptedAnswer":{"@type":"Answer","text":"A lapsed subcontractor COI is a real-money problem the moment a general contractor withholds a payment or a bonding company asks for proof of coverage, which is a Financial-agent and job-costing question, not just a filing question. Catching the expiration two weeks out instead of discovering it at the worst possible moment is what connects a paperwork agent to the numbers the rest of the back office is already tracking."}},
+    {"@type":"Question","name":"Is this a live, self-serve product I can connect today?","acceptedAnswer":{"@type":"Answer","text":"The Documents agent's classification, matching, routing, and flagging logic is real, built code, not a roadmap item. It is delivered today as part of a Teardown and Install engagement, where it is configured against your actual document flow and ServiceTitan folder structure, rather than as an unattended self-serve signup."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Certificate of Insurance Tracking</div>
+    <span class="kicker">ServiceTitan &middot; Documents &middot; Compliance</span>
+    <h1>Does ServiceTitan Track Certificate-of-Insurance Expiration Dates for You?</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 1, 2026</span>
+      <span class="pill">~11 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical &middot; Roofing</span>
+      <span class="pill">Updated August 1, 2026</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_backoffice.jpg" alt="Back-office paperwork and folders piled on a contractor's desk next to a laptop" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video vshort"><iframe src="https://www.youtube.com/embed/vDw1emWqQHM" title="Does ServiceTitan Track Certificate of Insurance Expiration?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The 38-second version of the gap below, straight from ServiceTitan's own Forms, e-signature, and vendor-contract documentation.</p>
+
+      <p class="answer">Not on its own. By ServiceTitan's own published documentation, <strong>Forms</strong> collects checklists, photos, PDFs and customer signatures, and <strong>e-signature</strong> is scoped to service agreements sent to customers. Neither documented workflow classifies an incoming document, reads an expiration date off it, or alerts anyone before a certificate of insurance lapses. Here is the part that makes the gap impossible to wave away: <strong>ServiceTitan's own vendor contract requires exactly that discipline from the businesses it works with</strong> &mdash; a certificate of insurance within ten days of signing, thirty days' written notice before any cancellation. ServiceTitan enforces this on its own vendors. It does not hand contractors the equivalent tool to enforce it on theirs.</p>
+
+      <p>This is not a knock on Forms or e-signature. Both do a real job well: capturing what happened on a job site and getting a customer's name on a service agreement without a clipboard. The question this post answers is narrower &mdash; what happens to the paperwork that isn't a service agreement: a subcontractor's certificate of insurance, a signed lien waiver, a permit, a manufacturer warranty registration &mdash; and who catches it when a certificate quietly expires.</p>
+
+      <h2>What does ServiceTitan's Forms feature actually track?</h2>
+
+      <p>Per <a class="link" href="https://help.servicetitan.com/docs/use-forms" rel="noopener noreferrer">ServiceTitan's own Forms documentation</a>, the feature is built for field data collection: technicians fill out checklists, attach photos, generate PDFs, and capture customer signatures on service agreements during a job. That is genuinely useful for standardizing what a tech documents on site.</p>
+
+      <p>What the documentation does not describe is any classification layer sitting behind that capture. A completed form is a completed form. Nothing in ServiceTitan's own published workflow reads what type of document arrived, extracts a date buried inside it, or routes it to a specific department or folder based on what it actually is.</p>
+
+      <h2>Does ServiceTitan's e-signature feature cover certificates of insurance?</h2>
+
+      <p>No. <a class="link" href="https://help.servicetitan.com/how-to/add-e-sign-to-service-agreements" rel="noopener noreferrer">ServiceTitan's own how-to guide</a> scopes e-signature specifically to service agreements: you add a signature link, email it to a customer, and get notified "when a customer views or signs an agreement." That is the entire documented alert surface &mdash; a customer-facing signature event on one document type. There is no vendor or subcontractor document category in that workflow, and no mention of expiration-date alerting for anything.</p>
+
+      <figure class="stat">
+        <div class="cap">What ServiceTitan's own docs actually cover</div>
+        <div class="body">
+          <div class="val">Field capture &amp; customer e-sign, not classification</div>
+          <div class="lab">Forms collects checklists, photos, PDFs and customer signatures. E-signature is scoped to service agreements, alerting only when a customer views or signs. Neither documented workflow classifies a document, extracts an expiration date, or routes it by type.</div>
+          <div class="src">Source: help.servicetitan.com, "Use Forms" and "Add e-sign to service agreements" (2026).</div>
+        </div>
+      </figure>
+
+      <h2>If ServiceTitan doesn't track COI expiration, why does ServiceTitan itself require it?</h2>
+
+      <p>Because when ServiceTitan is the one holding the risk, it treats certificate-of-insurance compliance as non-negotiable. <a class="link" href="https://www.servicetitan.com/legal/standard-vendor-terms-and-conditions" rel="noopener noreferrer">ServiceTitan's own Standard Vendor Terms and Conditions</a> require any vendor it contracts with to furnish a certificate of insurance <strong>within ten (10) days of signing the agreement</strong>, naming ServiceTitan as additional insured, with <strong>at least thirty (30) days' prior written notice</strong> before any coverage cancellation.</p>
+
+      <p>Read that against the product ServiceTitan sells contractors. ServiceTitan requires proof-of-insurance discipline, with real deadlines and real notice periods, from the businesses that work with it. It does not build the tracking, matching, and expiration-alerting layer that would let a contractor enforce the same discipline on its own subcontractors, inside the same system. The company knows this risk is worth a contractual deadline. The product it ships doesn't watch the calendar for you.</p>
+
+      <h2>What does a lapsed COI actually cost a contractor?</h2>
+
+      <p>There is no single authoritative number here, and this post will not pretend there is. A couple of compliance-software vendors that publish content on COI tracking put the cost of a claim involving an uninsured subcontractor somewhere in the <strong>$75,000 to $150,000</strong> range, citing unspecified "construction industry data." We could not independently verify a primary source behind that figure, so treat it as directional, not a guarantee for any specific job.</p>
+
+      <p>What is verifiable is the mechanism, not the dollar figure: a general contractor, a bonding company, or ServiceTitan itself can require current proof of insurance before releasing payment or continuing a relationship. A certificate that lapsed three weeks ago and nobody noticed is exactly what triggers that hold &mdash; on a job that is otherwise finished and waiting to be paid.</p>
+
+      <h2>What do existing "AI document management for contractors" tools actually offer?</h2>
+
+      <p>Two kinds of pages currently answer some version of this question, and neither closes the actual gap. Generic AI-document-management content describes, in purely educational terms, an AI system that can "ingest COIs, extract policy limits, and flag deficiencies" &mdash; useful as a concept, but it names no platform, offers no buyer-decision framing, and never mentions ServiceTitan or field service at all. On the other side, dedicated certificate-of-insurance trackers exist as standalone compliance software: real expiration reminders, but built to run independently, with no documented integration to a contractor's job data, customer records, or ServiceTitan folder structure.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Document tracking approach comparison">
+          <thead><tr><th>Capability</th><th>ServiceTitan Forms + e-sign</th><th>Standalone COI tracker</th><th>Top Builder AI Documents agent</th></tr></thead>
+          <tbody>
+            <tr><td>Field checklist / photo capture</td><td class="yes">Yes &mdash; Forms</td><td class="no">Not built for this</td><td>&mdash; (sits on top of ServiceTitan's own capture)</td></tr>
+            <tr><td>Customer e-signature on service agreements</td><td class="yes">Yes &mdash; documented workflow</td><td class="no">No</td><td>&mdash; (not a replacement for this)</td></tr>
+            <tr><td>Classifies an incoming document by type</td><td class="no">Not part of the documented workflow</td><td class="no">Manual entry, by design</td><td class="yes">Yes &mdash; automatic classification</td></tr>
+            <tr><td>Matches a document to the right customer/job</td><td class="no">No</td><td class="no">No ServiceTitan integration</td><td class="yes">Yes</td></tr>
+            <tr><td>Tracks certificate-of-insurance expiration dates</td><td class="no">No</td><td class="yes">Yes &mdash; standalone</td><td class="yes">Yes &mdash; inside your existing workflow</td></tr>
+            <tr><td>Routes the document to the owning department/folder</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Flags e-signature and expiration items needing a human</td><td class="no">No expiration alerting</td><td class="yes">Expiration reminders only</td><td class="yes">Yes &mdash; both, in one queue</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>How does Top Builder AI's Documents agent close this gap?</h2>
+
+      <p>The Documents agent classifies each incoming document by type, matches it to the correct customer and job, routes it to the owning department and the right ServiceTitan folder, and flags anything that needs a person: an e-signature still pending, a certificate of insurance approaching its expiration date, or a document it cannot classify with enough confidence to file automatically.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Classify the document</b> Identify what arrived &mdash; COI, lien waiver, permit, signed agreement, warranty registration &mdash; whatever the type, before deciding what to do with it.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Match it to the right customer and job</b> So it lands against the actual record it belongs to, not a guess based on a similar name.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Route it to the owning department and ServiceTitan folder</b> The office manager, the accountant, or the PM who actually needs it finds it there, not buried in a shared inbox.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Flag expiring COIs and pending signatures</b> Ahead of the expiration date, not after a general contractor withholds a payment over it.</div></div>
+        <div class="step"><div class="num">5</div><div class="txt"><b>Send anything uncertain to a human</b> A document it can't confidently classify or match is flagged needs-human, never silently misfiled.</div></div>
+      </div>
+
+      <h2>What does this look like on one incoming document?</h2>
+
+      <p>The example below is illustrative, built to show the mechanism, not a client result.</p>
+
+      <figure class="calc">
+        <div class="cap">Illustrative walkthrough &mdash; one renewed certificate of insurance</div>
+        <div class="body">
+          <div class="lab">What arrives</div>
+          <table>
+            <tr><td>Source</td><td>Subcontractor emails a renewed COI PDF</td></tr>
+            <tr><td>Classification</td><td>Certificate of insurance</td></tr>
+            <tr><td>Match</td><td>Matched to that subcontractor's vendor record</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">What the agent does with it</div>
+          <table>
+            <tr><td>Extracted expiration date</td><td>Read from the document, logged against the vendor</td></tr>
+            <tr><td>Routing</td><td>Filed to the ServiceTitan vendor folder</td></tr>
+            <tr class="tot"><td>Next action, automatically scheduled</td><td class="price">Flagged again 14 days before expiration</td></tr>
+          </table>
+        </div>
+        <figcaption>The same flag fires whether a renewal never arrives at all &mdash; the point is that a human sees the expiring certificate before it lapses, not three weeks after a payment gets held over it.</figcaption>
+      </figure>
+
+      <h2>Does this replace ServiceTitan Forms or e-signature?</h2>
+
+      <p>No. Forms is still how a technician documents a job site, and e-signature is still how a customer signs a service agreement &mdash; both real, useful, and unaffected. The Documents agent sits alongside them, watching every document that lands in the office regardless of source, classifying and routing it, and catching the expiration dates and pending signatures that a tool built for field data collection was never designed to watch for.</p>
+
+      <h2>How does this connect to the rest of the back office?</h2>
+
+      <p>A lapsed subcontractor certificate is a real-money problem the moment a general contractor withholds payment or a bonding company asks for current proof of coverage &mdash; which lands on the <strong>Financial agent's</strong> desk, not just a filing cabinet. Catching an expiration two weeks out, instead of discovering it the day a payment gets held, is what connects a paperwork agent to the numbers the rest of the back office is already tracking. Documents is one of eight agents in Top Builder AI's back-office stack; the <a class="link" href="/blog/ai-back-office-for-servicetitan.html">full back-office overview</a> covers how they work together.</p>
+
+      <ul>
+        <li><b>No automatic compliance decisions.</b> The agent classifies, matches, routes, and flags. Whether a lapsed certificate holds a payment or gets a grace period is a call a human makes.</li>
+        <li><b>No silent misfiling.</b> A document it cannot confidently match to a customer or job is flagged needs-human, not filed on a guess.</li>
+        <li><b>No invented dates or figures.</b> Expiration dates come from the document itself; nothing is estimated or assumed.</li>
+        <li><b>Delivered as a configured install, not a blind signup</b>, so it is set up against your real document flow and ServiceTitan folder structure from day one.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>See what's actually expiring in your document pile right now</h2>
+        <p>Most shops have never run this check. A fit call walks through what a real classify-match-route pass finds in your own inbox.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Does ServiceTitan track certificate-of-insurance expiration dates for you?</div>
+      <div class="a">Not on its own, based on ServiceTitan's own published documentation. Its Forms feature collects checklists, photos, PDFs and customer signatures; its e-signature feature is scoped to service agreements sent to customers. Neither documented workflow classifies an incoming document, extracts an expiration date, or alerts anyone before a certificate of insurance lapses.</div>
+
+      <div class="q">What does ServiceTitan's Forms feature actually track?</div>
+      <div class="a">Per ServiceTitan's own help documentation, Forms is built to capture field data during a job: equipment details, checklists, photos, PDFs, and customer signatures on service agreements. It is a data-collection tool. The documentation does not describe automatic document classification, expiration-date extraction, or routing a captured document to a department or folder based on what it is.</div>
+
+      <div class="q">Does ServiceTitan's e-signature feature cover certificates of insurance?</div>
+      <div class="a">No. ServiceTitan's own how-to documentation scopes e-signature specifically to service agreements: you add a signature link and email it to a customer, and the system alerts you when that customer views or signs it. There is no documented certificate-of-insurance workflow, no vendor or subcontractor document type, and no expiration alerting.</div>
+
+      <div class="q">If ServiceTitan doesn't track COI expiration, why does ServiceTitan itself require it?</div>
+      <div class="a">Because ServiceTitan treats it as material risk when it is the one exposed. ServiceTitan's own Standard Vendor Terms and Conditions require any vendor it contracts with to provide a certificate of insurance within ten days of signing, naming ServiceTitan as additional insured, with at least thirty days' written notice before any coverage cancellation. ServiceTitan enforces this discipline on its own vendors. It does not build the equivalent tracking into the product it sells contractors to enforce on theirs.</div>
+
+      <div class="q">What does a lapsed COI actually cost a contractor?</div>
+      <div class="a">There is no single authoritative figure. A couple of compliance-software vendors that publish COI-tracking content put the cost of a claim involving an uninsured subcontractor in the range of $75,000 to $150,000, citing unspecified construction-industry data; we could not independently verify a primary source behind that range, so treat it as directional. What is verifiable is the mechanism: a general contractor or ServiceTitan itself can require proof of insurance before releasing payment or continuing a relationship, and a lapsed certificate nobody caught in time is what triggers that hold.</div>
+
+      <div class="q">What do existing AI document management tools for contractors actually offer?</div>
+      <div class="a">The closest generic content describes AI ingesting a certificate of insurance, extracting policy limits, and flagging deficiencies, but in purely educational terms with no named platform and no field-service context. The closest dedicated tool is a standalone certificate-of-insurance tracker with expiration reminders, but it is not built to know which ServiceTitan job or customer a document belongs to, or to route it anywhere inside your existing back office. Neither sits inside the system a ServiceTitan contractor already runs.</div>
+
+      <div class="q">How does Top Builder AI's Documents agent close this gap?</div>
+      <div class="a">It classifies each incoming document by type, matches it to the right customer and job, routes it to the owning department and ServiceTitan folder, and flags anything that needs a human: an e-signature still pending, a certificate of insurance approaching its expiration date, or anything it cannot classify with confidence. It does not decide compliance policy. It surfaces the document, the date, and the flag, and a human makes the call.</div>
+
+      <div class="q">Does this replace ServiceTitan Forms or e-signature?</div>
+      <div class="a">No. Forms and e-signature are still how a technician collects a checklist or a customer signs a service agreement in the field. The Documents agent sits alongside that, watching every document that lands in the office, whatever its source, classifying and routing it, and catching the expiration dates and pending signatures that a form built for field data collection was never designed to track.</div>
+
+      <div class="q">What does this look like on one incoming document?</div>
+      <div class="a">This example is illustrative, not a client result. A subcontractor emails a renewed certificate of insurance. The agent classifies it as a COI, matches it to that subcontractor's record, reads the new expiration date, and files it to the ServiceTitan vendor folder. Fourteen days before that new date, it flags the certificate again for review, the same way it would have flagged the lapse if the renewal had never arrived.</div>
+
+      <div class="q">Does the Documents agent make compliance decisions on its own?</div>
+      <div class="a">No. It classifies, matches, routes, and flags. Whether a lapsed certificate holds a payment, pauses a subcontractor relationship, or gets a grace period is a business decision a human makes. The agent's job is making sure that decision gets made before the lapse becomes a problem, not after.</div>
+
+      <div class="q">What happens if a document doesn't match any existing customer or job?</div>
+      <div class="a">It gets flagged as needs-human rather than filed on a guess. The agent is built to route confidently or ask, never to silently misfile a document against the wrong job because a name was close enough.</div>
+
+      <div class="q">How does this connect to the rest of the back office?</div>
+      <div class="a">A lapsed subcontractor COI is a real-money problem the moment a general contractor withholds a payment or a bonding company asks for proof of coverage, which is a Financial-agent and job-costing question, not just a filing question. Catching the expiration two weeks out instead of discovering it at the worst possible moment is what connects a paperwork agent to the numbers the rest of the back office is already tracking.</div>
+
+      <div class="q">Is this a live, self-serve product I can connect today?</div>
+      <div class="a">The Documents agent's classification, matching, routing, and flagging logic is real, built code, not a roadmap item. It is delivered today as part of a Teardown and Install engagement, where it is configured against your actual document flow and ServiceTitan folder structure, rather than as an unattended self-serve signup.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

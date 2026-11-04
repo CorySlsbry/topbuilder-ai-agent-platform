@@ -1,0 +1,13 @@
+{
+  "slug": "job-profit-analyzer",
+  "brand": "top-builder-ai",
+  "type": "lead-magnet",
+  "format": "interactive-calculator-html",
+  "title": "The Job Profit Analyzer",
+  "description": "Per-job costing tool: enter one job (revenue, labor hours + wage, materials, subs, equipment days) plus simple overhead inputs. Shows true job margin with the burden math, overhead allocation, a leak breakdown by cost bucket, and a healthy/thin/underwater verdict with the fix. Email gate unlocks the printable job-cost worksheet + margin cheat sheet.",
+  "cta_text": "Analyze a Job's True Margin",
+  "target_url": "topbuilderai.com/job-profit",
+  "source_file": "landing/job-profit.html",
+  "created": "2026-07-11",
+  "reusable": true
+}

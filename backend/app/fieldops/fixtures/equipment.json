@@ -1,0 +1,9 @@
+[
+  { "code": "EQ-HP-2T-STD",  "name": "2-Ton Heat Pump (Standard)",  "brand": "Standard", "category": "install",     "cost_cents": 185000, "price_cents": 339000, "sold_hours": 10.0, "target_margin_pct": 45.0 },
+  { "code": "EQ-HP-3T-STD",  "name": "3-Ton Heat Pump (Standard)",  "brand": "Standard", "category": "install",     "cost_cents": 230000, "price_cents": 429000, "sold_hours": 12.0, "target_margin_pct": 45.0 },
+  { "code": "EQ-HP-3T-PREM", "name": "3-Ton Heat Pump (Premium)",   "brand": "Mitsubishi", "category": "install",   "cost_cents": 365000, "price_cents": 539000, "sold_hours": 12.0, "target_margin_pct": 45.0 },
+  { "code": "EQ-HP-4T-PREM", "name": "4-Ton Heat Pump (Premium)",   "brand": "Mitsubishi", "category": "install",   "cost_cents": 420000, "price_cents": 689000, "sold_hours": 14.0, "target_margin_pct": 45.0 },
+  { "code": "EQ-AH-STD",     "name": "Air Handler",                 "brand": "Standard", "category": "install",     "cost_cents": 95000,  "price_cents": 179000, "sold_hours": 6.0,  "target_margin_pct": 45.0 },
+  { "code": "EQ-THERMO",     "name": "Smart Thermostat",            "brand": "Ecobee",   "category": "controls",    "cost_cents": 18000,  "price_cents": 39000,  "sold_hours": 1.0,  "target_margin_pct": 50.0 },
+  { "code": "EQ-MINISPLIT",  "name": "Ductless Mini-Split (Single)","brand": "Daikin",   "category": "install",     "cost_cents": 145000, "price_cents": 289000, "sold_hours": 8.0,  "target_margin_pct": 48.0 }
+]

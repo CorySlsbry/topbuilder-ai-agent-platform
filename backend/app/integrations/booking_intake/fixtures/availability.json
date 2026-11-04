@@ -1,0 +1,12 @@
+[
+  { "trade": "hvac", "day_offset": 0, "open_slots": 2 },
+  { "trade": "hvac", "day_offset": 1, "open_slots": 3 },
+  { "trade": "hvac", "day_offset": 2, "open_slots": 2 },
+  { "trade": "plumbing", "day_offset": 0, "open_slots": 1 },
+  { "trade": "plumbing", "day_offset": 1, "open_slots": 2 },
+  { "trade": "plumbing", "day_offset": 2, "open_slots": 2 },
+  { "trade": "drains", "day_offset": 0, "open_slots": 2 },
+  { "trade": "drains", "day_offset": 1, "open_slots": 2 },
+  { "trade": "electrical", "day_offset": 0, "open_slots": 0 },
+  { "trade": "electrical", "day_offset": 1, "open_slots": 0 }
+]

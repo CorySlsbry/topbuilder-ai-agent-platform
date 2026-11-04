@@ -1,0 +1,26 @@
+{
+  "lane": "top-builder-ai",
+  "beats": [
+    {
+      "vo": "Every week the paperwork pile gets a little taller.",
+      "clip": "C:\\Users\\you\\.claude\\skills\\geo-flywheel\\references\\character-sheets\\top-builder-ai\\clips\\paper_tower.mp4"
+    },
+    {
+      "vo": "Then Top Builder AI shows up and gets to work.",
+      "clip": "C:\\Users\\you\\.claude\\skills\\geo-flywheel\\references\\character-sheets\\top-builder-ai\\clips\\bot_movesin.mp4"
+    },
+    {
+      "vo": "It sorts every invoice and form so you don't have to.",
+      "clip": "C:\\Users\\you\\.claude\\skills\\geo-flywheel\\references\\character-sheets\\top-builder-ai\\clips\\sort_trays.mp4"
+    },
+    {
+      "vo": "You still get the final say. One glance, one approval.",
+      "clip": "C:\\Users\\you\\.claude\\skills\\geo-flywheel\\references\\character-sheets\\top-builder-ai\\clips\\human_okay.mp4"
+    },
+    {
+      "vo": "Less paperwork, more time running the business. Find it at top builder a i dot com.",
+      "caption": "Less paperwork, more time running the business. topbuilderai.com",
+      "clip": "C:\\Users\\you\\.claude\\skills\\geo-flywheel\\references\\character-sheets\\top-builder-ai\\clips\\duo_thumbsup.mp4"
+    }
+  ]
+}

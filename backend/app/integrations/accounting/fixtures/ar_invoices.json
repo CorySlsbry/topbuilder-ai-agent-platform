@@ -1,0 +1,9 @@
+[
+  { "id": "AR-1", "customer_segment": "commercial",  "amount": 95000,  "issued_offset": -20, "due_offset": 10 },
+  { "id": "AR-2", "customer_segment": "residential", "amount": 40000,  "issued_offset": -12, "due_offset": 3 },
+  { "id": "AR-3", "customer_segment": "commercial",  "amount": 120000, "issued_offset": -2,  "due_offset": 28 },
+  { "id": "AR-4", "customer_segment": "government",   "amount": 180000, "issued_offset": -5,  "due_offset": 40 },
+  { "id": "AR-5", "customer_segment": "commercial",  "amount": 60000,  "issued_offset": 15,  "due_offset": 45 },
+  { "id": "AR-6", "customer_segment": "government",   "amount": 90000,  "issued_offset": 8,   "due_offset": 60 },
+  { "id": "AR-7", "customer_segment": "residential", "amount": 35000,  "issued_offset": 40,  "due_offset": 70 }
+]

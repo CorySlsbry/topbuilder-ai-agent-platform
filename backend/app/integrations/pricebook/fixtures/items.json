@@ -1,0 +1,82 @@
+[
+  {
+    "code": "P-AC-INSTALL",
+    "name": "3-Ton AC System Install",
+    "category": "Install",
+    "sold_hours": 8.0,
+    "sold_hour_rate_cents": 15000,
+    "markup_pct": 20.0,
+    "current_price_cents": 386400,
+    "material_lines": [
+      { "sku": "COND-3T", "qty": 1, "unit_cost_cents": 180000, "description": "3-ton condenser" },
+      { "sku": "LINESET-50", "qty": 1, "unit_cost_cents": 12000, "description": "50ft line set" },
+      { "sku": "R410A", "qty": 4, "unit_cost_cents": 5000, "description": "R-410A refrigerant (lb)" },
+      { "sku": "CU-34", "qty": 20, "unit_cost_cents": 500, "description": "3/4in copper (ft)" }
+    ]
+  },
+  {
+    "code": "P-FURNACE",
+    "name": "80% Gas Furnace Replacement",
+    "category": "Install",
+    "sold_hours": 6.0,
+    "sold_hour_rate_cents": 15000,
+    "markup_pct": 22.0,
+    "current_price_cents": 259092,
+    "material_lines": [
+      { "sku": "FURN-80", "qty": 1, "unit_cost_cents": 95000, "description": "80% gas furnace" },
+      { "sku": "SHEET", "qty": 8, "unit_cost_cents": 3000, "description": "sheet metal (sq ft)" },
+      { "sku": "FITTING", "qty": 12, "unit_cost_cents": 800, "description": "duct fitting" },
+      { "sku": "FLEX-6", "qty": 4, "unit_cost_cents": 2500, "description": "6in flex duct (section)" }
+    ]
+  },
+  {
+    "code": "P-DUCT-REPAIR",
+    "name": "Ductwork Repair & Reseal",
+    "category": "Service",
+    "sold_hours": 2.0,
+    "sold_hour_rate_cents": 12000,
+    "markup_pct": 25.0,
+    "current_price_cents": 56500,
+    "material_lines": [
+      { "sku": "SHEET", "qty": 6, "unit_cost_cents": 3000, "description": "sheet metal (sq ft)" },
+      { "sku": "FITTING", "qty": 10, "unit_cost_cents": 800, "description": "duct fitting" }
+    ]
+  },
+  {
+    "code": "P-THERMO",
+    "name": "Smart Thermostat Install",
+    "category": "Service",
+    "sold_hours": 1.0,
+    "sold_hour_rate_cents": 12000,
+    "markup_pct": 30.0,
+    "current_price_cents": 35400,
+    "material_lines": [
+      { "sku": "TSTAT-WIFI", "qty": 1, "unit_cost_cents": 18000, "description": "wifi thermostat" }
+    ]
+  },
+  {
+    "code": "P-COIL",
+    "name": "Evaporator Coil Replacement",
+    "category": "Service",
+    "sold_hours": 4.0,
+    "sold_hour_rate_cents": 15000,
+    "markup_pct": 20.0,
+    "current_price_cents": 189600,
+    "material_lines": [
+      { "sku": "COIL-3T", "qty": 1, "unit_cost_cents": 78000, "description": "3-ton evaporator coil" },
+      { "sku": "R410A", "qty": 6, "unit_cost_cents": 5000, "description": "R-410A refrigerant (lb)" }
+    ]
+  },
+  {
+    "code": "P-TUNE",
+    "name": "Seasonal Maintenance Tune-Up",
+    "category": "Maintenance",
+    "sold_hours": 1.0,
+    "sold_hour_rate_cents": 11000,
+    "markup_pct": 25.0,
+    "current_price_cents": 11750,
+    "material_lines": [
+      { "sku": "FILTER-20", "qty": 1, "unit_cost_cents": 600, "description": "20x25 air filter" }
+    ]
+  }
+]

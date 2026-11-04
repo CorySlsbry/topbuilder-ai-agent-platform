@@ -1,0 +1,24 @@
+{
+  "brand": "top-builder-ai",
+  "keyword": "CALCULATOR",
+  "lead_magnet": "ServiceTitan Automation Calculator",
+  "lead_magnet_url": "https://topbuilderai.com/calculator",
+  "platforms": ["instagram", "tiktok"],
+  "status": "ready-when-accounts-created",
+  "notes": "TBAI does not yet have IG/TikTok accounts. This flow is ready to activate once accounts are created and connected.",
+  "flow": {
+    "trigger": "User comments 'CALCULATOR' (case-insensitive) on any Reel or TikTok",
+    "step_1_dm_initial": {
+      "delay": "immediate",
+      "message": "Hey! Saw your comment. Drop me a follow and I'll send the Calculator right over."
+    },
+    "step_2_dm_after_follow": {
+      "trigger": "User follows the account",
+      "message": "Here you go! Plug in your team size and hours spent on each task -- it shows you exactly which systems to automate first, how much you'd save, and a 90-day timeline.\n\ntopbuilderai.com/calculator\n\nLet me know if you have any questions."
+    },
+    "step_2_alt_already_following": {
+      "trigger": "User was already following when they commented",
+      "message": "Hey! Here's the ServiceTitan Automation Calculator -- plug in your numbers and see which systems to automate first and how much you'd save.\n\ntopbuilderai.com/calculator\n\nLet me know if you have any questions."
+    }
+  }
+}

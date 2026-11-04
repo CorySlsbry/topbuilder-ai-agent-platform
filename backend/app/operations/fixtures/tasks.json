@@ -1,0 +1,9 @@
+[
+  { "title": "Approve after-hours booking — Jane Whitfield (HVAC emergency)", "detail": "Booking agent proposed a same-day slot; confirm dispatch.", "department": "front_desk", "priority": 9, "source_agent": "booking", "related_ref": "B01", "assignee_role": "dispatcher", "due_in_hours": 1 },
+  { "title": "Booked-solid electrical emergency — Sam Okafor needs a dispatcher", "detail": "No open electrical slot today; sub out or escalate.", "department": "dispatch", "priority": 9, "source_agent": "booking", "related_ref": "B04", "assignee_role": "dispatcher", "due_in_hours": 1 },
+  { "title": "Accept routing plan — saves ~60 min of drive time today", "detail": "Routing agent proposed an optimized assignment plan.", "department": "dispatch", "priority": 6, "source_agent": "routing", "assignee_role": "dispatcher", "due_in_hours": 2 },
+  { "title": "Roofing job has no skilled tech — Doyle", "detail": "Sub out or hire; flagged by the routing agent.", "department": "dispatch", "priority": 5, "source_agent": "routing", "related_ref": "D11", "assignee_role": "manager", "due_in_hours": 24 },
+  { "title": "Return call — Bob Mercer (water heater)", "detail": "Routine; schedule this week.", "department": "front_desk", "priority": 4, "source_agent": "communications", "assignee_role": "csr", "due_in_hours": 8 },
+  { "title": "Send A/R follow-up — overdue invoices", "detail": "Financial agent flagged DSO; send a reminder.", "department": "finance", "priority": 5, "source_agent": "financial", "assignee_role": "bookkeeper", "due_in_hours": 48 },
+  { "title": "Reorder high-margin part — low stock", "detail": "Inventory agent flagged a critical reorder.", "department": "inventory", "priority": 5, "source_agent": "inventory", "assignee_role": "purchaser", "due_in_hours": 24 }
+]

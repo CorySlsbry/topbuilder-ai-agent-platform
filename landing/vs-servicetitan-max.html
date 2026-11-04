@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<title>Top Builder AI vs ServiceTitan Max: an Honest Back-Office Comparison</title>
+<meta name="description" content="An honest comparison of Top Builder AI and ServiceTitan Max for contractors. ServiceTitan Max is front-office AI (booking, dispatch, field, dynamic pricing, Atlas). Top Builder AI runs the back-office work it leaves manual or leaves to QuickBooks: automated collections, numbers reconciled to your real QuickBooks ledger, pricebook re-costing, learning from your approvals, and advisory-by-default actions. Eight self-learning agents, monthly from $3,000." />
+<link rel="canonical" href="https://topbuilderai.com/vs-servicetitan-max.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/vs-servicetitan-max.html" />
+<meta property="og:title" content="Top Builder AI vs ServiceTitan Max: an Honest Back-Office Comparison" />
+<meta property="og:description" content="ServiceTitan Max is front-office AI. Top Builder AI runs the back-office work it leaves to QuickBooks: collections, reconciliation to your real books, and pricebook re-costing. Here is the honest, side-by-side comparison." />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* ADA-verified enterprise-light palette (WCAG 2.2 AA, all text pairs >=4.5:1). */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --inkem:#FFFFFF;
+    --maxw:1140px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  .serif{font-family:"Instrument Serif",Georgia,serif; font-weight:400; letter-spacing:.2px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  a{color:inherit; text-decoration:none}
+  .mono{font-variant-numeric:tabular-nums; font-feature-settings:"tnum"}
+
+  /* focus-visible (ADA keyboard) */
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+
+  /* skip link (ADA) */
+  .skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--indigo);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+
+  /* ---------- ambient background (light) ---------- */
+  .glow{position:fixed; inset:0; z-index:0; pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:46%;right:-10%;width:680px;height:680px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+    box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  .btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+  .btn-ghost:hover{background:var(--bg2);border-color:var(--ink3);transform:translateY(-1px)}
+  @media(max-width:760px){
+    .nav-links a:not(.btn){display:none}
+    .nav-in{height:auto;min-height:54px;padding:9px 0;gap:10px;flex-wrap:nowrap}
+    .brand{font-size:14px;gap:7px;white-space:nowrap;flex-shrink:0}
+    .brand svg{width:22px;height:22px}
+    .nav-links{gap:8px;flex-shrink:0}
+    .nav-links .btn{padding:8px 12px;font-size:12.5px;border-radius:9px}
+  }
+  @media(max-width:430px){
+    .wrap{padding:0 16px}
+    .brand{font-size:13px;gap:6px}
+    .brand svg{width:20px;height:20px}
+    .nav-links{gap:6px}
+    .nav-links .btn{padding:7px 10px;font-size:12px}
+  }
+
+  /* ---------- breadcrumb ---------- */
+  .crumb{padding:22px 0 0;font-size:13px;color:var(--ink3)}
+  .crumb a{color:var(--ink3)}
+  .crumb a:hover{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .crumb span[aria-current]{color:var(--ink2);font-weight:600}
+
+  /* ---------- page head ---------- */
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  .pagehead{padding:30px 0 10px}
+  .pagehead h1{font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin-top:16px;color:var(--ink);max-width:20ch}
+  .pagehead .answer{color:var(--ink);font-size:19px;line-height:1.6;max-width:760px;margin-top:20px;font-weight:500}
+  .pagehead .lede{color:var(--ink2);font-size:17px;line-height:1.65;max-width:780px;margin-top:18px}
+  .pagehead .upd{margin-top:16px;font-size:13px;color:var(--ink3)}
+  .pagehead .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+
+  /* ---------- generic section ---------- */
+  .section{padding:60px 0;position:relative}
+  .section h2{font-size:clamp(26px,3.6vw,40px);line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0;color:var(--ink)}
+  .section .lede{color:var(--ink2);font-size:17px;line-height:1.65;max-width:780px;margin-top:16px}
+
+  /* ---------- at-a-glance split ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+  @media(max-width:780px){.split{grid-template-columns:1fr}}
+  .col{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:var(--panel);box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  .col.us{border-color:rgba(37,99,235,.4);background:linear-gradient(180deg,rgba(37,99,235,.06),var(--panel))}
+  .col h3{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700}
+  .col .who{font-size:21px;font-weight:600;margin:6px 0 8px;letter-spacing:-.01em;color:var(--ink)}
+  .col.us .who{color:var(--indigo)}
+  .col .role{font-size:14.5px;color:var(--ink2);line-height:1.6}
+  .col ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:16px}
+  .col li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:var(--ink2);line-height:1.5}
+  .col li .mk{flex:none;width:18px;height:18px;border-radius:6px;display:grid;place-items:center;font-size:11px;margin-top:2px;font-weight:800}
+  .mk.c{background:rgba(4,120,87,.14);color:var(--emerald)}
+  .mk.dot{background:rgba(15,23,42,.06);color:var(--ink3)}
+
+  /* ---------- head-to-head comparison ---------- */
+  .vs{margin-top:34px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--panel);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .vs-head,.vs-row{display:grid;grid-template-columns:1.4fr 1fr 1.15fr}
+  .vs-head{background:rgba(15,23,42,.025);border-bottom:1px solid var(--line)}
+  .vs-head>div{padding:15px 18px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+  .vs-head .us,.vs-row .us{background:rgba(37,99,235,.06);border-left:1px solid rgba(37,99,235,.28);border-right:1px solid rgba(37,99,235,.28)}
+  .vs-head .us{color:var(--indigo)}
+  .vs-row{border-top:1px solid var(--line)}
+  .vs-row>div{padding:15px 18px;font-size:14px;color:var(--ink2);display:flex;gap:9px;align-items:flex-start;line-height:1.5}
+  .vs-row .cap{color:var(--ink);font-weight:600}
+  .vs-row .st{color:var(--ink2)}
+  .vs-row .us{color:var(--ink)}
+  .vs .mk2{flex:none;font-weight:800;font-size:13px;margin-top:1px}
+  .vs .x{color:var(--ink3)}
+  .vs .c{color:var(--emerald)}
+  @media(max-width:760px){
+    .vs-head{display:none}
+    .vs-row{grid-template-columns:1fr;border-top:6px solid var(--bg)}
+    .vs-row .cap{background:rgba(15,23,42,.025);font-size:15px}
+    .vs-row .us{border-left:none;border-right:none;border-top:1px solid rgba(37,99,235,.22)}
+    .vs-row .st::before{content:"ServiceTitan Max: ";color:var(--ink3);font-weight:600}
+    .vs-row .us::before{content:"Top Builder AI: ";color:var(--indigo);font-weight:600}
+  }
+
+  /* ---------- concede strengths band ---------- */
+  .concede{margin-top:30px;border:1px solid rgba(4,120,87,.3);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(4,120,87,.05),var(--panel));padding:24px 26px}
+  .concede .h{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--emerald)}
+  .concede p{margin-top:12px;font-size:15px;color:var(--ink2);line-height:1.65;max-width:820px}
+  .concede b{color:var(--ink)}
+
+  /* ---------- fact strip ---------- */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  @media(max-width:780px){.facts{grid-template-columns:1fr}}
+  .fact{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--panel);box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .fact .big{font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--indigo);font-variant-numeric:tabular-nums;line-height:1}
+  .fact h3{font-size:15.5px;font-weight:600;color:var(--ink);margin-top:12px;letter-spacing:-.01em}
+  .fact p{font-size:14px;color:var(--ink2);margin-top:7px;line-height:1.55}
+
+  /* ---------- Q&A list (plain headings + paragraphs, no accordions) ---------- */
+  .qa-list{max-width:880px;margin-top:30px;border-top:1px solid var(--line)}
+  .qa{padding:30px 0;border-bottom:1px solid var(--line)}
+  .qa h2{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.3;display:flex;gap:14px;align-items:baseline;color:var(--ink)}
+  .qa h2 .qn{flex:none;font-size:13px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums}
+  .qa p{color:var(--ink2);font-size:15.5px;margin-top:12px;max-width:780px;line-height:1.65}
+  .qa a{color:var(--indigo)}
+  .qa a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- bottom CTA ---------- */
+  .final{border:1px solid var(--line2);border-radius:26px;padding:46px 36px;text-align:center;margin:70px 0 90px;
+    background:linear-gradient(180deg,rgba(37,99,235,.08),var(--panel2));box-shadow:0 24px 60px -40px rgba(37,99,235,.3)}
+  .final h2{font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;font-weight:600;color:var(--ink)}
+  .final p{color:var(--ink2);font-size:17px;max-width:580px;margin:14px auto 0;line-height:1.6}
+  .final .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;justify-content:center}
+  .final .note{font-size:13px;color:var(--ink3);margin-top:20px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;margin-top:6px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-ghost" href="https://os.topbuilderai.com" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="pagehead">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &rsaquo; <span aria-current="page">Top Builder AI vs ServiceTitan Max</span>
+      </nav>
+      <span class="eyebrow">An honest comparison</span>
+      <h1>Top Builder AI vs ServiceTitan Max</h1>
+      <p class="answer">ServiceTitan Max is front-office AI: booking, dispatch, field work, dynamic pricing, and the Atlas agent. Top Builder AI is a back-office layer of eight self-learning agents that runs the work ServiceTitan leaves manual or leaves to QuickBooks: automated collections, numbers reconciled to your real QuickBooks ledger, pricebook re-costing as vendor costs move, and an AI that learns from the calls you approve and the edits you make, advisory by default. They are complementary, not competitors.</p>
+      <p class="lede">The two tools answer different questions. Max makes the front office faster, the booking, the dispatch board, the dynamic price on the truck. Top Builder AI runs the back-office work that lives in your books, not in ServiceTitan. This page lays out exactly where each one wins, concedes ServiceTitan's real strengths, and shows the head-to-head so you can decide what your shop actually needs.</p>
+      <p class="upd">Updated July 1, 2026 · <a href="/" style="color:var(--indigo)">Back to the main page</a></p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call</a>
+        <a class="btn btn-ghost" href="/demo.html">Watch the platform in action</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="section" id="at-a-glance" style="padding-top:20px">
+    <div class="wrap">
+      <span class="eyebrow">At a glance</span>
+      <h2 style="margin-top:14px">Two tools, two different jobs.</h2>
+      <p class="lede">ServiceTitan Max runs on ServiceTitan's data. Top Builder AI runs on your actual books. You can run both at once, and most shops that take this seriously do.</p>
+      <div class="split">
+        <div class="col">
+          <h3>ServiceTitan Max</h3>
+          <div class="who">Front-office AI</div>
+          <p class="role">A serious, fast-improving AI suite built into ServiceTitan, focused on the work that happens before and during the job.</p>
+          <ul>
+            <li><span class="mk c">&#10003;</span><span>Booking and the dispatch board, done well.</span></li>
+            <li><span class="mk c">&#10003;</span><span>Field work, mobile, and crew workflows.</span></li>
+            <li><span class="mk c">&#10003;</span><span>Dynamic pricing and Price Insights against regional benchmarks.</span></li>
+            <li><span class="mk c">&#10003;</span><span>The Atlas agent, which takes action on its own.</span></li>
+            <li><span class="mk dot">&middot;</span><span>Reports on ServiceTitan's own data; your books still live in QuickBooks.</span></li>
+            <li><span class="mk dot">&middot;</span><span>A/R follow-up is manual, no automated dunning.</span></li>
+          </ul>
+        </div>
+        <div class="col us">
+          <h3>Top Builder AI</h3>
+          <div class="who">Back-office AI</div>
+          <p class="role">Eight self-learning agents that run the work after the truck leaves, reconciled to your real ledger, advisory by default.</p>
+          <ul>
+            <li><span class="mk c">&#10003;</span><span>Collections agent works the A/R aging list 24/7 and drafts the dunning.</span></li>
+            <li><span class="mk c">&#10003;</span><span>Numbers reconciled to your actual QuickBooks general ledger.</span></li>
+            <li><span class="mk c">&#10003;</span><span>Pricebook re-costing as vendor costs move, under your margin model.</span></li>
+            <li><span class="mk c">&#10003;</span><span>Learns from the calls you approve and the edits you make, isolated to your data.</span></li>
+            <li><span class="mk c">&#10003;</span><span>Advisory by default: every action proposed, approved, reversible, and audited.</span></li>
+            <li><span class="mk c">&#10003;</span><span>One layer across ServiceTitan and QuickBooks, from $3,000 per month.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEAD TO HEAD -->
+  <section class="section" id="head-to-head" style="padding-top:20px">
+    <div class="wrap">
+      <span class="eyebrow">The honest comparison</span>
+      <h2 style="margin-top:14px">ServiceTitan Max runs on ServiceTitan's data. <span class="serif" style="color:var(--indigo);font-size:1.05em">We run on your actual books.</span></h2>
+      <p class="lede">Start with the cleanest gap: ServiceTitan's A/R follow-up is manual, so the aging list gets worked by hand or not at all. Our Collections agent works that list 24/7 and drafts the dunning. ServiceTitan Max is a serious AI suite and it is getting better fast. Booking and dispatch, Max does those, and does them well, and ServiceTitan's broader platform adds job costing and bill capture on its own data, so we do not fight it there. What it leaves behind is the back-office work that lives in your books: numbers reconciled to your real QuickBooks general ledger, pricebook re-costing as vendor costs move, and an AI tuned to your specific shop. We plug in alongside Max and never touch your system of record. Here is the honest comparison.</p>
+      <div class="vs">
+        <div class="vs-head"><div>Capability</div><div>ServiceTitan Max</div><div class="us">Top Builder AI</div></div>
+        <div class="vs-row">
+          <div class="cap">Collections and A/R</div>
+          <div class="st"><span class="mk2 x">&rsaquo;</span>Aging worklists, but follow-up is manual, with no automated dunning or promise-to-pay tracking.</div>
+          <div class="us"><span class="mk2 c">&#10003;</span>Works the aging list 24/7, drafts the dunning, and tracks promise-to-pay.</div>
+        </div>
+        <div class="vs-row">
+          <div class="cap">Where the numbers come from</div>
+          <div class="st"><span class="mk2 x">&rsaquo;</span>Reports on ServiceTitan's own data; your books live in QuickBooks.</div>
+          <div class="us"><span class="mk2 c">&#10003;</span>Reconciled to your actual QuickBooks general ledger.</div>
+        </div>
+        <div class="vs-row">
+          <div class="cap">Learns your shop</div>
+          <div class="st"><span class="mk2 x">&rsaquo;</span>Optimizes on your metrics, with AI models trained across all contractors.</div>
+          <div class="us"><span class="mk2 c">&#10003;</span>Learns from the calls you approve and the edits you make, isolated to your data.</div>
+        </div>
+        <div class="vs-row">
+          <div class="cap">Pricebook vs vendor costs</div>
+          <div class="st"><span class="mk2 x">&rsaquo;</span>Price Insights compares you to regional benchmarks.</div>
+          <div class="us"><span class="mk2 c">&#10003;</span>Re-costs your pricebook as vendor costs rise, under your margin model.</div>
+        </div>
+        <div class="vs-row">
+          <div class="cap">How it acts</div>
+          <div class="st"><span class="mk2 x">&rsaquo;</span>Atlas takes action on its own.</div>
+          <div class="us"><span class="mk2 c">&#10003;</span>Advisory by default: every action proposed, approved, reversible, and audited.</div>
+        </div>
+        <div class="vs-row">
+          <div class="cap">Booking and dispatch</div>
+          <div class="st"><span class="mk2 c">&#10003;</span>Strong, native, and the core of the suite.</div>
+          <div class="us"><span class="mk2 c">&#10003;</span>Our Booking and Routing agents run alongside Max, valuing every call and weighing margin, parts, and overtime.</div>
+        </div>
+        <div class="vs-row">
+          <div class="cap">Job costing and bill capture</div>
+          <div class="st"><span class="mk2 c">&#10003;</span>Built into the broader ServiceTitan platform, on its own data.</div>
+          <div class="us"><span class="mk2 c">&#10003;</span>We reconcile the result to your real QuickBooks ledger and surface margin leakage the day it appears.</div>
+        </div>
+        <div class="vs-row">
+          <div class="cap">Fit and price</div>
+          <div class="st"><span class="mk2 x">&rsaquo;</span>Enterprise Pro stack, sold per product, ServiceTitan only.</div>
+          <div class="us"><span class="mk2 c">&#10003;</span>One layer across ServiceTitan and QuickBooks, from $3,000 per month.</div>
+        </div>
+      </div>
+
+      <div class="concede">
+        <div class="h">Where ServiceTitan Max wins, plainly</div>
+        <p>We do not rip out ServiceTitan or fight it on booking, dispatch, and job costing, it does those well, and Atlas is a genuinely capable agent. ServiceTitan's broader platform adds job costing and bill capture, and Price Insights is a useful regional benchmark. If your only question is making the front office faster, Max may be all you need. <b>Top Builder AI exists for the work that lives in your books, not in ServiceTitan</b>: collections, reconciliation to your real QuickBooks ledger, and pricebook re-costing, with an AI that learns your specific shop. We plug in alongside it and never touch your system of record.</p>
+      </div>
+
+      <div class="facts">
+        <div class="fact">
+          <div class="big">8</div>
+          <h3>Self-learning agents</h3>
+          <p>Booking, Routing, Financial, Inventory, Workforce, Documents, Collections, and Pricebook, sharing one per-tenant brain.</p>
+        </div>
+        <div class="fact">
+          <div class="big">24/7</div>
+          <h3>Collections, automated</h3>
+          <p>The agent works the A/R aging worklist around the clock and drafts the dunning email, SMS, and call, where ServiceTitan's follow-up is manual.</p>
+        </div>
+        <div class="fact">
+          <div class="big">$0</div>
+          <h3>Install this quarter</h3>
+          <p>The one-time install is $0 this quarter (normally $8,000), then monthly from $3,000 for up to 25 people using the system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" style="padding-top:20px">
+    <div class="wrap">
+      <span class="eyebrow">Comparison questions</span>
+      <h2 style="margin-top:14px">Top Builder AI vs ServiceTitan Max, in plain answers.</h2>
+      <p class="lede">The questions a serious operator asks when deciding between the two, or deciding to run both. Answers first, no accordions.</p>
+      <div class="qa-list">
+
+        <article class="qa">
+          <h2><span class="qn">01</span>Is Top Builder AI a replacement for ServiceTitan Max?</h2>
+          <p>No. They do different jobs and run side by side. ServiceTitan Max is front-office AI: booking, dispatch, field work, dynamic pricing, and the Atlas agent. Top Builder AI is a back-office layer that runs the work ServiceTitan leaves manual or leaves to QuickBooks: automated collections, numbers reconciled to your real QuickBooks ledger, and pricebook re-costing. Most shops that take this seriously keep Max for the front office and add Top Builder AI for the back office. We plug in alongside it and never touch your system of record.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">02</span>What does ServiceTitan Max do better?</h2>
+          <p>The front office. Booking and the dispatch board are native to ServiceTitan and Max does them well. Field work, mobile, and crew workflows live there. Dynamic pricing and Price Insights compare you to regional benchmarks, and Atlas is a genuinely capable agent that takes action on its own. ServiceTitan's broader platform also adds job costing and bill capture on its own data. We concede all of that openly and do not compete with it there.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">03</span>What does Top Builder AI do that ServiceTitan Max does not?</h2>
+          <p>The back-office work that lives in your books. ServiceTitan's A/R follow-up is manual, so our Collections agent works the aging list 24/7 and drafts the dunning. We reconcile your numbers to your actual QuickBooks general ledger rather than reporting on ServiceTitan's own data. Our Pricebook agent re-costs every item as vendor costs move, under your margin model. And our agents learn from the calls you approve and the edits you make, isolated to your data, rather than optimizing on models trained across every contractor.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">04</span>How do collections compare between the two?</h2>
+          <p>This is the cleanest gap. ServiceTitan gives you aging worklists, but the follow-up is manual, there is no automated dunning or promise-to-pay tracking, so the list gets worked by hand or not at all. Top Builder AI's Collections agent works that aging list 24/7, drafts the dunning across email, SMS, and call, and tracks every promise-to-pay. It is advisory by default, so it proposes and you approve before anything goes out.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">05</span>Why does reconciling to QuickBooks matter if ServiceTitan already reports numbers?</h2>
+          <p>Because ServiceTitan reports on its own data, while your books live in QuickBooks. The two can drift, and the version a lender or a partner trusts is the general ledger. Top Builder AI reconciles to your actual QuickBooks general ledger, so the margin, cash, and job-cost figures you act on match the books you file, not a parallel report. Every figure is computed by deterministic, tested code and is auditable.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">06</span>ServiceTitan Max already learns. How is Top Builder AI's learning different?</h2>
+          <p>ServiceTitan's AI optimizes on your metrics using models trained across all contractors. Top Builder AI learns from your shop's own approvals and corrections, isolated to your data, so it sounds more like your shop every month and your data never trains another contractor's agents. The learning is also governed: a candidate rule must pass a safety check and a regression test, then a human approves it, and it rolls out gradually with monitoring and rollback. The learning layer can never touch a number.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">07</span>Atlas acts on its own. Does Top Builder AI?</h2>
+          <p>Only if you let it. Where Atlas takes action on its own, every Top Builder AI agent ships advisory by default: it proposes, you approve. You can set each agent to Off, Approve-first, or Auto, per agent, with full undo and an audit trail on every action. That is a deliberate difference. Many operators want the back office to recommend and wait for a human before it writes anything back.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">08</span>Can I run ServiceTitan Max and Top Builder AI together?</h2>
+          <p>Yes, and that is the intended setup. They are complementary. Keep Max running the front office, booking, dispatch, field, and dynamic pricing, and add Top Builder AI for the back-office work it leaves to your books: collections, reconciliation to your real QuickBooks ledger, and pricebook re-costing. Top Builder AI plugs in alongside ServiceTitan and never touches your system of record, so nothing gets ripped out.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">09</span>What does Top Builder AI cost compared to the ServiceTitan Max stack?</h2>
+          <p>ServiceTitan Max is sold as part of the Enterprise Pro stack, per product, ServiceTitan only. Top Builder AI is one layer across ServiceTitan and QuickBooks. The monthly scales with team size: $3,000 for up to 25 people, $4,500 for 26 to 75, $6,000 for 76 to 125, $8,000 for 126 to 250, and custom above 250. This quarter the one-time install is $0 (normally $8,000), or you can pay the install and keep the monthly flexible. Every install is backed by a 30-day board-ready-or-free guarantee.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">10</span>How do I decide which one my shop needs?</h2>
+          <p>Ask where the money is leaking. If the gap is in the front office, slow booking, missed dispatch optimization, pricing, ServiceTitan Max may be enough. If the gap is in the back office, an A/R aging list nobody works, numbers that do not match your QuickBooks books, a pricebook that has not kept up with vendor costs, that is exactly what Top Builder AI runs. The fit call includes a real teardown of where your ServiceTitan is leaking, on your own data, so you can see the answer rather than guess it. <a href="https://book.topbuilderai.com">Book the fit call</a> to map it.</p>
+        </article>
+
+        <article class="qa">
+          <h2><span class="qn">11</span>What is ServiceTitan Atlas and does Top Builder AI compete with it?</h2>
+          <p>Atlas is ServiceTitan's agentic AI, the layer that lets ServiceTitan take action on its own inside the platform, and it is genuinely capable. We do not compete with it on its home turf: the front office, running on ServiceTitan's own data. Top Builder AI works the other side of the wall, the back office that lives in your QuickBooks books: collections on your real aging list, reconciliation to your general ledger, and pricebook re-costing as vendor costs move. There is also a deliberate difference in posture. Atlas acts autonomously, while every Top Builder AI agent ships advisory by default, proposing before anything happens, with per-agent controls, full undo, and an audit trail. Run Atlas up front and Top Builder AI in back. They are complementary, not competitors.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="wrap">
+      <div class="final">
+        <h2>See where your back office is leaking, on your own data.</h2>
+        <p>A 30-minute fit call with the developer, including a real teardown of where your ServiceTitan is leaving work to QuickBooks. No pitch, no obligation. Keep ServiceTitan Max for the front office and let Top Builder AI run the back.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://book.topbuilderai.com">Book your fit call</a>
+          <a class="btn btn-ghost" href="/demo.html">Watch the platform in action</a>
+        </div>
+        <p class="note">Eight self-learning agents. $0 install this quarter (normally $8,000), then monthly from $3,000. Advisory by default, every figure deterministic and audited.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/></g></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People and Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> · Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> · AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div>
+      <div>© 2026 Top Builder AI · topbuilderai.com</div>
+      <div class="foot-legal">
+        <a href="/faq.html">FAQ</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JSON-LD: WebPage + BreadcrumbList + FAQPage (mirrors the visible Q&As) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebPage","@id":"https://topbuilderai.com/vs-servicetitan-max.html#webpage",
+     "url":"https://topbuilderai.com/vs-servicetitan-max.html",
+     "name":"Top Builder AI vs ServiceTitan Max: an Honest Back-Office Comparison",
+     "description":"An honest comparison of Top Builder AI and ServiceTitan Max for contractors. ServiceTitan Max is front-office AI; Top Builder AI runs the back-office work it leaves manual or leaves to QuickBooks: automated collections, reconciliation to your real QuickBooks ledger, and pricebook re-costing.",
+     "dateModified":"2026-07-01",
+     "isPartOf":{"@id":"https://topbuilderai.com/#organization"},
+     "about":{"@id":"https://topbuilderai.com/#organization"}},
+    {"@type":"Organization","@id":"https://topbuilderai.com/#organization",
+     "name":"Top Builder AI","url":"https://topbuilderai.com",
+     "legalName":"Salisbury Bookkeeping LLC","email":"support@topbuilderai.com",
+     "parentOrganization":{"@id":"https://salisburybookkeeping.com/#organization"},
+     "founder":{"@id":"https://salisburybookkeeping.com/#cory-salisbury"}},
+    {"@type":"Person","@id":"https://salisburybookkeeping.com/#cory-salisbury",
+     "name":"Cory Salisbury","jobTitle":"Founder",
+     "sameAs":["https://salisburybookkeeping.com","https://topbuilderai.com","https://neuron-hq.com"]},
+    {"@type":"Organization","@id":"https://salisburybookkeeping.com/#organization",
+     "name":"Salisbury Bookkeeping","legalName":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://topbuilderai.com/"},
+      {"@type":"ListItem","position":2,"name":"Top Builder AI vs ServiceTitan Max","item":"https://topbuilderai.com/vs-servicetitan-max.html"}]},
+    {"@type":"FAQPage","@id":"https://topbuilderai.com/vs-servicetitan-max.html#faqpage",
+     "mainEntity":[
+      {"@type":"Question","name":"Is Top Builder AI a replacement for ServiceTitan Max?","acceptedAnswer":{"@type":"Answer","text":"No. They do different jobs and run side by side. ServiceTitan Max is front-office AI: booking, dispatch, field work, dynamic pricing, and the Atlas agent. Top Builder AI is a back-office layer that runs the work ServiceTitan leaves manual or leaves to QuickBooks: automated collections, numbers reconciled to your real QuickBooks ledger, and pricebook re-costing. Most shops that take this seriously keep Max for the front office and add Top Builder AI for the back office. We plug in alongside it and never touch your system of record."}},
+      {"@type":"Question","name":"What does ServiceTitan Max do better?","acceptedAnswer":{"@type":"Answer","text":"The front office. Booking and the dispatch board are native to ServiceTitan and Max does them well. Field work, mobile, and crew workflows live there. Dynamic pricing and Price Insights compare you to regional benchmarks, and Atlas is a genuinely capable agent that takes action on its own. ServiceTitan's broader platform also adds job costing and bill capture on its own data. We concede all of that openly and do not compete with it there."}},
+      {"@type":"Question","name":"What does Top Builder AI do that ServiceTitan Max does not?","acceptedAnswer":{"@type":"Answer","text":"The back-office work that lives in your books. ServiceTitan's A/R follow-up is manual, so our Collections agent works the aging list 24/7 and drafts the dunning. We reconcile your numbers to your actual QuickBooks general ledger rather than reporting on ServiceTitan's own data. Our Pricebook agent re-costs every item as vendor costs move, under your margin model. And our agents learn from the calls you approve and the edits you make, isolated to your data, rather than optimizing on models trained across every contractor."}},
+      {"@type":"Question","name":"How do collections compare between the two?","acceptedAnswer":{"@type":"Answer","text":"This is the cleanest gap. ServiceTitan gives you aging worklists, but the follow-up is manual, there is no automated dunning or promise-to-pay tracking, so the list gets worked by hand or not at all. Top Builder AI's Collections agent works that aging list 24/7, drafts the dunning across email, SMS, and call, and tracks every promise-to-pay. It is advisory by default, so it proposes and you approve before anything goes out."}},
+      {"@type":"Question","name":"Why does reconciling to QuickBooks matter if ServiceTitan already reports numbers?","acceptedAnswer":{"@type":"Answer","text":"Because ServiceTitan reports on its own data, while your books live in QuickBooks. The two can drift, and the version a lender or a partner trusts is the general ledger. Top Builder AI reconciles to your actual QuickBooks general ledger, so the margin, cash, and job-cost figures you act on match the books you file, not a parallel report. Every figure is computed by deterministic, tested code and is auditable."}},
+      {"@type":"Question","name":"ServiceTitan Max already learns. How is Top Builder AI's learning different?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan's AI optimizes on your metrics using models trained across all contractors. Top Builder AI learns from your shop's own approvals and corrections, isolated to your data, so it sounds more like your shop every month and your data never trains another contractor's agents. The learning is also governed: a candidate rule must pass a safety check and a regression test, then a human approves it, and it rolls out gradually with monitoring and rollback. The learning layer can never touch a number."}},
+      {"@type":"Question","name":"Atlas acts on its own. Does Top Builder AI?","acceptedAnswer":{"@type":"Answer","text":"Only if you let it. Where Atlas takes action on its own, every Top Builder AI agent ships advisory by default: it proposes, you approve. You can set each agent to Off, Approve-first, or Auto, per agent, with full undo and an audit trail on every action. That is a deliberate difference. Many operators want the back office to recommend and wait for a human before it writes anything back."}},
+      {"@type":"Question","name":"Can I run ServiceTitan Max and Top Builder AI together?","acceptedAnswer":{"@type":"Answer","text":"Yes, and that is the intended setup. They are complementary. Keep Max running the front office, booking, dispatch, field, and dynamic pricing, and add Top Builder AI for the back-office work it leaves to your books: collections, reconciliation to your real QuickBooks ledger, and pricebook re-costing. Top Builder AI plugs in alongside ServiceTitan and never touches your system of record, so nothing gets ripped out."}},
+      {"@type":"Question","name":"What does Top Builder AI cost compared to the ServiceTitan Max stack?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan Max is sold as part of the Enterprise Pro stack, per product, ServiceTitan only. Top Builder AI is one layer across ServiceTitan and QuickBooks. The monthly scales with team size: $3,000 for up to 25 people, $4,500 for 26 to 75, $6,000 for 76 to 125, $8,000 for 126 to 250, and custom above 250. This quarter the one-time install is $0 (normally $8,000), or you can pay the install and keep the monthly flexible. Every install is backed by a 30-day board-ready-or-free guarantee."}},
+      {"@type":"Question","name":"How do I decide which one my shop needs?","acceptedAnswer":{"@type":"Answer","text":"Ask where the money is leaking. If the gap is in the front office, slow booking, missed dispatch optimization, pricing, ServiceTitan Max may be enough. If the gap is in the back office, an A/R aging list nobody works, numbers that do not match your QuickBooks books, a pricebook that has not kept up with vendor costs, that is exactly what Top Builder AI runs. The fit call includes a real teardown of where your ServiceTitan is leaking, on your own data, so you can see the answer rather than guess it."}},
+      {"@type":"Question","name":"What is ServiceTitan Atlas and does Top Builder AI compete with it?","acceptedAnswer":{"@type":"Answer","text":"Atlas is ServiceTitan's agentic AI, the layer that lets ServiceTitan take action on its own inside the platform, and it is genuinely capable. We do not compete with it on its home turf: the front office, running on ServiceTitan's own data. Top Builder AI works the other side of the wall, the back office that lives in your QuickBooks books: collections on your real aging list, reconciliation to your general ledger, and pricebook re-costing as vendor costs move. There is also a deliberate difference in posture. Atlas acts autonomously, while every Top Builder AI agent ships advisory by default, proposing before anything happens, with per-agent controls, full undo, and an audit trail. Run Atlas up front and Top Builder AI in back. They are complementary, not competitors."}}
+     ]}
+  ]
+}
+</script>
+<script src="/webmcp.js" defer></script>
+</body>
+</html>

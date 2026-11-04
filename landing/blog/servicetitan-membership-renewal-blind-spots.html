@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>6 ServiceTitan Membership-Renewal Blind Spots for Contractors Under 10 Crews (2026)</title>
+<meta name="description" content="ServiceTitan's own membership tools count losses after they happen and only auto-fix expired credit cards. Six specific, sourced blind spots between ServiceTitan's native tooling and an actual renewal-risk system, for contractors running under 10 crews." />
+<link rel="canonical" href="https://topbuilderai.com/blog/servicetitan-membership-renewal-blind-spots.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="6 ServiceTitan Membership-Renewal Blind Spots for Contractors Under 10 Crews (2026)" />
+<meta property="og:description" content="ServiceTitan's own membership tools count losses after they happen and only auto-fix expired credit cards. Six sourced blind spots, and the honest way to close them." />
+<meta property="og:url" content="https://topbuilderai.com/blog/servicetitan-membership-renewal-blind-spots.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_backoffice.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_backoffice.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+  .updated{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--emerald);font-weight:600;border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:3px 11px;background:rgba(4,120,87,.06)}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:38px;color:var(--ink);line-height:1.15;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:26%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .no{color:var(--ink3)}
+  .table-take{font-size:14px;color:var(--ink3);margin-top:-12px 0 26px;padding:0 2px}
+  @media(max-width:620px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:9px 10px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .howwe{border:1px dashed var(--line2);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--panel2)}
+  .howwe .h{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+  .howwe p{margin:0;font-size:15px;color:var(--ink2);line-height:1.6}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (companion short) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"ServiceTitan Won't Warn You Before a Membership Cancels",
+  "description":"ServiceTitan's own membership tools only count a cancellation after it happens, and skip every Amex card. A 34-second walkthrough of the gap a renewal-risk score closes.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/qydaTPVdwBM/maxresdefault.jpg",
+  "uploadDate":"2026-08-12T11:32:00Z",
+  "duration":"PT34S",
+  "contentUrl":"https://www.youtube.com/watch?v=qydaTPVdwBM",
+  "embedUrl":"https://www.youtube.com/embed/qydaTPVdwBM",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/servicetitan-membership-renewal-blind-spots.html"},
+  "headline":"6 ServiceTitan Membership-Renewal Blind Spots for Contractors Under 10 Crews (2026)",
+  "description":"ServiceTitan's own membership tools count losses after they happen and only auto-fix expired credit cards. Six specific, sourced blind spots, and the honest way to close them.",
+  "datePublished":"2026-08-12",
+  "dateModified":"2026-08-12",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_backoffice.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan memberships","ServiceTitan membership renewal","ServiceTitan churn","service agreement renewal contractors","AI back office for ServiceTitan"],
+  "keywords":"ServiceTitan membership renewal, ServiceTitan Expiring Memberships tab, ServiceTitan Membership Renewal Protection, service agreement churn contractors, AI back office for ServiceTitan"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does ServiceTitan tell you which memberships are about to cancel?","acceptedAnswer":{"@type":"Answer","text":"Not with a risk score. ServiceTitan's own Membership Summary report only counts status changes -- canceled, suspended, expired, renewed -- that already happened in a selected date range. The only forward-looking list is the Follow-Up tab's Expiring Memberships view, and working it is a fully manual process: filtering, selecting, and calling customers one by one. Nothing in ServiceTitan's documented workflow scores which active membership is actually at risk before it lapses."}},
+    {"@type":"Question","name":"Is the Membership Summary report predictive or just historical?","acceptedAnswer":{"@type":"Answer","text":"Historical. ServiceTitan's own documentation for the Membership Summary report template states it reports on membership activity, and status changes, within a given date range -- a rear-view mirror on what already happened, not a forward risk score on what's currently active."}},
+    {"@type":"Question","name":"How does ServiceTitan expect you to work expiring memberships?","acceptedAnswer":{"@type":"Answer","text":"By hand. ServiceTitan's own how-to documentation describes going to Follow-Up, clicking the Expiring Memberships tab, filtering by business unit and dates, manually selecting checkboxes, clicking Bulk Edit to build renewal estimates, and clicking into each opportunity to call the customer and mark it Sold, Converted, or Dismissed. Bulk editing helps with volume, but a person still drives every step."}},
+    {"@type":"Question","name":"Does Membership Renewal Protection cover every customer's card?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan's own documentation states plainly that American Express cards are not updated by Membership Renewal Protection. Any customer paying a membership with Amex gets none of that automated card refresh, full stop."}},
+    {"@type":"Question","name":"Are there limits on Renewal Protection even for non-Amex cards?","acceptedAnswer":{"@type":"Answer","text":"Yes. Per ServiceTitan's own how-to documentation, Renewal Protection only attempts to update a card that was charged for a membership within the last 60 days, and it can take up to seven business days to fully process an update. A card that lapsed outside that window, or a renewal that fires while an update is still mid-lag, is not protected."}},
+    {"@type":"Question","name":"Does ServiceTitan connect service history or complaints to renewal risk?","acceptedAnswer":{"@type":"Answer","text":"Not according to its own published documentation. There is no native signal tying a customer's callback history, missed-appointment record, or complaint history to a renewal-risk flag. A certified ServiceTitan consultant's own published guidance on this exact gap recommends hiring a dedicated membership coordinator to work the Follow-Up list regularly -- a headcount fix for a scoring problem, not a system that surfaces who's actually at risk."}},
+    {"@type":"Question","name":"Is there proof this gap is a real, valuable problem and not a hypothetical one?","acceptedAnswer":{"@type":"Answer","text":"Yes -- a third-party product, MemberBay, exists specifically to fill it. MemberBay markets itself as connecting to ServiceTitan and automatically flagging at-risk memberships before they cancel, which is the exact predictive layer ServiceTitan's own native tooling doesn't provide. A dedicated vendor building only that feature is real market evidence the gap is worth closing, not an invented pain point."}},
+    {"@type":"Question","name":"How much revenue is actually at stake from membership blind spots?","acceptedAnswer":{"@type":"Answer","text":"PipelineOn's own published contractor-membership guidance states top-quartile home-service operators pull 28-50% of revenue from membership programs, versus an industry average under 15% -- a figure we are citing as PipelineOn's own claim, not one we independently verified against a primary industry dataset. Treat it as directional: the gap between top-quartile and average membership performance is large by any vendor's telling, and the blind spots above are exactly where that gap opens."}},
+    {"@type":"Question","name":"Does Top Builder AI have a shipped, self-serve membership-churn agent today?","acceptedAnswer":{"@type":"Answer","text":"No, and this post will not claim otherwise. Top Builder AI ships real, deployed agents for workforce, financial reporting, inventory and pricebook, booking, routing and dispatch, documents, email, and SEO. None of them is a shipped, self-serve membership-renewal-risk agent. What's described here is a method, delivered through a Teardown and Install engagement against a shop's real ServiceTitan membership data, not an unattended signup."}},
+    {"@type":"Question","name":"What would actually closing these blind spots look like?","acceptedAnswer":{"@type":"Answer","text":"Pulling every active membership's expiration date, card-update status, and service/callback history out of ServiceTitan on a schedule, scoring each one for renewal risk instead of waiting for it to land cold in a Follow-Up tab, and routing the highest-risk accounts to a human for outreach before the expiration date, not after it's already a cancellation on the Membership Summary report."}},
+    {"@type":"Question","name":"What does a flagged membership look like in practice?","acceptedAnswer":{"@type":"Answer","text":"This example is illustrative, not a client result. A customer's membership card was charged 75 days ago -- outside Renewal Protection's 60-day window -- and the same customer had two missed-appointment records in the last year. Neither fact alone trips any native ServiceTitan alert. A risk-scoring pass combining both flags the account as high-risk and routes it to a person for a renewal call three weeks before the expiration date, instead of it surfacing for the first time on next month's Expiring Memberships list."}},
+    {"@type":"Question","name":"Does this replace ServiceTitan's membership tools?","acceptedAnswer":{"@type":"Answer","text":"No. ServiceTitan's Membership Summary report, Expiring Memberships tab, and Renewal Protection all keep doing exactly what they do today. The method described here is a risk-scoring and routing layer on top of that data, not a replacement for ServiceTitan's own membership records or billing."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Membership Renewal Blind Spots</div>
+    <span class="kicker">ServiceTitan &middot; Memberships &middot; Recurring Revenue</span>
+    <h1>6 ServiceTitan Membership-Renewal Blind Spots for Contractors Under 10 Crews</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 12, 2026</span>
+      <span class="updated">Updated August 12, 2026</span>
+      <span class="pill">~12 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_backoffice.jpg" alt="Back-office paperwork and a laptop on a contractor's desk, invoices and job folders stacked nearby" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video vshort"><iframe src="https://www.youtube.com/embed/qydaTPVdwBM" title="ServiceTitan Won't Warn You Before a Membership Cancels" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The 34-second version of the gap below, straight from ServiceTitan's own membership docs.</p>
+
+      <p class="answer">Not with a risk score. ServiceTitan's own Membership Summary report only counts status changes &mdash; canceled, suspended, expired, renewed &mdash; that already happened. The one forward-looking list, the Expiring Memberships tab, is worked entirely by hand, per ServiceTitan's own how-to docs. And the platform's single automated safety net, Renewal Protection, refreshes card numbers only &mdash; it excludes every American Express card outright and only covers cards charged in the last 60 days. Below are six specific, separately documented blind spots between what ServiceTitan's own membership tooling does and what an actual renewal-risk system would need to do, for a contractor running a service-agreement program under 10 crews.</p>
+
+      <p>None of this is a knock on ServiceTitan's membership feature set &mdash; it tracks memberships, bills them, and gives you two real (if narrow) tools. The point is narrower: which of the six gaps below are you currently covering with a person's memory instead of a system, and what does that cost on a book of a few hundred active memberships.</p>
+
+      <h2>1. The Membership Summary Report (Retrospective Only)</h2>
+      <p>ServiceTitan's own documentation for the <a class="link" href="https://help.servicetitan.com/docs/membership-summary-report-template" rel="noopener noreferrer">Membership Summary report template</a> states the report "includes membership status changes that occur within the report date range" &mdash; it counts cancellations, suspensions, expirations, and renewals that already happened. There is no field, filter, or score anywhere in that report describing which currently active membership is likely to lapse next. It is a rear-view mirror, not a windshield.</p>
+
+      <h2>2. The Expiring Memberships Tab (a Fully Manual Queue)</h2>
+      <p>The one place ServiceTitan surfaces upcoming expirations is Follow-Up &rarr; Expiring Memberships, and per ServiceTitan's own <a class="link" href="https://help.servicetitan.com/how-to/track-expiring-memberships" rel="noopener noreferrer">how-to documentation</a>, working it means a staff member filters the list by business unit and date range, manually checks boxes, clicks "Bulk Edit" to build renewal estimates, then opens each opportunity individually to call the customer and mark it Sold, Converted, or Dismissed. Bulk editing speeds up the paperwork step; nothing about the workflow fires on its own.</p>
+
+      <figure class="stat">
+        <div class="cap">In ServiceTitan's own ecosystem</div>
+        <div class="body">
+          <div class="val">"The number one way we lose members&hellip; the membership expires, and we didn't bother renewing them"</div>
+          <div class="lab">A certified ServiceTitan consultant's own published guidance on this exact workflow names the failure mode directly, and prescribes hiring "a dedicated person, such as a membership coordinator" to work the Follow-Up list regularly.</div>
+          <div class="src">Source: mypowerhouse.group, "Critical ServiceTitan Membership Reports Every User Should Have" (2026).</div>
+        </div>
+      </figure>
+
+      <h2>3. Membership Renewal Protection Excludes Every American Express Card</h2>
+      <p>ServiceTitan's one automated membership safety net is Renewal Protection, which refreshes expired or outdated card numbers on file each month. Its own <a class="link" href="https://help.servicetitan.com/how-to/membership-protection" rel="noopener noreferrer">how-to documentation</a> states plainly: "American Express cards are not updated by Membership Renewal Protection." Any customer paying their membership with an Amex card gets zero coverage from ServiceTitan's only automated defense against card-driven churn &mdash; not partial coverage, none.</p>
+
+      <h2>4. Renewal Protection's 60-Day Window and 7-Business-Day Lag</h2>
+      <p>Even for a non-Amex card, coverage is bounded. The same documentation states ServiceTitan "attempts to update any saved customer credit card that has been charged for a membership within the last 60 days," and that it "may take up to seven business days to fully process any updated cards." A card that lapsed just outside that 60-day window, or a renewal invoice that fires while an update is still mid-lag, falls through a gap the feature was never built to cover &mdash; and ServiceTitan's own docs add that "different banks have different policies," so some cards inside the window still won't update.</p>
+
+      <h2>5. No Service-History or Callback Signal Feeds Renewal Risk</h2>
+      <p>Nothing in ServiceTitan's own published membership documentation ties a customer's service-call history, missed-appointment record, or complaint history into a renewal-risk signal. The gap is real enough that a third-party product, <a class="link" href="https://memberbay.io/tools/membership-calculator" rel="noopener noreferrer">MemberBay</a>, exists specifically to fill it &mdash; MemberBay's own site states it "connects to ServiceTitan and automatically flags at-risk memberships before they cancel," which is the exact predictive layer ServiceTitan's native tooling doesn't provide. A dedicated vendor built solely around this one feature is real market proof the gap is worth closing, not a hypothetical.</p>
+
+      <h2>6. The Revenue Left on the Table While These Gaps Go Unaddressed</h2>
+      <p>PipelineOn's own published contractor-membership guidance states <a class="link" href="https://pipelineon.com/blog/contractor-membership-program/" rel="noopener noreferrer">"top-quartile home service operators in 2026 pull 28-50% of revenue from membership programs vs the industry average under 15%"</a> &mdash; a figure we're citing as PipelineOn's own claim, not one independently verified against a primary industry dataset; treat it as directional. Whatever the exact number is for any given shop, the gap between "renewals happen because someone remembered" and "renewals happen because a system flagged the risk in time" is where that spread opens.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="ServiceTitan membership blind spots comparison">
+          <thead><tr><th>Blind spot</th><th>ServiceTitan's native answer</th><th>What it doesn't do</th><th>Workaround today</th></tr></thead>
+          <tbody>
+            <tr><td>1. Membership Summary report</td><td>Counts past status changes</td><td class="no">No forward risk score</td><td>Read the history after the fact</td></tr>
+            <tr><td>2. Expiring Memberships tab</td><td>Lists upcoming expirations</td><td class="no">Fires nothing automatically</td><td>A person works the list by hand</td></tr>
+            <tr><td>3. Renewal Protection (Amex)</td><td>Auto-refreshes card numbers</td><td class="no">Skips Amex entirely</td><td>Track Amex renewals manually</td></tr>
+            <tr><td>4. Renewal Protection (window/lag)</td><td>60-day window, up to 7-day processing</td><td class="no">Misses older lapses &amp; mid-lag renewals</td><td>Recheck outside-window cards by hand</td></tr>
+            <tr><td>5. Service-history signal</td><td>None documented</td><td class="no">Doesn't connect callbacks to risk</td><td>Hire a dedicated membership coordinator</td></tr>
+            <tr><td>6. Revenue impact</td><td>No native reporting on this</td><td class="no">Doesn't quantify the cost of 1&ndash;5</td><td>Top-quartile shops reportedly capture 28&ndash;50% of revenue from memberships vs. &lt;15% average (PipelineOn)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">Every row here either looks backward or requires a person to work a list by hand &mdash; nothing in ServiceTitan's own membership tooling scores which active membership is actually at risk before it lapses.</p>
+
+      <div class="howwe">
+        <div class="h">How we chose these six</div>
+        <p>Each blind spot above is sourced directly to ServiceTitan's own published help documentation, not a competitor's claim or an assumption, and each is a distinct, separately documented ServiceTitan feature or limitation &mdash; not the same root cause restated six times. We dropped anything we could not verify by opening the actual ServiceTitan doc ourselves, and we labeled the one third-party revenue figure as a vendor claim, not a primary-source statistic.</p>
+      </div>
+
+      <h2>What would actually closing these gaps look like?</h2>
+      <p>Pulling every active membership's expiration date, card-update status, and service/callback history out of ServiceTitan on a schedule, scoring each one for renewal risk, and routing the highest-risk accounts to a human for outreach before the expiration date lands cold in next month's Expiring Memberships tab.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Pull every active membership</b> &mdash; expiration date, card-on-file status, last-charged date &mdash; straight from ServiceTitan.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Pull service history</b> for the same accounts &mdash; missed appointments, callbacks, open complaints.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Score each membership</b> for renewal risk, combining days-to-expiration, card-update status, and service-history flags.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Route the highest-risk accounts to a person</b> weeks before expiration, not the month it lapses.</div></div>
+        <div class="step"><div class="num">5</div><div class="txt"><b>Never auto-cancel or auto-charge.</b> The score routes a human task; a person still makes the call and closes the opportunity in ServiceTitan.</div></div>
+      </div>
+
+      <h2>What does a flagged membership look like in practice?</h2>
+      <p>The example below is illustrative, built to show the mechanism, not a client result.</p>
+
+      <figure class="stat">
+        <div class="cap">Illustrative walkthrough &mdash; one at-risk membership</div>
+        <div class="body">
+          <div class="val">75 days since last card charge + 2 missed appointments</div>
+          <div class="lab">Neither fact alone trips a native ServiceTitan alert: 75 days is outside Renewal Protection's 60-day window, and missed appointments aren't tracked as a renewal-risk signal at all. Combined, a risk-scoring pass flags the account as high-risk and routes it to a person three weeks before the expiration date &mdash; not the day it shows up on next month's Expiring Memberships list.</div>
+          <div class="src">Illustrative example, not a client result.</div>
+        </div>
+      </figure>
+
+      <h2>Does this replace ServiceTitan's membership tools?</h2>
+      <p>No. ServiceTitan's Membership Summary report, Expiring Memberships tab, and Renewal Protection all keep doing exactly what they do today &mdash; all real, all unaffected. The method above is a risk-scoring and routing layer on top of that data, catching what the native tooling doesn't score, not replacing ServiceTitan's own membership records or billing.</p>
+
+      <h2>How does this connect to the rest of the back office?</h2>
+      <p>A missed membership renewal is a recurring-revenue problem the moment it shows up as a canceled agreement on next month's Membership Summary report &mdash; not just a follow-up call nobody made. The same discipline that catches a mispriced job or a drifted tax zone is what catches a membership that quietly aged past its renewal window. Financial reporting is one of eight agents in Top Builder AI's back-office stack; the <a class="link" href="/blog/ai-back-office-for-servicetitan.html">full back-office overview</a> covers how they work together.</p>
+
+      <ul>
+        <li><b>No shipped self-serve membership-churn agent today.</b> This is a method, delivered as a configured install, not existing software you sign up for.</li>
+        <li><b>No invented risk scores.</b> Every flag traces to a real expiration date, card status, or service-history record already in ServiceTitan.</li>
+        <li><b>Doesn't replace ServiceTitan's membership billing or Renewal Protection.</b> Both keep running; this scores the risk they don't.</li>
+        <li><b>A person still makes every renewal call.</b> The system routes and prioritizes; it never auto-cancels or auto-charges.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>See how many of your active memberships are actually at risk</h2>
+        <p>Most shops have never run a risk score against their real membership book. A fit call walks through what turns up in yours.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Does ServiceTitan tell you which memberships are about to cancel?</div>
+      <div class="a">Not with a risk score. ServiceTitan's own Membership Summary report only counts status changes -- canceled, suspended, expired, renewed -- that already happened in a selected date range. The only forward-looking list is the Follow-Up tab's Expiring Memberships view, and working it is a fully manual process: filtering, selecting, and calling customers one by one. Nothing in ServiceTitan's documented workflow scores which active membership is actually at risk before it lapses.</div>
+
+      <div class="q">Is the Membership Summary report predictive or just historical?</div>
+      <div class="a">Historical. ServiceTitan's own documentation for the Membership Summary report template states it reports on membership activity, and status changes, within a given date range -- a rear-view mirror on what already happened, not a forward risk score on what's currently active.</div>
+
+      <div class="q">How does ServiceTitan expect you to work expiring memberships?</div>
+      <div class="a">By hand. ServiceTitan's own how-to documentation describes going to Follow-Up, clicking the Expiring Memberships tab, filtering by business unit and dates, manually selecting checkboxes, clicking Bulk Edit to build renewal estimates, and clicking into each opportunity to call the customer and mark it Sold, Converted, or Dismissed. Bulk editing helps with volume, but a person still drives every step.</div>
+
+      <div class="q">Does Membership Renewal Protection cover every customer's card?</div>
+      <div class="a">No. ServiceTitan's own documentation states plainly that American Express cards are not updated by Membership Renewal Protection. Any customer paying a membership with Amex gets none of that automated card refresh, full stop.</div>
+
+      <div class="q">Are there limits on Renewal Protection even for non-Amex cards?</div>
+      <div class="a">Yes. Per ServiceTitan's own how-to documentation, Renewal Protection only attempts to update a card that was charged for a membership within the last 60 days, and it can take up to seven business days to fully process an update. A card that lapsed outside that window, or a renewal that fires while an update is still mid-lag, is not protected.</div>
+
+      <div class="q">Does ServiceTitan connect service history or complaints to renewal risk?</div>
+      <div class="a">Not according to its own published documentation. There is no native signal tying a customer's callback history, missed-appointment record, or complaint history to a renewal-risk flag. A certified ServiceTitan consultant's own published guidance on this exact gap recommends hiring a dedicated membership coordinator to work the Follow-Up list regularly -- a headcount fix for a scoring problem, not a system that surfaces who's actually at risk.</div>
+
+      <div class="q">Is there proof this gap is a real, valuable problem and not a hypothetical one?</div>
+      <div class="a">Yes -- a third-party product, MemberBay, exists specifically to fill it. MemberBay markets itself as connecting to ServiceTitan and automatically flagging at-risk memberships before they cancel, which is the exact predictive layer ServiceTitan's own native tooling doesn't provide. A dedicated vendor building only that feature is real market evidence the gap is worth closing, not an invented pain point.</div>
+
+      <div class="q">How much revenue is actually at stake from membership blind spots?</div>
+      <div class="a">PipelineOn's own published contractor-membership guidance states top-quartile home-service operators pull 28-50% of revenue from membership programs, versus an industry average under 15% -- a figure we are citing as PipelineOn's own claim, not one we independently verified against a primary industry dataset. Treat it as directional: the gap between top-quartile and average membership performance is large by any vendor's telling, and the blind spots above are exactly where that gap opens.</div>
+
+      <div class="q">Does Top Builder AI have a shipped, self-serve membership-churn agent today?</div>
+      <div class="a">No, and this post will not claim otherwise. Top Builder AI ships real, deployed agents for workforce, financial reporting, inventory and pricebook, booking, routing and dispatch, documents, email, and SEO. None of them is a shipped, self-serve membership-renewal-risk agent. What's described here is a method, delivered through a Teardown and Install engagement against a shop's real ServiceTitan membership data, not an unattended signup.</div>
+
+      <div class="q">What would actually closing these blind spots look like?</div>
+      <div class="a">Pulling every active membership's expiration date, card-update status, and service/callback history out of ServiceTitan on a schedule, scoring each one for renewal risk instead of waiting for it to land cold in a Follow-Up tab, and routing the highest-risk accounts to a human for outreach before the expiration date, not after it's already a cancellation on the Membership Summary report.</div>
+
+      <div class="q">What does a flagged membership look like in practice?</div>
+      <div class="a">This example is illustrative, not a client result. A customer's membership card was charged 75 days ago -- outside Renewal Protection's 60-day window -- and the same customer had two missed-appointment records in the last year. Neither fact alone trips any native ServiceTitan alert. A risk-scoring pass combining both flags the account as high-risk and routes it to a person for a renewal call three weeks before the expiration date, instead of it surfacing for the first time on next month's Expiring Memberships list.</div>
+
+      <div class="q">Does this replace ServiceTitan's membership tools?</div>
+      <div class="a">No. ServiceTitan's Membership Summary report, Expiring Memberships tab, and Renewal Protection all keep doing exactly what they do today. The method described here is a risk-scoring and routing layer on top of that data, not a replacement for ServiceTitan's own membership records or billing.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>6 Payroll-Visibility Settings for Contractors Growing Past Owner-Only Access</title>
+<meta name="description" content="A role-by-role audit of who can see payroll in ServiceTitan and QuickBooks Online by default: Admin, Accounting, Dispatch, Field Manager, Sales Manager, CSR, General Office, technicians, and 1099 contractors. Sourced from both vendors' own documentation." />
+<link rel="canonical" href="https://topbuilderai.com/blog/payroll-visibility-settings-servicetitan-quickbooks-roles.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="6 Payroll-Visibility Settings for Contractors Growing Past Owner-Only Access" />
+<meta property="og:description" content="A role-by-role audit of who can see payroll in ServiceTitan and QuickBooks Online by default: Admin, Accounting, Dispatch, Field Manager, Sales Manager, CSR, General Office, technicians, and 1099 contractors." />
+<meta property="og:url" content="https://topbuilderai.com/blog/payroll-visibility-settings-servicetitan-quickbooks-roles.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_payroll.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_payroll.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+  .updated{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--emerald);font-weight:600;border:1px solid rgba(4,120,87,.3);border-radius:999px;padding:3px 11px;background:rgba(4,120,87,.06)}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:38px;color:var(--ink);line-height:1.15;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:16%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .no{color:var(--ink3)}
+  .table-take{font-size:14px;color:var(--ink3);margin-top:-12px 0 26px;padding:0 2px}
+  @media(max-width:620px){table.cmp{font-size:12.5px}table.cmp th,table.cmp td{padding:9px 10px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .howwe{border:1px dashed var(--line2);border-radius:14px;padding:18px 20px;margin:26px 0;background:var(--panel2)}
+  .howwe .h{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:8px}
+  .howwe p{margin:0;font-size:15px;color:var(--ink2);line-height:1.6}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/payroll-visibility-settings-servicetitan-quickbooks-roles.html"},
+  "headline":"6 Payroll-Visibility Settings for Contractors Growing Past Owner-Only Access",
+  "description":"A role-by-role audit of who can see payroll in ServiceTitan and QuickBooks Online by default: Admin, Accounting, Dispatch, Field Manager, Sales Manager, CSR, General Office, technicians, and 1099 contractors. Sourced from both vendors' own current documentation.",
+  "datePublished":"2026-08-23T12:00:00Z",
+  "dateModified":"2026-08-23T12:00:00Z",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_payroll.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan employee roles and permissions","payroll tab technician edit permission","QuickBooks Online Standard user payroll access","QuickBooks Workforce self-service pay stubs","1099 contractor payroll visibility","construction software payroll security"],
+  "keywords":"who can see payroll in ServiceTitan, ServiceTitan payroll tab permission, QuickBooks Online payroll access by role, QuickBooks Workforce pay stubs, hide payroll from employees QuickBooks, ServiceTitan role permissions payroll, contractor payroll visibility settings"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Which ServiceTitan role can see payroll by default?","acceptedAnswer":{"@type":"Answer","text":"Only Admin. Per ServiceTitan's own employee-permissions documentation, the permission \"View or update payroll tab on technician edit\" ships on by default for the Admin role only; every other default role, Dispatch, Accounting, Field Manager, Sales Manager, CSR, and General Office, ships with it off, so the technician's payroll tab stays greyed out until an Admin turns it on for that role."}},
+    {"@type":"Question","name":"Does the ServiceTitan Accounting role see payroll at all?","acceptedAnswer":{"@type":"Answer","text":"It sees labor cost, not pay. A separate permission, \"View/edit burden rate,\" is on by default for the Accounting role, which lets a bookkeeper see labor cost for job-margin math without seeing an individual technician's actual pay rate or commission, since the payroll-tab permission itself is a different toggle that stays off for that role by default."}},
+    {"@type":"Question","name":"Can Dispatch, CSR, or General Office employees see a technician's pay rate in ServiceTitan?","acceptedAnswer":{"@type":"Answer","text":"Not by default. All five non-Admin, non-Accounting default roles, Dispatch, Field Manager, Sales Manager, CSR, and General Office, ship with \"View or update payroll tab on technician edit\" turned off, per ServiceTitan's own documentation, so the payroll tab is greyed out for every one of them until an Admin explicitly grants it role by role."}},
+    {"@type":"Question","name":"Is there a QuickBooks Online setting to hide payroll from one employee but not others?","acceptedAnswer":{"@type":"Answer","text":"Yes, through the Standard user role. QuickBooks Online's own user-roles documentation names \"All Access except payroll\" as one of three specific Standard-user access levels (the others being All Access and Limited), which is the exact toggle for someone who should see the books but not payroll data."}},
+    {"@type":"Question","name":"How do field technicians see their own pay stub without logging into ServiceTitan or QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"Through QuickBooks Workforce, a separate self-service portal. Per Intuit's own help article on inviting employees to QuickBooks Workforce, an admin sends an invite, and the employee then views and downloads their own pay stubs and W-2s at workforce.intuit.com, never anyone else's, and an admin separately controls whether the employee can also self-edit direct deposit or W-4 details."}},
+    {"@type":"Question","name":"Can a subcontractor or 1099 vendor see payroll data in QuickBooks Online?","acceptedAnswer":{"@type":"Answer","text":"No, and the two live in different places by design. Per Intuit's own contractor-setup documentation, 1099 contractors are tracked in a Contractors tab inside the Payroll area for tax-filing purposes, but they never appear on a pay stub, never get W-2 wage data, and are gated by the same Payroll permission toggle a Standard user's access is scoped through, not a technician's payroll-tab record."}},
+    {"@type":"Question","name":"If I turn off payroll access for a role, does that also hide job-costing and P&L reports?","acceptedAnswer":{"@type":"Answer","text":"No, they're separate toggles on both platforms. In ServiceTitan, \"View/edit burden rate\" (labor cost for job costing) is a different permission from \"View or update payroll tab on technician edit\" (an individual's pay rate); in QuickBooks Online, a Standard user set to \"All Access except payroll\" still sees every other report. Turning off payroll on either platform does not blind anyone to job margin."}},
+    {"@type":"Question","name":"Does it matter if the person is my spouse or office manager instead of an outside bookkeeper?","acceptedAnswer":{"@type":"Answer","text":"Not to either platform's permission engine. Neither ServiceTitan nor QuickBooks Online has a family or co-owner access tier; a spouse or first office hire gets the same role choices as an outside CPA firm would, an Accounting role with the payroll-tab permission left off in ServiceTitan, or a Standard user set to All Access except payroll in QuickBooks Online."}},
+    {"@type":"Question","name":"Do I have to configure ServiceTitan and QuickBooks Online payroll visibility separately?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each platform's permission system is real and configurable on its own side, but neither vendor's own documentation describes a shared or synced access layer between the two. Locking down QuickBooks Online's payroll toggle does not touch ServiceTitan's payroll-tab permission, and turning off the ServiceTitan permission for one role does not touch QuickBooks."}},
+    {"@type":"Question","name":"Does Top Builder AI have a shipped tool that audits payroll visibility across both systems?","acceptedAnswer":{"@type":"Answer","text":"No self-serve product ships today. Top Builder AI's Documents and Financial capability is real, built code that already handles categorization and filing, but walking a shop's live ServiceTitan roles and QuickBooks Online users to confirm exactly who can see payroll is delivered through a done-for-you Teardown or 90-Day Install engagement, not existing software a contractor signs up for and clicks through alone."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Payroll Visibility</div>
+    <span class="kicker">ServiceTitan &middot; QuickBooks Online &middot; Payroll Access</span>
+    <h1>6 Payroll-Visibility Settings for Contractors Growing Past Owner-Only Access</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 23, 2026</span>
+      <span class="updated">Updated August 23, 2026</span>
+      <span class="pill">~10 min read</span>
+      <span class="pill">ServiceTitan + QuickBooks Roles</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_payroll.jpg" alt="A contractor reviewing payroll and role permissions on a laptop at a back-office desk, a service truck visible through the window" loading="eager" width="1408" height="768" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">The day it's just you and your spouse, payroll visibility isn't a question. The day you hire a dispatcher, a second office hire, or a foreman, it is, and neither ServiceTitan nor QuickBooks Online hands you one switch that answers it. Each platform ships its own default: ServiceTitan's Admin role is the only one that can see a technician's payroll tab out of the box, and QuickBooks Online buries the exact toggle you want, "All Access except payroll," inside its Standard user setup. Below are the six roles and settings that actually control who sees what, sourced from each vendor's own current documentation, not a generic best-practices list.</p>
+
+      <p>This isn't about locking your crew out of information they need. Dispatchers need the schedule, foremen need job costs, and your bookkeeper needs the numbers to close the month. The question underneath this one is narrower: does giving any of them the access they actually need also, accidentally, hand them a coworker's pay rate. For most shops running both platforms on their default settings, the honest answer is "not from what we checked," but two of the six settings below are the exception, and most owners have never looked.</p>
+
+      <h2>Admin (ServiceTitan) and Company Admin (QuickBooks Online)</h2>
+      <p>These are the only two roles built to see everything, and that's by design, not an oversight. Per ServiceTitan's own employee-permissions documentation, the permission "View or update payroll tab on technician edit" ships on by default for Admin only; every other default role ships with it off. QuickBooks Online mirrors that at the top: Company Admin is the one role with unrestricted access to every report and setting, including payroll, per QuickBooks Online's own user-roles documentation.</p>
+      <p>The practical takeaway: whoever holds these two logins holds full payroll visibility on both platforms, full stop. That's usually the owner. The moment it's also a bookkeeper, a spouse, or an office manager "because it was faster to set up," it stops being a designed access tier and becomes an accident.</p>
+
+      <h2>Accounting (ServiceTitan)</h2>
+      <p>The Accounting role is ServiceTitan's built-in bookkeeper role, and it's narrower than most owners assume, in one specific and useful way. A separate permission, "View/edit burden rate," is on by default for Accounting, which lets a bookkeeper see labor cost for job-margin math. The payroll-tab permission itself, the one that shows an individual technician's actual pay rate, stays off by default for this role, per the same documentation. That split, labor cost yes, individual pay no, is exactly what most shops picture when they imagine "give the bookkeeper the numbers but not the payroll."</p>
+
+      <h2>Dispatch, Field Manager, Sales Manager, CSR, and General Office (ServiceTitan)</h2>
+      <p>All five of ServiceTitan's remaining default roles ship the same way: "View or update payroll tab on technician edit" turned off. A dispatcher juggling today's schedule, a CSR booking calls, a field manager running a crew, a sales manager tracking close rate, none of them can open a technician's payroll tab unless an Admin deliberately grants that permission to their role. That's ServiceTitan's own default, not a setting you have to go turn off.</p>
+      <p>Where it's worth double-checking: ServiceTitan also ships "Edit service," "Edit material," and "Edit equipment," the permissions that change your pricebook, turned on by default for Dispatch, Accounting, Field Manager, Sales Manager, and Admin alike. That's not a payroll leak, but it's the adjacent setting most shops have also never looked at, and it's on the same Settings, People, Role Permissions screen.</p>
+
+      <h2>Technicians, via QuickBooks Workforce self-service</h2>
+      <p>Field crew don't see payroll inside ServiceTitan or QuickBooks Online at all by default, on any role built for a technician. Where they do see their own pay is a separate, admin-invited portal: QuickBooks Workforce. Per Intuit's own help article on inviting employees to QuickBooks Workforce, an admin sends the invite, and from there the employee can view, download, and print their own pay stubs and W-2s at workforce.intuit.com, a document set scoped to that one person, never a coworker's. The same article notes an admin separately controls whether that employee can also self-edit direct deposit or W-4 details.</p>
+
+      <h2>Standard user, "All Access except payroll" (QuickBooks Online)</h2>
+      <p>This is the one toggle in either platform built for the exact question this post is answering. QuickBooks Online's own user-roles documentation names three specific access levels for a Standard user: All Access, All Access except payroll, and Limited, where Limited breaks down further into five toggleable categories including Payroll on its own. An office manager who should see AR aging, vendor bills, and the P&L, but not a single pay rate, is a Standard user set to "All Access except payroll," not the Accountant role and not Company Admin.</p>
+
+      <h2>1099 contractors, inside QuickBooks Online's Contractors tab</h2>
+      <p>Subcontractors and 1099 vendors live in a different part of the same Payroll area, and they don't touch wage data at all. Per Intuit's own contractor-setup documentation, contractors tracked for 1099s sit in a dedicated Contractors tab so QuickBooks Online can generate their 1099 forms at year-end; they're never run through payroll for tax withholding, never appear on a W-2, and access to that tab is gated by the same Payroll permission toggle a Standard user's role is scoped through, not by an individual technician's payroll-tab record.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Payroll visibility by role in ServiceTitan and QuickBooks Online, default settings">
+          <thead><tr><th>Role / setting</th><th>Platform</th><th>Payroll visible by default?</th><th>What it actually shows</th></tr></thead>
+          <tbody>
+            <tr><td>Admin / Company Admin</td><td>Both</td><td>Yes</td><td>Everything, including individual pay rates</td></tr>
+            <tr><td>Accounting</td><td>ServiceTitan</td><td class="no">No (pay rate)</td><td>Burden rate / labor cost for job costing, not individual pay</td></tr>
+            <tr><td>Dispatch, Field Manager, Sales Manager, CSR, General Office</td><td>ServiceTitan</td><td class="no">No</td><td>Payroll tab greyed out unless an Admin turns it on</td></tr>
+            <tr><td>Technicians</td><td>QuickBooks Workforce</td><td>Own pay only</td><td>Their own pay stubs and W-2s, never a coworker's</td></tr>
+            <tr><td>Standard user, All Access except payroll</td><td>QuickBooks Online</td><td class="no">No</td><td>Every other report and setting, payroll excluded</td></tr>
+            <tr><td>1099 contractors</td><td>QuickBooks Online</td><td class="no">N/A</td><td>1099 tax-filing data only, no wage or pay-stub data</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-take">Two roles see everything by design. Six others, across both platforms, ship locked down by default. The gap isn't payroll, it's the adjacent settings, ServiceTitan's pricebook-edit permissions, that ship open on the same roles.</p>
+
+      <div class="howwe">
+        <div class="h">How we chose these six</div>
+        <p>We started from every default role ServiceTitan ships (Admin, Dispatch, Accounting, Field Manager, Technicians, Sales Manager, CSR, General Office) and every access tier QuickBooks Online documents (Company Admin, Standard user, Reports only, Time tracking only), then kept the ones with a distinct, sourced answer to "can this see payroll." Roles that behave identically to a role already listed were grouped together rather than repeated.</p>
+      </div>
+
+      <h2>What actually closes the gap for a shop running both platforms</h2>
+      <p>Checking six defaults is a one-afternoon audit, not a subscription. Walk Settings, People, Role Permissions in ServiceTitan role by role, confirm the payroll-tab permission matches who you meant to give it to, then do the same for QuickBooks Online's Standard user setup. Neither platform documents a shared access layer between the two, so this has to be done on both sides, and it has to be checked again the next time someone's role changes, a companion problem to the double-data-entry gap this blog has <a class="link" href="/blog/servicetitan-quickbooks-sync-gaps-double-data-entry.html">covered separately</a>. If your shop already has the ServiceTitan and QuickBooks access question mapped for the bookkeeper specifically, the <a class="link" href="/blog/accountant-bookkeeper-access-contractor-books.html">companion piece on bookkeeper and CPA access</a> goes deeper on that one relationship; this post is the wider org-chart pass, every role, not just the one.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Open Settings, People, Role Permissions in ServiceTitan</b> and check "View or update payroll tab on technician edit" against every role that isn't Admin.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Check every QuickBooks Online user's access level</b> under Manage users; a Standard user with All Access, not All Access except payroll, sees the same payroll data as Company Admin.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Invite technicians to QuickBooks Workforce</b> instead of giving them any login to ServiceTitan or QuickBooks Online itself, so they can pull their own pay stub without ever seeing anyone else's.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Re-check both platforms the next time someone's role changes</b>, a promotion, a new office hire, a bookkeeper transition, since neither vendor re-audits this for you.</div></div>
+      </div>
+
+      <ul>
+        <li><b>No shipped self-serve permission-audit tool today.</b> This is a sourced method, delivered as part of a configured Teardown or Install against a shop's real ServiceTitan and QuickBooks Online setup, not existing software a contractor signs up for.</li>
+        <li><b>No invented numbers or mechanisms.</b> Every role and permission claim above traces to that vendor's own current documentation; where the documentation didn't say something outright, we said so.</li>
+        <li><b>Doesn't claim a synced access layer that doesn't exist.</b> Neither ServiceTitan nor QuickBooks Online documents a shared permission system between the two platforms, and this post doesn't claim Top Builder AI has built one.</li>
+        <li><b>A person still approves every permission change.</b> Nothing described here auto-edits a user's role or a technician's pay rate.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>Want to see exactly who can see payroll in your setup right now?</h2>
+        <p>Most shops have never checked their ServiceTitan role permissions against their QuickBooks Online user list at the same time. A fit call walks through what turns up in yours.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>What else do contractors ask about payroll visibility?</h2>
+
+      <div class="q">Which ServiceTitan role can see payroll by default?</div>
+      <div class="a">Only Admin. Per ServiceTitan's own employee-permissions documentation, the permission "View or update payroll tab on technician edit" ships on by default for the Admin role only; every other default role, Dispatch, Accounting, Field Manager, Sales Manager, CSR, and General Office, ships with it off, so the technician's payroll tab stays greyed out until an Admin turns it on for that role.</div>
+
+      <div class="q">Does the ServiceTitan Accounting role see payroll at all?</div>
+      <div class="a">It sees labor cost, not pay. A separate permission, "View/edit burden rate," is on by default for the Accounting role, which lets a bookkeeper see labor cost for job-margin math without seeing an individual technician's actual pay rate or commission, since the payroll-tab permission itself is a different toggle that stays off for that role by default.</div>
+
+      <div class="q">Can Dispatch, CSR, or General Office employees see a technician's pay rate in ServiceTitan?</div>
+      <div class="a">Not by default. All five non-Admin, non-Accounting default roles, Dispatch, Field Manager, Sales Manager, CSR, and General Office, ship with "View or update payroll tab on technician edit" turned off, per ServiceTitan's own documentation, so the payroll tab is greyed out for every one of them until an Admin explicitly grants it role by role.</div>
+
+      <div class="q">Is there a QuickBooks Online setting to hide payroll from one employee but not others?</div>
+      <div class="a">Yes, through the Standard user role. QuickBooks Online's own user-roles documentation names "All Access except payroll" as one of three specific Standard-user access levels (the others being All Access and Limited), which is the exact toggle for someone who should see the books but not payroll data.</div>
+
+      <div class="q">How do field technicians see their own pay stub without logging into ServiceTitan or QuickBooks?</div>
+      <div class="a">Through QuickBooks Workforce, a separate self-service portal. Per Intuit's own help article on inviting employees to QuickBooks Workforce, an admin sends an invite, and the employee then views and downloads their own pay stubs and W-2s at workforce.intuit.com, never anyone else's, and an admin separately controls whether the employee can also self-edit direct deposit or W-4 details.</div>
+
+      <div class="q">Can a subcontractor or 1099 vendor see payroll data in QuickBooks Online?</div>
+      <div class="a">No, and the two live in different places by design. Per Intuit's own contractor-setup documentation, 1099 contractors are tracked in a Contractors tab inside the Payroll area for tax-filing purposes, but they never appear on a pay stub, never get W-2 wage data, and are gated by the same Payroll permission toggle a Standard user's access is scoped through, not a technician's payroll-tab record.</div>
+
+      <div class="q">If I turn off payroll access for a role, does that also hide job-costing and P&amp;L reports?</div>
+      <div class="a">No, they're separate toggles on both platforms. In ServiceTitan, "View/edit burden rate" (labor cost for job costing) is a different permission from "View or update payroll tab on technician edit" (an individual's pay rate); in QuickBooks Online, a Standard user set to "All Access except payroll" still sees every other report. Turning off payroll on either platform does not blind anyone to job margin.</div>
+
+      <div class="q">Does it matter if the person is my spouse or office manager instead of an outside bookkeeper?</div>
+      <div class="a">Not to either platform's permission engine. Neither ServiceTitan nor QuickBooks Online has a family or co-owner access tier; a spouse or first office hire gets the same role choices as an outside CPA firm would, an Accounting role with the payroll-tab permission left off in ServiceTitan, or a Standard user set to All Access except payroll in QuickBooks Online.</div>
+
+      <div class="q">Do I have to configure ServiceTitan and QuickBooks Online payroll visibility separately?</div>
+      <div class="a">Yes. Each platform's permission system is real and configurable on its own side, but neither vendor's own documentation describes a shared or synced access layer between the two. Locking down QuickBooks Online's payroll toggle does not touch ServiceTitan's payroll-tab permission, and turning off the ServiceTitan permission for one role does not touch QuickBooks.</div>
+
+      <div class="q">Does Top Builder AI have a shipped tool that audits payroll visibility across both systems?</div>
+      <div class="a">No self-serve product ships today. Top Builder AI's Documents and Financial capability is real, built code that already handles categorization and filing, but walking a shop's live ServiceTitan roles and QuickBooks Online users to confirm exactly who can see payroll is delivered through a done-for-you Teardown or 90-Day Install engagement, not existing software a contractor signs up for and clicks through alone.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

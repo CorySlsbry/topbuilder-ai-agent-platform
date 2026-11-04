@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<title>About Top Builder AI: the Operator Behind the Eight Agents</title>
+<meta name="description" content="Who is behind Top Builder AI: founder and developer Cory Salisbury, a construction bookkeeper and fractional CFO and ex-Tesla Master Technician, who installs the eight self-learning agents, tunes them to your shop, and answers when you call. The AI back office for ServiceTitan, Buildertrend, and Procore contractors. Every figure is deterministic and audited; advisory by default." />
+<link rel="canonical" href="https://topbuilderai.com/about.html" />
+<meta name="robots" content="index,follow" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/about.html" />
+<meta property="og:title" content="About Top Builder AI: the Operator Behind the Eight Agents" />
+<meta property="og:description" content="Founder and developer Cory Salisbury, a construction bookkeeper and fractional CFO and ex-Tesla Master Technician, installs the eight self-learning agents, tunes them, and answers when you call. Every figure deterministic and audited; advisory by default." />
+<meta property="og:image" content="https://topbuilderai.com/assets/cc-executive.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About Top Builder AI: the Operator Behind the Eight Agents" />
+<meta name="twitter:description" content="Founder and developer Cory Salisbury installs the eight self-learning agents, tunes them, and answers when you call. Every figure deterministic and audited; advisory by default." />
+<meta name="twitter:image" content="https://topbuilderai.com/assets/cc-executive.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* ADA-verified enterprise-light palette (WCAG 2.2 AA, all text pairs >=4.5:1). */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --inkem:#FFFFFF;
+    --maxw:1140px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  .serif{font-family:"Instrument Serif",Georgia,serif; font-weight:400; letter-spacing:.2px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  a{color:inherit; text-decoration:none}
+  .mono{font-variant-numeric:tabular-nums; font-feature-settings:"tnum"}
+
+  /* skip link (ADA) */
+  .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--ink);color:#fff;
+    padding:10px 16px;border-radius:0 0 10px 0;font-size:14px;font-weight:600}
+  .skip:focus{left:0}
+
+  /* focus-visible (ADA keyboard) */
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+
+  /* ---------- ambient background (light) ---------- */
+  .glow{position:fixed; inset:0; z-index:0; pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:46%;right:-10%;width:680px;height:680px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+    box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  .btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+  .btn-ghost:hover{background:var(--bg2);border-color:var(--ink3);transform:translateY(-1px)}
+  @media(max-width:760px){
+    .nav-links a:not(.btn){display:none}
+    .nav-in{height:auto;min-height:54px;padding:9px 0;gap:10px;flex-wrap:nowrap}
+    .brand{font-size:14px;gap:7px;white-space:nowrap;flex-shrink:0}
+    .brand svg{width:22px;height:22px}
+    .nav-links{gap:8px;flex-shrink:0}
+    .nav-links .btn{padding:8px 12px;font-size:12.5px;border-radius:9px}
+  }
+  @media(max-width:430px){
+    .wrap{padding:0 16px}
+    .brand{font-size:13px;gap:6px}
+    .brand svg{width:20px;height:20px}
+    .nav-links{gap:6px}
+    .nav-links .btn{padding:7px 10px;font-size:12px}
+  }
+
+  /* ---------- breadcrumb ---------- */
+  .crumb{font-size:13px;color:var(--ink3);padding-top:26px}
+  .crumb a{color:var(--ink2)}
+  .crumb a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+  .crumb span{color:var(--ink3)}
+
+  /* ---------- page head / answer-first ---------- */
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  .pagehead{padding:30px 0 8px}
+  .pagehead h1{font-size:clamp(34px,5.2vw,58px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin-top:16px;max-width:18ch;text-wrap:balance}
+  .answer{font-size:clamp(18px,2.3vw,21px);line-height:1.55;color:var(--ink);max-width:760px;margin-top:22px;font-weight:500}
+  .answer b{font-weight:700}
+  .lede{color:var(--ink2);font-size:17px;max-width:720px;margin-top:18px}
+  .pagehead .upd{margin-top:20px;font-size:13px;color:var(--ink3)}
+  .head-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:26px}
+
+  /* ---------- fact strip ---------- */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:42px}
+  .fact{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px 18px}
+  .fact .n{font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+  .fact .l{font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.45}
+  @media(max-width:820px){.facts{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.facts{grid-template-columns:1fr}}
+
+  /* ---------- generic section ---------- */
+  .section{padding:74px 0;position:relative}
+  .section h2{font-size:clamp(26px,3.8vw,40px);line-height:1.08;letter-spacing:-.02em;font-weight:600;margin-top:12px}
+  .section .sub{color:var(--ink2);font-size:17px;max-width:680px;margin-top:16px}
+  .rule{border:0;border-top:1px solid var(--line);margin:0}
+
+  /* ---------- operator bio ---------- */
+  .bio{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:start;margin-top:38px}
+  @media(max-width:840px){.bio{grid-template-columns:1fr;gap:30px}}
+  .bio-card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px;
+    box-shadow:0 24px 60px -44px rgba(15,23,42,.4)}
+  .bio-card .role{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo)}
+  .bio-card .nm{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-top:8px}
+  .bio-card .mono-line{font-size:14px;color:var(--ink2);margin-top:4px}
+  .cred{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:12px}
+  .cred li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--ink2);line-height:1.5}
+  .cred li svg{flex:none;width:18px;height:18px;color:var(--emerald);margin-top:2px}
+  .cred li b{color:var(--ink);font-weight:600}
+  .bio-prose p{font-size:16px;color:var(--ink2);line-height:1.65;margin-top:16px;max-width:620px}
+  .bio-prose p:first-child{margin-top:0}
+  .bio-prose a{color:var(--indigo)}
+  .bio-prose a:hover{text-decoration:underline;text-underline-offset:3px}
+  .bio-prose strong{color:var(--ink);font-weight:600}
+
+  /* ---------- mission band ---------- */
+  .mission{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .mission .big{font-family:"Instrument Serif",Georgia,serif;font-weight:400;
+    font-size:clamp(26px,3.6vw,40px);line-height:1.25;letter-spacing:.1px;color:var(--ink);max-width:900px;margin-top:18px}
+  .mission .big em{font-style:italic;color:var(--indigo)}
+  .mission p{font-size:16px;color:var(--ink2);line-height:1.65;max-width:740px;margin-top:22px}
+
+  /* ---------- trust grid ---------- */
+  .trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:38px}
+  @media(max-width:760px){.trust-grid{grid-template-columns:1fr}}
+  .tcard{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px}
+  .tcard .ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    background:#EFF4FF;border:1px solid #DBE6FF;color:var(--indigo);margin-bottom:14px}
+  .tcard .ic svg{width:20px;height:20px}
+  .tcard h3{font-size:17px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+  .tcard p{font-size:14.5px;color:var(--ink2);line-height:1.6;margin-top:9px}
+
+  /* ---------- agents quick map ---------- */
+  .agent-map{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin-top:34px;max-width:920px}
+  @media(max-width:680px){.agent-map{grid-template-columns:1fr}}
+  .am-row{display:flex;gap:13px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+  .am-row .dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--emerald);margin-top:7px}
+  .am-row b{color:var(--ink);font-weight:600;font-size:15px}
+  .am-row span{display:block;color:var(--ink2);font-size:14px;margin-top:3px;line-height:1.5}
+
+  /* ---------- FAQ ---------- */
+  .qa-list{max-width:880px;margin-top:32px;border-top:1px solid var(--line)}
+  .qa{padding:28px 0;border-bottom:1px solid var(--line)}
+  .qa h3{font-size:19px;font-weight:600;letter-spacing:-.01em;line-height:1.3;display:flex;gap:13px;align-items:baseline;color:var(--ink)}
+  .qa h3 .qn{flex:none;font-size:13px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums}
+  .qa p{color:var(--ink2);font-size:15.5px;margin-top:11px;max-width:790px}
+  .qa a{color:var(--indigo)}
+  .qa a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- bottom CTA ---------- */
+  .final{border:1px solid var(--line2);border-radius:26px;padding:46px 36px;text-align:center;margin:70px 0 90px;
+    background:linear-gradient(180deg,rgba(37,99,235,.08),var(--panel2));box-shadow:0 24px 60px -40px rgba(37,99,235,.3)}
+  .final h2{font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;font-weight:600;color:var(--ink)}
+  .final p{color:var(--ink2);font-size:17px;max-width:580px;margin:14px auto 0}
+  .final .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;justify-content:center}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;margin-top:6px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  }
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-ghost" href="https://os.topbuilderai.com" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="pagehead">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> <span>/</span> About
+      </nav>
+      <span class="eyebrow" style="margin-top:18px;display:inline-block">The operator behind the platform</span>
+      <h1>Who is behind <span class="serif" style="color:var(--indigo)">Top Builder AI.</span></h1>
+
+      <p class="answer">Top Builder AI is built and run by <b>Cory Salisbury</b>, its founder and developer. He is a construction bookkeeper and fractional CFO who runs Salisbury Bookkeeping, and an ex-Tesla Master Technician with 7+ years on the bench plus prior experience at SpaceX and Rivian. He installs the eight self-learning agents, tunes them to your shop, and answers when you call.</p>
+
+      <p class="lede">Top Builder AI is the AI back office for ServiceTitan, Buildertrend, and Procore contractors. It runs the Money, Materials, People, and Paperwork work your field software leaves to QuickBooks, every figure is deterministic and audited, and every agent is advisory by default, so it proposes and you approve.</p>
+
+      <p class="upd">Last updated June 23, 2026 · Salisbury Bookkeeping LLC, Eagle Mountain, Utah</p>
+
+      <div class="head-cta">
+        <a class="btn btn-primary" href="https://book.topbuilderai.com" aria-label="Book a 30-minute fit call with the developer"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Book a call with the developer</a>
+        <a class="btn btn-ghost" href="/demo.html">See the platform</a>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><div class="n">8</div><div class="l">Self-learning agents, advisory by default</div></div>
+        <div class="fact"><div class="n">7+ yrs</div><div class="l">As a Tesla Master Technician, plus SpaceX and Rivian</div></div>
+        <div class="fact"><div class="n">1</div><div class="l">Operator who installs, tunes, and answers the phone</div></div>
+        <div class="fact"><div class="n">100%</div><div class="l">Of figures computed by deterministic, audited code</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- OPERATOR BIO -->
+  <section class="section" aria-labelledby="operator-h">
+    <div class="wrap">
+      <span class="eyebrow">The operator</span>
+      <h2 id="operator-h">One person installs it, tunes it, and answers when you call.</h2>
+      <p class="sub">Most software companies put a sales rep between you and the people who built the product. Here the founder is the developer, the bookkeeper, and the support line. That is the whole point.</p>
+
+      <div class="bio">
+        <div class="bio-card">
+          <div class="role">Founder and developer</div>
+          <div class="nm">Cory Salisbury</div>
+          <div class="mono-line">Salisbury Bookkeeping LLC · Eagle Mountain, Utah</div>
+          <ul class="cred">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Construction bookkeeper and fractional CFO</b>, running the books and the financial reviews for contractors at Salisbury Bookkeeping.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ex-Tesla Master Technician</b>, 7+ years on the bench, the top diagnostic tier in the shop.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Prior experience at SpaceX and Rivian</b>, where the standard for a repeatable, audited process is high and the cost of a wrong number is real.</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Builder of the platform itself</b>, so a fix or a feature request reaches the person who can ship it, not a ticket queue.</span></li>
+          </ul>
+        </div>
+
+        <div class="bio-prose">
+          <p>Cory Salisbury sits in two seats that rarely sit in one person. He keeps the books for contractors as a construction bookkeeper and fractional CFO, so he knows exactly where a service shop leaks money: unbilled materials, missed calls, margin that quietly walks out the door between the sold hour and the paid invoice. And he spent more than seven years as a Tesla Master Technician, the top diagnostic tier, with earlier work at SpaceX and Rivian, where a process either works every time and gets audited or it does not ship.</p>
+          <p>Top Builder AI is what happens when those two backgrounds meet. The financial judgment of someone who does the close, and the engineering discipline of someone who diagnosed cars for a living, built into a system that does the repetitive back-office work and shows its math every step of the way.</p>
+          <p>When you come on board, Cory installs the agents on the ServiceTitan, Buildertrend, or Procore you already run, tunes them to how your shop actually operates, and is the person who answers when you call. Operators in the onboarding cohort work with him directly. The bookkeeping side of his practice lives at <a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="section mission" aria-labelledby="mission-h">
+    <div class="wrap">
+      <span class="eyebrow">The mission</span>
+      <h2 id="mission-h" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Our mission</h2>
+      <p class="big">Give every contractor the back office a <em>250-person firm</em> can afford, run by agents that learn your shop and never touch a number they were not built to compute.</p>
+      <p>Top Builder AI exists to close one gap. Field software like ServiceTitan, Buildertrend, and Procore runs the front office well, then hands the back office, the Money, Materials, People, and Paperwork, to QuickBooks and a stack of spreadsheets. That is where good shops lose margin. We run that back-office work with eight self-learning agents that sit alongside the platform you already use, learn from the calls you approve and the edits you make, and stay advisory by default, so you stay in control of every action. The figures are deterministic and audited so the math is always something you can hand to a partner or a lender.</p>
+    </div>
+  </section>
+
+  <!-- TRUST / SAFETY ARCHITECTURE -->
+  <section class="section" aria-labelledby="trust-h">
+    <div class="wrap">
+      <span class="eyebrow">Trust and safety, in plain terms</span>
+      <h2 id="trust-h">Why the numbers can be trusted, and how the agents stay in their lane.</h2>
+      <p class="sub">Authority only matters if it is paired with restraint. Here is how the platform is built so an AI agent can help with the back office without ever putting your books at risk.</p>
+
+      <div class="trust-grid">
+        <div class="tcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3z"/></svg></div>
+          <h3>Deterministic math, narrating AI</h3>
+          <p>Every dollar and hour is computed by plain, tested code, not by a language model. The AI only narrates and advises. It cannot invent or change a figure, so the math stays exact, auditable, and the same every time you run it.</p>
+        </div>
+        <div class="tcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Advisory by default, you approve</h3>
+          <p>Every agent ships in advisory mode: it proposes, you approve. You can set each one to Off, Approve-first, or Auto, per agent, with full undo and an audit trail on every action. Nothing writes back to your systems until you say so.</p>
+        </div>
+        <div class="tcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Your data, isolated</h3>
+          <p>Every contractor is isolated at the database level with row-level security, credentials are encrypted, and your data never trains another shop's agents. A rule your agents learn stays in your account and never leaves it.</p>
+        </div>
+        <div class="tcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20v-6M6 20v-4M18 20v-9"/><path d="M3 20h18"/></svg></div>
+          <h3>Learning that can never touch a figure</h3>
+          <p>The agents learn from what you approve and what you edit, but only on the wording and judgment side. Three matching corrections become a candidate rule that must clear a safety check and a regression test, then a human approves it before it rolls out gradually with rollback.</p>
+        </div>
+        <div class="tcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h3>Sits on top, never rips out</h3>
+          <p>ServiceTitan, Buildertrend, Procore, and QuickBooks stay your systems of record. Top Builder AI plugs in alongside them and reads your jobs, calls, parts, and paperwork. Nothing is migrated, and if you ever leave, your business keeps running exactly as it did.</p>
+        </div>
+        <div class="tcard">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect x="2" y="9" width="20" height="11" rx="2"/></svg></div>
+          <h3>You own your data and stay portable</h3>
+          <p>Your data, your configuration, and your agents' learned playbook are yours and exportable any day in standard formats. We can hand off to a database you own or run on your own keys. You are never held hostage, and you are never locked in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE COMPANY / WHAT IT DOES -->
+  <section class="section mission" aria-labelledby="company-h">
+    <div class="wrap">
+      <span class="eyebrow">The company</span>
+      <h2 id="company-h">Top Builder AI, the AI back office for ServiceTitan, Buildertrend, and Procore.</h2>
+      <p class="sub">Eight self-learning agents, two on the front line alongside your platform's own agents and six running the back office your field software leaves to QuickBooks.</p>
+
+      <div class="agent-map">
+        <div class="am-row"><span class="dot"></span><div><b>Booking, 24/7</b><span>Qualifies, slots, and values every inbound call, day or night.</span></div></div>
+        <div class="am-row"><span class="dot"></span><div><b>Routing and Dispatch</b><span>Optimizes assignments by drive time, margin, parts, and overtime.</span></div></div>
+        <div class="am-row"><span class="dot"></span><div><b>Financial</b><span>Projects cash, reconciles to your real QuickBooks ledger, and flags margin leakage.</span></div></div>
+        <div class="am-row"><span class="dot"></span><div><b>Collections</b><span>Works the A/R aging worklist 24/7 and drafts the dunning for your approval.</span></div></div>
+        <div class="am-row"><span class="dot"></span><div><b>Inventory</b><span>Catches unbilled materials and prorates partial consumables.</span></div></div>
+        <div class="am-row"><span class="dot"></span><div><b>Workforce</b><span>Forecasts avoidable overtime and crew capacity before it costs you.</span></div></div>
+        <div class="am-row"><span class="dot"></span><div><b>Documents</b><span>Files every inbound document and routes it to the right place.</span></div></div>
+        <div class="am-row"><span class="dot"></span><div><b>Pricebook</b><span>Keeps material costs current and re-prices every item under the sold-hour model.</span></div></div>
+      </div>
+      <p style="margin-top:24px"><a href="/demo.html" style="color:var(--indigo);font-weight:600">See the full platform and the Command Center &rarr;</a></p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" aria-labelledby="faq-h">
+    <div class="wrap">
+      <span class="eyebrow">About, in plain answers</span>
+      <h2 id="faq-h">Questions about the operator and the company.</h2>
+
+      <div class="qa-list">
+
+        <article class="qa">
+          <h3><span class="qn">01</span>Who founded and builds Top Builder AI?</h3>
+          <p>Cory Salisbury, founder and developer. He runs Salisbury Bookkeeping as a construction bookkeeper and fractional CFO, and spent 7+ years as a Tesla Master Technician with prior experience at SpaceX and Rivian. He is the same person who builds the platform, installs it on your shop, tunes the agents, and answers when you call.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">02</span>What is Top Builder AI, in one sentence?</h3>
+          <p>Top Builder AI is the AI back office for ServiceTitan, Buildertrend, and Procore contractors: eight self-learning agents that run the Money, Materials, People, and Paperwork work your field software leaves to QuickBooks, with every figure deterministic and audited and every action advisory by default.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">03</span>Why does an ex-Tesla technician and bookkeeper build contractor software?</h3>
+          <p>Because the two backgrounds solve the same problem from both ends. As a fractional CFO and construction bookkeeper, Cory sees exactly where service shops lose margin in the back office. As a former Tesla Master Technician with time at SpaceX and Rivian, he knows how to build a process that runs the same way every time and gets audited. Top Builder AI is the financial judgment and the engineering discipline in one system.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">04</span>Is Top Builder AI related to Salisbury Bookkeeping?</h3>
+          <p>Yes. Top Builder AI is the AI-operations brand of Salisbury Bookkeeping LLC, based in Eagle Mountain, Utah. Same founder, Cory Salisbury, and the same legal entity. Salisbury Bookkeeping handles construction bookkeeping and fractional CFO work for contractors at <a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a>, while Top Builder AI installs the eight self-learning agents on the systems contractors already run.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">05</span>How do you keep the AI from changing or inventing a number?</h3>
+          <p>The math is separated from the AI by design. Every dollar and hour is computed by plain, tested code, and the language model only narrates and advises. The learning layer is structurally blocked from touching a figure, so the numbers stay exact and auditable, and only the wording and judgment improve over time.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">06</span>Will the agents do things without my approval?</h3>
+          <p>Only if you turn that on. Every agent ships advisory by default: it proposes, you approve. You set each one to Off, Approve-first, or Auto, per agent, with full undo and an audit trail on every action. You see the value in advisory mode long before anything writes back to your systems.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">07</span>What does Top Builder AI cost?</h3>
+          <p>Two paths. This quarter the install is $0 (normally $8,000), so you start with no install fee, or you pay the install and keep your monthly flexible from day one. Either way the monthly starts at $3,000 for up to 25 people and scales with team size: $4,500 for 26 to 75, $6,000 for 76 to 125, $8,000 for 126 to 250, and custom above 250. It is backed by a 30-day board-ready-or-free guarantee, and we onboard a small cohort each quarter. Full detail is on the <a href="/#pricing">pricing section</a> and the <a href="/faq.html">FAQ</a>.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">08</span>Which systems does Top Builder AI work with?</h3>
+          <p>ServiceTitan is the flagship integration and the deepest one. The same adapter layer also covers Buildertrend, Procore, Housecall Pro, Jobber, FieldEdge, Service Fusion, Workiz, JobNimbus, and AccuLynx. The agents read your jobs, calls, parts, and paperwork from whichever platform runs your shop, with your books staying in QuickBooks.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">09</span>What else does Cory Salisbury run?</h3>
+          <p>Three properties. Salisbury Bookkeeping at <a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> provides construction bookkeeping and fractional CFO services. Top Builder AI at topbuilderai.com installs the eight self-learning agents on the systems contractors already run. Neuron at <a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> is an AI training platform that teaches teams to actually use AI at work. All three are founded and operated by Cory Salisbury.</p>
+        </article>
+
+        <article class="qa">
+          <h3><span class="qn">10</span>How do I reach the operator?</h3>
+          <p>Email <a href="mailto:support@topbuilderai.com">support@topbuilderai.com</a>, or <a href="https://book.topbuilderai.com">book the fit call</a>: pick a time and you get a calendar invite straight onto the developer's calendar. It is a 30-minute call with Cory, with a real teardown on your own data and no pitch. Top Builder AI works with contractors across the United States.</p>
+        </article>
+
+      </div>
+
+      <div class="final">
+        <h2>Talk to the person who builds it.</h2>
+        <p>Thirty minutes with the developer, a real teardown on your own ServiceTitan, Buildertrend, or Procore data, no pitch. It answers one question: whether your shop is a fit for this quarter's onboarding cohort.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://book.topbuilderai.com">Book your fit call</a>
+          <a class="btn btn-ghost" href="mailto:support@topbuilderai.com?subject=About%20Top%20Builder%20AI">Or email support@topbuilderai.com</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/></g></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People and Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> · Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> · AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div>
+      <div>© 2026 Top Builder AI · topbuilderai.com</div>
+      <div class="foot-legal">
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JSON-LD: AboutPage + BreadcrumbList + Organization + Person -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"AboutPage","@id":"https://topbuilderai.com/about.html#aboutpage",
+      "url":"https://topbuilderai.com/about.html",
+      "name":"About Top Builder AI: the Operator Behind the Eight Agents",
+      "description":"Who is behind Top Builder AI: founder and developer Cory Salisbury, a construction bookkeeper and fractional CFO and ex-Tesla Master Technician, who installs the eight self-learning agents, tunes them, and answers when you call.",
+      "dateModified":"2026-06-23",
+      "isPartOf":{"@id":"https://topbuilderai.com/#website"},
+      "about":{"@id":"https://topbuilderai.com/#organization"},
+      "mainEntity":{"@id":"https://salisburybookkeeping.com/#cory-salisbury"}},
+    {"@type":"BreadcrumbList","@id":"https://topbuilderai.com/about.html#breadcrumb",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://topbuilderai.com/"},
+        {"@type":"ListItem","position":2,"name":"About","item":"https://topbuilderai.com/about.html"}
+      ]},
+    {"@type":"Organization","@id":"https://topbuilderai.com/#organization",
+      "name":"Top Builder AI",
+      "url":"https://topbuilderai.com",
+      "legalName":"Salisbury Bookkeeping LLC",
+      "email":"support@topbuilderai.com",
+      "description":"The AI back office for ServiceTitan, Buildertrend, and Procore contractors. Eight self-learning agents that run Money, Materials, People, and Paperwork, with every figure deterministic and audited and every action advisory by default.",
+      "areaServed":"US",
+      "foundingLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Eagle Mountain","addressRegion":"UT","addressCountry":"US"}},
+      "parentOrganization":{"@id":"https://salisburybookkeeping.com/#organization"},
+      "founder":{"@id":"https://salisburybookkeeping.com/#cory-salisbury"}},
+    {"@type":"Person","@id":"https://salisburybookkeeping.com/#cory-salisbury",
+      "name":"Cory Salisbury",
+      "jobTitle":"Founder and Developer",
+      "description":"Founder and developer of Top Builder AI. Construction bookkeeper and fractional CFO at Salisbury Bookkeeping, and an ex-Tesla Master Technician with 7+ years of experience plus prior work at SpaceX and Rivian.",
+      "worksFor":{"@id":"https://topbuilderai.com/#organization"},
+      "sameAs":["https://salisburybookkeeping.com","https://topbuilderai.com","https://neuron-hq.com"]},
+    {"@type":"WebSite","@id":"https://topbuilderai.com/#website",
+      "url":"https://topbuilderai.com","name":"Top Builder AI",
+      "publisher":{"@id":"https://topbuilderai.com/#organization"}}
+  ]
+}
+</script>
+
+<!-- JSON-LD: FAQPage (mirrors the visible Q&As) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "@id":"https://topbuilderai.com/about.html#faqpage",
+  "url":"https://topbuilderai.com/about.html",
+  "name":"About Top Builder AI FAQ",
+  "dateModified":"2026-06-23",
+  "mainEntity":[
+    {"@type":"Question","name":"Who founded and builds Top Builder AI?","acceptedAnswer":{"@type":"Answer","text":"Cory Salisbury, founder and developer. He runs Salisbury Bookkeeping as a construction bookkeeper and fractional CFO, and spent 7+ years as a Tesla Master Technician with prior experience at SpaceX and Rivian. He is the same person who builds the platform, installs it on your shop, tunes the agents, and answers when you call."}},
+    {"@type":"Question","name":"What is Top Builder AI, in one sentence?","acceptedAnswer":{"@type":"Answer","text":"Top Builder AI is the AI back office for ServiceTitan, Buildertrend, and Procore contractors: eight self-learning agents that run the Money, Materials, People, and Paperwork work your field software leaves to QuickBooks, with every figure deterministic and audited and every action advisory by default."}},
+    {"@type":"Question","name":"Why does an ex-Tesla technician and bookkeeper build contractor software?","acceptedAnswer":{"@type":"Answer","text":"Because the two backgrounds solve the same problem from both ends. As a fractional CFO and construction bookkeeper, Cory sees exactly where service shops lose margin in the back office. As a former Tesla Master Technician with time at SpaceX and Rivian, he knows how to build a process that runs the same way every time and gets audited. Top Builder AI is the financial judgment and the engineering discipline in one system."}},
+    {"@type":"Question","name":"Is Top Builder AI related to Salisbury Bookkeeping?","acceptedAnswer":{"@type":"Answer","text":"Yes. Top Builder AI is the AI-operations brand of Salisbury Bookkeeping LLC, based in Eagle Mountain, Utah. Same founder, Cory Salisbury, and the same legal entity. Salisbury Bookkeeping handles construction bookkeeping and fractional CFO work for contractors at salisburybookkeeping.com, while Top Builder AI installs the eight self-learning agents on the systems contractors already run."}},
+    {"@type":"Question","name":"How do you keep the AI from changing or inventing a number?","acceptedAnswer":{"@type":"Answer","text":"The math is separated from the AI by design. Every dollar and hour is computed by plain, tested code, and the language model only narrates and advises. The learning layer is structurally blocked from touching a figure, so the numbers stay exact and auditable, and only the wording and judgment improve over time."}},
+    {"@type":"Question","name":"Will the agents do things without my approval?","acceptedAnswer":{"@type":"Answer","text":"Only if you turn that on. Every agent ships advisory by default: it proposes, you approve. You set each one to Off, Approve-first, or Auto, per agent, with full undo and an audit trail on every action. You see the value in advisory mode long before anything writes back to your systems."}},
+    {"@type":"Question","name":"What does Top Builder AI cost?","acceptedAnswer":{"@type":"Answer","text":"Two paths. This quarter the install is $0 (normally $8,000), so you start with no install fee, or you pay the install and keep your monthly flexible from day one. Either way the monthly starts at $3,000 for up to 25 people and scales with team size: $4,500 for 26 to 75, $6,000 for 76 to 125, $8,000 for 126 to 250, and custom above 250. It is backed by a 30-day board-ready-or-free guarantee, and we onboard a small cohort each quarter."}},
+    {"@type":"Question","name":"Which systems does Top Builder AI work with?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan is the flagship integration and the deepest one. The same adapter layer also covers Buildertrend, Procore, Housecall Pro, Jobber, FieldEdge, Service Fusion, Workiz, JobNimbus, and AccuLynx. The agents read your jobs, calls, parts, and paperwork from whichever platform runs your shop, with your books staying in QuickBooks."}},
+    {"@type":"Question","name":"What else does Cory Salisbury run?","acceptedAnswer":{"@type":"Answer","text":"Three properties. Salisbury Bookkeeping at salisburybookkeeping.com provides construction bookkeeping and fractional CFO services. Top Builder AI at topbuilderai.com installs the eight self-learning agents on the systems contractors already run. Neuron at neuron-hq.com is an AI training platform that teaches teams to actually use AI at work. All three are founded and operated by Cory Salisbury."}},
+    {"@type":"Question","name":"How do I reach the operator?","acceptedAnswer":{"@type":"Answer","text":"Email support@topbuilderai.com, or book the fit call: pick a time and you get a calendar invite straight onto the developer's calendar. It is a 30-minute call with Cory, with a real teardown on your own data and no pitch. Top Builder AI works with contractors across the United States."}}
+  ]
+}
+</script>
+
+</body>
+</html>

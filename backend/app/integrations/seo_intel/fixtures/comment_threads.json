@@ -1,0 +1,29 @@
+[
+  {
+    "platform": "reddit",
+    "thread_title": "Anyone else bleeding money on missed after-hours calls?",
+    "url": "https://www.reddit.com/r/HVAC/comments/1kx9q2m/anyone_else_bleeding_money_on_missed_afterhours/",
+    "thread_age_days": 3,
+    "replies": 42,
+    "matched_services": ["after-hours answering", "emergency dispatch", "call booking"],
+    "draft_comment": "We were in the same spot two winters ago — counted 14 missed calls over one cold weekend and finally did the math. Every missed after-hours call for us averages out to roughly a $400 job, so 'we'll call them back in the morning' was quietly our most expensive policy. What actually moved the number wasn't a fancier answering service, it was making sure whoever answers can SEE the schedule and book the slot on the first call — message-taking services don't fix it because people just hang up and dial the next shop. Happy to share the checklist we used to compare options if anyone wants it; the booked-vs-screened rate matters way more than the monthly fee."
+  },
+  {
+    "platform": "reddit",
+    "thread_title": "Tankless water heater quote feels high — am I getting taken?",
+    "url": "https://www.reddit.com/r/Plumbing/comments/1ky3f8d/tankless_water_heater_quote_feels_high_am_i/",
+    "thread_age_days": 6,
+    "replies": 31,
+    "matched_services": ["tankless water heater install", "water heater replacement"],
+    "draft_comment": "Plumber here, so take this with the obvious bias. A fair tankless quote breaks into three buckets: the unit, the gas line and venting work, and permits. The unit price is easy to verify online in two minutes. Where quotes balloon is bucket two — if your gas line needs upsizing for the higher BTU draw, that's real labor and materials, not padding. I'd ask whoever quoted you to split it into those three lines. Anyone doing it honestly will hand that over without flinching, and you'll know immediately whether you're being taken or your house just needs the gas work."
+  },
+  {
+    "platform": "youtube",
+    "thread_title": "I Installed 5 Smart Thermostats on My Heat Pump — Here's What Broke",
+    "url": "https://www.youtube.com/watch?v=hQ7xLm2tEpc",
+    "thread_age_days": 12,
+    "replies": 88,
+    "matched_services": ["smart thermostat install", "heat pump service"],
+    "draft_comment": "Good teardown. One thing I'd add from the install side: most 'smart stat killed my heat pump' service calls we run turn out to be a missing common wire or the O/B reversing valve set backwards, not the thermostat hardware. If anyone's system short-cycles or blows the wrong temperature after a swap, check those two before returning the unit — it's a five-minute fix versus a service call. And whatever brand you pick, find the aux-heat lockout setting; that one toggle saves more on winter bills than any learning algorithm."
+  }
+]

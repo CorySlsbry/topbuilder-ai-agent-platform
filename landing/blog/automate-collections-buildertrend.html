@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to Automate Collections for Your Buildertrend Shop: The A/R and Draw Follow-Up Playbook (2026)</title>
+<meta name="description" content="A practical guide for builders and remodelers on Buildertrend: how to automate A/R collections using an AI agent that reconciles against QuickBooks first, scores every open invoice and draw by age, balance, history, and margin, and proposes a ranked follow-up queue a human approves before anything reaches a client. Nothing sends without a person." />
+<link rel="canonical" href="https://topbuilderai.com/blog/automate-collections-buildertrend.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Automate Collections for Your Buildertrend Shop: The A/R and Draw Follow-Up Playbook (2026)" />
+<meta property="og:description" content="Stop manually triaging open invoices and draws. An AI agent reconciles your receivables against QuickBooks to remove unapplied-payment noise, scores each open item, and proposes the follow-up queue, and a human approves before anything reaches a client." />
+<meta property="og:url" content="https://topbuilderai.com/blog/automate-collections-buildertrend.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_buildertrend-collections.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_buildertrend-collections.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Enterprise-light palette (WCAG 2.2 AA verified). Blue primary, green secondary. */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  /* article header */
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  /* article body */
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  /* stat callout */
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:var(--ink);line-height:1.1;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  /* worked-example callout */
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  /* process steps */
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  /* honest-status band */
+  .concede{margin:30px 0;border:1px solid rgba(4,120,87,.3);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(4,120,87,.05),var(--panel));padding:22px 24px}
+  .concede .h{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--emerald)}
+  .concede p{margin:10px 0 0;font-size:15px;color:var(--ink2);line-height:1.65}
+  .concede b{color:var(--ink)}
+
+  /* faq */
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  /* cta */
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/automate-collections-buildertrend.html"},
+  "headline":"How to Automate Collections for Your Buildertrend Shop: The A/R and Draw Follow-Up Playbook (2026)",
+  "description":"A practical guide for builders and remodelers on Buildertrend: how to automate A/R collections using an AI agent that reconciles against QuickBooks first, scores every open invoice and draw by age, balance, history, and margin, and proposes a ranked follow-up queue a human approves before anything reaches a client.",
+  "datePublished":"2026-07-01",
+  "dateModified":"2026-07-01",
+  "inLanguage":"en-US",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["Buildertrend accounts receivable","builder collections automation","draw follow-up","QuickBooks reconciliation","contractor cash flow"],
+  "keywords":"automate collections Buildertrend, Buildertrend accounts receivable, draw follow-up automation, QuickBooks Buildertrend reconciliation, builder collections"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Does Buildertrend have a collections tool built in?","acceptedAnswer":{"@type":"Answer","text":"Buildertrend handles invoicing and client payment records inside the platform, and its current documentation is the right source for exactly what its billing features cover. What no project platform gives you is a prioritized, ledger-reconciled chase queue: which of the open invoices and draws to contact today, in what order, with what message, checked against what QuickBooks says actually arrived. That is the layer an AI collections agent adds on top."}},
+    {"@type":"Question","name":"Can AI send collection messages to my clients automatically?","acceptedAnswer":{"@type":"Answer","text":"Not in Top Builder AI. The Collections agent proposes the contact type, the message or call script, and the reason for each open item, and a department lead approves, edits, or skips each one before anything is sent. That approval is required always, even when the agent is set to auto mode, because dunning a residential client on a six-figure remodel is a relationship decision, not just a data decision."}},
+    {"@type":"Question","name":"Why don't Buildertrend and QuickBooks A/R match?","acceptedAnswer":{"@type":"Answer","text":"Because payments flow through the two systems on different schedules. A draw payment gets deposited in QuickBooks but never applied to the matching job record; a credit or adjustment is entered in one system and not mirrored in the other; a single client check covers multiple invoices and gets applied to a general balance. Each of these creates an item that looks open in one system and settled in the other, which is why reconciliation has to precede any collections outreach."}},
+    {"@type":"Question","name":"How does the agent decide which invoices and draws to chase first?","acceptedAnswer":{"@type":"Answer","text":"It scores each genuine open item on four factors together: age in days off the real due date, balance, the client's payment history, and job margin. A $60,000 draw at 40 days on a client with a slow-pay pattern outranks a $2,000 punch-list invoice at 55 days. The output is a ranked follow-up queue with a recommended first-touch action per item, not a raw aging report."}},
+    {"@type":"Question","name":"What is a reconciliation mismatch and why does it matter?","acceptedAnswer":{"@type":"Answer","text":"A reconciliation mismatch is an invoice or draw that your project records show as open but QuickBooks shows as partially or fully settled, usually an unapplied payment. Chasing a mismatch means calling a client who already paid, which burns goodwill on exactly the relationships a builder depends on for referrals. The agent removes mismatches from the chase queue and routes them to the bookkeeper as a cleanup task instead."}},
+    {"@type":"Question","name":"Does it handle draws and progress invoices differently from standard invoices?","acceptedAnswer":{"@type":"Answer","text":"Yes. Draws and progress invoices are exactly the payments most likely to land in QuickBooks without being applied to the matching job record, so the reconciliation pass matters most for them. The scoring also reflects that a draw blocks the work behind it: an unpaid draw on an active job carries schedule risk on top of cash risk, and the proposed follow-up reflects that urgency."}},
+    {"@type":"Question","name":"How does Top Builder AI connect to Buildertrend?","acceptedAnswer":{"@type":"Answer","text":"Through the Buildertrend partner process, not a self-serve connect. Onboarding starts with a fit call, and we complete the data connection through Buildertrend's partner program on your behalf. QuickBooks Online connects directly, and the accounting connection is activated per customer during install and fails closed until then, so the agent never guesses at a ledger it cannot see."}},
+    {"@type":"Question","name":"What does it cost?","acceptedAnswer":{"@type":"Answer","text":"Top Builder AI is $3,000 per month for up to 25 people using the system, $4,500 per month for 26 to 75, and it scales from there, published in plain text on the pricing page. The one-time install is $0 this quarter (normally $8,000), backed by a 30-day board-ready-or-free guarantee. The Collections agent is included in every tier along with the other available agents."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/agents.html">The Agents</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/buildertrend.html">For Buildertrend</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Buildertrend Collections Automation</div>
+    <span class="kicker">Buildertrend &middot; Collections &middot; Cash Flow</span>
+    <h1>How to Automate Collections for Your Buildertrend Shop: The A/R and Draw Follow-Up Playbook (2026)</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published July 1, 2026</span>
+      <span class="pill">~11 min read</span>
+      <span class="pill">Builders &middot; Remodelers &middot; Specialty trades</span>
+    </div>
+  </section>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">To automate collections for a Buildertrend shop, connect an AI agent to your open receivables, cross-reference them against QuickBooks first to strip out unapplied-payment noise, score each genuine open invoice and draw by age, balance, client history, and job margin, then generate a ranked follow-up queue, a payment-link message, a call script with the specific invoice reference, or an escalation flag, that a person approves before any outreach reaches a client. Top Builder AI's <strong>Collections agent</strong> runs this loop on a configurable cadence: it reconciles the two systems, ranks what to chase first and why, drafts the specific action for each item, and tracks every promise-to-pay. <strong>Nothing reaches a client without a human decision</strong>, and every send requires a department lead's approval, always.</p>
+
+      <p>A builder can have a full schedule, healthy gross margin on paper, and a client list that loves the work, and still run short of operating cash, because the draw billed five weeks ago is still sitting unpaid while the framing package it was supposed to fund went on the credit line. Builder receivables are lumpy: a handful of large draws and progress invoices instead of hundreds of small tickets. That makes each unpaid item bigger, and it makes the absence of a systematic follow-up process more expensive per invoice than in almost any other trade.</p>
+
+      <p>This is not a fringe problem. Slow payments cost the U.S. construction sector a staggering $280 billion in 2024, and delayed payments increased costs by 14% of total construction spending that year, according to the <a class="link" href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener noreferrer">Rabbet 2024 Construction Payments Report (2024)</a>. When cash sits in the A/R column instead of the bank, it erodes margin on every dollar of work the shop does.</p>
+
+      <style>
+        /* Scoped 2-bar chart (tba-arch-*); overlap-proof by construction. */
+        .tba-arch{margin:30px 0}
+        .tba-arch .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+        .tba-arch .body{padding:14px 22px 18px}
+        .tba-arch-plot{display:flex;align-items:flex-end;justify-content:center;gap:clamp(28px,12vw,72px);
+          min-height:240px;padding:0 6px}
+        .tba-arch-col{display:flex;flex-direction:column;align-items:center;flex:1 1 0;max-width:150px;min-width:0}
+        .tba-arch-val{font-family:"Instrument Serif",Georgia,serif;font-size:clamp(28px,7vw,40px);line-height:1;
+          color:var(--ink);font-variant-numeric:tabular-nums;font-feature-settings:"tnum";margin-bottom:10px}
+        .tba-arch-col.is-now .tba-arch-val{color:var(--indigo-2)}
+        .tba-arch-track{width:100%;height:170px;display:flex;align-items:flex-end}
+        .tba-arch-bar{width:100%;border-radius:9px 9px 0 0;min-height:8px}
+        .tba-arch-col.is-prior .tba-arch-bar{background:var(--line2)}
+        .tba-arch-col.is-now .tba-arch-bar{background:linear-gradient(180deg,var(--indigo),var(--indigo-2))}
+        .tba-arch-yr{margin-top:12px;font-size:13.5px;font-weight:600;color:var(--ink2);text-align:center}
+        .tba-arch-sub{margin-top:2px;font-size:12px;color:var(--ink3);text-align:center;line-height:1.4}
+        .tba-arch figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+        .tba-arch figcaption a{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+        .tba-arch figcaption a:hover{border-bottom-color:var(--emerald)}
+        @media(max-width:430px){.tba-arch .body{padding:12px 14px 16px}.tba-arch figcaption{padding:0 14px 16px}}
+      </style>
+      <figure class="calc tba-arch" aria-label="Bar chart: share of contractors facing payment delays over 30 days, by year">
+        <div class="cap">Contractors facing 30+ day payment delays</div>
+        <div class="body">
+          <div class="tba-arch-plot">
+            <div class="tba-arch-col is-prior">
+              <div class="tba-arch-val">~49%</div>
+              <div class="tba-arch-track"><div class="tba-arch-bar" style="height:49%"></div></div>
+              <div class="tba-arch-yr">Earlier</div>
+              <div class="tba-arch-sub">Two years prior</div>
+            </div>
+            <div class="tba-arch-col is-now">
+              <div class="tba-arch-val">82%</div>
+              <div class="tba-arch-track"><div class="tba-arch-bar" style="height:82%"></div></div>
+              <div class="tba-arch-yr">2024</div>
+              <div class="tba-arch-sub">Latest</div>
+            </div>
+          </div>
+        </div>
+        <figcaption>The share of contractors reporting payment delays of over 30 days jumped from roughly 49% to 82% in two years, per the <a href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener noreferrer">Rabbet 2024 Construction Payments Report (2024)</a>. Late payment is now the norm, not the exception, which is exactly why a prioritized follow-up queue matters.</figcaption>
+      </figure>
+
+      <p>And the delay is priced into the whole market. A separate survey of 250 U.S. general contractors and subcontractors found that 70% regularly face delayed payments, and that contractors inflate bids by an average of 8% to protect themselves against slow payment, according to <a class="link" href="https://www.businesswire.com/news/home/20250521182315/en/Constructions-Cash-Crunch-70-of-Contractors-Say-Payment-Delays-Threaten-Industry" rel="noopener noreferrer">Built / Talker Research (2025)</a>. Consistent, systematic follow-up is how an individual shop stops paying that tax.</p>
+
+      <h2>Why do builders leave so much money sitting in the A/R column?</h2>
+
+      <p>The mechanism is structural. A builder's receivables are a small number of large items: a draw against a construction loan, a progress invoice at a milestone, a final invoice with retainage or a punch-list holdback attached. Each one has its own story, the bank's inspection has not happened, the client is waiting on their lender, there is an open selections dispute, and because each item is large and personal, following up feels like a judgment call rather than a process. So it gets handled by the owner or the office manager, from memory, when there is time.</p>
+
+      <p>The office team usually has the list. What they do not have is a prioritized queue that says which of the open items to contact today, in what order, and what to say, with the reconciliation already done so nobody chases money that already arrived. Building that queue by hand every morning is a job nobody has time for, which is why it does not happen, and why a five-week-old draw surprises everyone in the cash meeting.</p>
+
+      <p>The administrative weight of doing it manually is documented outside construction too: 65% of mid-sized businesses said they spend 14 hours per week on average on the administrative tasks tied to collecting payments, and those firms reported being owed $304,066 on average in late customer payments, according to <a class="link" href="https://quickbooks.intuit.com/r/midsize-business/midsize-payments-research/" rel="noopener noreferrer">QuickBooks / Intuit late-payments research (2021)</a>. That is the labor a reconciled, ranked follow-up queue is designed to compress.</p>
+
+      <h2>Where does Buildertrend leave gaps in collections?</h2>
+
+      <p>Buildertrend handles invoicing and client payment records inside the platform, and its current documentation is the right source for exactly what its billing features cover; those specifics are Buildertrend's to define. The gaps we are describing are the ones no project platform fills, because they live across two systems and a judgment layer:</p>
+
+      <ul>
+        <li><b>Prioritization.</b> A list of open invoices is not a queue. Every item in a 31-to-60 bucket looks the same until something weighs age, balance, client history, and margin together and says what to do first.</li>
+        <li><b>Ledger reconciliation.</b> The platform knows what was billed; QuickBooks knows what was received and applied. The two drift, and chasing the drift means dunning a client who already paid.</li>
+        <li><b>The drafted next action.</b> Knowing an invoice is late is not the same as having the follow-up message written, referenced to the right draw and job, ready for a lead to approve.</li>
+        <li><b>Promise-to-pay tracking.</b> "The bank releases it Friday" is a commitment someone has to log and verify, or it evaporates.</li>
+      </ul>
+
+      <h2>Why don't Buildertrend and QuickBooks A/R match, and why does it matter?</h2>
+
+      <p>The practical question before any collections call is: does this client actually owe this money right now? The answer lives in two systems. The project platform knows the invoice and the draw schedule. QuickBooks knows the bank deposits, the applied payments, the journal entries, and the credit memos. Where the two agree, you have a clean balance. Where they diverge, you have a reconciliation task disguised as a collections task.</p>
+
+      <p>Draws and progress payments are the worst offenders. A lender disbursement or a large client check arrives, gets deposited in QuickBooks, and never gets applied to the specific job record in the project platform. A credit for a selections change is entered in one system only. One check covers three invoices and gets applied to a general balance. Each of these makes an item look open in one system and settled in the other.</p>
+
+      <p>The Collections agent resolves this by pulling both ledgers at the start of every cycle, matching clients and invoice references across the two systems, and flagging every disagreement. Flagged items leave the chase queue entirely and land in a bookkeeper cleanup list. What remains is the genuine outstanding balance, the items where both systems agree the money has not arrived. That first-cycle cleanup is often the most valuable output of the first month: it stops the office from burning goodwill on clients who already paid, which on referral-driven residential work is worth more than the labor savings.</p>
+
+      <h2>How does the Collections agent run a cycle?</h2>
+
+      <p>After setup, the agent runs on a configurable cadence, typically every two to three days for a builder's invoice volume. Each cycle has four steps.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Ingest the open receivables</b> Open invoices and draws with client, job, amount, due date, last payment event, and any open dispute or hold notes.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Reconcile against QuickBooks A/R</b> Match clients and invoice references across the two systems. Flag mismatches, items open in one system and settled in the other, and route them to the bookkeeper queue, out of the chase queue.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Score and rank the genuine open items</b> Weight age off the real due date, balance, client payment history, and job margin. Draws on active jobs carry schedule risk on top of cash risk and are weighted accordingly.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Propose the follow-up queue for approval</b> Each proposed action shows the client, the balance, the recommended approach, and the reason. A department lead approves, edits, or skips each one. Nothing sends without that approval, ever, even in auto mode.</div></div>
+      </div>
+
+      <h2>Worked example: a design-build remodeler, one cycle</h2>
+
+      <p>All figures below are <strong>illustrative</strong> to demonstrate the process. They are not a client result.</p>
+
+      <figure class="calc">
+        <div class="cap">Illustrative A/R snapshot &middot; design-build remodeler on Buildertrend</div>
+        <div class="body">
+          <div class="lab">The position</div>
+          <table>
+            <tr><td>Monthly billings (draws + progress invoices)</td><td>$400,000</td></tr>
+            <tr><td>Outstanding A/R</td><td>$670,000</td></tr>
+            <tr class="tot"><td>Average collection cycle</td><td class="price">~50 days</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">After the reconciliation pass</div>
+          <table>
+            <tr><td>Reconciliation mismatches removed from the chase queue</td><td>$38,000</td></tr>
+            <tr><td>Genuine 45-plus open balance ranked into the queue</td><td>$212,000</td></tr>
+            <tr><td>Same-day follow-up queue proposed (approved in ~7 min)</td><td>3 actions</td></tr>
+          </table>
+        </div>
+        <figcaption>The $38,000 removed was a lender draw disbursement deposited in QuickBooks but never applied to the matching job record. Bookkeeping fix, not a collections call.</figcaption>
+      </figure>
+
+      <p>The three proposed actions in this cycle:</p>
+      <ul>
+        <li><b>Payment-link message on a $14,500 progress invoice at 52 days.</b> The client's history shows prompt payment after one reminder. Recommended: a friendly first-touch message with the invoice reference and a payment link, drafted for the lead to approve.</li>
+        <li><b>Call script for a $61,000 draw at 41 days on an active job.</b> The draw is blocking the next phase, so it carries schedule risk. The agent drafts a call brief referencing the draw number and the bank-inspection status, and recommends the owner make this call personally.</li>
+        <li><b>Escalation flag on a $23,000 final invoice at 95 days with an open punch-list dispute.</b> The dispute note excludes it from the standard queue; the agent routes it to a review list with the full contact history attached, so the underlying issue gets resolved before any dunning goes out.</li>
+      </ul>
+
+      <h2>What will the agent never do without my approval?</h2>
+
+      <ul>
+        <li><b>No automated outreach.</b> Every proposed contact requires a department lead to approve it first, always, even in auto mode. The agent does not know about the conversation you had with the client at the job site yesterday; the approval step is where that context applies.</li>
+        <li><b>No fabricated figures.</b> Every balance, aging calculation, and margin figure comes from deterministic, tested code. The language model explains the result in plain language; it never generates or adjusts a number.</li>
+        <li><b>Dispute-aware.</b> Items with open dispute or hold notes never enter the standard chase queue; they go to a separate review list with history attached.</li>
+        <li><b>Fully audited and reversible.</b> The scoring run, the proposed outreach, the approver identity, the timestamp, and the outcome are all logged append-only.</li>
+      </ul>
+
+      <div class="concede">
+        <div class="h">Honest status: how Buildertrend connects</div>
+        <p><b>Buildertrend connections run through the Buildertrend partner process</b>, not a self-serve connect, so onboarding starts with a fit call and we complete the connection through that partner program on your behalf. QuickBooks Online connects directly, and the accounting connection is activated per customer during install and <b>fails closed</b> until then: the agent says "not connected" rather than guess at a ledger it cannot see. Buildertrend shops get five agents plus the Pricebook engine today; the full scope is on <a href="/agents.html" style="color:var(--emerald);font-weight:600">the agents page</a> and the platform overview is at <a href="/buildertrend.html" style="color:var(--emerald);font-weight:600">topbuilderai.com/buildertrend.html</a>.</p>
+      </div>
+
+      <h2>How does automating collections fit the rest of the back office?</h2>
+
+      <p>Collections is one agent in Top Builder AI's back-office layer. On Buildertrend, it runs alongside the Financial agent (job profitability and the 30/60/90-day cash forecast reconciled to QuickBooks), the Documents agent (A/P drafts from emailed vendor bills, COI expiry flags), the Workforce agent (overtime and payroll checks), and the Routing agent, with the Pricebook engine re-costing materials from vendor price files. The collections queue feeds the same cash-position picture the Financial agent maintains, so the owner's question, what cash clears this week and what goes out, gets answered from live, reconciled data instead of a week-old export.</p>
+
+      <p>If you run ServiceTitan instead of Buildertrend, the same playbook is covered in our <a class="link" href="/blog/servicetitan-ar-collections-automation.html">ServiceTitan A/R collections guide</a>, and the broader picture of what an AI back office is lives in <a class="link" href="/blog/ai-back-office-for-servicetitan.html">the flagship overview</a>.</p>
+
+      <div class="cta">
+        <h2>Your outstanding draws are a solvable problem</h2>
+        <p>If your open receivables include draws older than 45 days, or your QuickBooks balance does not match what your project platform shows as open, those are the two signals the Collections agent addresses first. Book a 30-minute fit call and we will walk the reconciliation check against your actual books.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Does Buildertrend have a collections tool built in?</div>
+      <div class="a">Buildertrend handles invoicing and client payment records inside the platform, and its current documentation is the right source for exactly what its billing features cover. What no project platform gives you is a prioritized, ledger-reconciled chase queue: which of the open invoices and draws to contact today, in what order, with what message, checked against what QuickBooks says actually arrived. That is the layer an AI collections agent adds on top.</div>
+
+      <div class="q">Can AI send collection messages to my clients automatically?</div>
+      <div class="a">Not in Top Builder AI. The Collections agent proposes the contact type, the message or call script, and the reason for each open item, and a department lead approves, edits, or skips each one before anything is sent. That approval is required always, even when the agent is set to auto mode, because dunning a residential client on a six-figure remodel is a relationship decision, not just a data decision.</div>
+
+      <div class="q">Why don't Buildertrend and QuickBooks A/R match?</div>
+      <div class="a">Because payments flow through the two systems on different schedules. A draw payment gets deposited in QuickBooks but never applied to the matching job record; a credit or adjustment is entered in one system and not mirrored in the other; a single client check covers multiple invoices and gets applied to a general balance. Each of these creates an item that looks open in one system and settled in the other, which is why reconciliation has to precede any collections outreach.</div>
+
+      <div class="q">How does the agent decide which invoices and draws to chase first?</div>
+      <div class="a">It scores each genuine open item on four factors together: age in days off the real due date, balance, the client's payment history, and job margin. A $60,000 draw at 40 days on a client with a slow-pay pattern outranks a $2,000 punch-list invoice at 55 days. The output is a ranked follow-up queue with a recommended first-touch action per item, not a raw aging report.</div>
+
+      <div class="q">What is a reconciliation mismatch and why does it matter?</div>
+      <div class="a">A reconciliation mismatch is an invoice or draw that your project records show as open but QuickBooks shows as partially or fully settled, usually an unapplied payment. Chasing a mismatch means calling a client who already paid, which burns goodwill on exactly the relationships a builder depends on for referrals. The agent removes mismatches from the chase queue and routes them to the bookkeeper as a cleanup task instead.</div>
+
+      <div class="q">Does it handle draws and progress invoices differently from standard invoices?</div>
+      <div class="a">Yes. Draws and progress invoices are exactly the payments most likely to land in QuickBooks without being applied to the matching job record, so the reconciliation pass matters most for them. The scoring also reflects that a draw blocks the work behind it: an unpaid draw on an active job carries schedule risk on top of cash risk, and the proposed follow-up reflects that urgency.</div>
+
+      <div class="q">How does Top Builder AI connect to Buildertrend?</div>
+      <div class="a">Through the Buildertrend partner process, not a self-serve connect. Onboarding starts with a fit call, and we complete the data connection through Buildertrend's partner program on your behalf. QuickBooks Online connects directly, and the accounting connection is activated per customer during install and fails closed until then, so the agent never guesses at a ledger it cannot see.</div>
+
+      <div class="q">What does it cost?</div>
+      <div class="a">Top Builder AI is $3,000 per month for up to 25 people using the system, $4,500 per month for 26 to 75, and it scales from there, published in plain text on the pricing page. The one-time install is $0 this quarter (normally $8,000), backed by a 30-day board-ready-or-free guarantee. The Collections agent is included in every tier along with the other available agents.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan, Procore, and Buildertrend contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/buildertrend.html">For Buildertrend</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

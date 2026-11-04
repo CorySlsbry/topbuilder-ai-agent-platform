@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<title>The Eight AI Agents Inside Top Builder AI: What Each One Does</title>
+<meta name="description" content="The eight AI agents inside Top Builder AI, plainly: Booking, Routing, Financial, Inventory, Workforce, Documents, Collections, and Pricebook. What each agent computes, what it proposes, who approves it, and which platforms it covers across ServiceTitan, Procore, and Buildertrend. Every figure is deterministic. The platform is advisory by default: each agent proposes and a person approves, and an agent can run its reversible actions in auto while money and legal actions always require a person. From $3,000 per month." />
+<link rel="canonical" href="https://topbuilderai.com/agents.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/agents.html" />
+<meta property="og:title" content="The Eight AI Agents Inside Top Builder AI: What Each One Does" />
+<meta property="og:description" content="One plain answer per agent: what it computes, what it proposes, who approves it, and which platforms it covers. ServiceTitan shops get all eight agents; Procore and Buildertrend shops get six, and we say which two do not apply and why." />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* ADA-verified enterprise-light palette (WCAG 2.2 AA, all text pairs >=4.5:1). */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --inkem:#FFFFFF;
+    --maxw:1140px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  .serif{font-family:"Instrument Serif",Georgia,serif; font-weight:400; letter-spacing:.2px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  a{color:inherit; text-decoration:none}
+  .mono{font-variant-numeric:tabular-nums; font-feature-settings:"tnum"}
+
+  /* focus-visible (ADA keyboard) */
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+
+  /* skip link (ADA) */
+  .skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--indigo);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+
+  /* ---------- ambient background (light) ---------- */
+  .glow{position:fixed; inset:0; z-index:0; pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:46%;right:-10%;width:680px;height:680px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+    box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  .btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+  .btn-ghost:hover{background:var(--bg2);border-color:var(--ink3);transform:translateY(-1px)}
+  @media(max-width:760px){
+    .nav-links a:not(.btn){display:none}
+    .nav-in{height:auto;min-height:54px;padding:9px 0;gap:10px;flex-wrap:nowrap}
+    .brand{font-size:14px;gap:7px;white-space:nowrap;flex-shrink:0}
+    .brand svg{width:22px;height:22px}
+    .nav-links{gap:8px;flex-shrink:0}
+    .nav-links .btn{padding:8px 12px;font-size:12.5px;border-radius:9px}
+  }
+  @media(max-width:430px){
+    .wrap{padding:0 16px}
+    .brand{font-size:13px;gap:6px}
+    .brand svg{width:20px;height:20px}
+    .nav-links{gap:6px}
+    .nav-links .btn{padding:7px 10px;font-size:12px}
+  }
+
+  /* ---------- breadcrumb ---------- */
+  .crumb{padding:22px 0 0;font-size:13px;color:var(--ink3)}
+  .crumb a{color:var(--ink3)}
+  .crumb a:hover{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .crumb span[aria-current]{color:var(--ink2);font-weight:600}
+
+  /* ---------- page head ---------- */
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  .pagehead{padding:30px 0 10px}
+  .pagehead h1{font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin-top:16px;color:var(--ink);max-width:20ch}
+  .pagehead .answer{color:var(--ink);font-size:19px;line-height:1.6;max-width:760px;margin-top:20px;font-weight:500}
+  .pagehead .lede{color:var(--ink2);font-size:17px;line-height:1.65;max-width:780px;margin-top:18px}
+  .pagehead .upd{margin-top:16px;font-size:13px;color:var(--ink3)}
+  .pagehead .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+
+  /* ---------- generic section ---------- */
+  .section{padding:60px 0;position:relative}
+  .section h2{font-size:clamp(26px,3.6vw,40px);line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0;color:var(--ink)}
+  .section .lede{color:var(--ink2);font-size:17px;line-height:1.65;max-width:780px;margin-top:16px}
+
+  /* ---------- Q&A list (plain headings + paragraphs, no accordions) ---------- */
+  .qa-list{max-width:880px;margin-top:30px;border-top:1px solid var(--line)}
+  .qa{padding:30px 0;border-bottom:1px solid var(--line)}
+  .qa h2{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.3;display:flex;gap:14px;align-items:baseline;color:var(--ink)}
+  .qa h2 .qn{flex:none;font-size:13px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums}
+  .qa p{color:var(--ink2);font-size:15.5px;margin-top:12px;max-width:780px;line-height:1.65}
+  .qa a{color:var(--indigo)}
+  .qa a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- compact spec list inside a Q&A ---------- */
+  .qa ul.spec{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:10px;max-width:780px}
+  .qa ul.spec li{font-size:14.5px;color:var(--ink2);line-height:1.6;padding-left:14px;border-left:2px solid var(--line2)}
+  .qa ul.spec li b{color:var(--ink);font-weight:600}
+
+  /* ---------- bottom CTA ---------- */
+  .final{border:1px solid var(--line2);border-radius:26px;padding:46px 36px;text-align:center;margin:70px 0 90px;
+    background:linear-gradient(180deg,rgba(37,99,235,.08),var(--panel2));box-shadow:0 24px 60px -40px rgba(37,99,235,.3)}
+  .final h2{font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;font-weight:600;color:var(--ink)}
+  .final p{color:var(--ink2);font-size:17px;max-width:580px;margin:14px auto 0;line-height:1.6}
+  .final .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;justify-content:center}
+  .final .note{font-size:13px;color:var(--ink3);margin-top:20px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;margin-top:6px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="here" href="/agents.html">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-ghost" href="https://os.topbuilderai.com" rel="noopener">Log in</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="pagehead">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &rsaquo; <span aria-current="page">The Agents</span>
+      </nav>
+      <span class="eyebrow">The agents, plainly</span>
+      <h1>The eight AI agents inside Top Builder AI</h1>
+      <p class="answer">Top Builder AI is a back-office layer of eight self-learning AI agents for contractors: Booking, Routing, Financial, Inventory, Workforce, Documents, Collections, and Pricebook. Every figure the agents produce is computed by deterministic, tested code, never by the AI. The platform is advisory by default: each agent proposes and a person on your team approves. You can set an agent to auto for its reversible actions, while money and legal actions always require a person. Pricing starts at $3,000 per month.</p>
+      <p class="lede">This page answers one question per agent: what it computes, what it proposes and who approves it, and exactly which platforms it covers. ServiceTitan shops get all eight agents. Procore and Buildertrend shops get six, and we say plainly which two do not apply and why.</p>
+      <p class="upd">Updated July 1, 2026 &middot; <a href="/" style="color:var(--indigo)">Back to the main page</a></p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call</a>
+        <a class="btn btn-ghost" href="/demo.html">Watch the platform in action</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE EIGHT AGENTS -->
+  <section class="section" id="the-agents" style="padding-top:20px">
+    <div class="wrap">
+      <span class="eyebrow">One answer per agent</span>
+      <h2 style="margin-top:14px">What each agent does, what it proposes, and who approves it.</h2>
+      <p class="lede">Each agent follows the same rules: deterministic figures from tested code, a proposed action instead of a silent write, and a named human approver. Money and legal actions always require a department lead, even when an agent is set to auto.</p>
+      <div class="qa-list">
+
+        <article class="qa" id="booking">
+          <h2><span class="qn">01</span>What does the Booking agent do?</h2>
+          <p>The Booking agent qualifies every inbound request around the clock, matches it to the soonest open slot for the right trade, and books it once a person approves. It values each call before it books, so your dispatcher sees an estimated job value rather than just a time slot, and it tracks the after-hours revenue a human front desk would have missed.</p>
+          <ul class="spec">
+            <li><b>What it computes:</b> intake qualification (service request or existing customer, trade served, zip inside your service area) with a qualification score, the soonest open slot per trade, estimated job value from your per-trade averages, and after-hours revenue recovered. Custom quotes come from the field app's quote builder with a live total and tax.</li>
+            <li><b>What it proposes and who approves:</b> bookings from the Front Desk queue and estimates from the field quote builder. Both are one-click approvals for your front-office team, and both come with a real undo. Because they are reversible, booking and estimates are among the actions that can run in auto mode with undo, while money and legal actions always wait for a person.</li>
+            <li><b>Platform coverage:</b> ServiceTitan only today. Procore and Buildertrend have no customer intake feed, so we do not claim booking there.</li>
+          </ul>
+        </article>
+
+        <article class="qa" id="routing">
+          <h2><span class="qn">02</span>What does the Routing and Dispatch agent do?</h2>
+          <p>The Routing agent hands your dispatcher skill-correct, drive-time-optimized assignments and a severity-triaged call board that beats round-robin. It is fully advisory: the dispatcher accepts or overrides every suggestion, and the assignment itself happens in your field system.</p>
+          <ul class="spec">
+            <li><b>What it computes:</b> nearest-stop assignments constrained by skills, arrival windows, and shift capacity, with drive minutes saved versus a round-robin baseline; P1, P2, and P3 severity triage on inbound calls; a revenue-weighted technician ranking; and a three-day capacity-versus-booked call board.</li>
+            <li><b>What it proposes and who approves:</b> nothing. It owns no gated actions by design. Your dispatcher stays in control and acts in the field system.</li>
+            <li><b>Platform coverage:</b> runs on the shared jobs model, so it covers ServiceTitan, Procore, and Buildertrend. Buildertrend connections run through their partner program.</li>
+          </ul>
+        </article>
+
+        <article class="qa" id="financial">
+          <h2><span class="qn">03</span>What does the Financial agent do?</h2>
+          <p>The Financial agent computes GAAP-correct job profitability, flags margin leakage in exact cents, and forecasts your cash position 30, 60, and 90 days out. Every figure comes from deterministic, tested code reading your books; the AI narrates the result and never computes a number.</p>
+          <ul class="spec">
+            <li><b>What it computes:</b> percentage-of-completion earned revenue, margin to date versus budget, over-billing and under-billing per job, cost-overrun and margin-erosion warnings, segment margins, and a 30, 60, and 90-day cash-flow forecast with a confidence score.</li>
+            <li><b>What it proposes and who approves:</b> nothing on its own. When the platform detects a new vendor bill, it drafts the A/P entry and queues it for your finance lead. A/P drafts always require human approval; the system can never post to your books by itself.</li>
+            <li><b>Platform coverage:</b> QuickBooks is the books source it reads (cash and margin from your real ledger, A/R invoices, A/P bills). It runs alongside ServiceTitan, Procore, or Buildertrend as the field system.</li>
+          </ul>
+        </article>
+
+        <article class="qa" id="inventory">
+          <h2><span class="qn">04</span>What does the Inventory agent do?</h2>
+          <p>The Inventory agent stops stockouts, shrinkage, and unbilled materials by computing dynamic reorder points and exact-cents cost attribution from your usage data. It is fully advisory: it recommends, your warehouse lead decides, and any purchase happens in your field system.</p>
+          <ul class="spec">
+            <li><b>What it computes:</b> reorder points from usage and lead time plus safety stock, days to stockout and the dollar exposure if you hit zero, truck-stock shrinkage alerts, unbilled-material revenue at risk, vendor-arbitrage savings across suppliers, and consumable-lot cost proration across the jobs each lot served, exact to the cent.</li>
+            <li><b>What it proposes and who approves:</b> nothing. It owns no gated actions. Purely advisory.</li>
+            <li><b>Platform coverage:</b> ServiceTitan only today. Procore and Buildertrend expose no inventory feed, so we do not offer this agent there.</li>
+          </ul>
+        </article>
+
+        <article class="qa" id="workforce">
+          <h2><span class="qn">05</span>What does the Workforce agent do?</h2>
+          <p>The Workforce agent prevents understaffing and avoidable overtime, and checks payroll before it runs. It turns timesheets, capacity, and demand into staffing gaps by trade and week, per-technician overtime projections, and payroll flags a human reviews before anyone gets paid.</p>
+          <ul class="spec">
+            <li><b>What it computes:</b> understaffing gaps per trade and week with the economic impact, overtime projections with the avoidable premium, same-trade mitigation candidates with open capacity, overtime-correct pay under California and British Columbia rules (time-and-a-half, double-time, hourly, piece-rate, and commission classes), and claimed-versus-clocked payroll gaps.</li>
+            <li><b>What it proposes and who approves:</b> payroll adjustments. These always require your field lead's approval with two-factor sign-in, even in auto mode, because they change someone's pay.</li>
+            <li><b>Platform coverage:</b> ServiceTitan first: appointments and timesheets connect directly. Procore and Buildertrend are covered through the shared jobs model, with Buildertrend behind their partner program.</li>
+          </ul>
+        </article>
+
+        <article class="qa" id="documents">
+          <h2><span class="qn">06</span>What does the Documents agent do?</h2>
+          <p>The Documents agent classifies every inbound document, matches it to the customer, and routes it to the owning department and folder. It flags what needs a signature, what needs a human, and which certificates of insurance expire within 30 days, and it drafts the A/P entries buried in vendor bills.</p>
+          <ul class="spec">
+            <li><b>What it computes:</b> document classification with a confidence score, customer matching, department and folder routing, expiring-COI flags at 30 days out, vendor-bill matching to open jobs with source-based confidence (a printed bill can match automatically; a handwritten one always goes to a person), warranty registration packets, and extracted dollar totals.</li>
+            <li><b>What it proposes and who approves:</b> filing and signature requests, approvable by your own department. A/P drafts and warranty registrations always require a lead or admin, and warranty registration refuses to run without a vendor login a human set up first. The agent never signs into a vendor portal on its own.</li>
+            <li><b>Platform coverage:</b> documents are supported on ServiceTitan, Procore, and Buildertrend, with the live connection activating per customer and staying fail-closed until connected. Buildertrend runs through their partner program.</li>
+          </ul>
+        </article>
+
+        <article class="qa" id="collections">
+          <h2><span class="qn">07</span>What does the Collections agent do?</h2>
+          <p>The Collections agent works your A/R aging list 24/7: correct due-date aging, an honest status for every customer, and a compliant five-step dunning ladder, so you stop financing customers interest-free. Nothing goes out without a person: every dunning email, SMS, and call requires your department lead's approval, always, even in auto mode.</p>
+          <ul class="spec">
+            <li><b>What it computes:</b> aging buckets from current through 121+ days off real due dates, a per-customer workflow status (reconciled, expecting money when a covering promise exists, disputed, action required, or write-off), a worst-first worklist with a named owner per status, portfolio totals, and compliant drafts with quiet hours and opt-out language. Consent rules are computed in code: no call consent downgrades to email, and no email routes to a human.</li>
+            <li><b>What it proposes and who approves:</b> send a dunning email, send a dunning SMS, or place a dunning call. All three always require lead approval, and consent is re-checked at send time.</li>
+            <li><b>Platform coverage:</b> built on your A/R ledger, with QuickBooks as the natural source of truth. Works alongside ServiceTitan, Procore, or Buildertrend.</li>
+          </ul>
+        </article>
+
+        <article class="qa" id="pricebook">
+          <h2><span class="qn">08</span>What does the Pricebook agent do?</h2>
+          <p>The Pricebook agent keeps your materials costs current from vendor price files and re-prices every affected item under a sold-hour model, so no job gets quoted off stale costs. You upload the distributor's price file, it computes the new prices to the cent, and a person confirms each change before anything updates.</p>
+          <ul class="spec">
+            <li><b>What it computes:</b> per-item old and new materials cost, the price and margin change in dollars and percent, the changed-SKU list, flags on anything beyond your tolerance (5 percent by default), and vendor SKU coverage, all under the sold-hour model: price equals sold hours times rate, plus materials, plus materials markup.</li>
+            <li><b>What it proposes and who approves:</b> pricebook item updates, one human confirmation per recomputed price, with a deterministic undo that restores the old price exactly.</li>
+            <li><b>Platform coverage:</b> vendor price-file upload (CSV or XLSX) works on any platform today, with a production parser built for real distributor files. ServiceTitan is the pricebook write target. Procore and Buildertrend have no pricebook, so the agent serves them entirely through price files.</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM COVERAGE -->
+  <section class="section" id="platform-coverage" style="padding-top:20px">
+    <div class="wrap">
+      <span class="eyebrow">Platform coverage</span>
+      <h2 style="margin-top:14px">Which agents run on which platform, plainly.</h2>
+      <p class="lede">We scope coverage honestly rather than claim every agent everywhere. Here is the exact answer.</p>
+      <div class="qa-list">
+
+        <article class="qa" id="procore-buildertrend">
+          <h2><span class="qn">09</span>Which agents work with Procore and Buildertrend?</h2>
+          <p>ServiceTitan shops get all eight agents. Procore and Buildertrend shops get six today: Workforce, Routing, Documents, Financial, Collections, and Pricebook, with Pricebook running through vendor price-file upload since neither platform carries a pricebook. Booking and Inventory are ServiceTitan-only today, because Procore and Buildertrend expose no customer intake or inventory feed, and we would rather tell you that plainly than claim coverage that does not exist.</p>
+          <p>Two notes that apply across the board: QuickBooks pairs with any of the three field platforms as the books source the Financial and Collections agents read, and Buildertrend connections run through their partner program rather than a self-serve connect. If your stack is unusual, <a href="https://book.topbuilderai.com">book a fit call</a> and we will map it honestly.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="wrap">
+      <div class="final">
+        <h2>Meet the agents on your own data.</h2>
+        <p>A 30-minute fit call with the developer, including a real teardown of where your back office is leaking. No pitch, no obligation. You will see exactly which of the eight agents your shop needs first.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://book.topbuilderai.com">Book your fit call</a>
+          <a class="btn btn-ghost" href="/demo.html">Watch the platform in action</a>
+        </div>
+        <p class="note">Eight self-learning agents. $0 install this quarter (normally $8,000), then monthly from $3,000. Advisory by default, every figure deterministic and audited.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/></g></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People and Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div>
+      <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com</div>
+      <div class="foot-legal">
+        <a href="/faq.html">FAQ</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JSON-LD: WebPage + BreadcrumbList + FAQPage (mirrors the visible Q&As) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebPage","@id":"https://topbuilderai.com/agents.html#webpage",
+     "url":"https://topbuilderai.com/agents.html",
+     "name":"The Eight AI Agents Inside Top Builder AI: What Each One Does",
+     "description":"The eight AI agents inside Top Builder AI: Booking, Routing, Financial, Inventory, Workforce, Documents, Collections, and Pricebook. What each agent computes, what it proposes, who approves it, and which platforms it covers across ServiceTitan, Procore, and Buildertrend.",
+     "dateModified":"2026-07-01",
+     "isPartOf":{"@id":"https://topbuilderai.com/#organization"},
+     "about":{"@id":"https://topbuilderai.com/#organization"}},
+    {"@type":"Organization","@id":"https://topbuilderai.com/#organization",
+     "name":"Top Builder AI","url":"https://topbuilderai.com",
+     "legalName":"Salisbury Bookkeeping LLC","email":"support@topbuilderai.com",
+     "parentOrganization":{"@id":"https://salisburybookkeeping.com/#organization"},
+     "founder":{"@id":"https://salisburybookkeeping.com/#cory-salisbury"}},
+    {"@type":"Person","@id":"https://salisburybookkeeping.com/#cory-salisbury",
+     "name":"Cory Salisbury","jobTitle":"Founder",
+     "sameAs":["https://salisburybookkeeping.com","https://topbuilderai.com","https://neuron-hq.com"]},
+    {"@type":"Organization","@id":"https://salisburybookkeeping.com/#organization",
+     "name":"Salisbury Bookkeeping","legalName":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://topbuilderai.com/"},
+      {"@type":"ListItem","position":2,"name":"The Agents","item":"https://topbuilderai.com/agents.html"}]},
+    {"@type":"FAQPage","@id":"https://topbuilderai.com/agents.html#faqpage",
+     "mainEntity":[
+      {"@type":"Question","name":"What does the Booking agent do?","acceptedAnswer":{"@type":"Answer","text":"The Booking agent qualifies every inbound request 24/7, matches it to the soonest open slot for the right trade, and books once a person approves. It estimates job value per call and tracks after-hours revenue recovered. Bookings and estimates are reversible with one-click undo, so auto mode is safe for this agent. ServiceTitan only today; Procore and Buildertrend have no customer intake feed."}},
+      {"@type":"Question","name":"What does the Routing and Dispatch agent do?","acceptedAnswer":{"@type":"Answer","text":"The Routing agent gives your dispatcher skill-correct, drive-time-optimized assignments, a severity-triaged call board, and a three-day capacity view. It is fully advisory: it proposes nothing, and the dispatcher accepts or overrides every suggestion in the field system. It runs on the shared jobs model across ServiceTitan, Procore, and Buildertrend."}},
+      {"@type":"Question","name":"What does the Financial agent do?","acceptedAnswer":{"@type":"Answer","text":"The Financial agent computes GAAP-correct job profitability, margin-leakage warnings in exact cents, and a 30, 60, and 90-day cash-flow forecast from your books. Every figure comes from deterministic, tested code; the AI never computes a number. It reads QuickBooks as the books source and runs alongside ServiceTitan, Procore, or Buildertrend. New vendor bills become A/P drafts that always require your finance lead's approval."}},
+      {"@type":"Question","name":"What does the Inventory agent do?","acceptedAnswer":{"@type":"Answer","text":"The Inventory agent computes dynamic reorder points, days to stockout, truck-stock shrinkage alerts, unbilled-material revenue at risk, and vendor-arbitrage savings. It is fully advisory and proposes no actions; your warehouse lead decides and purchases happen in your field system. It is ServiceTitan-only today because Procore and Buildertrend expose no inventory feed."}},
+      {"@type":"Question","name":"What does the Workforce agent do?","acceptedAnswer":{"@type":"Answer","text":"The Workforce agent flags understaffing by trade and week, projects avoidable overtime per technician, and checks payroll before it runs, including California and British Columbia overtime rules and claimed-versus-clocked gaps. It proposes payroll adjustments, which always require your field lead's two-factor approval, even in auto mode. ServiceTitan first; Procore and Buildertrend through the shared jobs model."}},
+      {"@type":"Question","name":"What does the Documents agent do?","acceptedAnswer":{"@type":"Answer","text":"The Documents agent classifies every inbound document, matches the customer, routes it to the owning department and folder, flags signature needs and certificates of insurance expiring within 30 days, and drafts A/P entries from vendor bills. Filing is approvable in-department; A/P drafts and warranty registrations always require a lead or admin. Documents are supported on ServiceTitan, Procore, and Buildertrend, with the live connection activating per customer."}},
+      {"@type":"Question","name":"What does the Collections agent do?","acceptedAnswer":{"@type":"Answer","text":"The Collections agent works the A/R aging list 24/7: correct due-date aging, an honest workflow status per customer, and a compliant five-step dunning ladder with consent-based channel downgrades computed in code. Every dunning email, SMS, and call always requires a department lead's approval. It is built on your A/R ledger, with QuickBooks as the natural source of truth."}},
+      {"@type":"Question","name":"What does the Pricebook agent do?","acceptedAnswer":{"@type":"Answer","text":"The Pricebook agent reads vendor price files you upload, recomputes every affected item under the sold-hour model in exact cents, and flags changes beyond your tolerance. Every price update requires human approval and has a deterministic undo. Price-file upload works on any platform today; ServiceTitan is the write target, and Procore and Buildertrend are served entirely through price files."}},
+      {"@type":"Question","name":"Which agents work with Procore and Buildertrend?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan shops get all eight agents. On Procore and Buildertrend, six run: Workforce, Routing, Documents, Financial, Collections, and Pricebook through vendor price-file upload. Booking and Inventory are ServiceTitan-only today, because neither Procore nor Buildertrend exposes a customer intake or inventory feed. Buildertrend connections run through their partner program."}}
+     ]}
+  ]
+}
+</script>
+<script src="/webmcp.js" defer></script>
+</body>
+</html>

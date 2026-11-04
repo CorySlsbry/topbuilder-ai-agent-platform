@@ -1,0 +1,12 @@
+[
+  {"worker_id": "tech-001", "job_id": "J-5001", "day_offset": 0, "dispatched_at": "08:00:00", "completed_at": "21:00:00"},
+
+  {"worker_id": "tech-002", "job_id": "J-5010", "day_offset": 0, "dispatched_at": "08:00:00", "completed_at": "16:00:00", "claimed_hours": 12.0},
+  {"worker_id": "tech-002", "job_id": "J-5011", "day_offset": 1, "dispatched_at": "08:00:00", "completed_at": "16:00:00", "claimed_hours": 8.0},
+  {"worker_id": "tech-002", "job_id": "J-5012", "day_offset": 2, "dispatched_at": "08:00:00", "completed_at": "16:00:00", "claimed_hours": 8.0},
+  {"worker_id": "tech-002", "job_id": "J-5013", "day_offset": 3, "dispatched_at": "08:00:00", "completed_at": "16:00:00", "claimed_hours": 8.0},
+  {"worker_id": "tech-002", "job_id": "J-5014", "day_offset": 4, "dispatched_at": "08:00:00", "completed_at": "16:00:00", "claimed_hours": 8.0},
+  {"worker_id": "tech-002", "job_id": "J-5015", "day_offset": 5, "dispatched_at": "08:00:00", "completed_at": "16:00:00", "claimed_hours": 8.0},
+
+  {"worker_id": "tech-101", "job_id": "J-5100", "day_offset": 2, "dispatched_at": "07:00:00", "completed_at": "19:00:00", "claimed_hours": 16.0}
+]

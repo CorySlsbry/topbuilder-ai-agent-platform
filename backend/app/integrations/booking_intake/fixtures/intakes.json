@@ -1,0 +1,100 @@
+[
+  {
+    "id": "B01", "hours_ago": 0.5, "after_hours": true, "channel": "phone",
+    "trade_requested": "hvac", "intent": "service_request", "urgency": "emergency",
+    "caller_name": "Jane Whitfield", "phone": "+16025550118", "zip_code": "85001",
+    "job_type": "ac_no_cool",
+    "transcript": "It's 95 inside and the AC is totally dead. We have an infant at home — can someone come tonight?"
+  },
+  {
+    "id": "B02", "hours_ago": 1.2, "after_hours": true, "channel": "phone",
+    "trade_requested": "plumbing", "intent": "service_request", "urgency": "routine",
+    "caller_name": "Bob Mercer", "phone": "+16025550133", "zip_code": "85002",
+    "job_type": "water_heater",
+    "transcript": "My water heater is leaking a little at the base. Not an emergency, but I'd like it looked at this week."
+  },
+  {
+    "id": "B03", "hours_ago": 2.0, "after_hours": true, "channel": "sms",
+    "trade_requested": "hvac", "intent": "service_request", "urgency": "same_day",
+    "caller_name": "Maria Santos", "phone": "+16025550144", "zip_code": "85021",
+    "job_type": "furnace_no_heat",
+    "transcript": "Furnace stopped blowing warm air. Need someone today if possible."
+  },
+  {
+    "id": "B04", "hours_ago": 0.3, "after_hours": true, "channel": "phone",
+    "trade_requested": "electrical", "intent": "service_request", "urgency": "emergency",
+    "caller_name": "Sam Okafor", "phone": "+16025550152", "zip_code": "85003",
+    "job_type": "panel_burning_smell",
+    "transcript": "There's a burning smell from the breaker panel and half the house lost power. This feels urgent."
+  },
+  {
+    "id": "B05", "hours_ago": 3.5, "after_hours": true, "channel": "web",
+    "trade_requested": "drains", "intent": "service_request", "urgency": "routine",
+    "caller_name": "Lee Park", "phone": "+16025550161", "zip_code": "85004",
+    "job_type": "kitchen_clog",
+    "transcript": "Kitchen sink is draining slowly again. Booked you before — would like the same crew."
+  },
+  {
+    "id": "B06", "hours_ago": 4.0, "after_hours": true, "channel": "phone",
+    "trade_requested": "hvac", "intent": "existing_customer", "urgency": "routine",
+    "caller_name": "Pat Nguyen", "phone": "+16025550170", "zip_code": "85022",
+    "job_type": "seasonal_maintenance",
+    "transcript": "I'm on your maintenance plan — due for the fall tune-up. Whenever you have an opening."
+  },
+  {
+    "id": "B07", "hours_ago": 5.0, "after_hours": true, "channel": "phone",
+    "trade_requested": "hvac", "intent": "spam", "urgency": "routine",
+    "caller_name": null, "phone": "+18005550199", "zip_code": null,
+    "job_type": null,
+    "transcript": "This is an important message about your vehicle's extended warranty..."
+  },
+  {
+    "id": "B08", "hours_ago": 0.8, "after_hours": true, "channel": "phone",
+    "trade_requested": "plumbing", "intent": "service_request", "urgency": "emergency",
+    "caller_name": "Sam Roberts", "phone": "+15095550112", "zip_code": "99301",
+    "job_type": "burst_pipe",
+    "transcript": "Burst pipe flooding the basement! Are you out in Pasco? I think I called the wrong metro."
+  },
+  {
+    "id": "B09", "hours_ago": 6.0, "after_hours": true, "channel": "phone",
+    "trade_requested": "hvac", "intent": "wrong_number", "urgency": "routine",
+    "caller_name": null, "phone": "+16025550188", "zip_code": null,
+    "job_type": null,
+    "transcript": "Oh — is this the pizza place on Camelback? Sorry, wrong number."
+  },
+  {
+    "id": "B10", "hours_ago": 9.0, "after_hours": false, "channel": "phone",
+    "trade_requested": "plumbing", "intent": "service_request", "urgency": "same_day",
+    "caller_name": "Dana Brooks", "phone": "+16025550205", "zip_code": "85002",
+    "job_type": "faucet_leak",
+    "transcript": "Main-floor faucet won't stop dripping and the shutoff is stuck. Hoping for today."
+  },
+  {
+    "id": "B11", "hours_ago": 7.0, "after_hours": true, "channel": "phone",
+    "trade_requested": "hvac", "intent": "sales", "urgency": "routine",
+    "caller_name": null, "phone": "+18445550150", "zip_code": null,
+    "job_type": null,
+    "transcript": "Hi, I'm calling from a lead-generation service — are you the owner? We can send you exclusive HVAC leads."
+  },
+  {
+    "id": "B12", "hours_ago": 1.5, "after_hours": true, "channel": "phone",
+    "trade_requested": "electrical", "intent": "existing_customer", "urgency": "same_day",
+    "caller_name": "Roy Castellano", "phone": "+16025550212", "zip_code": "85001",
+    "job_type": "ev_charger_fault",
+    "transcript": "The EV charger you installed tripped and won't reset. Any chance someone's free today?"
+  },
+  {
+    "id": "B13", "hours_ago": 0.4, "after_hours": true, "channel": "sms",
+    "trade_requested": "drains", "intent": "service_request", "urgency": "emergency",
+    "caller_name": "Kim Alvarez", "phone": "+16025550221", "zip_code": "85021",
+    "job_type": "sewer_backup",
+    "transcript": "Sewage is backing up into the downstairs shower. Please send someone ASAP."
+  },
+  {
+    "id": "B14", "hours_ago": 2.5, "after_hours": true, "channel": "web",
+    "trade_requested": "hvac", "intent": "service_request", "urgency": "routine",
+    "caller_name": "Alex Romero", "phone": "+16025550234", "zip_code": null,
+    "job_type": "thermostat_replace",
+    "transcript": "Smart thermostat keeps rebooting. No rush — just want it replaced sometime next week."
+  }
+]

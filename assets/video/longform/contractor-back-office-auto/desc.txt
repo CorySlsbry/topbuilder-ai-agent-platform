@@ -1,0 +1,25 @@
+How We Automate a Contractor's Entire Back Office — Pricebook, Job Costing, Collections, Dispatch, Payroll
+
+I walk through the six systems we build to automate a ServiceTitan contractor's back office. Each one is independent, each one saves real hours the first week it runs. No theory — this is exactly what we implement.
+
+What you'll learn:
+- The back-office trap (15-20 hours/week of manual work software could handle)
+- Pricebook sync ($2-5K/month in margin leakage from stale prices)
+- Automated job costing (know the same day if a job came in under margin)
+- A/R collections sequence (cut days-to-collect by 40-50% in 90 days)
+- Dispatch optimization (skill-matched routing, less windshield time)
+- Estimate follow-up (+20-30% close rate from consistent automated follow-up)
+- Payroll prep automation (half a day to ten minutes)
+- The 90-day implementation timeline
+
+Get the free ServiceTitan Automation Calculator:
+https://topbuilderai.com/calculator
+
+Plug in your team size, ticket volume, and hours spent on each task. See exactly which systems to automate first, how much you'd save, and a 90-day implementation timeline. Takes about 2 minutes.
+
+Built by Top Builder AI — back-office automation for ServiceTitan contractors.
+https://topbuilderai.com
+
+This video was created with AI-assisted production tools.
+
+#ServiceTitan #contractor #HVAC #plumbing #electrical #automation #backoffice #business

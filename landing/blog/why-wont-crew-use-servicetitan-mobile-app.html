@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Why Won't My Crew Use the ServiceTitan Mobile App? (2026)</title>
+<meta name="description" content="ServiceTitan's own survey data shows resistance is the smallest reason techs skip the app - training and unclear ROI are bigger. Here's what an incomplete clock-out actually costs your payroll." />
+<link rel="canonical" href="https://topbuilderai.com/blog/why-wont-crew-use-servicetitan-mobile-app.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Why Won't My Crew Use the ServiceTitan Mobile App? (2026)" />
+<meta property="og:description" content="ServiceTitan's own survey data shows resistance is the smallest reason techs skip the app. Here's what an incomplete clock-out actually costs your payroll and job costing." />
+<meta property="og:url" content="https://topbuilderai.com/blog/why-wont-crew-use-servicetitan-mobile-app.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_payroll.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_payroll.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:var(--ink);line-height:1.1;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:34%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  .video{position:relative;aspect-ratio:16/9;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video.vshort{aspect-ratio:9/16;max-width:340px}
+  .video-cap{max-width:var(--measure);margin:10px auto 0;color:var(--ink3);font-size:13.5px;text-align:center}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- VideoObject JSON-LD (companion short) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"VideoObject",
+  "name":"Why Won't Your Crew Use the ServiceTitan App?",
+  "description":"ServiceTitan's own Dec 2025 survey says employee resistance is the smallest adoption barrier, at 18%. A 40-second walkthrough of what an incomplete clock-out actually costs your payroll before anyone catches it.",
+  "thumbnailUrl":"https://i.ytimg.com/vi/8X6M-WdObCg/hqdefault.jpg",
+  "uploadDate":"2026-08-13T06:30:00Z",
+  "duration":"PT40S",
+  "contentUrl":"https://www.youtube.com/watch?v=8X6M-WdObCg",
+  "embedUrl":"https://www.youtube.com/embed/8X6M-WdObCg",
+  "publisher":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"}
+}
+</script>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/why-wont-crew-use-servicetitan-mobile-app.html"},
+  "headline":"Why Won't My Crew Use the ServiceTitan Mobile App? (2026)",
+  "description":"ServiceTitan's own survey data shows resistance is the smallest reason techs skip the app - training and unclear ROI are bigger. Here's what an incomplete clock-out actually costs your payroll.",
+  "datePublished":"2026-08-13",
+  "dateModified":"2026-08-13",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_payroll.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["ServiceTitan mobile app adoption","technician timesheet accuracy","ServiceTitan clock in clock out","field service payroll reconciliation","AI workforce agent for contractors"],
+  "keywords":"why won't techs use the ServiceTitan app, ServiceTitan mobile app adoption, ServiceTitan clock in clock out, technician timesheet accuracy, ServiceTitan payroll reconciliation"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Why won't my crew use the ServiceTitan mobile app?","acceptedAnswer":{"@type":"Answer","text":"Usually not what it looks like from the office. A 2025 ServiceTitan-commissioned survey of over 1,000 contractors found employee resistance is the smallest barrier to adopting new tools, at 18 percent. Training gaps, unclear how-to, and unclear ROI are all bigger. The bigger problem for a contractor isn't attitude, it's that ServiceTitan's own app still depends on a technician remembering to tap through every step correctly, and its own documentation shows the correction process for when that doesn't happen is manual."}},
+    {"@type":"Question","name":"What does ServiceTitan's own mobile app actually ask a technician to do?","acceptedAnswer":{"@type":"Answer","text":"Per ServiceTitan's own Mobile Handbook, the app has a technician clock in and out, manage a job from dispatch through completion, complete forms, capture photos, collect payment, and in some shops build and sell estimates in the field. ServiceTitan's own clock-in/out documentation states a technician cannot clock out while a job is marked as being worked; the job has to be moved to Complete or Done first."}},
+    {"@type":"Question","name":"Is it really laziness, or something else?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan's own December 2025 survey, run with Thrive Analytics across more than 1,000 contractors, found training or skilled staff and integration challenges cited by 44 percent, difficulty understanding how to use the tools by 38 percent, and unclear ROI by 37 percent. Employee resistance was the lowest of the barriers measured, at 18 percent. ServiceTitan's own podcast content coaches shops to pilot the app with one power-user technician first specifically because rollout, not attitude, is what breaks adoption."}},
+    {"@type":"Question","name":"What happens when a tech forgets to clock out or leaves a job in progress?","acceptedAnswer":{"@type":"Answer","text":"ServiceTitan's own Technician Timesheets documentation describes an automatic fallback: if a technician forgets to clock out after their last job or non-job event, their clock-out time is set to the completion time of that activity. If midnight arrives while a technician is still working a job, they are automatically clocked out at 11:59 PM and clocked back in at 12:00 AM the next day. There's even a specific code, Temp C/O, for a same-day clock-out-then-back-in pattern. The system estimates a reasonable stop-gap. It does not know what actually happened on that job after the tap stopped."}},
+    {"@type":"Question","name":"How does ServiceTitan catch these gaps today?","acceptedAnswer":{"@type":"Answer","text":"With built-in exception reports. ServiceTitan's Late Clock Out report flags clock-outs after a default threshold of 8:00 PM; the Early Clock In report flags clock-ins before a default of 8:00 AM. ServiceTitan's own how-to documentation describes the purpose in one line: use the report to identify the events so you can fix mistakes and coach your team on proper time clock use. That is a real, useful feature. It is also, by ServiceTitan's own description, a report a person has to open, read, and manually correct."}},
+    {"@type":"Question","name":"Does ServiceTitan know if the job data itself is accurate, or just where the truck is?","acceptedAnswer":{"@type":"Answer","text":"Two separate systems, confirmed in ServiceTitan's own documentation. GPS and cellular triangulation locate the technician (accurate to 3 to 10 meters on GPS, about 500 meters on cellular fallback), and a technician is auto-arrived when within 125 meters of the job site. That is a location signal. Whether the job was actually closed out correctly, the form completed, and the clock punched right still depends on the technician tapping through the app correctly. Knowing where the truck stopped and knowing whether the paperwork behind that stop is right are two different questions."}},
+    {"@type":"Question","name":"What does an incomplete clock-out actually cost when nobody catches it?","acceptedAnswer":{"@type":"Answer","text":"There's no single audited industry figure for this, and this article won't invent one. What's documented is the mechanism: a technician's pay-form claim can diverge from what the clock actually shows, and if a manager doesn't run the exception report and manually correct it before payroll closes, that gap either gets paid as claimed, corrected by guesswork, or attributed to the wrong job in the cost data your job-costing report is built from. The cost isn't one dramatic number. It's a small, steady gap between the hours a tech says they worked and the hours the job actually shows, repeated across every pay period."}},
+    {"@type":"Question","name":"How does Top Builder AI's Workforce agent close this gap?","acceptedAnswer":{"@type":"Answer","text":"It reconciles a worker's claimed hours against the computed clock hours from ServiceTitan's own dispatch-to-completion timestamps, and flags any gap beyond a set tolerance for human review before payroll runs. It also projects which technicians or trades are trending into overtime before the pay period closes, so a dispatcher can rebalance the schedule instead of finding out from the pay run. It does not edit ServiceTitan's time punches. It surfaces the discrepancy and the projected cost, and a person decides the adjustment."}},
+    {"@type":"Question","name":"What does this look like on one pay period?","acceptedAnswer":{"@type":"Answer","text":"This example is illustrative, not a client result. A technician's pay-form claims 42 hours for the week. ServiceTitan's own clock data, computed from dispatch-to-completion timestamps, shows 38.5 hours, because one job was left in progress for roughly 3.5 hours before the midnight auto-clock-out caught it. The Workforce agent flags the 3.5-hour gap as needs-review before that pay period is approved, rather than the discrepancy quietly getting paid as claimed or caught weeks later during a bookkeeping cleanup."}},
+    {"@type":"Question","name":"Does this replace ServiceTitan's clock-in/out or field app?","acceptedAnswer":{"@type":"Answer","text":"No. Technicians still clock in, work the job, and close it out inside ServiceTitan's own mobile app exactly as they do today. The Workforce agent doesn't touch that workflow or edit a time punch. It reads what ServiceTitan already recorded, compares it to what was claimed, and flags the difference for a human, the same review ServiceTitan's own exception reports ask a manager to do, run systematically every pay period instead of only when someone remembers to check."}},
+    {"@type":"Question","name":"How does this connect to the rest of the back office?","acceptedAnswer":{"@type":"Answer","text":"A clock-out gap that lands on the wrong job doesn't stay a payroll problem. Labor hours are a real line in that job's cost, so a mis-clocked job quietly overstates or understates what that specific job actually made, which is the number a job-costing view is supposed to answer honestly. Catching the gap at the payroll-review step, before it's baked into the job's cost history, is what keeps a labor-hours mistake from becoming a margin mistake too."}},
+    {"@type":"Question","name":"Is this a live, self-serve product I can connect today?","acceptedAnswer":{"@type":"Answer","text":"The reconciliation math is real, built and tested code: it compares claimed pay-form hours against computed clock hours, flags divergence beyond a tolerance, and projects overtime risk and its dollar impact before a pay period closes. It is delivered today as part of a Teardown and Install engagement, configured against your actual ServiceTitan timesheet and payroll export, not as a blind self-serve signup."}},
+    {"@type":"Question","name":"What's the fastest way to see if this is actually happening in my shop?","acceptedAnswer":{"@type":"Answer","text":"Pull ServiceTitan's own Late Clock Out and Early Clock In reports for the last full pay period and compare the flagged events against what actually got paid. Most shops that run this check for the first time find at least a few gaps nobody caught before the pay run closed. A fit call walks through what that same check finds against your real data."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Field App Adoption</div>
+    <span class="kicker">ServiceTitan &middot; Workforce &middot; Payroll</span>
+    <h1>Why Won't My Crew Use the ServiceTitan Mobile App?</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published August 13, 2026</span>
+      <span class="pill">~11 min read</span>
+      <span class="pill">HVAC &middot; Plumbing &middot; Electrical &middot; Roofing</span>
+      <span class="pill">Updated August 13, 2026</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_payroll.jpg" alt="A contractor reviewing a technician's timesheet and payroll data against a laptop" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <div class="video vshort"><iframe src="https://www.youtube.com/embed/8X6M-WdObCg" title="Why Won't Your Crew Use the ServiceTitan App?" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <p class="video-cap">The 40-second version: ServiceTitan's own survey says resistance is the smallest reason, and what an incomplete clock-out actually costs your payroll.</p>
+
+      <p class="answer">Usually not what it looks like from the office. A <strong>December 2025 ServiceTitan-commissioned survey</strong> of over 1,000 contractors, run with Thrive Analytics, found <strong>employee resistance is the smallest barrier</strong> to new-tool adoption at just 18% &mdash; training gaps (44%), unclear how-to (38%), and unclear ROI (37%) all rank higher. The real problem isn't your guy being stubborn. It's that ServiceTitan's own app still depends on a technician remembering to tap through every step correctly, and ServiceTitan's own documentation shows exactly what happens when he doesn't: a manual exception report somebody has to catch, or the gap quietly rides straight into payroll.</p>
+
+      <p>You've had this exact argument with yourself at the kitchen table: the timesheet says one thing, the tech swears something else, and the ServiceTitan job screen doesn't quite settle it either. It's not that he's lying and it's not that he's lazy. It's that "clock in, work the job, clock out" is four taps in a row on a phone with dead batteries, gloves on, and bad service at a customer's house &mdash; and if one of those taps gets skipped, ServiceTitan does something reasonable with the gap, not something accurate. This post walks through exactly what ServiceTitan's own app requires, what its own docs say happens when a step gets missed, and what that gap is actually doing to your payroll and your job costing before anyone catches it.</p>
+
+      <h2>What does ServiceTitan's own mobile app actually ask a technician to do?</h2>
+
+      <p>Per <a class="link" href="https://help.servicetitan.com/landing-page/mobile-home" rel="noopener noreferrer">ServiceTitan's own Mobile Handbook</a>, the field app has a technician clock in and out, manage a job from dispatch through completion, complete forms, capture photos, collect payment, and in some shops build and sell estimates on site. It's a genuinely full workflow packed into a phone screen.</p>
+
+      <p>The clock mechanics are stricter than most owners realize. <a class="link" href="https://help.servicetitan.com/mobile/docs/clock-in-and-out-in-servicetitan-mobile" rel="noopener noreferrer">ServiceTitan's own clock-in/out documentation</a> states plainly: <strong>"You cannot clock out while working a job. The job must be Complete or Done."</strong> And the close-out flow carries its own warning &mdash; <a class="link" href="https://help.servicetitan.com/docs/close-out-servicetitan-mobile" rel="noopener noreferrer">ServiceTitan's close-out guide</a> tells a lead tech: <strong>"Do not complete a job if there are more appointments or technicians on the job. Any technicians who are working or scheduled on other appointments will lose access to the job when it is completed."</strong> One wrong tap on a multi-tech job doesn't just mess up one guy's clock &mdash; it can lock a whole crew out of the job screen.</p>
+
+      <h2>Is it really laziness, or something else?</h2>
+
+      <p>ServiceTitan itself has the data on this, and it doesn't point at attitude. The <a class="link" href="https://www.servicetitan.com/press/ai-in-the-skilled-trades-report-2025" rel="noopener noreferrer">ServiceTitan / Thrive Analytics survey</a>, published December 16, 2025 and based on more than 1,000 contractors polled between October 23 and November 12, 2025, breaks down the real barriers to adopting new tools in the trades.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Barriers to new-tool adoption, ServiceTitan/Thrive Analytics Dec 2025 survey">
+          <thead><tr><th>Barrier</th><th>Share of contractors citing it</th></tr></thead>
+          <tbody>
+            <tr><td>Lack of training or skilled staff / integration challenges</td><td>44%</td></tr>
+            <tr><td>Difficulty understanding how to use the tools</td><td>38%</td></tr>
+            <tr><td>Lack of clear ROI or use case</td><td>37%</td></tr>
+            <tr><td>Employee resistance</td><td class="yes">18% (lowest)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:-14px;color:var(--ink3);font-size:14px">Source: <a class="link" href="https://www.servicetitan.com/press/ai-in-the-skilled-trades-report-2025" rel="noopener noreferrer">ServiceTitan press release, "Majority of Contractors Are Already Seeing Increased Efficiency From AI Adoption,"</a> Dec 16, 2025, survey by Thrive Analytics, n=1,000+ contractors. One-line takeaway: your crew is far more likely to be undertrained or unconvinced of the ROI than actively resistant.</p>
+
+      <p>ServiceTitan's own team backs this up outside the survey too. On <a class="link" href="https://www.servicetitan.com/podcasts/mastering-servicetitan/david-erickson-interview" rel="noopener noreferrer">ServiceTitan's Mastering ServiceTitan podcast</a>, David Erickson put the tech's-eye view of the app bluntly: <em>"If you're looking at the app, that means you're not turning the wrench and making money."</em> His own rollout advice is to pilot the app with "a technologically savvy technician or power user" first, so that person becomes "that little tiny center of excellence for the other technicians to turn to" &mdash; which is ServiceTitan quietly conceding that adoption lives or dies on rollout management, not on whether techs are willing.</p>
+
+      <h2>What happens when a tech forgets to clock out or leaves a job "in progress"?</h2>
+
+      <p>ServiceTitan doesn't leave that gap blank &mdash; it fills it with a reasonable guess. <a class="link" href="https://help.servicetitan.com/docs/technician-timesheets-overview" rel="noopener noreferrer">ServiceTitan's own Technician Timesheets documentation</a> describes the fallback: <strong>"If a technician completes their last job or ends a non-job event and forgets to clock out, their clock-out time is set to the completion time of their last activity."</strong> And if midnight rolls around mid-job, the system steps in on its own: <strong>"If at midnight, a technician is working a job or is on a paid non-job event, they're automatically clocked out at 11:59 PM for that day and automatically clocked in at 12:00 AM for the next day."</strong> There's even a named code for it &mdash; <strong>Temp C/O</strong>, for a same-day clock-out-then-back-in pattern the system flags on the timesheet.</p>
+
+      <p>That's a sensible failsafe. It's also, by ServiceTitan's own description, an estimate standing in for what actually happened on that job after the last real tap. The system doesn't know if the job genuinely ran until midnight or if the tech just forgot to close out at 9pm and went home.</p>
+
+      <h2>How does ServiceTitan catch these gaps today?</h2>
+
+      <p>With built-in exception reports, and they're worth knowing about even outside this article. ServiceTitan's <a class="link" href="https://help.servicetitan.com/how-to/built-in-late-clock-out" rel="noopener noreferrer">Late Clock Out report</a> flags clock-outs after a default threshold of 8:00 PM; the <a class="link" href="https://help.servicetitan.com/how-to/built-in-early-clock-in" rel="noopener noreferrer">Early Clock In report</a> flags clock-ins before a default of 8:00 AM. Both can be scheduled as recurring email notifications. ServiceTitan's own documentation states the purpose in one line: use the report <strong>"to quickly identify late clock out timesheet events so you can fix mistakes and coach your team on proper time clock use."</strong></p>
+
+      <figure class="stat">
+        <div class="cap">What ServiceTitan's own exception reports actually do</div>
+        <div class="body">
+          <div class="val">Flag, then a human fixes it</div>
+          <div class="lab">Late Clock Out and Early Clock In reports surface anomalies past a default threshold (8pm / 8am). ServiceTitan's own docs describe the next step as manual: open the report, spot the mistake, coach the technician, correct the entry by hand.</div>
+          <div class="src">Source: help.servicetitan.com, "Late Clock Out" and "Early Clock In" built-in reports (2026).</div>
+        </div>
+      </figure>
+
+      <p>That's a real, useful feature, and credit where it's due &mdash; most field-service platforms don't even flag this much. But by ServiceTitan's own description, it's a report someone has to remember to open, on a schedule, and then hand-correct one entry at a time. It's not a check that runs automatically against every worker before a pay period gets approved.</p>
+
+      <h2>Does ServiceTitan know if the job data itself is accurate, or just where the truck is?</h2>
+
+      <p>Two separate systems, and ServiceTitan's own architecture keeps them that way. <a class="link" href="https://help.servicetitan.com/how-to/arrive-by-gps" rel="noopener noreferrer">ServiceTitan's Arrive by GPS documentation</a> states GPS location is <strong>"accurate within 3-10 meters,"</strong> falling back to cellular triangulation "accurate within 500 meters" when GPS is unavailable, and that <strong>"dispatched technicians with GPS-enabled devices are automatically arrived when they are within 125 meters of the job service location."</strong> The <a class="link" href="https://help.servicetitan.com/docs/dispatch-and-track-your-technicians" rel="noopener noreferrer">Dispatch and Track</a> view shows that location on a color-coded map in real time.</p>
+
+      <p>That's a genuinely useful signal &mdash; you know the truck stopped where the job is. What it doesn't tell you is whether the job actually got closed out right, the form got filled in, or the clock got punched correctly once the truck was there. Knowing where the truck parked and knowing whether the paperwork behind that stop is accurate are two different questions, and ServiceTitan's own product keeps them as two different systems.</p>
+
+      <h2>What does an incomplete clock-out actually cost when nobody catches it?</h2>
+
+      <p>There's no single audited industry figure for this, and this article isn't going to manufacture one &mdash; a lot of the "8% payroll error" and "94% adoption rate" numbers floating around field-service blogs trace back to nothing citable. What's real and documented is the mechanism, not a headline percentage: a technician's pay-form claim can diverge from what ServiceTitan's clock actually shows, and if nobody runs the exception report and hand-corrects it before payroll closes, that gap gets paid as claimed, corrected by guesswork weeks later, or attributed to the wrong job in the cost data your job-costing report is built from.</p>
+
+      <p>One field-service commentary piece put a name on the pattern that fits here: it called the accumulated effect of unreconciled field data a <em>"hidden tax"</em> &mdash; <em>"windshield time rises, overtime creeps in,"</em> and <em>"half-fed systems create a hidden tax: dashboards lie, reports mislead, and leadership loses faith in field service management data."</em> <a class="link" href="https://www.fieldax.com/blog/what-happens-if-your-team-refuses-to-use-new-software/" rel="noopener noreferrer">(FieldAx, Feb 2026)</a> That's their framing, not an audited figure, but it names the real shape of the problem: not one dramatic loss, a small steady gap repeated every pay period. Separately, a field-service research piece drew a distinction worth borrowing: technicians doing the <em>minimum</em> to avoid a talking-to (compliance) is a different behavior than technicians entering complete, accurate data because it actually helps them (adoption) &mdash; <a class="link" href="https://www.prometheusgroup.com/learning-center/why-field-technicians-resist-mobile-maintenance-apps-prometheus-group" rel="noopener noreferrer">(Prometheus Group)</a>. A tech tapping "Done" just to get the app off his screen is compliance, and compliance-only data is exactly what ends up needing a manual fix.</p>
+
+      <h2>How does Top Builder AI's Workforce agent close this gap?</h2>
+
+      <p>It reconciles a worker's <strong>claimed hours</strong> (the pay-form entry) against the <strong>computed clock hours</strong> ServiceTitan's own dispatch-to-completion timestamps actually show, and flags any gap beyond a set tolerance for human review before that pay period is approved. It also projects which technicians or trades are trending into overtime before the pay period closes and what that overtime is likely to cost, so a dispatcher can rebalance the schedule instead of finding out from the pay run.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Pull the claimed and computed hours</b> The pay-form entry a worker submits, and the actual clock hours ServiceTitan's dispatch-to-completion timestamps recorded for the same period.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Compute the discrepancy</b> The signed gap between what was claimed and what the clock shows &mdash; positive if the claim runs ahead of the clock, negative if it runs behind.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Flag anything past tolerance</b> A gap beyond a set threshold is marked needs-review, the same class of check ServiceTitan's own Late Clock Out/Early Clock In reports exist for &mdash; run automatically, every worker, every pay period.</div></div>
+        <div class="step"><div class="num">4</div><div class="txt"><b>Project overtime before it happens</b> Scheduled hours vs. contracted hours, by technician and trade, so overtime risk and its dollar cost show up before the pay period closes, not after.</div></div>
+        <div class="step"><div class="num">5</div><div class="txt"><b>A human approves the adjustment</b> The agent never edits a ServiceTitan time punch or auto-corrects pay. It surfaces the gap and the cost; a person makes the call.</div></div>
+      </div>
+
+      <h2>What does this look like on one pay period?</h2>
+
+      <p>The example below is illustrative, built to show the mechanism, not a client result.</p>
+
+      <figure class="calc">
+        <div class="cap">Illustrative walkthrough &mdash; one technician, one pay period</div>
+        <div class="body">
+          <div class="lab">What was claimed vs. what the clock shows</div>
+          <table>
+            <tr><td>Pay-form claimed hours</td><td>42.0 hrs</td></tr>
+            <tr><td>ServiceTitan computed clock hours (dispatch &rarr; completion)</td><td>38.5 hrs</td></tr>
+            <tr><td>Cause</td><td>One job left "in progress" ~3.5 hrs before midnight auto-clock-out</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">What the Workforce agent does with it</div>
+          <table>
+            <tr><td>Discrepancy computed</td><td>+3.5 hrs (claim exceeds clock)</td></tr>
+            <tr class="tot"><td>Status before payroll approval</td><td class="price">Flagged needs-review</td></tr>
+          </table>
+        </div>
+        <figcaption>Same flag fires whether the claim runs ahead of the clock or behind it &mdash; the point is a human sees the gap before that pay period is approved, not weeks later during a bookkeeping cleanup.</figcaption>
+      </figure>
+
+      <h2>Does this replace ServiceTitan's clock-in/out or field app?</h2>
+
+      <p>No. Technicians still clock in, work the job, and close it out inside ServiceTitan's own mobile app exactly as they do today &mdash; nothing about that workflow changes, and nobody has to learn a second app in the field. The Workforce agent doesn't touch a time punch. It reads what ServiceTitan already recorded, compares it to what was claimed, and flags the difference for a person &mdash; the same review ServiceTitan's own exception reports ask a manager to do, just run systematically every pay period instead of only when someone remembers to check.</p>
+
+      <h2>How does this connect to the rest of the back office?</h2>
+
+      <p>A clock-out gap that lands on the wrong job doesn't stay a payroll problem. Labor hours are a real line item in that job's cost, so a mis-clocked job quietly overstates or understates what that specific job actually made &mdash; the exact number a job-costing view exists to answer honestly. Catching the gap at the payroll-review step, before it's baked into the job's cost history, is what keeps a labor-hours mistake from becoming a margin mistake too. Workforce is one of eight agents in Top Builder AI's back-office stack; the <a class="link" href="/blog/ai-back-office-for-servicetitan.html">full back-office overview</a> covers how they work together.</p>
+
+      <ul>
+        <li><b>No edited time punches.</b> The agent never changes what ServiceTitan recorded &mdash; it reconciles and flags, a human corrects.</li>
+        <li><b>No silent pay decisions.</b> Every flagged discrepancy needs a human review before that pay period is approved.</li>
+        <li><b>No invented numbers.</b> The claimed and computed hours both come from your real ServiceTitan and payroll data, nothing estimated.</li>
+        <li><b>Delivered as a configured install, not a blind signup</b>, so it's set up against your real ServiceTitan timesheet and payroll export from day one.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>See what's actually in your last pay period</h2>
+        <p>Pull your own Late Clock Out and Early Clock In reports for the last pay period and see what a real reconciliation pass finds. A fit call walks through what it turns up against your own data.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">Why won't my crew use the ServiceTitan mobile app?</div>
+      <div class="a">Usually not what it looks like from the office. A 2025 ServiceTitan-commissioned survey of over 1,000 contractors found employee resistance is the smallest barrier to adopting new tools, at 18 percent. Training gaps, unclear how-to, and unclear ROI are all bigger. The bigger problem for a contractor isn't attitude, it's that ServiceTitan's own app still depends on a technician remembering to tap through every step correctly, and its own documentation shows the correction process for when that doesn't happen is manual.</div>
+
+      <div class="q">What does ServiceTitan's own mobile app actually ask a technician to do?</div>
+      <div class="a">Per ServiceTitan's own Mobile Handbook, the app has a technician clock in and out, manage a job from dispatch through completion, complete forms, capture photos, collect payment, and in some shops build and sell estimates in the field. ServiceTitan's own clock-in/out documentation states a technician cannot clock out while a job is marked as being worked; the job has to be moved to Complete or Done first.</div>
+
+      <div class="q">Is it really laziness, or something else?</div>
+      <div class="a">ServiceTitan's own December 2025 survey, run with Thrive Analytics across more than 1,000 contractors, found training or skilled staff and integration challenges cited by 44 percent, difficulty understanding how to use the tools by 38 percent, and unclear ROI by 37 percent. Employee resistance was the lowest of the barriers measured, at 18 percent. ServiceTitan's own podcast content coaches shops to pilot the app with one power-user technician first specifically because rollout, not attitude, is what breaks adoption.</div>
+
+      <div class="q">What happens when a tech forgets to clock out or leaves a job "in progress"?</div>
+      <div class="a">ServiceTitan's own Technician Timesheets documentation describes an automatic fallback: if a technician forgets to clock out after their last job or non-job event, their clock-out time is set to the completion time of that activity. If midnight arrives while a technician is still working a job, they are automatically clocked out at 11:59 PM and clocked back in at 12:00 AM the next day. There's even a specific code, Temp C/O, for a same-day clock-out-then-back-in pattern. The system estimates a reasonable stop-gap. It does not know what actually happened on that job after the tap stopped.</div>
+
+      <div class="q">How does ServiceTitan catch these gaps today?</div>
+      <div class="a">With built-in exception reports. ServiceTitan's Late Clock Out report flags clock-outs after a default threshold of 8:00 PM; the Early Clock In report flags clock-ins before a default of 8:00 AM. ServiceTitan's own how-to documentation describes the purpose in one line: use the report to identify the events so you can fix mistakes and coach your team on proper time clock use. That is a real, useful feature. It is also, by ServiceTitan's own description, a report a person has to open, read, and manually correct.</div>
+
+      <div class="q">Does ServiceTitan know if the job data itself is accurate, or just where the truck is?</div>
+      <div class="a">Two separate systems, confirmed in ServiceTitan's own documentation. GPS and cellular triangulation locate the technician (accurate to 3 to 10 meters on GPS, about 500 meters on cellular fallback), and a technician is auto-arrived when within 125 meters of the job site. That is a location signal. Whether the job was actually closed out correctly, the form completed, and the clock punched right still depends on the technician tapping through the app correctly. Knowing where the truck stopped and knowing whether the paperwork behind that stop is right are two different questions.</div>
+
+      <div class="q">What does an incomplete clock-out actually cost when nobody catches it?</div>
+      <div class="a">There's no single audited industry figure for this, and this article won't invent one. What's documented is the mechanism: a technician's pay-form claim can diverge from what the clock actually shows, and if a manager doesn't run the exception report and manually correct it before payroll closes, that gap either gets paid as claimed, corrected by guesswork, or attributed to the wrong job in the cost data your job-costing report is built from. The cost isn't one dramatic number. It's a small, steady gap between the hours a tech says they worked and the hours the job actually shows, repeated across every pay period.</div>
+
+      <div class="q">How does Top Builder AI's Workforce agent close this gap?</div>
+      <div class="a">It reconciles a worker's claimed hours against the computed clock hours from ServiceTitan's own dispatch-to-completion timestamps, and flags any gap beyond a set tolerance for human review before payroll runs. It also projects which technicians or trades are trending into overtime before the pay period closes, so a dispatcher can rebalance the schedule instead of finding out from the pay run. It does not edit ServiceTitan's time punches. It surfaces the discrepancy and the projected cost, and a person decides the adjustment.</div>
+
+      <div class="q">What does this look like on one pay period?</div>
+      <div class="a">This example is illustrative, not a client result. A technician's pay-form claims 42 hours for the week. ServiceTitan's own clock data, computed from dispatch-to-completion timestamps, shows 38.5 hours, because one job was left in progress for roughly 3.5 hours before the midnight auto-clock-out caught it. The Workforce agent flags the 3.5-hour gap as needs-review before that pay period is approved, rather than the discrepancy quietly getting paid as claimed or caught weeks later during a bookkeeping cleanup.</div>
+
+      <div class="q">Does this replace ServiceTitan's clock-in/out or field app?</div>
+      <div class="a">No. Technicians still clock in, work the job, and close it out inside ServiceTitan's own mobile app exactly as they do today. The Workforce agent doesn't touch that workflow or edit a time punch. It reads what ServiceTitan already recorded, compares it to what was claimed, and flags the difference for a human, the same review ServiceTitan's own exception reports ask a manager to do, run systematically every pay period instead of only when someone remembers to check.</div>
+
+      <div class="q">How does this connect to the rest of the back office?</div>
+      <div class="a">A clock-out gap that lands on the wrong job doesn't stay a payroll problem. Labor hours are a real line in that job's cost, so a mis-clocked job quietly overstates or understates what that specific job actually made, which is the number a job-costing view is supposed to answer honestly. Catching the gap at the payroll-review step, before it's baked into the job's cost history, is what keeps a labor-hours mistake from becoming a margin mistake too.</div>
+
+      <div class="q">Is this a live, self-serve product I can connect today?</div>
+      <div class="a">The reconciliation math is real, built and tested code: it compares claimed pay-form hours against computed clock hours, flags divergence beyond a tolerance, and projects overtime risk and its dollar impact before a pay period closes. It is delivered today as part of a Teardown and Install engagement, configured against your actual ServiceTitan timesheet and payroll export, not as a blind self-serve signup.</div>
+
+      <div class="q">What's the fastest way to see if this is actually happening in my shop?</div>
+      <div class="a">Pull ServiceTitan's own Late Clock Out and Early Clock In reports for the last full pay period and compare the flagged events against what actually got paid. Most shops that run this check for the first time find at least a few gaps nobody caught before the pay run closed. A fit call walks through what that same check finds against your real data.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

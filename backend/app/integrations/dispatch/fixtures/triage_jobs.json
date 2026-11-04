@@ -1,0 +1,10 @@
+[
+  { "id": "S01", "customer_name": "Harbour View Residence", "trade": "hvac", "job_type": "no_heat", "severity": "emergency", "x": 3, "y": 2, "duration_min": 90, "priority": 9, "required_skill": "hvac", "window_start_min": 480, "window_end_min": 720, "revenue_cents": 85000 },
+  { "id": "S02", "customer_name": "Cedar Ridge Strata", "trade": "hvac", "job_type": "no_cool", "severity": "emergency", "x": 6, "y": 4, "duration_min": 90, "priority": 9, "required_skill": "hvac", "window_start_min": 480, "window_end_min": 780, "revenue_cents": 110000 },
+  { "id": "S03", "customer_name": "Esquimalt Office", "trade": "plumbing", "job_type": "leak", "severity": "comfort", "x": 9, "y": 11, "duration_min": 60, "priority": 6, "required_skill": "plumbing", "window_start_min": 480, "window_end_min": 1020, "revenue_cents": 48000 },
+  { "id": "S04", "customer_name": "Langford Home", "trade": "hvac", "job_type": "maintenance", "x": 4, "y": 3, "duration_min": 60, "priority": 4, "required_skill": "hvac", "window_start_min": 540, "window_end_min": 1020, "revenue_cents": 22000 },
+  { "id": "S05", "customer_name": "Sooke Cabin", "trade": "install", "job_type": "install", "x": 3, "y": 7, "duration_min": 240, "priority": 5, "required_skill": "install", "window_start_min": 480, "window_end_min": 1020, "revenue_cents": 1250000, "scheduled_date": "2026-06-18" },
+  { "id": "S06", "customer_name": "Royal Oak Residence", "trade": "hvac", "job_type": "thermostat", "x": 5, "y": 2, "duration_min": 45, "priority": 4, "required_skill": "hvac", "window_start_min": 600, "window_end_min": 1020, "revenue_cents": 30000 },
+  { "id": "S07", "customer_name": "Colwood Duplex", "trade": "electrical", "job_type": "panel", "severity": "emergency", "x": 7, "y": 6, "duration_min": 120, "priority": 8, "required_skill": "electrical", "window_start_min": 480, "window_end_min": 1020, "revenue_cents": 95000 },
+  { "id": "S08", "customer_name": "Saanich Plaza", "trade": "drains", "job_type": "sewer_backup", "severity": "emergency", "x": 10, "y": 13, "duration_min": 60, "priority": 8, "required_skill": "drains", "window_start_min": 480, "window_end_min": 720, "revenue_cents": 67000 }
+]

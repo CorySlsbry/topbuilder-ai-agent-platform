@@ -1,0 +1,71 @@
+{
+  "lane": "top-builder-ai",
+  "cluster": "realtime-job-cost-tracking",
+  "source_id": "f935069d3c46c07a",
+  "cycle": null,
+  "style": {
+    "vo_energy": "excited"
+  },
+  "beats": [
+    {
+      "name": "hook",
+      "visual": "avatar",
+      "vo": "ServiceTitan contractors, watch this before your job runs long.",
+      "shots": [
+        {"weight": 1.0, "caption": {"mega": "RUNS LONG"}}
+      ]
+    },
+    {
+      "name": "problem",
+      "visual": "broll",
+      "vo": "Ask ServiceTitan when a job is actually losing money, and the honest answer only shows up after the invoice posts.",
+      "shots": [
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 0.5, "weight": 1.0, "caption": {"setup": "Ask ServiceTitan when", "payoff": "A JOB IS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-realtime-jobcost-20260821-042917.mp4", "in": 0.3, "weight": 0.9},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 3.0, "weight": 1.0, "caption": {"setup": "the honest answer only shows up", "payoff": "AFTER THE INVOICE POSTS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-home-scroll-20260818-111612.mp4", "in": 0.3, "weight": 0.9}
+      ]
+    },
+    {
+      "name": "agitation",
+      "visual": "broll",
+      "vo": "By the time that report locks, the materials are already bought and the hours are already logged against a fixed price contract.",
+      "shots": [
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 5.5, "weight": 1.0, "caption": {"setup": "By the time", "payoff": "THAT REPORT LOCKS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-realtime-jobcost-20260821-042917.mp4", "in": 2.0, "weight": 0.9},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 8.0, "weight": 0.9, "caption": {"setup": "the materials are already", "payoff": "BOUGHT"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-home-scroll-20260818-111612.mp4", "in": 2.3, "weight": 0.9}
+      ]
+    },
+    {
+      "name": "mechanism",
+      "visual": "broll",
+      "vo": "Top Builder AI pulls your ServiceTitan and QuickBooks data into one back office, so a job's real margin shows up before the invoice ever posts.",
+      "shots": [
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 10.5, "weight": 1.0, "caption": {"setup": "Top Builder AI pulls your ServiceTitan", "payoff": "AND QUICKBOOKS DATA"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-realtime-jobcost-20260821-042917.mp4", "in": 3.5, "weight": 0.9},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 13.0, "weight": 1.0, "caption": {"setup": "before the invoice", "payoff": "EVER POSTS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-home-scroll-20260818-111612.mp4", "in": 4.3, "weight": 0.9}
+      ]
+    },
+    {
+      "name": "proof",
+      "visual": "broll",
+      "vo": "It's all pulled straight from ServiceTitan's own documentation, not a guess about how the feature works.",
+      "shots": [
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-realtime-jobcost-20260821-042917.mp4", "in": 5.0, "weight": 1.0, "caption": {"setup": "It's all pulled straight", "payoff": "FROM SERVICETITAN'S OWN"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\problem-serp-bing-jobcost-20260821-042839.mp4", "in": 14.5, "weight": 0.9},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-realtime-jobcost-20260821-042917.mp4", "in": 6.5, "weight": 1.0, "caption": {"setup": "not a guess about how", "payoff": "THE FEATURE WORKS"}},
+        {"src": "C:\\Users\\you\\.geo-flywheel\\asset-library\\top-builder-ai\\broll_clip\\site-home-scroll-20260818-111612.mp4", "in": 6.0, "weight": 0.9}
+      ]
+    },
+    {
+      "name": "cta",
+      "visual": "avatar",
+      "vo": "See how it tracks your numbers at topbuilderai dot com.",
+      "shots": [
+        {"weight": 1.0}
+      ]
+    }
+  ]
+}

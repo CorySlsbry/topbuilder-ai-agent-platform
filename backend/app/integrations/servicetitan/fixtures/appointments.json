@@ -1,0 +1,2752 @@
+[
+  {
+    "id": "appt-0001",
+    "job_id": "job-0001",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0002",
+    "job_id": "job-0002",
+    "trade": "hvac",
+    "day_offset": 2,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0003",
+    "job_id": "job-0003",
+    "trade": "hvac",
+    "day_offset": 3,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0004",
+    "job_id": "job-0004",
+    "trade": "hvac",
+    "day_offset": 4,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0005",
+    "job_id": "job-0005",
+    "trade": "hvac",
+    "day_offset": 5,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0006",
+    "job_id": "job-0006",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0007",
+    "job_id": "job-0007",
+    "trade": "hvac",
+    "day_offset": 2,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0008",
+    "job_id": "job-0008",
+    "trade": "hvac",
+    "day_offset": 3,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0009",
+    "job_id": "job-0009",
+    "trade": "hvac",
+    "day_offset": 4,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0010",
+    "job_id": "job-0010",
+    "trade": "hvac",
+    "day_offset": 5,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0011",
+    "job_id": "job-0011",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 0.9,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0012",
+    "job_id": "job-0012",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0013",
+    "job_id": "job-0013",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0014",
+    "job_id": "job-0014",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0015",
+    "job_id": "job-0015",
+    "trade": "hvac",
+    "day_offset": 11,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0016",
+    "job_id": "job-0016",
+    "trade": "hvac",
+    "day_offset": 12,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0017",
+    "job_id": "job-0017",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0018",
+    "job_id": "job-0018",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0019",
+    "job_id": "job-0019",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0020",
+    "job_id": "job-0020",
+    "trade": "hvac",
+    "day_offset": 11,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0021",
+    "job_id": "job-0021",
+    "trade": "hvac",
+    "day_offset": 12,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0022",
+    "job_id": "job-0022",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0023",
+    "job_id": "job-0023",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0024",
+    "job_id": "job-0024",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0025",
+    "job_id": "job-0025",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0026",
+    "job_id": "job-0026",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0027",
+    "job_id": "job-0027",
+    "trade": "hvac",
+    "day_offset": 17,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0028",
+    "job_id": "job-0028",
+    "trade": "hvac",
+    "day_offset": 18,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0029",
+    "job_id": "job-0029",
+    "trade": "hvac",
+    "day_offset": 19,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0030",
+    "job_id": "job-0030",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0031",
+    "job_id": "job-0031",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0032",
+    "job_id": "job-0032",
+    "trade": "hvac",
+    "day_offset": 17,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0033",
+    "job_id": "job-0033",
+    "trade": "hvac",
+    "day_offset": 18,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0034",
+    "job_id": "job-0034",
+    "trade": "hvac",
+    "day_offset": 19,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0035",
+    "job_id": "job-0035",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0036",
+    "job_id": "job-0036",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0037",
+    "job_id": "job-0037",
+    "trade": "hvac",
+    "day_offset": 17,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0038",
+    "job_id": "job-0038",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0039",
+    "job_id": "job-0039",
+    "trade": "hvac",
+    "day_offset": 2,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0040",
+    "job_id": "job-0040",
+    "trade": "hvac",
+    "day_offset": 3,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0041",
+    "job_id": "job-0041",
+    "trade": "hvac",
+    "day_offset": 4,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0042",
+    "job_id": "job-0042",
+    "trade": "hvac",
+    "day_offset": 5,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0043",
+    "job_id": "job-0043",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0044",
+    "job_id": "job-0044",
+    "trade": "hvac",
+    "day_offset": 2,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0045",
+    "job_id": "job-0045",
+    "trade": "hvac",
+    "day_offset": 3,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0046",
+    "job_id": "job-0046",
+    "trade": "hvac",
+    "day_offset": 4,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0047",
+    "job_id": "job-0047",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0048",
+    "job_id": "job-0048",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0049",
+    "job_id": "job-0049",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0050",
+    "job_id": "job-0050",
+    "trade": "hvac",
+    "day_offset": 11,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0051",
+    "job_id": "job-0051",
+    "trade": "hvac",
+    "day_offset": 12,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0052",
+    "job_id": "job-0052",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0053",
+    "job_id": "job-0053",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0054",
+    "job_id": "job-0054",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0055",
+    "job_id": "job-0055",
+    "trade": "hvac",
+    "day_offset": 11,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0056",
+    "job_id": "job-0056",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0057",
+    "job_id": "job-0057",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0058",
+    "job_id": "job-0058",
+    "trade": "hvac",
+    "day_offset": 17,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0059",
+    "job_id": "job-0059",
+    "trade": "hvac",
+    "day_offset": 18,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0060",
+    "job_id": "job-0060",
+    "trade": "hvac",
+    "day_offset": 19,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0061",
+    "job_id": "job-0061",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0062",
+    "job_id": "job-0062",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0063",
+    "job_id": "job-0063",
+    "trade": "hvac",
+    "day_offset": 17,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0064",
+    "job_id": "job-0064",
+    "trade": "hvac",
+    "day_offset": 18,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0065",
+    "job_id": "job-0065",
+    "trade": "hvac",
+    "day_offset": 19,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0066",
+    "job_id": "job-0066",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0067",
+    "job_id": "job-0067",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0068",
+    "job_id": "job-0068",
+    "trade": "hvac",
+    "day_offset": 17,
+    "scheduled_hours": 0.6,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0069",
+    "job_id": "job-0069",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0070",
+    "job_id": "job-0070",
+    "trade": "hvac",
+    "day_offset": 2,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0071",
+    "job_id": "job-0071",
+    "trade": "hvac",
+    "day_offset": 3,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0072",
+    "job_id": "job-0072",
+    "trade": "hvac",
+    "day_offset": 4,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0073",
+    "job_id": "job-0073",
+    "trade": "hvac",
+    "day_offset": 5,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0074",
+    "job_id": "job-0074",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0075",
+    "job_id": "job-0075",
+    "trade": "hvac",
+    "day_offset": 2,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0076",
+    "job_id": "job-0076",
+    "trade": "hvac",
+    "day_offset": 3,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0077",
+    "job_id": "job-0077",
+    "trade": "hvac",
+    "day_offset": 4,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0078",
+    "job_id": "job-0078",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0079",
+    "job_id": "job-0079",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0080",
+    "job_id": "job-0080",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0081",
+    "job_id": "job-0081",
+    "trade": "hvac",
+    "day_offset": 11,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0082",
+    "job_id": "job-0082",
+    "trade": "hvac",
+    "day_offset": 12,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0083",
+    "job_id": "job-0083",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0084",
+    "job_id": "job-0084",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0085",
+    "job_id": "job-0085",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0086",
+    "job_id": "job-0086",
+    "trade": "hvac",
+    "day_offset": 11,
+    "scheduled_hours": 0.9,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0087",
+    "job_id": "job-0087",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0088",
+    "job_id": "job-0088",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0089",
+    "job_id": "job-0089",
+    "trade": "hvac",
+    "day_offset": 17,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0090",
+    "job_id": "job-0090",
+    "trade": "hvac",
+    "day_offset": 18,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0091",
+    "job_id": "job-0091",
+    "trade": "hvac",
+    "day_offset": 19,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0092",
+    "job_id": "job-0092",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0093",
+    "job_id": "job-0093",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0094",
+    "job_id": "job-0094",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0095",
+    "job_id": "job-0095",
+    "trade": "hvac",
+    "day_offset": 2,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0096",
+    "job_id": "job-0096",
+    "trade": "hvac",
+    "day_offset": 3,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0097",
+    "job_id": "job-0097",
+    "trade": "hvac",
+    "day_offset": 4,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0098",
+    "job_id": "job-0098",
+    "trade": "hvac",
+    "day_offset": 5,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0099",
+    "job_id": "job-0099",
+    "trade": "hvac",
+    "day_offset": 1,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0100",
+    "job_id": "job-0100",
+    "trade": "hvac",
+    "day_offset": 2,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0101",
+    "job_id": "job-0101",
+    "trade": "hvac",
+    "day_offset": 3,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0102",
+    "job_id": "job-0102",
+    "trade": "hvac",
+    "day_offset": 4,
+    "scheduled_hours": 0.9,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0103",
+    "job_id": "job-0103",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0104",
+    "job_id": "job-0104",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0105",
+    "job_id": "job-0105",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0106",
+    "job_id": "job-0106",
+    "trade": "hvac",
+    "day_offset": 11,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0107",
+    "job_id": "job-0107",
+    "trade": "hvac",
+    "day_offset": 12,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0108",
+    "job_id": "job-0108",
+    "trade": "hvac",
+    "day_offset": 8,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0109",
+    "job_id": "job-0109",
+    "trade": "hvac",
+    "day_offset": 9,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0110",
+    "job_id": "job-0110",
+    "trade": "hvac",
+    "day_offset": 10,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0111",
+    "job_id": "job-0111",
+    "trade": "hvac",
+    "day_offset": 11,
+    "scheduled_hours": 0.9,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0112",
+    "job_id": "job-0112",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0113",
+    "job_id": "job-0113",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 8.0,
+    "job_type": "ac_install",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0114",
+    "job_id": "job-0114",
+    "trade": "hvac",
+    "day_offset": 17,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0115",
+    "job_id": "job-0115",
+    "trade": "hvac",
+    "day_offset": 18,
+    "scheduled_hours": 2.5,
+    "job_type": "ac_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0116",
+    "job_id": "job-0116",
+    "trade": "hvac",
+    "day_offset": 19,
+    "scheduled_hours": 2.8,
+    "job_type": "furnace_repair",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0117",
+    "job_id": "job-0117",
+    "trade": "hvac",
+    "day_offset": 15,
+    "scheduled_hours": 1.5,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0118",
+    "job_id": "job-0118",
+    "trade": "hvac",
+    "day_offset": 16,
+    "scheduled_hours": 0.9,
+    "job_type": "maintenance_tuneup",
+    "technician_id": "t-h4",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0119",
+    "job_id": "job-0119",
+    "trade": "plumbing",
+    "day_offset": 1,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0120",
+    "job_id": "job-0120",
+    "trade": "plumbing",
+    "day_offset": 2,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0121",
+    "job_id": "job-0121",
+    "trade": "plumbing",
+    "day_offset": 3,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0122",
+    "job_id": "job-0122",
+    "trade": "plumbing",
+    "day_offset": 4,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0123",
+    "job_id": "job-0123",
+    "trade": "plumbing",
+    "day_offset": 5,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0124",
+    "job_id": "job-0124",
+    "trade": "plumbing",
+    "day_offset": 1,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0125",
+    "job_id": "job-0125",
+    "trade": "plumbing",
+    "day_offset": 2,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0126",
+    "job_id": "job-0126",
+    "trade": "plumbing",
+    "day_offset": 3,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0127",
+    "job_id": "job-0127",
+    "trade": "plumbing",
+    "day_offset": 4,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0128",
+    "job_id": "job-0128",
+    "trade": "plumbing",
+    "day_offset": 5,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0129",
+    "job_id": "job-0129",
+    "trade": "plumbing",
+    "day_offset": 1,
+    "scheduled_hours": 1.2,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0130",
+    "job_id": "job-0130",
+    "trade": "plumbing",
+    "day_offset": 8,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0131",
+    "job_id": "job-0131",
+    "trade": "plumbing",
+    "day_offset": 9,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0132",
+    "job_id": "job-0132",
+    "trade": "plumbing",
+    "day_offset": 10,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0133",
+    "job_id": "job-0133",
+    "trade": "plumbing",
+    "day_offset": 11,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0134",
+    "job_id": "job-0134",
+    "trade": "plumbing",
+    "day_offset": 12,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0135",
+    "job_id": "job-0135",
+    "trade": "plumbing",
+    "day_offset": 8,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0136",
+    "job_id": "job-0136",
+    "trade": "plumbing",
+    "day_offset": 9,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0137",
+    "job_id": "job-0137",
+    "trade": "plumbing",
+    "day_offset": 10,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0138",
+    "job_id": "job-0138",
+    "trade": "plumbing",
+    "day_offset": 11,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0139",
+    "job_id": "job-0139",
+    "trade": "plumbing",
+    "day_offset": 12,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0140",
+    "job_id": "job-0140",
+    "trade": "plumbing",
+    "day_offset": 8,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0141",
+    "job_id": "job-0141",
+    "trade": "plumbing",
+    "day_offset": 9,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0142",
+    "job_id": "job-0142",
+    "trade": "plumbing",
+    "day_offset": 15,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0143",
+    "job_id": "job-0143",
+    "trade": "plumbing",
+    "day_offset": 16,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0144",
+    "job_id": "job-0144",
+    "trade": "plumbing",
+    "day_offset": 17,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0145",
+    "job_id": "job-0145",
+    "trade": "plumbing",
+    "day_offset": 18,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0146",
+    "job_id": "job-0146",
+    "trade": "plumbing",
+    "day_offset": 19,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0147",
+    "job_id": "job-0147",
+    "trade": "plumbing",
+    "day_offset": 15,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0148",
+    "job_id": "job-0148",
+    "trade": "plumbing",
+    "day_offset": 16,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0149",
+    "job_id": "job-0149",
+    "trade": "plumbing",
+    "day_offset": 17,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0150",
+    "job_id": "job-0150",
+    "trade": "plumbing",
+    "day_offset": 18,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0151",
+    "job_id": "job-0151",
+    "trade": "plumbing",
+    "day_offset": 19,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0152",
+    "job_id": "job-0152",
+    "trade": "plumbing",
+    "day_offset": 15,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0153",
+    "job_id": "job-0153",
+    "trade": "plumbing",
+    "day_offset": 1,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0154",
+    "job_id": "job-0154",
+    "trade": "plumbing",
+    "day_offset": 2,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0155",
+    "job_id": "job-0155",
+    "trade": "plumbing",
+    "day_offset": 3,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0156",
+    "job_id": "job-0156",
+    "trade": "plumbing",
+    "day_offset": 4,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0157",
+    "job_id": "job-0157",
+    "trade": "plumbing",
+    "day_offset": 5,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0158",
+    "job_id": "job-0158",
+    "trade": "plumbing",
+    "day_offset": 1,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0159",
+    "job_id": "job-0159",
+    "trade": "plumbing",
+    "day_offset": 2,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0160",
+    "job_id": "job-0160",
+    "trade": "plumbing",
+    "day_offset": 3,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0161",
+    "job_id": "job-0161",
+    "trade": "plumbing",
+    "day_offset": 4,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0162",
+    "job_id": "job-0162",
+    "trade": "plumbing",
+    "day_offset": 5,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0163",
+    "job_id": "job-0163",
+    "trade": "plumbing",
+    "day_offset": 1,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0164",
+    "job_id": "job-0164",
+    "trade": "plumbing",
+    "day_offset": 8,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0165",
+    "job_id": "job-0165",
+    "trade": "plumbing",
+    "day_offset": 9,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0166",
+    "job_id": "job-0166",
+    "trade": "plumbing",
+    "day_offset": 10,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0167",
+    "job_id": "job-0167",
+    "trade": "plumbing",
+    "day_offset": 11,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0168",
+    "job_id": "job-0168",
+    "trade": "plumbing",
+    "day_offset": 12,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0169",
+    "job_id": "job-0169",
+    "trade": "plumbing",
+    "day_offset": 8,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0170",
+    "job_id": "job-0170",
+    "trade": "plumbing",
+    "day_offset": 9,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0171",
+    "job_id": "job-0171",
+    "trade": "plumbing",
+    "day_offset": 10,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0172",
+    "job_id": "job-0172",
+    "trade": "plumbing",
+    "day_offset": 11,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0173",
+    "job_id": "job-0173",
+    "trade": "plumbing",
+    "day_offset": 12,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0174",
+    "job_id": "job-0174",
+    "trade": "plumbing",
+    "day_offset": 8,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0175",
+    "job_id": "job-0175",
+    "trade": "plumbing",
+    "day_offset": 9,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0176",
+    "job_id": "job-0176",
+    "trade": "plumbing",
+    "day_offset": 15,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0177",
+    "job_id": "job-0177",
+    "trade": "plumbing",
+    "day_offset": 16,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0178",
+    "job_id": "job-0178",
+    "trade": "plumbing",
+    "day_offset": 17,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0179",
+    "job_id": "job-0179",
+    "trade": "plumbing",
+    "day_offset": 18,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0180",
+    "job_id": "job-0180",
+    "trade": "plumbing",
+    "day_offset": 19,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0181",
+    "job_id": "job-0181",
+    "trade": "plumbing",
+    "day_offset": 15,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0182",
+    "job_id": "job-0182",
+    "trade": "plumbing",
+    "day_offset": 16,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0183",
+    "job_id": "job-0183",
+    "trade": "plumbing",
+    "day_offset": 17,
+    "scheduled_hours": 4.5,
+    "job_type": "water_heater_install",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0184",
+    "job_id": "job-0184",
+    "trade": "plumbing",
+    "day_offset": 18,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0185",
+    "job_id": "job-0185",
+    "trade": "plumbing",
+    "day_offset": 19,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0186",
+    "job_id": "job-0186",
+    "trade": "plumbing",
+    "day_offset": 15,
+    "scheduled_hours": 1.8,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0187",
+    "job_id": "job-0187",
+    "trade": "plumbing",
+    "day_offset": 16,
+    "scheduled_hours": 1.1,
+    "job_type": "drain_clear",
+    "technician_id": "t-p2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0188",
+    "job_id": "job-0188",
+    "trade": "electrical",
+    "day_offset": 1,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0189",
+    "job_id": "job-0189",
+    "trade": "electrical",
+    "day_offset": 2,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0190",
+    "job_id": "job-0190",
+    "trade": "electrical",
+    "day_offset": 3,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0191",
+    "job_id": "job-0191",
+    "trade": "electrical",
+    "day_offset": 4,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0192",
+    "job_id": "job-0192",
+    "trade": "electrical",
+    "day_offset": 5,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0193",
+    "job_id": "job-0193",
+    "trade": "electrical",
+    "day_offset": 1,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0194",
+    "job_id": "job-0194",
+    "trade": "electrical",
+    "day_offset": 2,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0195",
+    "job_id": "job-0195",
+    "trade": "electrical",
+    "day_offset": 3,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0196",
+    "job_id": "job-0196",
+    "trade": "electrical",
+    "day_offset": 4,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0197",
+    "job_id": "job-0197",
+    "trade": "electrical",
+    "day_offset": 5,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0198",
+    "job_id": "job-0198",
+    "trade": "electrical",
+    "day_offset": 8,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0199",
+    "job_id": "job-0199",
+    "trade": "electrical",
+    "day_offset": 9,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0200",
+    "job_id": "job-0200",
+    "trade": "electrical",
+    "day_offset": 10,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0201",
+    "job_id": "job-0201",
+    "trade": "electrical",
+    "day_offset": 11,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0202",
+    "job_id": "job-0202",
+    "trade": "electrical",
+    "day_offset": 12,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0203",
+    "job_id": "job-0203",
+    "trade": "electrical",
+    "day_offset": 8,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0204",
+    "job_id": "job-0204",
+    "trade": "electrical",
+    "day_offset": 9,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0205",
+    "job_id": "job-0205",
+    "trade": "electrical",
+    "day_offset": 10,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0206",
+    "job_id": "job-0206",
+    "trade": "electrical",
+    "day_offset": 11,
+    "scheduled_hours": 0.8,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0207",
+    "job_id": "job-0207",
+    "trade": "electrical",
+    "day_offset": 15,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0208",
+    "job_id": "job-0208",
+    "trade": "electrical",
+    "day_offset": 16,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0209",
+    "job_id": "job-0209",
+    "trade": "electrical",
+    "day_offset": 17,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0210",
+    "job_id": "job-0210",
+    "trade": "electrical",
+    "day_offset": 18,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0211",
+    "job_id": "job-0211",
+    "trade": "electrical",
+    "day_offset": 19,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0212",
+    "job_id": "job-0212",
+    "trade": "electrical",
+    "day_offset": 15,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0213",
+    "job_id": "job-0213",
+    "trade": "electrical",
+    "day_offset": 16,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0214",
+    "job_id": "job-0214",
+    "trade": "electrical",
+    "day_offset": 1,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0215",
+    "job_id": "job-0215",
+    "trade": "electrical",
+    "day_offset": 2,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0216",
+    "job_id": "job-0216",
+    "trade": "electrical",
+    "day_offset": 3,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0217",
+    "job_id": "job-0217",
+    "trade": "electrical",
+    "day_offset": 4,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0218",
+    "job_id": "job-0218",
+    "trade": "electrical",
+    "day_offset": 5,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0219",
+    "job_id": "job-0219",
+    "trade": "electrical",
+    "day_offset": 1,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0220",
+    "job_id": "job-0220",
+    "trade": "electrical",
+    "day_offset": 2,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0221",
+    "job_id": "job-0221",
+    "trade": "electrical",
+    "day_offset": 3,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0222",
+    "job_id": "job-0222",
+    "trade": "electrical",
+    "day_offset": 4,
+    "scheduled_hours": 0.8,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0223",
+    "job_id": "job-0223",
+    "trade": "electrical",
+    "day_offset": 8,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0224",
+    "job_id": "job-0224",
+    "trade": "electrical",
+    "day_offset": 9,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0225",
+    "job_id": "job-0225",
+    "trade": "electrical",
+    "day_offset": 10,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0226",
+    "job_id": "job-0226",
+    "trade": "electrical",
+    "day_offset": 11,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0227",
+    "job_id": "job-0227",
+    "trade": "electrical",
+    "day_offset": 12,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0228",
+    "job_id": "job-0228",
+    "trade": "electrical",
+    "day_offset": 8,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0229",
+    "job_id": "job-0229",
+    "trade": "electrical",
+    "day_offset": 9,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0230",
+    "job_id": "job-0230",
+    "trade": "electrical",
+    "day_offset": 10,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0231",
+    "job_id": "job-0231",
+    "trade": "electrical",
+    "day_offset": 11,
+    "scheduled_hours": 0.8,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0232",
+    "job_id": "job-0232",
+    "trade": "electrical",
+    "day_offset": 15,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0233",
+    "job_id": "job-0233",
+    "trade": "electrical",
+    "day_offset": 16,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0234",
+    "job_id": "job-0234",
+    "trade": "electrical",
+    "day_offset": 17,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0235",
+    "job_id": "job-0235",
+    "trade": "electrical",
+    "day_offset": 18,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0236",
+    "job_id": "job-0236",
+    "trade": "electrical",
+    "day_offset": 19,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e2",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0237",
+    "job_id": "job-0237",
+    "trade": "electrical",
+    "day_offset": 1,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0238",
+    "job_id": "job-0238",
+    "trade": "electrical",
+    "day_offset": 2,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0239",
+    "job_id": "job-0239",
+    "trade": "electrical",
+    "day_offset": 3,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0240",
+    "job_id": "job-0240",
+    "trade": "electrical",
+    "day_offset": 4,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0241",
+    "job_id": "job-0241",
+    "trade": "electrical",
+    "day_offset": 5,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0242",
+    "job_id": "job-0242",
+    "trade": "electrical",
+    "day_offset": 1,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0243",
+    "job_id": "job-0243",
+    "trade": "electrical",
+    "day_offset": 2,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0244",
+    "job_id": "job-0244",
+    "trade": "electrical",
+    "day_offset": 8,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0245",
+    "job_id": "job-0245",
+    "trade": "electrical",
+    "day_offset": 9,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0246",
+    "job_id": "job-0246",
+    "trade": "electrical",
+    "day_offset": 10,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0247",
+    "job_id": "job-0247",
+    "trade": "electrical",
+    "day_offset": 11,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0248",
+    "job_id": "job-0248",
+    "trade": "electrical",
+    "day_offset": 12,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0249",
+    "job_id": "job-0249",
+    "trade": "electrical",
+    "day_offset": 8,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0250",
+    "job_id": "job-0250",
+    "trade": "electrical",
+    "day_offset": 9,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0251",
+    "job_id": "job-0251",
+    "trade": "electrical",
+    "day_offset": 10,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0252",
+    "job_id": "job-0252",
+    "trade": "electrical",
+    "day_offset": 11,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0253",
+    "job_id": "job-0253",
+    "trade": "electrical",
+    "day_offset": 15,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0254",
+    "job_id": "job-0254",
+    "trade": "electrical",
+    "day_offset": 16,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0255",
+    "job_id": "job-0255",
+    "trade": "electrical",
+    "day_offset": 17,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0256",
+    "job_id": "job-0256",
+    "trade": "electrical",
+    "day_offset": 18,
+    "scheduled_hours": 1.2,
+    "job_type": "outlet_service",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0257",
+    "job_id": "job-0257",
+    "trade": "electrical",
+    "day_offset": 19,
+    "scheduled_hours": 6.0,
+    "job_type": "panel_upgrade",
+    "technician_id": "t-e3",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0258",
+    "job_id": "job-0258",
+    "trade": "install",
+    "day_offset": 1,
+    "scheduled_hours": 7.0,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0259",
+    "job_id": "job-0259",
+    "trade": "install",
+    "day_offset": 2,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0260",
+    "job_id": "job-0260",
+    "trade": "install",
+    "day_offset": 3,
+    "scheduled_hours": 7.0,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0261",
+    "job_id": "job-0261",
+    "trade": "install",
+    "day_offset": 4,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0262",
+    "job_id": "job-0262",
+    "trade": "install",
+    "day_offset": 5,
+    "scheduled_hours": 7.0,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0263",
+    "job_id": "job-0263",
+    "trade": "install",
+    "day_offset": 1,
+    "scheduled_hours": 2.0,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0264",
+    "job_id": "job-0264",
+    "trade": "install",
+    "day_offset": 8,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0265",
+    "job_id": "job-0265",
+    "trade": "install",
+    "day_offset": 9,
+    "scheduled_hours": 7.0,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0266",
+    "job_id": "job-0266",
+    "trade": "install",
+    "day_offset": 10,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0267",
+    "job_id": "job-0267",
+    "trade": "install",
+    "day_offset": 11,
+    "scheduled_hours": 7.0,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0268",
+    "job_id": "job-0268",
+    "trade": "install",
+    "day_offset": 12,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0269",
+    "job_id": "job-0269",
+    "trade": "install",
+    "day_offset": 8,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0270",
+    "job_id": "job-0270",
+    "trade": "install",
+    "day_offset": 15,
+    "scheduled_hours": 7.0,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0271",
+    "job_id": "job-0271",
+    "trade": "install",
+    "day_offset": 16,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0272",
+    "job_id": "job-0272",
+    "trade": "install",
+    "day_offset": 17,
+    "scheduled_hours": 7.0,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0273",
+    "job_id": "job-0273",
+    "trade": "install",
+    "day_offset": 18,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0274",
+    "job_id": "job-0274",
+    "trade": "install",
+    "day_offset": 19,
+    "scheduled_hours": 3.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  },
+  {
+    "id": "appt-0275",
+    "job_id": "job-0275",
+    "trade": "install",
+    "day_offset": 15,
+    "scheduled_hours": 1.5,
+    "job_type": "ductwork",
+    "technician_id": "t-g1",
+    "status": "scheduled"
+  }
+]

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Use of AI Policy, Top Builder AI</title>
+<meta name="description" content="Exactly how Top Builder AI uses AI: the language model never computes a figure, agents are advisory by default, every consequential action needs a human approval, your data never trains shared models, and every action is logged and undoable." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://topbuilderai.com/ai-policy" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/ai-policy" />
+<meta property="og:title" content="Use of AI Policy, Top Builder AI" />
+<meta property="og:description" content="The AI never computes your numbers. Agents are advisory by default, every consequential action needs human approval, and your data never trains shared models." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* Enterprise-light palette (WCAG 2.2 AA). Deep-blue primary, refined-green secondary. */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:860px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--indigo);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1000px;height:560px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(22px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px;max-width:1140px;margin:0 auto;padding:0 24px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:24px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a{color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink);text-decoration:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:10px 16px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+    box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:680px){.nav-links a:not(.home):not(.btn){display:none}}
+
+  .doc{padding:64px 0 40px}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  h1{font-size:clamp(34px,5.4vw,52px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin:14px 0 0}
+  .meta{color:var(--ink3);font-size:14px;margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 20px}
+  .lede{color:var(--ink2);font-size:18px;margin-top:22px;max-width:680px}
+
+  .body{margin-top:48px}
+  .body section{margin-top:40px;scroll-margin-top:80px}
+  .body h2{font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:14px;
+    display:flex;align-items:baseline;gap:12px}
+  .body h2 .n{font-size:13px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums;flex:none}
+  .body h3{font-size:16px;font-weight:600;margin:22px 0 8px;color:var(--ink)}
+  .body p{color:var(--ink2);font-size:15.5px;margin-bottom:14px}
+  .body ul{list-style:none;margin:6px 0 16px;display:flex;flex-direction:column;gap:10px}
+  .body li{color:var(--ink2);font-size:15px;padding-left:22px;position:relative}
+  .body li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;
+    background:linear-gradient(135deg,var(--indigo-2),var(--emerald))}
+  .body li b,.body p b{color:var(--ink);font-weight:600}
+  .body strong{color:var(--ink);font-weight:600}
+
+  .toc{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:22px 26px;margin-top:42px;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  .toc .h{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:600;margin-bottom:14px}
+  .toc ol{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 26px;counter-reset:t}
+  @media(max-width:560px){.toc ol{grid-template-columns:1fr}}
+  .toc li{counter-increment:t;font-size:14px}
+  .toc li a{color:var(--ink2);display:flex;gap:10px}
+  .toc li a::before{content:counter(t,decimal-leading-zero);color:var(--indigo);font-variant-numeric:tabular-nums;font-weight:600;flex:none}
+  .toc li a:hover{color:var(--ink);text-decoration:none}
+
+  table{width:100%;border-collapse:collapse;margin:8px 0 18px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:14px;background:var(--panel)}
+  thead{background:rgba(15,23,42,.025)}
+  th{text-align:left;padding:12px 16px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--line)}
+  td{padding:12px 16px;color:var(--ink2);border-top:1px solid var(--line);vertical-align:top}
+  td b{color:var(--ink)}
+  .wrap-table{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  .callout{border:1px solid rgba(4,120,87,.3);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(4,120,87,.06),var(--panel));padding:20px 24px;margin:8px 0 18px}
+  .callout b{color:var(--emerald)}
+  .contactcard{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);padding:24px 26px;margin-top:10px;
+    box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .contactcard .l{font-size:13px;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  .contactcard p{margin:6px 0 0;color:var(--ink2)}
+  .contactcard .addr{color:var(--ink);font-weight:500}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px;margin-top:56px;position:relative;z-index:1}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center;max-width:1140px;margin:0 auto;padding:0 24px}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand home" href="/"><svg width="26" height="26" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/security">Security</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap doc">
+    <div class="eyebrow">Legal</div>
+    <h1>Use of AI Policy</h1>
+    <div class="meta">
+      <span><b style="color:var(--ink2)">Effective:</b> August 12, 2026</span>
+      <span><b style="color:var(--ink2)">Last updated:</b> August 12, 2026</span>
+    </div>
+    <p class="lede">We sell AI software, so vague reassurance is not good enough. This page states exactly what the AI does inside Top Builder AI, the one thing it is architecturally forbidden from doing, who approves what, and what happens to your data. Where a claim below is enforced in code rather than by policy, we say so.</p>
+
+    <nav class="toc" aria-label="Contents">
+      <div class="h">On this page</div>
+      <ol>
+        <li><a href="#where">Where AI is used</a></li>
+        <li><a href="#numbers">The AI never computes a figure</a></li>
+        <li><a href="#advisory">Advisory by default</a></li>
+        <li><a href="#autonomy">You control autonomy</a></li>
+        <li><a href="#never">What agents never decide</a></li>
+        <li><a href="#training">Your data never trains models</a></li>
+        <li><a href="#audit">Audit trail &amp; undo</a></li>
+        <li><a href="#wrong">When the AI is wrong</a></li>
+        <li><a href="#content">Content on this site</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <div class="body">
+      <section id="where">
+        <h2><span class="n">01</span> Where AI is used</h2>
+        <p>Top Builder AI runs advisory agents across booking, dispatch, finance, inventory, workforce, and document handling. Inside that product, a large language model (Anthropic's Claude) does a specific and limited set of jobs.</p>
+        <ul>
+          <li><b>Explaining recommendations.</b> The model turns a computed result into language a human can act on.</li>
+          <li><b>The in-app assistant.</b> Answering your questions about your own tenant's data, inside your permissions.</li>
+          <li><b>Drafting.</b> First-draft messages, summaries, and document classifications for a human to review.</li>
+          <li><b>Reading unstructured input.</b> Turning a voice intake or a document into structured fields.</li>
+        </ul>
+        <p>Notice what is not on that list: deciding, calculating, and committing. Those are handled elsewhere on purpose.</p>
+      </section>
+
+      <section id="numbers">
+        <h2><span class="n">02</span> The AI never computes a figure</h2>
+        <p>Every number the platform shows you comes from deterministic, unit-tested code, never from a language model. The model is given the finished figure and asked to explain it. It is never asked to produce it.</p>
+        <div class="callout">
+          <p style="margin:0"><b>This is architectural, not a promise.</b> The separation between the calculation layer and the language layer is a documented design rule in our codebase, and the learning system that improves the agents over time is wired only into the narration side. The figures cannot be reached by it, so they cannot drift.</p>
+        </div>
+        <p>The reason is simple. A language model can produce a wrong number that reads perfectly, and in a contractor's finances that is worse than no number at all. So we removed the possibility rather than trying to prompt our way around it.</p>
+      </section>
+
+      <section id="advisory">
+        <h2><span class="n">03</span> Advisory by default</h2>
+        <p>Agents recommend. They do not reach into your ServiceTitan or QuickBooks and change things on their own. Any consequential action follows a gated path: the agent <b>proposes</b>, an authorized human <b>approves</b>, and only then does the system <b>execute</b>. Actions are off by default at the platform level and enabled per action type.</p>
+        <p>Approval and execution are restricted to admin users, and sensitive actions additionally require two-factor authentication. An agent cannot approve its own proposal.</p>
+      </section>
+
+      <section id="autonomy">
+        <h2><span class="n">04</span> You control autonomy</h2>
+        <p>Every agent has an autonomy setting that you control, and the cautious option is the default.</p>
+        <div class="wrap-table">
+          <table>
+            <thead><tr><th>Setting</th><th>What the agent may do</th></tr></thead>
+            <tbody>
+              <tr><td><b>Off</b></td><td>Nothing. The agent is inert.</td></tr>
+              <tr><td><b>Approve</b></td><td>Analyze and propose. A human releases every action.</td></tr>
+              <tr><td><b>Auto</b></td><td>Act within the specific action types you have allowed.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>You can change this per agent at any time, and turning everything off is always one action away.</p>
+      </section>
+
+      <section id="never">
+        <h2><span class="n">05</span> What agents never decide</h2>
+        <p>Automated agents do not make legally or similarly significant decisions about individuals. They do not hire, fire, discipline, or evaluate your employees for you. They do not determine anyone's credit, insurance, or eligibility for anything. They do not replace your CPA's professional judgment, your licensed trades' expertise, or your own call as the operator.</p>
+        <p>Where an agent surfaces something about a person, for example a workforce recommendation, it is decision-support for a manager who remains responsible for the decision.</p>
+      </section>
+
+      <section id="training">
+        <h2><span class="n">06</span> Your data never trains shared models</h2>
+        <p>Your business data is not used to train shared foundation models. We use AI providers under business API terms where the provider does not train on the data we send. We do not sell your data, and we do not pool one customer's data into another customer's results.</p>
+        <p>Tenant isolation is enforced at the database layer with row-level security, and the application connects as a non-superuser that cannot bypass it. The model receives only the context needed for the request it is answering, inside your tenant. The full list of companies that process data on our behalf is on the <a href="/privacy">privacy policy</a>.</p>
+      </section>
+
+      <section id="audit">
+        <h2><span class="n">07</span> Audit trail and undo</h2>
+        <p>Every action an agent proposes or executes is recorded with who approved it and when. Executed actions carry a compensating undo path, so a mistake is reversible rather than permanent. Sensitive operations are written to a tamper-evident audit trail.</p>
+        <p>If you want to know what an agent did last Tuesday and why, that is a question with an answer, not a shrug.</p>
+      </section>
+
+      <section id="wrong">
+        <h2><span class="n">08</span> When the AI is wrong</h2>
+        <p>It will be, sometimes. That is the premise the whole design is built on, which is why the numbers are deterministic, the actions are gated, and everything is undoable. Using AI does not move responsibility from us to a vendor. If our product did it, it is ours to answer for.</p>
+        <p>Tell us what happened and we will show you the log, correct it, and fix the cause. We would rather hear it from you early than lose your confidence quietly.</p>
+      </section>
+
+      <section id="content">
+        <h2><span class="n">09</span> Content on this site</h2>
+        <p>We use AI tools in producing our written, audio, and video content, including blog posts and educational material. Claims about security, data handling, or how the product behaves are written and verified by a human before publishing, because those are commitments rather than commentary. Marketing content may publish on an automated schedule with human spot-checks.</p>
+      </section>
+
+      <section id="contact">
+        <h2><span class="n">10</span> Contact</h2>
+        <p>Questions about how we use AI, or a request to review a specific agent action:</p>
+        <div class="contactcard">
+          <div class="l">Operated by</div>
+          <p class="addr">Salisbury Bookkeeping, LLC</p>
+          <p class="addr">7835 N. Escalante Dr, Eagle Mountain, UT 84005, USA</p>
+          <p style="margin-top:12px"><b style="color:var(--ink2)">AI, privacy &amp; security:</b> <a href="mailto:support@salisburybookkeeping.com">support@salisburybookkeeping.com</a></p>
+          <p><b style="color:var(--ink2)">Related:</b> <a href="/privacy">Privacy policy</a> · <a href="/security">Security</a> · <a href="/terms">Terms</a></p>
+        </div>
+        <p style="margin-top:20px;color:var(--ink3);font-size:14px">If we make material changes to this policy we will update the "Last updated" date above. If a change would weaken a commitment on this page, we will say so plainly rather than quietly editing the wording.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <p class="disc">The AI back office for ServiceTitan contractors, Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> · Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> · AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/ai-policy">Use of AI</a>
+      <a href="/terms">Terms</a>
+      <a href="/security">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>© 2026 Top Builder AI · topbuilderai.com · Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

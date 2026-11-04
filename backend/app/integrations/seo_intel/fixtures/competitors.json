@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Front Range Mechanical",
+    "domain": "frontrangemech.com",
+    "domain_rating": 38,
+    "keywords_we_miss": [
+      "emergency hvac repair near me",
+      "24 hour ac repair",
+      "after hours hvac service",
+      "weekend furnace repair",
+      "hvac emergency service cost",
+      "same day ac repair",
+      "emergency heating repair",
+      "night plumber emergency",
+      "24/7 hvac company"
+    ],
+    "ai_citation_share": 0.31,
+    "notes": "Owns the emergency/after-hours content cluster — cited in AI answers for 'emergency HVAC' queries we never appear in."
+  },
+  {
+    "name": "Mile High Plumbing & Air",
+    "domain": "milehighplumbingair.com",
+    "domain_rating": 33,
+    "keywords_we_miss": [
+      "tankless water heater installation cost",
+      "water heater replacement cost",
+      "sewer line repair cost",
+      "repipe house cost",
+      "water softener installation",
+      "sump pump replacement",
+      "gas line installation cost",
+      "hydro jetting cost"
+    ],
+    "ai_citation_share": 0.22,
+    "notes": "Publishes a weekly YouTube teardown — the strongest single AI-citation channel signal (0.737 mention correlation)."
+  },
+  {
+    "name": "Summit Home Services",
+    "domain": "summithomeservices.com",
+    "domain_rating": 29,
+    "keywords_we_miss": [
+      "best smart thermostat for heat pump",
+      "heat pump vs furnace colorado",
+      "furnace replacement financing",
+      "hvac maintenance plan worth it",
+      "duct cleaning worth it",
+      "mini split vs central air cost"
+    ],
+    "ai_citation_share": 0.12,
+    "notes": "Listicle-heavy blog (listicles draw 32.5% of AI citations) but stale — most posts not refreshed in 90+ days."
+  }
+]

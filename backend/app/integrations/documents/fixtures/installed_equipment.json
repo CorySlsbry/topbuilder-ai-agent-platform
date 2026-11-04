@@ -1,0 +1,6 @@
+[
+  { "id": "EQ-3001", "job_ref": "JOB-9001", "customer_name": "Peter Powell", "brand": "Fujitsu", "model": "AOU24RLXFZH", "serial": "FJ26-0001188", "install_date": "2026-06-10", "serial_source": "photo_ocr" },
+  { "id": "EQ-3002", "job_ref": "JOB-9003", "customer_name": "EB Renovations", "brand": "Mitsubishi", "model": "MSZ-FS12NA", "serial": "MIT-7710-ABCD", "install_date": "2026-06-11", "serial_source": "photo_ocr" },
+  { "id": "EQ-3003", "job_ref": "JOB-9005", "customer_name": "Sam Campbell", "brand": "Daikin", "model": "DZ17VSA", "serial": "DK-2026-55012", "install_date": "2026-06-12", "serial_source": "photo_ocr" },
+  { "id": "EQ-3004", "job_ref": "JOB-9002", "customer_name": "Saint Matthias Anglican Church", "brand": "Fujitsu", "model": "AOU36RLXFZ", "serial": null, "install_date": "2026-06-09", "serial_source": "photo_ocr" }
+]

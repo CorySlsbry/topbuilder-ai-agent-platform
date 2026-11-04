@@ -1,0 +1,122 @@
+[
+  {
+    "technician_id": "t-h1",
+    "day_offset": -11,
+    "regular_hours": 40.0,
+    "overtime_hours": 2.0
+  },
+  {
+    "technician_id": "t-h1",
+    "day_offset": -4,
+    "regular_hours": 40.0,
+    "overtime_hours": 3.0
+  },
+  {
+    "technician_id": "t-h2",
+    "day_offset": -11,
+    "regular_hours": 40.0,
+    "overtime_hours": 1.0
+  },
+  {
+    "technician_id": "t-h2",
+    "day_offset": -4,
+    "regular_hours": 40.0,
+    "overtime_hours": 2.0
+  },
+  {
+    "technician_id": "t-h3",
+    "day_offset": -11,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-h3",
+    "day_offset": -4,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-h4",
+    "day_offset": -11,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-h4",
+    "day_offset": -4,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-p1",
+    "day_offset": -11,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-p1",
+    "day_offset": -4,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-p2",
+    "day_offset": -11,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-p2",
+    "day_offset": -4,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-e1",
+    "day_offset": -11,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-e1",
+    "day_offset": -4,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-e2",
+    "day_offset": -11,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-e2",
+    "day_offset": -4,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-e3",
+    "day_offset": -11,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-e3",
+    "day_offset": -4,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-g1",
+    "day_offset": -11,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  },
+  {
+    "technician_id": "t-g1",
+    "day_offset": -4,
+    "regular_hours": 36.0,
+    "overtime_hours": 0.0
+  }
+]

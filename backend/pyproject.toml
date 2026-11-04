@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fieldops-iq-backend"
+version = "0.1.0"
+description = "Top Builder AI — enterprise multi-agent platform for ServiceTitan contractors (Workforce slice)"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.3",
+  "sqlalchemy[asyncio]>=2.0.30",
+  "asyncpg>=0.29",
+  "langgraph>=0.2.20",
+  "langchain-core>=0.3",
+  "anthropic>=0.39",
+  "pyjwt[crypto]>=2.8",
+  "httpx>=0.27",
+  "tenacity>=8.3",
+  "structlog>=24.1",
+  "orjson>=3.10",
+  "openai>=1.40",
+  "cryptography>=42.0",
+  "python-multipart>=0.0.9",
+  "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2",
+  "pytest-asyncio>=0.23",
+  "hypothesis>=6.100",
+  "ruff>=0.5",
+  "mypy>=1.10",
+]
+# Minimal set to run the pure analytics/confidence tests with no DB or network:
+#   pip install pytest hypothesis
+test-core = [
+  "pytest>=8.2",
+  "hypothesis>=6.100",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+  "integration: touches a real Postgres (skipped unless TEST_DATABASE_URL is set)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_unused_ignores = true
+ignore_missing_imports = true
+
+# Bandit — static application security testing (SAST) for Python. Run via:
+#   bandit -r app -c pyproject.toml
+# The scan covers the application package only; tests are excluded (assert-based oracles and
+# fixture data trip B101/B105/B106 without representing real findings). The security gate
+# (scripts/security_scan.sh) treats HIGH-severity results as a non-zero exit.
+[tool.bandit]
+exclude_dirs = ["tests", "migrations", "scripts", "build", "dist", ".venv", "node_modules"]
+# B101 assert_used: asserts live in tests (already excluded); keep off app code too — the codebase
+#   uses asserts only as developer invariants, never as a security control.
+# B104 hardcoded_bind_all_interfaces: uvicorn binds 0.0.0.0 inside the container by design
+#   (Cloud Run terminates TLS at the edge); not a finding here.
+skips = ["B101", "B104"]

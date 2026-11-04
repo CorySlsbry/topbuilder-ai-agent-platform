@@ -1,0 +1,95 @@
+{
+  "Header": {
+    "ReportName": "ProfitAndLoss",
+    "Time": "2026-06-17T00:00:00-07:00",
+    "ReportBasis": "Accrual",
+    "Currency": "USD",
+    "StartPeriod": "2026-01-01",
+    "EndPeriod": "2026-06-30"
+  },
+  "Columns": {
+    "Column": [
+      { "ColTitle": "", "ColType": "Account" },
+      { "ColTitle": "Total", "ColType": "Money" }
+    ]
+  },
+  "Rows": {
+    "Row": [
+      {
+        "Header": { "ColData": [{ "value": "Income" }, { "value": "" }] },
+        "Rows": {
+          "Row": [
+            {
+              "ColData": [
+                { "value": "Service Revenue", "id": "79" },
+                { "value": "6000.00" }
+              ],
+              "type": "Data"
+            },
+            {
+              "ColData": [
+                { "value": "Install Revenue", "id": "80" },
+                { "value": "4000.00" }
+              ],
+              "type": "Data"
+            }
+          ]
+        },
+        "Summary": { "ColData": [{ "value": "Total Income" }, { "value": "10000.00" }] },
+        "type": "Section",
+        "group": "Income"
+      },
+      {
+        "Header": { "ColData": [{ "value": "Cost of Goods Sold" }, { "value": "" }] },
+        "Rows": {
+          "Row": [
+            {
+              "ColData": [
+                { "value": "Materials", "id": "90" },
+                { "value": "3000.00" }
+              ],
+              "type": "Data"
+            },
+            {
+              "ColData": [
+                { "value": "Subcontractors", "id": "91" },
+                { "value": "1000.00" }
+              ],
+              "type": "Data"
+            }
+          ]
+        },
+        "Summary": { "ColData": [{ "value": "Total Cost of Goods Sold" }, { "value": "4000.00" }] },
+        "type": "Section",
+        "group": "COGS"
+      },
+      {
+        "ColData": [{ "value": "GROSS PROFIT" }, { "value": "6000.00" }],
+        "type": "Data",
+        "group": "GrossProfit"
+      },
+      {
+        "Header": { "ColData": [{ "value": "Expenses" }, { "value": "" }] },
+        "Rows": {
+          "Row": [
+            {
+              "ColData": [
+                { "value": "Payroll", "id": "92" },
+                { "value": "2500.00" }
+              ],
+              "type": "Data"
+            }
+          ]
+        },
+        "Summary": { "ColData": [{ "value": "Total Expenses" }, { "value": "2500.00" }] },
+        "type": "Section",
+        "group": "Expenses"
+      },
+      {
+        "ColData": [{ "value": "NET INCOME" }, { "value": "3500.00" }],
+        "type": "Data",
+        "group": "NetIncome"
+      }
+    ]
+  }
+}

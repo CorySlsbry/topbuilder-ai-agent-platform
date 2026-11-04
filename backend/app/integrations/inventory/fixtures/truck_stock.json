@@ -1,0 +1,8 @@
+[
+  { "technician_id": "T2", "sku": "SKU-COMP", "expected_qty": 2,  "counted_qty": 1 },
+  { "technician_id": "T1", "sku": "SKU-RFGR", "expected_qty": 3,  "counted_qty": 1 },
+  { "technician_id": "T3", "sku": "SKU-FILT", "expected_qty": 50, "counted_qty": 38 },
+  { "technician_id": "T2", "sku": "SKU-CAP",  "expected_qty": 12, "counted_qty": 6 },
+  { "technician_id": "T1", "sku": "SKU-THRM", "expected_qty": 4,  "counted_qty": 4 },
+  { "technician_id": "T3", "sku": "SKU-CONT", "expected_qty": 10, "counted_qty": 11 }
+]

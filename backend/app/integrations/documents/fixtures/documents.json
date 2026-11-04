@@ -1,0 +1,14 @@
+[
+  { "id": "DOC-2041", "filename": "invoice_4471.pdf", "mime_type": "application/pdf", "declared_type": "invoice", "customer_hint": "Whitfield Residence", "amount_cents": 48000, "due_in_days": 15, "related_job_ref": "JOB-9001" },
+  { "id": "DOC-2042", "filename": "estimate_spring_repipe.pdf", "mime_type": "application/pdf", "declared_type": "estimate", "customer_hint": "Mercer Building", "amount_cents": 120000 },
+  { "id": "DOC-2043", "filename": "coi_2026.pdf", "mime_type": "application/pdf", "declared_type": "insurance_coi", "customer_hint": "Okafor Property", "expiry_in_days": 12 },
+  { "id": "DOC-2044", "filename": "service_agreement.pdf", "mime_type": "application/pdf", "declared_type": "contract", "customer_hint": "Santos Home", "signed": false },
+  { "id": "DOC-2045", "filename": "permit_mech_8841.pdf", "mime_type": "application/pdf", "declared_type": "permit", "customer_hint": "Mercer Building" },
+  { "id": "DOC-2046", "filename": "job_photo_panel.jpg", "mime_type": "image/jpeg", "declared_type": "photo", "customer_hint": "Whitfield Residence", "related_job_ref": "JOB-9001" },
+  { "id": "DOC-2047", "filename": "final_inspection.pdf", "mime_type": "application/pdf", "declared_type": "inspection", "customer_hint": "Park Residence" },
+  { "id": "DOC-2048", "filename": "vendor_w9.pdf", "mime_type": "application/pdf", "declared_type": "w9", "customer_hint": "Mercer Building" },
+  { "id": "DOC-2049", "filename": "scan_20260609_0007.pdf", "mime_type": "application/pdf", "customer_hint": "Whitfield Residence" },
+  { "id": "DOC-2050", "filename": "invoice_acme.pdf", "mime_type": "application/pdf", "declared_type": "invoice", "customer_hint": "Acme Vendor LLC", "amount_cents": 35000 },
+  { "id": "DOC-2051", "filename": "coi_renewed.pdf", "mime_type": "application/pdf", "declared_type": "insurance_coi", "customer_hint": "Santos Home", "expiry_in_days": 95 },
+  { "id": "DOC-2052", "filename": "estimate_attic.pdf", "mime_type": "application/pdf", "declared_type": "estimate", "customer_hint": "Park Residence", "amount_cents": 89000 }
+]

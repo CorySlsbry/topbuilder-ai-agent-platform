@@ -1,0 +1,721 @@
+{
+  "brand": "Top Builder AI",
+  "domain": "topbuilderai.com",
+  "capabilities": {
+    "perplexity": true,
+    "openai": true,
+    "gemini": true
+  },
+  "summary": {
+    "queries": 8,
+    "really_measured": 8,
+    "cited": 4
+  },
+  "results": [
+    {
+      "query": "best AI back office software for ServiceTitan contractors",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": true,
+      "cited_where": [
+        "perplexity"
+      ],
+      "named_where": [
+        "perplexity"
+      ],
+      "competitors_cited": [
+        "servicetitan.com",
+        "salisburybookkeeping.com",
+        "siliconangle.com",
+        "smith.ai",
+        "myquoteiq.com",
+        "sourceforge.net",
+        "fieldproxy.ai",
+        "fieldcamp.ai",
+        "salesforce.com",
+        "trydrafted.io",
+        "homegiant.com",
+        "forgebuiltai.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "For **ServiceTitan contractors**, the best AI back-office option in the results is **Top Builder AI** if you want AI focused on *back-office work* like AR collections, job costing, pricebook margin, and QuickBooks reconciliation rather than just front-office automation.[1][2][4]\n\nIf you want the **best native ServiceTitan option**, **ServiceTitan Atlas / Pro Products** is the strongest choice because it is built into ServiceTitan and automates parts of the customer journey, dispatch, field servi",
+        "openai": "For ServiceTitan contractors seeking AI-powered back-office solutions, several options integrate seamlessly with ServiceTitan to enhance operational efficiency:\n\n1. **ServiceTitan's Built-in AI Features**: ServiceTitan offers native AI capabilities designed specifically for the trades. These features automate tasks such as intelligent dispatching, customer engagement, and performance analytics, all within the ServiceTitan platform. ([servicetitan.com](https://www.servicetitan.com/features/ai?utm",
+        "gemini": "For ServiceTitan contractors (HVAC, plumbing, electrical, roofing, etc.), back-office operations typically become bottlenecked by manual call logging, complex dispatch scheduling, unbilled materials, slow Accounts Receivable (A/R) collections, and tedious Accounts Payable (AP) data entry. \n\nThe best AI software options are divided below by function, spanning **native ServiceTitan AI features** and **high-impact third-party integrations**.\n\n---\n\n### 1. Best Native Solution: ServiceTitan Atlas & P"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": true,
+          "brand_named_in_answer": true,
+          "brand_citation_urls": [
+            "https://topbuilderai.com/blog/ai-back-office-for-servicetitan.html",
+            "https://topbuilderai.com/blog/best-ai-tools-hvac-plumbing-electrical-contractors-2026.html"
+          ],
+          "all_cited_hosts": [
+            "salisburybookkeeping.com",
+            "topbuilderai.com",
+            "siliconangle.com",
+            "servicetitan.com",
+            "myquoteiq.com",
+            "sourceforge.net",
+            "fieldproxy.ai",
+            "fieldcamp.ai",
+            "salesforce.com",
+            "smith.ai"
+          ],
+          "answer_excerpt": "For **ServiceTitan contractors**, the best AI back-office option in the results is **Top Builder AI** if you want AI focused on *back-office work* like AR collections, job costing, pricebook margin, and QuickBooks reconciliation rather than just front-office automation.[1][2][4]\n\nIf you want the **best native ServiceTitan option**, **ServiceTitan Atlas / Pro Products** is the strongest choice beca"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "servicetitan.com",
+            "trydrafted.io",
+            "homegiant.com",
+            "forgebuiltai.com",
+            "upsmith.com",
+            "titansigma.com",
+            "afterlead.ai"
+          ],
+          "answer_excerpt": "For ServiceTitan contractors seeking AI-powered back-office solutions, several options integrate seamlessly with ServiceTitan to enhance operational efficiency:\n\n1. **ServiceTitan's Built-in AI Features**: ServiceTitan offers native AI capabilities designed specifically for the trades. These features automate tasks such as intelligent dispatching, customer engagement, and performance analytics, al"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "salisburybookkeeping.com",
+            "flowbots.ai",
+            "servicetitan.com",
+            "siliconangle.com",
+            "winktoolbox.com",
+            "slashdot.org",
+            "avoca.ai",
+            "sameday.ai",
+            "facebook.com",
+            "smith.ai",
+            "tray.ai",
+            "useagave.com"
+          ],
+          "answer_excerpt": "For ServiceTitan contractors (HVAC, plumbing, electrical, roofing, etc.), back-office operations typically become bottlenecked by manual call logging, complex dispatch scheduling, unbilled materials, slow Accounts Receivable (A/R) collections, and tedious Accounts Payable (AP) data entry. \n\nThe best AI software options are divided below by function, spanning **native ServiceTitan AI features** and"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "how to automate ServiceTitan pricebook vendor price increases",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": true,
+      "cited_where": [
+        "perplexity"
+      ],
+      "named_where": [],
+      "competitors_cited": [
+        "winktoolbox.com",
+        "servicetitan.com",
+        "toolboxtechs.com",
+        "help.servicetitan.com",
+        "github.com",
+        "community.servicetitan.com",
+        "projul.com",
+        "titanprotechnologies.com",
+        "youtube.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "To automate **ServiceTitan pricebook vendor price increases**, use **Pricebook Connect / Procurement integrations** to sync vendor cost files or catalog feeds, then enable **Auto Update** for the fields you want updated so ServiceTitan can apply those cost changes to mapped materials and equipment automatically.[5][10] For pricing that depends on those items, set up **Pricing Builder / Dynamic Pricing** so updated material costs flow through your markup rules and reprice linked services.[7][9][1",
+        "openai": "Automating price updates in ServiceTitan's Pricebook due to vendor price increases can be a structured process. Here\u2019s an outline of steps you might follow:\n\n1. **Data Integration**:\n   - **API Access**: Ensure you have access to ServiceTitan\u2019s API for seamless data integration.\n   - **Vendor Data**: Obtain updated pricing data from your vendors in a compatible format such as CSV or Excel.\n\n2. **Data Preparation**:\n   - Clean and format the vendor data for consistency. Ensure product codes or id",
+        "gemini": "Automating vendor price increases in ServiceTitan requires a two-part approach: **updating the vendor cost of materials/equipment** and **automatically adjusting retail/flat-rate prices** to protect profit margins.\n\n---\n\n### Step 1: Automate Vendor Cost Updates\n\n#### Option A: Use Pricebook Connect (Supplier Catalog Integration)\nIf your primary suppliers (e.g., Johnstone Supply, Ferguson, Trane, Carrier, Winsupply, R.E. Michel) integrate with ServiceTitan:\n1. Go to **Settings > Integrations > Pr"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": true,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [
+            "https://topbuilderai.com/blog/automate-servicetitan-pricebook-vendor-costs.html",
+            "https://topbuilderai.com/blog/servicetitan-pricebook-pro-vs-self-learning-agent.html"
+          ],
+          "all_cited_hosts": [
+            "topbuilderai.com",
+            "winktoolbox.com",
+            "servicetitan.com",
+            "help.servicetitan.com",
+            "github.com",
+            "community.servicetitan.com",
+            "toolboxtechs.com",
+            "projul.com",
+            "titanprotechnologies.com"
+          ],
+          "answer_excerpt": "To automate **ServiceTitan pricebook vendor price increases**, use **Pricebook Connect / Procurement integrations** to sync vendor cost files or catalog feeds, then enable **Auto Update** for the fields you want updated so ServiceTitan can apply those cost changes to mapped materials and equipment automatically.[5][10] For pricing that depends on those items, set up **Pricing Builder / Dynamic Pri"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Automating price updates in ServiceTitan's Pricebook due to vendor price increases can be a structured process. Here\u2019s an outline of steps you might follow:\n\n1. **Data Integration**:\n   - **API Access**: Ensure you have access to ServiceTitan\u2019s API for seamless data integration.\n   - **Vendor Data**: Obtain updated pricing data from your vendors in a compatible format such as CSV or Excel.\n\n2. **D"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "servicetitan.com",
+            "winktoolbox.com",
+            "youtube.com",
+            "toolboxtechs.com"
+          ],
+          "answer_excerpt": "Automating vendor price increases in ServiceTitan requires a two-part approach: **updating the vendor cost of materials/equipment** and **automatically adjusting retail/flat-rate prices** to protect profit margins.\n\n---\n\n### Step 1: Automate Vendor Cost Updates\n\n#### Option A: Use Pricebook Connect (Supplier Catalog Integration)\nIf your primary suppliers (e.g., Johnstone Supply, Ferguson, Trane, C"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "AI to chase unpaid invoices for HVAC and home service contractors",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "reddit.com",
+        "syntharra.com",
+        "sosinvoices.com",
+        "remitright.ca",
+        "accountsreceivable.ai",
+        "getbill.io",
+        "chaseai.app",
+        "intelliadmin.co",
+        "invoicechaser.app",
+        "sophiie.ai",
+        "paidup.ai",
+        "robotomail.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "If you want **AI to chase unpaid invoices for HVAC and home service contractors**, the strongest fit in the results is **Syntharra**, which is built specifically for HVAC invoice collection and says it connects to common accounting tools, monitors overdue invoices, and starts a disclosed AI phone call three days past due.[1][2]\n\nOther relevant options include **AccountsReceivable.ai**, which follows up across **email, SMS, and live AI phone calls**; **GetBill**, which uses **email, SMS, phone, a",
+        "openai": "Using AI to manage unpaid invoices for HVAC and home service contractors can streamline the collections process and improve cash flow. Here\u2019s how AI can assist:\n\n1. **Automated Reminders:** \n   - Set up AI-driven systems to automatically send reminders to clients about upcoming and past-due invoices. These reminders can be customized in terms of frequency and tone.\n\n2. **Customer Segmentation:**\n   - Use AI to segment customers based on payment history. Tailor follow-up strategies for different ",
+        "gemini": "For HVAC and home service contractors, chasing unpaid invoices is often awkward, time-consuming, and frequently neglected when technicians and owners are busy in the field. \n\nMost overdue trade invoices aren't caused by customer disputes; they stem from **friction, forgetfulness, or misplaced bills**. AI handles the repetitive, uncomfortable follow-up process automatically while keeping relationships intact.\n\n---\n\n### 1. The Core AI Technologies for Trade Collections\n\n#### A. Conversational AI V"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "syntharra.com",
+            "sosinvoices.com",
+            "remitright.ca",
+            "accountsreceivable.ai",
+            "getbill.io",
+            "chaseai.app",
+            "intelliadmin.co",
+            "invoicechaser.app",
+            "sophiie.ai",
+            "paidup.ai",
+            "robotomail.com",
+            "reddit.com",
+            "invoicebutler.com",
+            "tradesly.ai",
+            "agentplace.io",
+            "collectpilot.ai",
+            "agensio.ai",
+            "get-arm.com",
+            "linkedin.com"
+          ],
+          "answer_excerpt": "If you want **AI to chase unpaid invoices for HVAC and home service contractors**, the strongest fit in the results is **Syntharra**, which is built specifically for HVAC invoice collection and says it connects to common accounting tools, monitors overdue invoices, and starts a disclosed AI phone call three days past due.[1][2]\n\nOther relevant options include **AccountsReceivable.ai**, which follo"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Using AI to manage unpaid invoices for HVAC and home service contractors can streamline the collections process and improve cash flow. Here\u2019s how AI can assist:\n\n1. **Automated Reminders:** \n   - Set up AI-driven systems to automatically send reminders to clients about upcoming and past-due invoices. These reminders can be customized in terms of frequency and tone.\n\n2. **Customer Segmentation:**\n "
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "viktor.com",
+            "reddit.com",
+            "homeprogrowthconsulting.com",
+            "loopsuite.ai",
+            "youtube.com",
+            "getjobber.com",
+            "ai101services.com",
+            "servicetitan.com",
+            "fieldcamp.ai",
+            "serviceagent.ai"
+          ],
+          "answer_excerpt": "For HVAC and home service contractors, chasing unpaid invoices is often awkward, time-consuming, and frequently neglected when technicians and owners are busy in the field. \n\nMost overdue trade invoices aren't caused by customer disputes; they stem from **friction, forgetfulness, or misplaced bills**. AI handles the repetitive, uncomfortable follow-up process automatically while keeping relationsh"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "AI dispatch and routing software for ServiceTitan that accounts for margin not just revenue",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": true,
+      "cited_where": [
+        "perplexity"
+      ],
+      "named_where": [],
+      "competitors_cited": [
+        "servicetitan.com",
+        "contractortoolstack.com",
+        "mypowerhouse.group",
+        "help.servicetitan.com",
+        "skill.re",
+        "fieldcamp.ai",
+        "elogii.com",
+        "eliteaiadvantage.com",
+        "inferensys.com",
+        "wezom.com",
+        "reddit.com",
+        "youtube.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "If you want **ServiceTitan-compatible dispatch/routing that optimizes for margin, not just revenue**, the first-party Dispatch Pro feature is not a true margin optimizer. ServiceTitan\u2019s own documentation describes it as maximizing **revenue** using predicted job value minus drive cost, plus technician performance and other routing factors.[3][4][6][15]\n\nWhat that means in practice:\n\n- **Dispatch Pro** focuses on **predicted revenue / profit-oriented routing**, but the published formula and produ",
+        "openai": "ServiceTitan offers several integrations and features to optimize dispatch and routing for service businesses. However, if you're looking to incorporate margin considerations alongside revenue in dispatch and routing, here's a general approach:\n\n1. **Custom Integrations:** Consider developing a custom integration or use existing third-party solutions that can be added to ServiceTitan. This integration would calculate margins based on various factors such as labor costs, parts costs, and other ex",
+        "gemini": "When optimizing dispatch and routing for **profit margin** rather than just top-line revenue in a ServiceTitan environment, you have two primary routes: leveraging **native ServiceTitan AI (Dispatch Pro)** with specific margin-focused configurations, or building a **custom API-driven optimization layer**.\n\n---\n\n### 1. The Native Solution: ServiceTitan Dispatch Pro (Titan Intelligence)\nThe native AI tool available directly inside ServiceTitan is **Dispatch Pro**.\n\n* **How it optimizes for profita"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": true,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [
+            "https://topbuilderai.com/blog/servicetitan-ai-dispatch-routing-margin.html"
+          ],
+          "all_cited_hosts": [
+            "topbuilderai.com",
+            "servicetitan.com",
+            "help.servicetitan.com",
+            "skill.re",
+            "fieldcamp.ai",
+            "elogii.com",
+            "eliteaiadvantage.com",
+            "contractortoolstack.com",
+            "mypowerhouse.group",
+            "inferensys.com",
+            "wezom.com",
+            "reddit.com"
+          ],
+          "answer_excerpt": "If you want **ServiceTitan-compatible dispatch/routing that optimizes for margin, not just revenue**, the first-party Dispatch Pro feature is not a true margin optimizer. ServiceTitan\u2019s own documentation describes it as maximizing **revenue** using predicted job value minus drive cost, plus technician performance and other routing factors.[3][4][6][15]\n\nWhat that means in practice:\n\n- **Dispatch P"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "ServiceTitan offers several integrations and features to optimize dispatch and routing for service businesses. However, if you're looking to incorporate margin considerations alongside revenue in dispatch and routing, here's a general approach:\n\n1. **Custom Integrations:** Consider developing a custom integration or use existing third-party solutions that can be added to ServiceTitan. This integra"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "contractortoolstack.com",
+            "servicetitan.com",
+            "mypowerhouse.group",
+            "youtube.com",
+            "growwithclover.com",
+            "korekomfortsolutions.com"
+          ],
+          "answer_excerpt": "When optimizing dispatch and routing for **profit margin** rather than just top-line revenue in a ServiceTitan environment, you have two primary routes: leveraging **native ServiceTitan AI (Dispatch Pro)** with specific margin-focused configurations, or building a **custom API-driven optimization layer**.\n\n---\n\n### 1. The Native Solution: ServiceTitan Dispatch Pro (Titan Intelligence)\nThe native A"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "automate EOS scorecard from ServiceTitan and QuickBooks",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": true,
+      "cited_where": [
+        "perplexity"
+      ],
+      "named_where": [],
+      "competitors_cited": [
+        "quickbooks.intuit.com",
+        "help.servicetitan.com",
+        "blog.atomicrevenue.com",
+        "zapier.com",
+        "waterfordbusinesssolutions.com",
+        "homeserviceengine.co",
+        "bdrco.com",
+        "tray.ai",
+        "servicetitan.com",
+        "companycam.com",
+        "titanprotechnologies.com",
+        "fieldservicesoftware.io"
+      ],
+      "answer_excerpts": {
+        "perplexity": "To **automate an EOS scorecard from ServiceTitan and QuickBooks**, the practical setup is to map each agreed KPI to its source system, pull the data on a weekly schedule, assemble it into the same one-page scorecard format your team already uses, and have it ready before the Level 10 meeting.[1][6]\n\nThe key point is that an EOS scorecard should use your team\u2019s **5\u201315 measurables**, not a generic template, and those measures should be tied to the actual system where each number lives\u2014ServiceTitan",
+        "openai": "Automating an EOS scorecard using data from ServiceTitan and QuickBooks involves several steps. Here\u2019s a high-level overview of how you might approach this:\n\n### Prerequisites:\n\n1. **APIs and Integrations**: Ensure that API access is available from both ServiceTitan and QuickBooks.\n2. **Data Processing Tools**: Use tools like Python, Microsoft Power BI, or Excel with macros for automation.\n3. **Cloud Services or Servers**: Consider using a cloud service like AWS Lambda, or a server where you can",
+        "gemini": "Automating an **EOS (Entrepreneurial Operating System) Scorecard** using data from **ServiceTitan** (operational metrics) and **QuickBooks** (financial metrics) creates a dynamic, rolling 13-week view without manual weekend data entry.\n\n---\n\n### Step 1: Map Metrics to Source Systems\n\nAn effective EOS scorecard separates **operational leading indicators** from **financial lagging indicators**:\n\n| Metric | Source System | Typical Owner |\n| :--- | :--- | :--- |\n| **Total Inbound / Booked Calls** | "
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": true,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [
+            "https://topbuilderai.com/blog/automate-eos-scorecard-servicetitan-quickbooks.html",
+            "https://topbuilderai.com/blog/"
+          ],
+          "all_cited_hosts": [
+            "topbuilderai.com",
+            "quickbooks.intuit.com",
+            "help.servicetitan.com",
+            "blog.atomicrevenue.com",
+            "zapier.com",
+            "waterfordbusinesssolutions.com",
+            "homeserviceengine.co",
+            "bdrco.com",
+            "tray.ai",
+            "servicetitan.com",
+            "companycam.com",
+            "titanprotechnologies.com",
+            "fieldservicesoftware.io"
+          ],
+          "answer_excerpt": "To **automate an EOS scorecard from ServiceTitan and QuickBooks**, the practical setup is to map each agreed KPI to its source system, pull the data on a weekly schedule, assemble it into the same one-page scorecard format your team already uses, and have it ready before the Level 10 meeting.[1][6]\n\nThe key point is that an EOS scorecard should use your team\u2019s **5\u201315 measurables**, not a generic t"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Automating an EOS scorecard using data from ServiceTitan and QuickBooks involves several steps. Here\u2019s a high-level overview of how you might approach this:\n\n### Prerequisites:\n\n1. **APIs and Integrations**: Ensure that API access is available from both ServiceTitan and QuickBooks.\n2. **Data Processing Tools**: Use tools like Python, Microsoft Power BI, or Excel with macros for automation.\n3. **Cl"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Automating an **EOS (Entrepreneurial Operating System) Scorecard** using data from **ServiceTitan** (operational metrics) and **QuickBooks** (financial metrics) creates a dynamic, rolling 13-week view without manual weekend data entry.\n\n---\n\n### Step 1: Map Metrics to Source Systems\n\nAn effective EOS scorecard separates **operational leading indicators** from **financial lagging indicators**:\n\n| M"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "payroll and overtime automation for field service contractors on ServiceTitan",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "servicetitan.com",
+        "miter.com",
+        "help.servicetitan.com",
+        "marketplace.servicetitan.com",
+        "lumberfi.com",
+        "tight.com",
+        "finance.yahoo.com",
+        "fieldpulse.com"
+      ],
+      "answer_excerpts": {
+        "perplexity": "ServiceTitan does support **payroll and overtime automation** for field service contractors. Its timesheet tools automatically capture technician drive time, vendor runs, and work hours, and overtime can be configured with a few clicks to fit state and local rules.[2][3]\n\nKey capabilities include:\n\n- **Automated timesheets** for technicians and office staff, with mobile clock-in/clock-out support.[2][6]\n- **Overtime configuration** that can vary by position and comply with state law.[2][3]\n- **P",
+        "openai": "ServiceTitan offers robust solutions for payroll and overtime automation tailored for field service contractors. Here's an overview of how these features can benefit your business:\n\n### Key Features\n\n1. **Automated Time Tracking:**\n   - ServiceTitan integrates GPS and mobile clock-ins to accurately track technician hours.\n   - Real-time updates ensure that the logged hours reflect actual work performed on-site.\n\n2. **Custom Overtime Rules:**\n   - You can set custom overtime rules that comply wit",
+        "gemini": "Automating payroll and overtime in **ServiceTitan** allows field service contractors (HVAC, plumbing, electrical, roofing, etc.) to eliminate manual timesheets, comply with complex labor laws, and maintain accurate job costing. \n\n---\n\n### 1. Automated Time Capture (Mobile App & Dispatching)\nServiceTitan links field technicians' timesheets directly to their dispatch board status, significantly reducing manual timecard entry:\n* **Automatic Status Tracking:** Technician status changes (e.g., *Dispa"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "servicetitan.com",
+            "miter.com",
+            "help.servicetitan.com",
+            "marketplace.servicetitan.com",
+            "lumberfi.com",
+            "tight.com",
+            "finance.yahoo.com",
+            "fieldpulse.com"
+          ],
+          "answer_excerpt": "ServiceTitan does support **payroll and overtime automation** for field service contractors. Its timesheet tools automatically capture technician drive time, vendor runs, and work hours, and overtime can be configured with a few clicks to fit state and local rules.[2][3]\n\nKey capabilities include:\n\n- **Automated timesheets** for technicians and office staff, with mobile clock-in/clock-out support."
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "ServiceTitan offers robust solutions for payroll and overtime automation tailored for field service contractors. Here's an overview of how these features can benefit your business:\n\n### Key Features\n\n1. **Automated Time Tracking:**\n   - ServiceTitan integrates GPS and mobile clock-ins to accurately track technician hours.\n   - Real-time updates ensure that the logged hours reflect actual work perf"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "servicetitan.com"
+          ],
+          "answer_excerpt": "Automating payroll and overtime in **ServiceTitan** allows field service contractors (HVAC, plumbing, electrical, roofing, etc.) to eliminate manual timesheets, comply with complex labor laws, and maintain accurate job costing. \n\n---\n\n### 1. Automated Time Capture (Mobile App & Dispatching)\nServiceTitan links field technicians' timesheets directly to their dispatch board status, significantly redu"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "best AI tools and AI agents for home services and trades contractors 2026",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "openlens.com",
+        "ayudadomotica.com",
+        "domotizar.com",
+        "conocimientopuro.es",
+        "clickup.com",
+        "datacamp.com",
+        "nxcode.io",
+        "gmelius.com",
+        "blog.donweb.com",
+        "javadex.es",
+        "juancmejia.com",
+        "unite.ai"
+      ],
+      "answer_excerpts": {
+        "perplexity": "For **home services and trades contractors in 2026**, the strongest AI stack is usually a mix of **AI customer-service agents, automation/workflow tools, transcription/scheduling assistants, and a general-purpose LLM** rather than one single app.[5][9][11][16]\n\n- **Best overall for contractors:** **ChatGPT**, **Claude**, or **Gemini** as the core assistant, depending on the job. ChatGPT is highlighted as the strongest general-purpose agentic assistant, Claude for high-quality writing and reasoni",
+        "openai": "In 2026, artificial intelligence (AI) has become integral to enhancing efficiency and customer satisfaction in the home services and trades sectors. Contractors can leverage various AI tools and agents to streamline operations, from managing customer interactions to optimizing scheduling and dispatch. Below is a curated list of top AI solutions tailored for home service professionals:\n\n\n[Working at Jobber | Great Place To Work\u00ae Canada](https://www.greatplacetowork.ca/en/certified-company/z487018",
+        "gemini": "AI tools for home service contractors (HVAC, plumbing, roofing, electrical, landscaping, and general contracting) have evolved from generic chatbots into **autonomous, trade-specific AI agents**. These tools triage emergency calls, book jobs into CRMs, perform automated plan takeoffs, and assist technicians on-site.\n\n---\n\n### 1. Best AI Voice Receptionists & Speed-to-Lead Agents\n*Missed calls are the #1 source of lost revenue in the trades. These voice/text agents answer 24/7, qualify leads, tri"
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "openlens.com",
+            "ayudadomotica.com",
+            "domotizar.com",
+            "conocimientopuro.es",
+            "clickup.com",
+            "datacamp.com",
+            "nxcode.io",
+            "gmelius.com",
+            "blog.donweb.com",
+            "javadex.es",
+            "juancmejia.com",
+            "unite.ai",
+            "cursosfemxa.es",
+            "socratech.es",
+            "reddit.com",
+            "spliiit.com",
+            "bleap.finance",
+            "tecnociminnova.com",
+            "eesel.ai"
+          ],
+          "answer_excerpt": "For **home services and trades contractors in 2026**, the strongest AI stack is usually a mix of **AI customer-service agents, automation/workflow tools, transcription/scheduling assistants, and a general-purpose LLM** rather than one single app.[5][9][11][16]\n\n- **Best overall for contractors:** **ChatGPT**, **Claude**, or **Gemini** as the core assistant, depending on the job. ChatGPT is highlig"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "greatplacetowork.ca",
+            "techradar.com",
+            "selecthub.com",
+            "theaitrades.ai",
+            "layer3labs.io",
+            "support.callrail.com"
+          ],
+          "answer_excerpt": "In 2026, artificial intelligence (AI) has become integral to enhancing efficiency and customer satisfaction in the home services and trades sectors. Contractors can leverage various AI tools and agents to streamline operations, from managing customer interactions to optimizing scheduling and dispatch. Below is a curated list of top AI solutions tailored for home service professionals:\n\n\n[Working a"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "contractortoolstack.com",
+            "build-folio.com",
+            "aegisautomations.com",
+            "relayfi.com",
+            "usecarly.com",
+            "pipelineon.com",
+            "kingcaller.ai",
+            "buildops.com",
+            "youtube.com",
+            "trybeam.com"
+          ],
+          "answer_excerpt": "AI tools for home service contractors (HVAC, plumbing, roofing, electrical, landscaping, and general contracting) have evolved from generic chatbots into **autonomous, trade-specific AI agents**. These tools triage emergency calls, book jobs into CRMs, perform automated plan takeoffs, and assist technicians on-site.\n\n---\n\n### 1. Best AI Voice Receptionists & Speed-to-Lead Agents\n*Missed calls are "
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    },
+    {
+      "query": "should I replace ServiceTitan with Jobber or Housecall Pro or add an AI layer instead",
+      "brand": "Top Builder AI",
+      "domain": "topbuilderai.com",
+      "cited": false,
+      "cited_where": [],
+      "named_where": [],
+      "competitors_cited": [
+        "getjobber.com",
+        "servicetitan.com",
+        "skillmammoth.com",
+        "serviceagent.ai",
+        "contractortoolstack.com",
+        "softwareadvice.com",
+        "fieldservicesoftware.io",
+        "appvizer.com",
+        "fieldpulse.com",
+        "leadduo.io",
+        "fielddio.com",
+        "theaitrades.ai"
+      ],
+      "answer_excerpts": {
+        "perplexity": "If you\u2019re asking whether to **replace ServiceTitan** for a typical small-to-mid-size field service business, the strongest default answer is usually **no to ServiceTitan replacement by Housecall Pro**, **maybe yes to Jobber**, and **consider an AI layer first** if your main pain is workflow automation rather than core dispatch/accounting. Jobber is repeatedly positioned as the easier, lower-cost fit for smaller teams, while ServiceTitan is better suited to larger, more complex operations with de",
+        "openai": "Deciding whether to replace ServiceTitan with Jobber, Housecall Pro, or to add an AI layer depends on your specific business needs. Here's a brief overview to help guide your decision:\n\n### ServiceTitan\n- **Features**: Comprehensive platform for managing a field service business, including scheduling, dispatching, invoicing, and customer relationship management.\n- **Pros**: Highly robust and feature-rich, suited for larger operations.\n- **Cons**: Might be complex and costly for smaller businesse",
+        "gemini": "To make the right decision, you first need to identify **the root cause of your frustration with ServiceTitan (ST)**. \n\nServiceTitan is the enterprise heavyweight of field service management (FSM), while Jobber and Housecall Pro are streamlined, agile platforms. Adding an AI layer addresses an entirely different set of operational problems.\n\nHere is a breakdown to help you decide whether to **switch platforms** or **bolt on AI**.\n\n---\n\n### Option 1: Replace ServiceTitan with Jobber or Housecall "
+      },
+      "providers": [
+        {
+          "provider": "perplexity",
+          "status": "ok",
+          "model": "sonar",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [
+            "getjobber.com",
+            "servicetitan.com",
+            "skillmammoth.com",
+            "serviceagent.ai",
+            "contractortoolstack.com",
+            "softwareadvice.com",
+            "fieldservicesoftware.io",
+            "appvizer.com",
+            "fieldpulse.com",
+            "leadduo.io",
+            "fielddio.com",
+            "theaitrades.ai",
+            "ustechautomations.com",
+            "getonecrew.com",
+            "tanduu.com",
+            "reddit.com",
+            "contractorplus.app"
+          ],
+          "answer_excerpt": "If you\u2019re asking whether to **replace ServiceTitan** for a typical small-to-mid-size field service business, the strongest default answer is usually **no to ServiceTitan replacement by Housecall Pro**, **maybe yes to Jobber**, and **consider an AI layer first** if your main pain is workflow automation rather than core dispatch/accounting. Jobber is repeatedly positioned as the easier, lower-cost f"
+        },
+        {
+          "provider": "openai",
+          "status": "ok",
+          "model": "gpt-4o",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "Deciding whether to replace ServiceTitan with Jobber, Housecall Pro, or to add an AI layer depends on your specific business needs. Here's a brief overview to help guide your decision:\n\n### ServiceTitan\n- **Features**: Comprehensive platform for managing a field service business, including scheduling, dispatching, invoicing, and customer relationship management.\n- **Pros**: Highly robust and featu"
+        },
+        {
+          "provider": "gemini",
+          "status": "ok",
+          "model": "gemini-flash-latest",
+          "brand_cited": false,
+          "brand_named_in_answer": false,
+          "brand_citation_urls": [],
+          "all_cited_hosts": [],
+          "answer_excerpt": "To make the right decision, you first need to identify **the root cause of your frustration with ServiceTitan (ST)**. \n\nServiceTitan is the enterprise heavyweight of field service management (FSM), while Jobber and Housecall Pro are streamlined, agile platforms. Adding an AI layer addresses an entirely different set of operational problems.\n\nHere is a breakdown to help you decide whether to **swit"
+        }
+      ],
+      "coverage": {
+        "ran": 3,
+        "of": 3
+      },
+      "note": "Measured live via: gemini, openai, perplexity."
+    }
+  ]
+}

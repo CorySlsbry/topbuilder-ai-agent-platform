@@ -1,0 +1,16 @@
+{
+  "slug": "contractor-back-office-auto",
+  "brand": "top-builder-ai",
+  "type": "longform-video",
+  "format": "mp4-1920x1080",
+  "title": "How We Automate a Contractor's Entire Back Office",
+  "description": "Full walkthrough of ServiceTitan back-office automation — pricebook sync, job costing, A/R collections, dispatch, estimate follow-up, payroll prep. Pure value, no pitch.",
+  "style": "value-first-informational",
+  "beats": 28,
+  "lead_magnet": "servicetitan-automation-calc",
+  "cta_url": "topbuilderai.com/calculator",
+  "platforms": ["youtube"],
+  "created": "2026-07-10",
+  "reusable": true,
+  "beat_script": "vid_back_office_automation.py"
+}

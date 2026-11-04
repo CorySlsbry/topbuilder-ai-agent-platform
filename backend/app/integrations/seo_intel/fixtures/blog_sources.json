@@ -1,0 +1,142 @@
+[
+  {
+    "keyword": "after hours answering service for hvac cost",
+    "title": "What an After-Hours Answering Service Really Costs an HVAC Company (and What Missed Calls Cost More)",
+    "monthly_searches": 1300,
+    "difficulty": 12,
+    "source": "reddit",
+    "source_detail": "r/HVAC: \"Anyone else bleeding money on missed after-hours calls?\"",
+    "intent": "commercial",
+    "outline": [
+      "The short answer: $250-$1,200/mo, or roughly one missed emergency call",
+      "What answering services actually do after hours (and what they can't)",
+      "The real cost comparison: service fee vs. the average $400+ after-hours ticket",
+      "Message-taking vs. live booking: why callers hang up and dial the next shop",
+      "What to ask any service before you sign (script included)",
+      "When an AI booking agent beats both options"
+    ],
+    "draft_intro": "An after-hours answering service for an HVAC company runs $250 to $1,200 a month depending on call volume — about the margin on one missed emergency call. The harder number: shops that only take messages after hours lose most of those callers to whoever answers next. Here's the full cost math, what the services actually do, and the questions that separate a dispatcher from an expensive voicemail."
+  },
+  {
+    "keyword": "why is my ac blowing warm air at night",
+    "title": "Why Your AC Blows Warm Air at Night (7 Causes, From Free Fix to Service Call)",
+    "monthly_searches": 2400,
+    "difficulty": 18,
+    "source": "search",
+    "source_detail": "People Also Ask cluster: \"AC blows warm at night\" / \"AC stops cooling after dark\"",
+    "intent": "informational",
+    "outline": [
+      "The quick answer: thermostat schedule, frozen coil, or a failing capacitor",
+      "Check these two settings before you call anyone",
+      "Why a frozen evaporator coil only shows up after sunset",
+      "The capacitor clue: warm air plus a humming outdoor unit",
+      "What a night-call diagnostic should cost",
+      "When warm air at night means a refrigerant leak"
+    ],
+    "draft_intro": "An AC that blows warm air only at night usually has one of three problems: a thermostat schedule you forgot about, an evaporator coil that froze during the day and is now thawing, or a run capacitor that struggles when the unit cycles harder. Two of those you can check yourself in five minutes. Here's how to tell which one you have — and what the fix should cost before anyone tries to sell you a new system."
+  },
+  {
+    "keyword": "hvac maintenance plan worth it",
+    "title": "Are HVAC Maintenance Plans Worth It? The Honest Math From a Shop That Sells Them",
+    "monthly_searches": 1600,
+    "difficulty": 22,
+    "source": "reddit",
+    "source_detail": "r/homeowners: \"Are HVAC maintenance plans a scam or actually worth it?\"",
+    "intent": "commercial",
+    "outline": [
+      "The short answer: worth it for systems 5+ years old, skippable for new builds",
+      "What a real tune-up includes (and the 10-minute 'filter swap' that isn't one)",
+      "The actual numbers: plan cost vs. average repair-deferral savings",
+      "Priority scheduling — the benefit nobody prices in until July",
+      "Red flags that a plan exists to sell you equipment"
+    ],
+    "draft_intro": "A typical HVAC maintenance plan costs $180 to $300 a year. For a system five years or older, the math usually works — not because of the tune-up itself, but because plan customers catch capacitor and drain failures at $40 parts instead of $400 emergencies, and they skip the line in heat waves. For a system under warranty in a new build, save your money. Here's the honest breakdown from a shop that sells these plans."
+  },
+  {
+    "keyword": "how to unclog a main sewer line",
+    "title": "How to Unclog a Main Sewer Line — What Works, What Makes It Worse, and When to Stop",
+    "monthly_searches": 2900,
+    "difficulty": 33,
+    "source": "youtube",
+    "source_detail": "YouTube: \"Main line clog — auger vs hydro jet (what plumbers actually use)\"",
+    "intent": "informational",
+    "outline": [
+      "The quick answer: a cleanout auger can clear soft clogs; roots and bellies need a pro",
+      "Find your cleanout first (most homes have two)",
+      "Renting a drum auger: cost, technique, and the mistake that cracks old pipe",
+      "Why chemical drain openers make main-line clogs worse",
+      "Auger vs. hydro jetting: what each costs and when each is right",
+      "The camera-inspection decision: $150 that can save a $4,000 dig"
+    ],
+    "draft_intro": "You can clear a soft main-line clog yourself with a rented drum auger through the cleanout — about $80 for the rental versus $250-$500 for a pro visit. But if the line backs up again within weeks, you're cutting roots or pushing against a sagging pipe, and repeat augering makes both worse. Here's the step-by-step, the failure signs, and the point where a camera inspection beats another rental."
+  },
+  {
+    "keyword": "tankless water heater installation cost",
+    "title": "Tankless Water Heater Installation Cost: The Three Line Items That Decide Your Quote",
+    "monthly_searches": 3600,
+    "difficulty": 55,
+    "source": "search",
+    "source_detail": "SERP gap: top-10 results are national lead-gen sites with no local install pricing",
+    "intent": "commercial",
+    "outline": [
+      "The short answer: $3,200-$6,500 installed, and the unit is the smallest variable",
+      "Line item 1: the unit ($900-$2,400) — sizing by fixtures, not square footage",
+      "Line item 2: gas line and venting — where quotes double",
+      "Line item 3: permits and code items your old tank was grandfathered past",
+      "Tank vs. tankless 10-year cost table",
+      "How to read a quote and spot padding in 60 seconds"
+    ],
+    "draft_intro": "A tankless water heater installation costs $3,200 to $6,500 in most homes — and the unit itself is the smallest of the three line items. The spread comes from gas-line upsizing and venting, which is real work, not padding. Here's how each line item prices out, the questions that expose an inflated quote, and the cases where keeping a tank honestly wins."
+  },
+  {
+    "keyword": "furnace replacement financing options",
+    "title": "Furnace Replacement Financing: Every Option Ranked by True Cost",
+    "monthly_searches": 900,
+    "difficulty": 15,
+    "source": "youtube",
+    "source_detail": "YouTube: \"My furnace died and I can't afford $7k\" — comment section full of financing questions",
+    "intent": "transactional",
+    "outline": [
+      "The short answer: contractor 0% promos beat credit cards; HELOCs beat both past 24 months",
+      "What a furnace actually costs installed in 2026",
+      "Contractor financing: how the 0%-for-18-months promo really works",
+      "Utility rebates and the tax credits most homeowners leave unclaimed",
+      "The emergency option ranked: card vs. personal loan vs. same-as-cash"
+    ],
+    "draft_intro": "If your furnace died today, you have five ways to pay for the $5,000-$9,000 replacement, and they are not close in total cost. Contractor same-as-cash promos are the cheapest short-term money if you clear the balance in time; a HELOC wins past 24 months; the credit card you're tempted to use is the most expensive option on the list. Here's each one ranked with real numbers, plus the rebates that knock $1,200+ off before financing anything."
+  },
+  {
+    "keyword": "best smart thermostat for heat pump",
+    "title": "The Best Smart Thermostats for Heat Pumps — Picked by the People Who Wire Them",
+    "monthly_searches": 2100,
+    "difficulty": 41,
+    "source": "youtube",
+    "source_detail": "YouTube: \"I Installed 5 Smart Thermostats on My Heat Pump — Here's What Broke\"",
+    "intent": "commercial",
+    "outline": [
+      "The short answer: buy one with native heat-pump + aux-heat logic, not an adapter kit",
+      "Why heat pumps break the 'works with everything' marketing claim",
+      "Our installer picks at three prices",
+      "The O/B wire and common-wire checks to run before you buy",
+      "Aux-heat lockout: the one setting that cuts winter bills"
+    ],
+    "draft_intro": "The best smart thermostat for a heat pump is the one with native heat-pump logic and an aux-heat lockout setting — about half the popular models technically 'support' heat pumps through adapter wiring and then run your expensive backup strips all winter. We install these every week. Here are the three we actually recommend, the wiring check to do before buying, and the single setting that matters more than the brand."
+  },
+  {
+    "keyword": "emergency plumber vs waiting until morning",
+    "title": "Call the Emergency Plumber or Wait Until Morning? A Decision Guide With Real Prices",
+    "monthly_searches": 700,
+    "difficulty": 9,
+    "source": "reddit",
+    "source_detail": "r/Plumbing: \"Burst pipe at 11pm — is the after-hours fee ever worth it?\"",
+    "intent": "commercial",
+    "outline": [
+      "The short answer: shut the water off first — that decision matters more than the call",
+      "The four problems that genuinely can't wait (and what each costs by morning)",
+      "What an after-hours visit costs vs. the same job at 9am",
+      "The 10-minute triage: valves, photos, and towels",
+      "How to keep a 'wait until morning' from becoming a drywall job"
+    ],
+    "draft_intro": "Whether to call an emergency plumber at 11pm comes down to one question: can you stop the water yourself? If the main shutoff works, most problems can wait for morning rates — typically $150-$300 less for the identical job. If water is moving and you can't stop it, every hour is drywall and flooring. Here's the four-problem list that justifies the after-hours fee, and the triage that buys you until 9am."
+  }
+]

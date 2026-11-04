@@ -1,0 +1,33 @@
+[
+  {
+    "sku": "SPOOL-FX50",
+    "name": "Fortiflex Flex-Vent Spool 50ft",
+    "unit": "ft",
+    "total_quantity": 50,
+    "total_cost_cents": 30000,
+    "pull_date": "2026-05-04",
+    "depletion_date": "2026-05-22",
+    "method": "auto",
+    "jobs": [
+      { "job_id": "CR-7741", "job_revenue_cents": 482000 },
+      { "job_id": "CR-7758", "job_revenue_cents": 651000 },
+      { "job_id": "CR-7763", "job_revenue_cents": 327000 },
+      { "job_id": "CR-7790", "job_revenue_cents": 540500 }
+    ]
+  },
+  {
+    "sku": "COIL-CU38",
+    "name": "Copper Line-Set Coil 3/8in 50ft",
+    "unit": "ft",
+    "total_quantity": 50,
+    "total_cost_cents": 18000,
+    "pull_date": "2026-05-06",
+    "depletion_date": "2026-05-19",
+    "method": "auto",
+    "jobs": [
+      { "job_id": "CR-7752", "usage_proxy": 10, "job_revenue_cents": 412000 },
+      { "job_id": "CR-7769", "usage_proxy": 15, "job_revenue_cents": 588000 },
+      { "job_id": "CR-7781", "usage_proxy": 25, "job_revenue_cents": 905000 }
+    ]
+  }
+]

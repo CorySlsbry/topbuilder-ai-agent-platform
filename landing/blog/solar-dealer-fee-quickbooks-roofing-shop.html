@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How Should Solar Dealer Fees Post to a Roofing or Solar Shop's QuickBooks? (2026)</title>
+<meta name="description" content="Solar dealer fees run 10-30% of cash price per the CFPB, and posting one wrong overstates your job margin. The exact QuickBooks item setup that keeps it off the invoice." />
+<link rel="canonical" href="https://topbuilderai.com/blog/solar-dealer-fee-quickbooks-roofing-shop.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How Should Solar Dealer Fees Post to a Roofing or Solar Shop's QuickBooks? (2026)" />
+<meta property="og:description" content="Solar dealer fees run 10-30% of cash price per the CFPB, and posting one wrong overstates your job margin. The exact QuickBooks item setup that keeps it off the invoice." />
+<meta property="og:url" content="https://topbuilderai.com/blog/solar-dealer-fee-quickbooks-roofing-shop.html" />
+<meta property="og:image" content="https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg" />
+<meta name="author" content="Top Builder AI" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --measure:680px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:.2px}
+  .mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit;text-decoration:none}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;background:#2563EB;color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:200;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+  .glow{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:48%;right:-12%;width:640px;height:640px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px}
+  .nav-links{display:flex;gap:26px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a.here{color:var(--ink);font-weight:600}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,#2563EB,#1D4ED8);color:#fff;box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+  @media(max-width:430px){.wrap{padding:0 16px}.brand{font-size:14px}}
+
+  .head{padding:64px 0 18px}
+  .head .crumbs{font-size:13px;color:var(--ink3);margin-bottom:18px}
+  .head .crumbs a:hover{color:var(--ink2)}
+  .kicker{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo)}
+  .head h1{font-size:clamp(31px,4.6vw,50px);line-height:1.06;letter-spacing:-.025em;font-weight:700;margin:14px 0 0;max-width:880px;color:var(--ink)}
+  .head .meta{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;color:var(--ink3);font-size:13.5px;margin-top:20px}
+  .head .meta b{color:var(--ink2);font-weight:600}
+  .head .meta .pill{border:1px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--ink2);font-size:12.5px}
+
+  article{padding:14px 0 8px}
+  .col{max-width:var(--measure);margin:0 auto}
+  .col p{color:var(--ink2);font-size:17px;line-height:1.72;margin:18px 0}
+  .col .answer{font-size:18.5px;line-height:1.7;color:var(--ink);background:linear-gradient(180deg,rgba(37,99,235,.06),rgba(37,99,235,.015));
+    border:1px solid var(--line2);border-left:3px solid var(--indigo);border-radius:14px;padding:22px 24px;margin:8px 0 30px}
+  .col .answer strong{color:var(--ink);font-weight:600}
+  .col h2{font-family:Inter;font-size:clamp(24px,3vw,31px);line-height:1.18;letter-spacing:-.02em;font-weight:600;color:var(--ink);
+    margin:48px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+  .col h2:first-of-type{border-top:none;padding-top:0}
+  .col h3{font-size:20px;line-height:1.3;letter-spacing:-.01em;font-weight:600;color:var(--ink);margin:34px 0 4px}
+  .col strong{color:var(--ink);font-weight:600}
+  .col em{color:var(--ink);font-style:italic}
+  .col a.link{color:var(--emerald);font-weight:600;border-bottom:1px solid rgba(4,120,87,.32)}
+  .col a.link:hover{border-bottom-color:var(--emerald)}
+  .col ul,.col ol{margin:18px 0 18px;padding-left:4px;list-style:none}
+  .col li{position:relative;color:var(--ink2);font-size:16.5px;line-height:1.66;padding:7px 0 7px 30px}
+  .col ul li::before{content:"";position:absolute;left:6px;top:16px;width:7px;height:7px;border-radius:2px;
+    background:linear-gradient(135deg,var(--indigo),var(--emerald))}
+  .col ol{counter-reset:step}
+  .col ol li{counter-increment:step}
+  .col ol li::before{content:counter(step);position:absolute;left:0;top:8px;width:22px;height:22px;border-radius:7px;
+    display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--indigo);
+    background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .col li b{color:var(--ink);font-weight:600}
+
+  figure.stat{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.stat .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);padding:15px 22px 0}
+  figure.stat .body{padding:8px 22px 20px}
+  figure.stat .val{font-family:"Instrument Serif",Georgia,serif;font-size:42px;color:var(--ink);line-height:1.1;margin:6px 0 4px}
+  figure.stat .lab{color:var(--ink2);font-size:15px;line-height:1.5}
+  figure.stat .src{color:var(--ink3);font-size:12px;margin-top:8px;font-style:italic}
+
+  figure.calc{border:1px solid var(--line2);border-radius:var(--r);background:var(--panel);margin:30px 0;overflow:hidden;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  figure.calc .cap{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--indigo);
+    padding:15px 22px 0}
+  figure.calc .body{padding:8px 22px 20px}
+  figure.calc .lab{color:var(--ink3);font-size:13px;margin:14px 0 2px;font-weight:500;letter-spacing:.02em;text-transform:uppercase}
+  figure.calc table{width:100%;border-collapse:collapse;margin:8px 0 2px;font-size:15px}
+  figure.calc td{padding:7px 0;border-bottom:1px solid var(--line);color:var(--ink2)}
+  figure.calc td:last-child{text-align:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  figure.calc tr:last-child td{border-bottom:none}
+  figure.calc .tot td{font-weight:600;color:var(--ink);border-top:1px solid var(--line2);border-bottom:none;padding-top:11px}
+  figure.calc .price{color:var(--emerald)}
+  figure.calc figcaption{font-size:13.5px;color:var(--ink3);padding:0 22px 18px;line-height:1.55}
+
+  .tablewrap{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:30px 0;
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 14px 34px -24px rgba(15,23,42,.5)}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--panel)}
+  table.cmp th,table.cmp td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.cmp thead th{background:var(--panel2);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.02em}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td:first-child{color:var(--ink);font-weight:500;width:34%}
+  table.cmp td{color:var(--ink2)}
+  table.cmp .yes{color:var(--emerald);font-weight:600}
+  table.cmp .no{color:var(--ink3)}
+  @media(max-width:620px){table.cmp{font-size:13px}table.cmp th,table.cmp td{padding:10px 11px}}
+
+  .steps{margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--line2);border-radius:14px;background:var(--panel)}
+  .step .num{min-width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
+    color:var(--indigo);background:rgba(37,99,235,.10);border:1px solid var(--line2)}
+  .step .txt b{color:var(--ink);font-weight:600;display:block;margin-bottom:3px;font-size:15px}
+  .step .txt{font-size:15px;color:var(--ink2);line-height:1.55}
+
+  .faq{max-width:var(--measure);margin:0 auto}
+  .faq h2{font-size:clamp(24px,3vw,31px);font-weight:600;letter-spacing:-.02em;margin:10px 0 8px;color:var(--ink)}
+  .faq .q{font-size:17px;font-weight:600;color:var(--ink);margin:26px 0 6px}
+  .faq .a{color:var(--ink2);font-size:16px;line-height:1.66}
+
+  .cta{max-width:var(--measure);margin:50px auto 0;border:1px solid var(--line2);border-radius:var(--r);
+    background:linear-gradient(135deg,rgba(37,99,235,.07),rgba(4,120,87,.04));padding:34px 30px;text-align:center}
+  .cta h2{font-size:26px;font-weight:600;letter-spacing:-.02em;border:none;padding:0;margin:0 0 8px;color:var(--ink)}
+  .cta p{color:var(--ink2);font-size:16px;max-width:520px;margin:0 auto 20px}
+
+  .hero-img{border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;margin:26px auto 0;max-width:var(--measure);
+    box-shadow:0 1px 3px rgba(15,23,42,.06),0 18px 40px -28px rgba(15,23,42,.4)}
+  .hero-img img{display:block;width:100%;height:auto}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+  footer b{color:var(--ink2);font-weight:600}
+</style>
+
+<!-- JSON-LD: BlogPosting + FAQPage -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://topbuilderai.com/blog/solar-dealer-fee-quickbooks-roofing-shop.html"},
+  "headline":"How Should Solar Dealer Fees Post to a Roofing or Solar Shop's QuickBooks? (2026)",
+  "description":"Solar dealer fees run 10-30% of cash price per the CFPB, and posting one wrong overstates your job margin. The exact QuickBooks item setup that keeps it off the invoice.",
+  "datePublished":"2026-09-03",
+  "dateModified":"2026-09-03",
+  "inLanguage":"en-US",
+  "image":"https://topbuilderai.com/blog/_thumb_st-quickbooks.jpg",
+  "author":{"@type":"Organization","name":"Top Builder AI","url":"https://topbuilderai.com/"},
+  "publisher":{
+    "@type":"Organization",
+    "name":"Top Builder AI",
+    "url":"https://topbuilderai.com/",
+    "parentOrganization":{"@type":"Organization","name":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"}
+  },
+  "about":["solar dealer fee accounting","QuickBooks for roofing and solar contractors","job costing with financed solar jobs","true margin on financed roofing jobs","ServiceTitan solar financing"],
+  "keywords":"how should solar dealer fees post to QuickBooks, solar dealer fee accounting, roofing shop QuickBooks financing fee, dealer fee job costing, ServiceTitan GreenSky dealer fee"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How should a roofing or solar shop record a dealer fee in QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"Create a Service Item mapped to an EXPENSE account, not an income account, then apply a Credit Memo using that item on the customer's invoice for the dealer-fee amount. That nets the fee off the top line instead of letting it sit inside revenue, and a Profit and Loss report confirms it landed as an expense, not income. This is the exact workaround documented in QuickBooks' own community support for contractors who take financed jobs."}},
+    {"@type":"Question","name":"What exactly is a solar dealer fee, and why does a lender charge it?","acceptedAnswer":{"@type":"Answer","text":"A dealer fee is what a solar or home-improvement lender charges the installer for originating a 0%-or-low-rate loan, and per the CFPB it typically runs 10 to 30 percent of the project's cash price, sometimes exceeding 50 percent. The fee gets folded into the loan principal the homeowner repays rather than disclosed as a separate line, and per the CFPB, lenders typically do not include it in the total cost of credit shown to the borrower, so the advertised low APR hides the real markup."}},
+    {"@type":"Question","name":"How much does a dealer fee actually add to the loan?","acceptedAnswer":{"@type":"Answer","text":"The CFPB's own illustrative example: a $30,000 cash-price system with a 30% dealer fee becomes a $39,000 loan principal, a $9,000 markup the borrower repays with interest over the loan term, commonly 20 to 25 years. The lender keeps the fee and remits the underlying cash price to the installer, so the dollar figure that should hit your books as the job's revenue is the cash price, not the inflated loan amount your customer sees on their paperwork."}},
+    {"@type":"Question","name":"Why did Minnesota just sue four solar lenders over this exact fee?","acceptedAnswer":{"@type":"Answer","text":"Minnesota Attorney General Keith Ellison sued GoodLeap, Sunlight Financial, Solar Mosaic, and Dividend Solar Finance in March 2024, alleging the four lenders hid dealer fees inside more than 5,000 Minnesota solar loans, inflating costs by 15 to 30 percent for a total of roughly $35 million. The fees were baked into the loan principal without clear disclosure, and the AG's office says they frequently canceled out the value of incentives meant to make solar more affordable for homeowners."}},
+    {"@type":"Question","name":"If I book the fee against income, what does it do to my margin?","acceptedAnswer":{"@type":"Answer","text":"It overstates your job margin, because the fee never touched your bank account as revenue in the first place. If a $30,000 cash-price job gets recorded at the $36,000 or $39,000 financed total instead of the actual cash price you were paid, your reported revenue, and your reported margin on that job, are both wrong by the exact size of the fee, and every rollup report built on top of that job inherits the error."}},
+    {"@type":"Question","name":"Does ServiceTitan handle this automatically?","acceptedAnswer":{"@type":"Answer","text":"Partially, and only at setup. ServiceTitan's own GreenSky financing documentation shows an 'Average Dealer Fee' percentage per plan tier when you configure financing rules, but the published documentation does not spell out how that fee flows through to the customer invoice, the payout you actually receive, or job-costing and margin reporting after the job closes. The percentage is visible up front; keeping the books honest after the job is still the shop's own accounting workflow to build."}},
+    {"@type":"Question","name":"So what's the actual bookkeeping walkthrough, step by step?","acceptedAnswer":{"@type":"Answer","text":"Three steps, per QuickBooks' own community guidance for contractors: first, add a Service Item and map it to an expense account rather than an income account. Second, on the job's invoice, apply a Credit Memo using that service item for the dealer-fee dollar amount, which nets the fee out of the visible sale without adding a confusing line item for the customer. Third, run a Profit and Loss report and confirm the fee shows up as an expense, not as a reduction hidden inside revenue you can't trace later."}},
+    {"@type":"Question","name":"How does Top Builder AI help without me changing accountants or software?","acceptedAnswer":{"@type":"Answer","text":"It doesn't replace your QuickBooks setup or your CPA's judgment on how to book the fee. What it does is keep the job-margin number downstream of that entry honest and current: earned revenue, cost to date, and margin computed straight from your actual ServiceTitan job data, so a financed job's true margin is visible the day it closes instead of getting buried inside an inflated invoice total until someone reconciles it months later."}}
+  ]
+}
+</script>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to main content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><defs><linearGradient id="fl" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links">
+      <a href="/#agents">The Agents</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/" class="here">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="wrap head">
+    <div class="crumbs"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog/">Blog</a> &nbsp;/&nbsp; Solar &amp; Roofing Accounting</div>
+    <span class="kicker">Solar &middot; Roofing &middot; Financing &middot; Back Office</span>
+    <h1>How Should Solar Dealer Fees Post to a Roofing or Solar Shop's QuickBooks?</h1>
+    <div class="meta">
+      <span><b>Top Builder AI</b></span>
+      <span>Published September 3, 2026</span>
+      <span class="pill">~10 min read</span>
+      <span class="pill">Roofing &middot; Solar</span>
+      <span class="pill">Updated September 3, 2026</span>
+    </div>
+  </section>
+
+  <div class="hero-img">
+    <img src="/blog/_thumb_st-quickbooks.jpg" alt="A roofing and solar contractor reviewing a QuickBooks entry and a financed job invoice at a desk" loading="eager" width="1280" height="720" />
+  </div>
+
+  <article class="wrap">
+    <div class="col">
+
+      <p class="answer">Create a <strong>Service Item mapped to an expense account</strong>, not an income account, and apply a <strong>Credit Memo</strong> using that item on the job's invoice for the dealer-fee amount. That nets the fee off the top line instead of letting it inflate your revenue, and a Profit and Loss report confirms it landed as an expense. It matters because per the <strong>CFPB, dealer fees typically run 10-30% of the cash price</strong> of the job &mdash; book a financed roofing or solar job at the loan total instead of the cash price, and your reported job margin is wrong by the exact size of that fee, every time.</p>
+
+      <p>Every roofing and solar shop that offers 0%-or-low-rate financing runs into the same quiet bookkeeping problem: the number the customer signs for on the loan paperwork is not the number that should hit your books as revenue. Somewhere between the loan documents and the QuickBooks entry, a fee the lender charges you &mdash; the "dealer fee" &mdash; has to get pulled back out, or every margin report downstream of that job is wrong. This isn't tax advice or a substitute for your CPA. It's the actual mechanics: what the fee is, how big it really runs, why regulators are suing over it right now, and the specific QuickBooks setup that keeps it from quietly inflating your numbers.</p>
+
+      <h2>What exactly is a solar dealer fee, and why does a lender charge it?</h2>
+
+      <p>A dealer fee is what a financing company charges the installer &mdash; the "dealer" &mdash; for originating a loan that advertises a low or 0% rate to the homeowner. Per the <a class="link" href="https://www.consumerfinance.gov/data-research/research-reports/issue-spotlight-solar-financing/" rel="noopener noreferrer">CFPB's Issue Spotlight on solar financing</a> (August 7, 2024): <strong>"Hidden fees typically range from between 10 to 30 percent of the cash price but can exceed 50 percent."</strong> The report notes lenders use several names for the same markup &mdash; "program fees," "lending fees," "finance fees," "platform fees," "original issue discounts," and "dealer fees" all describe the same mechanism.</p>
+
+      <p>The fee doesn't show up as a disclosed line item the way a normal financing charge would. Per the CFPB: <strong>"Typically, lenders do not include the hidden fees in the total costs of credit that they present to consumers."</strong> It gets folded directly into the loan principal instead, which is why a homeowner can be quoted a 1-7% APR and still be repaying a system that cost far more than its actual cash price &mdash; the fee never enters the interest-rate math at all, it just inflates the number the rate is applied to.</p>
+
+      <figure class="stat">
+        <div class="cap">The nationwide range, from the regulator itself</div>
+        <div class="body">
+          <div class="val">10-30% of cash price</div>
+          <div class="lab">The CFPB's own reported range for solar dealer fees, with some lenders' fees exceeding 50% of the project's cash price. This is the markup baked into the loan principal, not a rate or a disclosed line item on the customer's paperwork.</div>
+          <div class="src">Source: Consumer Financial Protection Bureau, "Issue Spotlight: Solar Financing" (consumerfinance.gov, August 7, 2024).</div>
+        </div>
+      </figure>
+
+      <h2>How much does a dealer fee actually add to the loan?</h2>
+
+      <p>The CFPB illustrates the mechanism with its own round-number example, and it's worth walking through exactly as the regulator laid it out. A system with a $30,000 cash price, financed with a 30% dealer fee, becomes a $39,000 loan principal &mdash; a $9,000 markup the homeowner repays, with interest, typically over 20 to 25 years. The lender keeps the fee and remits the underlying cash price to the installer.</p>
+
+      <figure class="calc">
+        <div class="cap">The CFPB's own illustrative example</div>
+        <div class="body">
+          <div class="lab">The job</div>
+          <table>
+            <tr><td>Cash price of the system</td><td>$30,000</td></tr>
+            <tr><td>Dealer fee (illustrative, 30%)</td><td>$9,000</td></tr>
+          </table>
+          <div class="lab" style="margin-top:18px">What the homeowner's loan actually finances</div>
+          <table>
+            <tr class="tot"><td>Loan principal</td><td class="price">$39,000</td></tr>
+          </table>
+        </div>
+        <figcaption>Source: Consumer Financial Protection Bureau, "Issue Spotlight: Solar Financing" (consumerfinance.gov, August 7, 2024). The lender retains the $9,000 fee; the cash price is what's remitted to the installer. The dollar figure that belongs in your books as job revenue is the cash price, not the financed total on the loan paperwork.</figcaption>
+      </figure>
+
+      <h2>Why did Minnesota just sue four solar lenders over this exact fee?</h2>
+
+      <p>Because the same mechanism, at scale, is now the subject of active state enforcement. Per the <a class="link" href="https://www.ag.state.mn.us/Office/Communications/2024/03/08_SolarLending.asp" rel="noopener noreferrer">Minnesota Attorney General's own press release</a> (March 8, 2024), AG Keith Ellison filed suit against <strong>GoodLeap, Sunlight Financial, Solar Mosaic, and Dividend Solar Finance</strong>, alleging the four lenders hid dealer fees inside more than <strong>5,000 Minnesota solar loans</strong>, inflating costs to homeowners by <strong>15% to 30%</strong>, for a total of roughly <strong>$35 million</strong>.</p>
+
+      <div class="tablewrap">
+        <table class="cmp" aria-label="Two independent findings on the same fee">
+          <thead><tr><th>Source</th><th>What it found</th></tr></thead>
+          <tbody>
+            <tr><td>CFPB Issue Spotlight (Aug. 2024)</td><td>Dealer fees run 10-30% of cash price nationwide, some exceeding 50%; excluded from the advertised cost of credit.</td></tr>
+            <tr><td>Minnesota AG lawsuit (Mar. 2024)</td><td>5,000+ Minnesota loans inflated 15-30% by four named lenders, totaling ~$35 million in hidden fees.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:-14px;color:var(--ink3);font-size:14px">Sources: <a class="link" href="https://www.consumerfinance.gov/data-research/research-reports/issue-spotlight-solar-financing/" rel="noopener noreferrer">CFPB, "Issue Spotlight: Solar Financing"</a> (Aug. 7, 2024); <a class="link" href="https://www.ag.state.mn.us/Office/Communications/2024/03/08_SolarLending.asp" rel="noopener noreferrer">Minnesota Attorney General press release</a> (Mar. 8, 2024). One-line takeaway: a federal report and a state lawsuit independently landed on the same 15-30% range, which is exactly the gap a shop's own books can hide or expose.</p>
+
+      <p>Per the AG's office, the fees were <strong>"often canceling out the benefit of credits designed to reduce the cost of and incentivize solar-panel purchases."</strong> None of the four defendants are accused of wrongdoing by Top Builder AI here &mdash; this is a live, contested lawsuit &mdash; but the underlying fee mechanism it describes is the same one the CFPB documented nationally, and it's the same one sitting in most shops' financing paperwork today regardless of which lender is on the loan.</p>
+
+      <h2>If I book the fee against income, what does it do to my margin?</h2>
+
+      <p>It overstates it, by the exact dollar size of the fee. If a $30,000 cash-price roofing-and-solar job gets entered into QuickBooks at the $39,000 financed total instead of the $30,000 you were actually paid, your reported revenue on that job is $9,000 too high &mdash; and so is every margin, cost-per-job, and profitability rollup built on top of it. The math scales down the same way: even at the low end of the CFPB's 10-30% range, a $15,000 roofing job with a 10% dealer fee still carries $1,500 of misclassified revenue if the financed total gets entered instead of the cash price. Multiply either scenario across a season of financed jobs and a shop can be running a materially different real margin than its own reports show, without a single number being "wrong" in the sense of a data-entry mistake. The entry was just made against the wrong price.</p>
+
+      <p>This is also why the fee has to be pulled out at the invoice level, not patched later with a spreadsheet adjustment at year-end. A shop that runs even a modest volume of financed jobs and only catches the overstatement during tax prep has already made every mid-season decision &mdash; what crew to add, what to bid on the next job, whether the quarter can absorb a slow stretch &mdash; off of a margin number that was never real.</p>
+
+      <h2>Does ServiceTitan handle this automatically?</h2>
+
+      <p>Partially, and only at the setup stage. ServiceTitan's own <a class="link" href="https://help.servicetitan.com/v1/docs/overview-greensky-custom-financing-in-servicetitan" rel="noopener noreferrer">GreenSky Custom Financing documentation</a> shows an <strong>"Average Dealer Fee"</strong> percentage displayed on each financing tier when a shop configures its plans. That's genuinely useful &mdash; you can see the fee rate before you offer a plan to a customer. What the published documentation does not spell out is how that fee flows through afterward: whether it's reflected on the customer-facing invoice, how it affects the payout your shop actually receives, or how it's supposed to land in job-costing and margin reports once the job closes. The rate is visible going in; keeping the books honest coming out is still the shop's own workflow to build, in QuickBooks or wherever job costing actually happens.</p>
+
+      <h2>So what's the actual bookkeeping walkthrough, step by step?</h2>
+
+      <p>This is the exact fix documented in QuickBooks' own community support (quickbooks.intuit.com, contractor accounting board), in response to a contractor asking almost this exact question: how to record a bank's dealer fee without it distorting the customer-facing invoice.</p>
+
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="txt"><b>Create a Service Item mapped to an expense account.</b> In Products and Services, add a new Service item and point it at an expense account &mdash; not an income account. This is the step that keeps the fee out of revenue from the start.</div></div>
+        <div class="step"><div class="num">2</div><div class="txt"><b>Apply a Credit Memo on the job's invoice.</b> Using that same service item, issue a Credit Memo for the dealer-fee dollar amount against the customer's invoice. It nets the fee off the visible sale without adding a confusing line item the customer has to interpret.</div></div>
+        <div class="step"><div class="num">3</div><div class="txt"><b>Confirm it on a Profit and Loss report.</b> Run a P&amp;L and check that the fee shows up as an expense, not as a silent reduction buried inside revenue. If it's not visible as its own line, the setup in step 1 needs a second look.</div></div>
+      </div>
+
+      <p>The result: your invoice and your books both reflect the cash price the job was actually worth, the dealer fee sits in its own expense account where it's traceable, and nothing about the customer's experience or paperwork has to change.</p>
+
+      <h2>How does Top Builder AI help without me changing accountants or software?</h2>
+
+      <p>It doesn't replace your QuickBooks setup or your CPA's judgment on how to book the fee &mdash; the three-step method above is the actual mechanism, and it's yours (or your bookkeeper's) to run. What it does is keep the number downstream of that entry honest and current: the Financial agent computes earned revenue, cost to date, and margin straight from your real ServiceTitan job data, so a financed job's true margin is visible the day it closes instead of getting discovered months later during a bookkeeping cleanup.</p>
+
+      <ul>
+        <li><b>No filed returns, no accounting advice.</b> The dealer-fee entry above is your bookkeeper's call; the agent's job is an accurate margin number once it's entered.</li>
+        <li><b>No invented figures.</b> Every margin and revenue number comes from your real ServiceTitan job data, computed deterministically.</li>
+        <li><b>Nothing posts itself.</b> The numbers are decision-support; the operator approves every action.</li>
+        <li><b>Delivered as a configured install</b>, set up against your real ServiceTitan job data from day one.</li>
+      </ul>
+
+      <div class="cta">
+        <h2>See your real margin on financed jobs, not the loan total</h2>
+        <p>Run your next financed roofing or solar job through the cash price, not the inflated loan total, and see what your true margin actually looks like.</p>
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call &rarr;</a>
+      </div>
+
+    </div>
+
+    <section class="faq" style="margin-top:56px">
+      <h2>Frequently asked questions</h2>
+
+      <div class="q">How should a roofing or solar shop record a dealer fee in QuickBooks?</div>
+      <div class="a">Create a Service Item mapped to an EXPENSE account, not an income account, then apply a Credit Memo using that item on the customer's invoice for the dealer-fee amount. That nets the fee off the top line instead of letting it sit inside revenue, and a Profit and Loss report confirms it landed as an expense, not income. This is the exact workaround documented in QuickBooks' own community support for contractors who take financed jobs.</div>
+
+      <div class="q">What exactly is a solar dealer fee, and why does a lender charge it?</div>
+      <div class="a">A dealer fee is what a solar or home-improvement lender charges the installer for originating a 0%-or-low-rate loan, and per the CFPB it typically runs 10 to 30 percent of the project's cash price, sometimes exceeding 50 percent. The fee gets folded into the loan principal the homeowner repays rather than disclosed as a separate line, and per the CFPB, lenders typically do not include it in the total cost of credit shown to the borrower, so the advertised low APR hides the real markup.</div>
+
+      <div class="q">How much does a dealer fee actually add to the loan?</div>
+      <div class="a">The CFPB's own illustrative example: a $30,000 cash-price system with a 30% dealer fee becomes a $39,000 loan principal, a $9,000 markup the borrower repays with interest over the loan term, commonly 20 to 25 years. The lender keeps the fee and remits the underlying cash price to the installer, so the dollar figure that should hit your books as the job's revenue is the cash price, not the inflated loan amount your customer sees on their paperwork.</div>
+
+      <div class="q">Why did Minnesota just sue four solar lenders over this exact fee?</div>
+      <div class="a">Minnesota Attorney General Keith Ellison sued GoodLeap, Sunlight Financial, Solar Mosaic, and Dividend Solar Finance in March 2024, alleging the four lenders hid dealer fees inside more than 5,000 Minnesota solar loans, inflating costs by 15 to 30 percent for a total of roughly $35 million. The fees were baked into the loan principal without clear disclosure, and the AG's office says they frequently canceled out the value of incentives meant to make solar more affordable for homeowners.</div>
+
+      <div class="q">If I book the fee against income, what does it do to my margin?</div>
+      <div class="a">It overstates your job margin, because the fee never touched your bank account as revenue in the first place. If a $30,000 cash-price job gets recorded at the $36,000 or $39,000 financed total instead of the actual cash price you were paid, your reported revenue, and your reported margin on that job, are both wrong by the exact size of the fee, and every rollup report built on top of that job inherits the error.</div>
+
+      <div class="q">Does ServiceTitan handle this automatically?</div>
+      <div class="a">Partially, and only at setup. ServiceTitan's own GreenSky financing documentation shows an "Average Dealer Fee" percentage per plan tier when you configure financing rules, but the published documentation does not spell out how that fee flows through to the customer invoice, the payout you actually receive, or job-costing and margin reporting after the job closes. The percentage is visible up front; keeping the books honest after the job is still the shop's own accounting workflow to build.</div>
+
+      <div class="q">So what's the actual bookkeeping walkthrough, step by step?</div>
+      <div class="a">Three steps, per QuickBooks' own community guidance for contractors: first, add a Service Item and map it to an expense account rather than an income account. Second, on the job's invoice, apply a Credit Memo using that service item for the dealer-fee dollar amount, which nets the fee out of the visible sale without adding a confusing line item for the customer. Third, run a Profit and Loss report and confirm the fee shows up as an expense, not as a reduction hidden inside revenue you can't trace later.</div>
+
+      <div class="q">How does Top Builder AI help without me changing accountants or software?</div>
+      <div class="a">It doesn't replace your QuickBooks setup or your CPA's judgment on how to book the fee. What it does is keep the job-margin number downstream of that entry honest and current: earned revenue, cost to date, and margin computed straight from your actual ServiceTitan job data, so a financed job's true margin is visible the day it closes instead of getting buried inside an inflated invoice total until someone reconciles it months later.</div>
+    </section>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><defs><linearGradient id="fl2" x1="8" y1="8" x2="92" y2="92" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs><rect x="6" y="6" width="88" height="88" rx="23" fill="url(#fl2)"/><rect x="28" y="58" width="12" height="20" rx="4.5" fill="#fff" opacity=".82"/><rect x="44" y="46" width="12" height="32" rx="4.5" fill="#fff" opacity=".92"/><rect x="60" y="34" width="12" height="44" rx="4.5" fill="#fff"/><circle cx="66" cy="25" r="7.5" fill="#fff"/></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan contractors: Money, Materials, People &amp; Paperwork. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment or tax advice.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div class="foot-legal">
+      <a href="/procore.html">Procore integration</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/security.html">Security</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+    </div>
+    <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+  </div>
+</footer>
+</body>
+</html>

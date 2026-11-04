@@ -1,0 +1,61 @@
+# Supply-chain security scan — Cloud Build config.
+#
+# Runs the consolidated backend scan (pip-audit dependency CVEs, bandit SAST, CycloneDX SBOM) plus
+# the frontend npm-audit / cyclonedx-npm note, and FAILS the build on any HIGH/critical finding.
+# The SBOM artifacts are published to GCS for evidence (Procore "SBOM" requirement).
+#
+# Run it three ways:
+#   - On push:       attach a Cloud Build trigger to this file (branch = main).
+#   - On a schedule: a Cloud Scheduler -> Cloud Build trigger (e.g. weekly) — the same pattern as the
+#                    nightly learning-consolidation job; catches newly-disclosed CVEs in pinned deps.
+#   - Manually:      gcloud builds submit --config cloudbuild.security.yaml .
+#
+# A non-zero exit (HIGH/critical present) turns the build red so the failure is actionable, not noise.
+steps:
+  # 1. Backend: install the app's runtime deps + the scanners, then run the gate.
+  #    We install the package so pip-audit/cyclonedx see the REAL dependency closure (the image's
+  #    actual tree), not just the pyproject pins.
+  - id: backend-scan
+    name: python:3.13-slim
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -eu
+        apt-get update -qq && apt-get install -y -qq --no-install-recommends git curl ca-certificates >/dev/null
+        # Node for the frontend npm-audit / cyclonedx-npm note.
+        curl -fsSL https://deb.nodesource.com/setup_20.x | bash - >/dev/null 2>&1 || true
+        apt-get install -y -qq --no-install-recommends nodejs >/dev/null 2>&1 || true
+        cd backend
+        pip install --quiet --disable-pip-version-check . >/dev/null
+        pip install --quiet --disable-pip-version-check \
+          "pip-audit>=2.7" "bandit>=1.7" "cyclonedx-bom>=4.0" >/dev/null
+        # NO_INSTALL=1: scanners are pre-installed above; SBOM_OUT to the shared workspace for upload.
+        NO_INSTALL=1 SBOM_OUT=/workspace/sbom.json bash scripts/security_scan.sh
+
+  # 2. Publish the SBOM evidence (best-effort: never let a missing bucket fail the security verdict).
+  - id: publish-sbom
+    name: gcr.io/cloud-builders/gsutil
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        set -u
+        BUCKET="gs://${PROJECT_ID}_cloudbuild/sbom/${BUILD_ID}"
+        if [ -f /workspace/sbom.json ]; then
+          gsutil cp /workspace/sbom.json "${BUCKET}/sbom.json" || echo "SBOM upload skipped (bucket?)"
+        fi
+        if [ -f frontend/sbom.frontend.json ]; then
+          gsutil cp frontend/sbom.frontend.json "${BUCKET}/sbom.frontend.json" || true
+        fi
+
+# Capture the SBOM(s) as build artifacts as well (visible on the build's Artifacts tab).
+artifacts:
+  objects:
+    location: gs://${PROJECT_ID}_cloudbuild/sbom/${BUILD_ID}
+    paths:
+      - /workspace/sbom.json
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+timeout: 1200s

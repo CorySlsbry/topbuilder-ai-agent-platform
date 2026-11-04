@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='8' y1='8' x2='92' y2='92' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2334d399'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='6' y='6' width='88' height='88' rx='23' fill='url(%23g)'/%3E%3Crect x='28' y='58' width='12' height='20' rx='4.5' fill='%23fff' opacity='.82'/%3E%3Crect x='44' y='46' width='12' height='32' rx='4.5' fill='%23fff' opacity='.92'/%3E%3Crect x='60' y='34' width='12' height='44' rx='4.5' fill='%23fff'/%3E%3Ccircle cx='66' cy='25' r='7.5' fill='%23fff'/%3E%3C/svg%3E" />
+<title>Top Builder AI for Buildertrend: Automate Collections, Draw Follow-Up, and QuickBooks Reconciliation</title>
+<meta name="description" content="The AI back office for Buildertrend builders and remodelers: five self-learning agents (Workforce, Routing, Documents, Financial, Collections) plus a Pricebook engine reconcile your Buildertrend jobs to your actual QuickBooks general ledger, work invoice and draw follow-up around the clock, and draft A/P from vendor bills. Advisory by default; a person approves every action. $3,000/mo for up to 25 people; $0 install this quarter (normally $8,000). Buildertrend connections run through the Buildertrend partner process." />
+<link rel="canonical" href="https://topbuilderai.com/buildertrend.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://topbuilderai.com/buildertrend.html" />
+<meta property="og:title" content="Top Builder AI for Buildertrend: Automate Collections, Draw Follow-Up, and QuickBooks Reconciliation" />
+<meta property="og:description" content="Five self-learning agents plus a Pricebook engine reconcile Buildertrend to your actual QuickBooks ledger and work the invoice and draw follow-up Buildertrend leaves manual. Advisory by default. $3,000/mo for up to 25 people." />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* ADA-verified enterprise-light palette (WCAG 2.2 AA, all text pairs >=4.5:1). */
+    --bg:#F8FAFC; --bg2:#F1F5F9; --panel:#FFFFFF; --panel2:#F8FAFC;
+    --line:#E2E8F0; --line2:#CBD5E1;
+    --ink:#0F172A; --ink2:#475569; --ink3:#64748B;
+    --indigo:#2563EB; --indigo-2:#1D4ED8; --emerald:#047857; --amber:#B45309;
+    --maxw:1140px; --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.55;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  .serif{font-family:"Instrument Serif",Georgia,serif; font-weight:400; letter-spacing:.2px}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  a{color:inherit; text-decoration:none}
+  .mono{font-variant-numeric:tabular-nums; font-feature-settings:"tnum"}
+  :where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:6px}
+  .skip{position:absolute;left:-999px;top:0;z-index:100;background:var(--indigo);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;font-weight:600;font-size:14px}
+  .skip:focus{left:0}
+
+  .glow{position:fixed; inset:0; z-index:0; pointer-events:none}
+  .glow::before{content:"";position:absolute;top:-12%;left:50%;transform:translateX(-50%);
+    width:1100px;height:620px;background:radial-gradient(ellipse at center,rgba(37,99,235,.07),transparent 62%);filter:blur(20px)}
+  .glow::after{content:"";position:absolute;top:46%;right:-10%;width:680px;height:680px;
+    background:radial-gradient(circle at center,rgba(4,120,87,.05),transparent 60%);filter:blur(30px)}
+  main{position:relative;z-index:1}
+
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.2px;color:var(--ink)}
+  .nav-links{display:flex;gap:28px;align-items:center;font-size:14px;color:var(--ink2)}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:11px;padding:11px 18px;font-weight:600;font-size:14px;
+    white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--indigo-2));color:#fff;font-weight:700;
+    box-shadow:0 8px 24px -8px rgba(37,99,235,.5)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(37,99,235,.62)}
+  .btn-ghost{background:#fff;border-color:var(--line2);color:var(--ink);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+  .btn-ghost:hover{background:var(--bg2);border-color:var(--ink3);transform:translateY(-1px)}
+  @media(max-width:760px){
+    .nav-links a:not(.btn){display:none}
+    .nav-in{height:auto;min-height:54px;padding:9px 0;gap:10px;flex-wrap:nowrap}
+    .brand{font-size:14px;gap:7px;white-space:nowrap;flex-shrink:0}
+    .brand svg{width:22px;height:22px}
+    .nav-links{gap:8px;flex-shrink:0}
+    .nav-links .btn{padding:8px 12px;font-size:12.5px;border-radius:9px}
+  }
+  @media(max-width:430px){
+    .wrap{padding:0 16px}
+    .brand{font-size:13px;gap:6px}
+    .brand svg{width:20px;height:20px}
+    .nav-links{gap:6px}
+    .nav-links .btn{padding:7px 10px;font-size:12px}
+  }
+
+  .crumb{padding:22px 0 0;font-size:13px;color:var(--ink3)}
+  .crumb a{color:var(--ink3)}
+  .crumb a:hover{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .crumb span[aria-current]{color:var(--ink2);font-weight:600}
+
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo)}
+  .pagehead{padding:30px 0 10px}
+  .pagehead h1{font-size:clamp(32px,5vw,54px);line-height:1.05;letter-spacing:-.025em;font-weight:600;margin-top:16px;color:var(--ink);max-width:22ch}
+  .pagehead .answer{color:var(--ink);font-size:19px;line-height:1.6;max-width:760px;margin-top:20px;font-weight:500}
+  .pagehead .lede{color:var(--ink2);font-size:17px;line-height:1.65;max-width:780px;margin-top:18px}
+  .pagehead .upd{margin-top:16px;font-size:13px;color:var(--ink3)}
+  .pagehead .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+
+  .section{padding:56px 0 10px;position:relative}
+  .section h2.sect{font-size:clamp(26px,3.6vw,40px);line-height:1.08;letter-spacing:-.02em;font-weight:600;margin:0;color:var(--ink)}
+  .section .lede{color:var(--ink2);font-size:16.5px;line-height:1.65;max-width:800px;margin-top:14px}
+  .section .lede a{color:var(--indigo)}
+  .section .lede a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+  @media(max-width:780px){.facts{grid-template-columns:1fr}}
+  .fact{border:1px solid var(--line);border-radius:var(--r);padding:24px;background:var(--panel);box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .fact .big{font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--indigo);font-variant-numeric:tabular-nums;line-height:1}
+  .fact h3{font-size:15.5px;font-weight:600;color:var(--ink);margin-top:12px;letter-spacing:-.01em}
+  .fact p{font-size:14px;color:var(--ink2);margin-top:7px;line-height:1.55}
+  .fact p a{color:var(--indigo)}
+  .fact p a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  /* the question ladder */
+  .qa-list{max-width:880px;margin-top:30px;border-top:1px solid var(--line)}
+  .qa{padding:32px 0;border-bottom:1px solid var(--line)}
+  .qa h2{font-size:22px;font-weight:600;letter-spacing:-.01em;line-height:1.3;display:flex;gap:14px;align-items:baseline;color:var(--ink)}
+  .qa h2 .qn{flex:none;font-size:13px;font-weight:700;color:var(--indigo);font-variant-numeric:tabular-nums}
+  .qa p{color:var(--ink2);font-size:15.5px;margin-top:12px;max-width:780px;line-height:1.68}
+  .qa p.first{color:var(--ink);font-weight:500;font-size:16.5px}
+  .qa a{color:var(--indigo)}
+  .qa a:hover{text-decoration:underline;text-underline-offset:3px}
+  .qa ul{list-style:none;margin:14px 0 4px;display:flex;flex-direction:column;gap:9px;max-width:780px}
+  .qa li{color:var(--ink2);font-size:15px;line-height:1.6;padding-left:22px;position:relative}
+  .qa li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,var(--indigo-2),var(--emerald))}
+  .qa li b{color:var(--ink);font-weight:600}
+
+  .concede{margin-top:22px;border:1px solid rgba(4,120,87,.3);border-radius:var(--r);
+    background:linear-gradient(180deg,rgba(4,120,87,.05),var(--panel));padding:22px 24px;max-width:780px}
+  .concede .h{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--emerald)}
+  .concede p{margin-top:10px;font-size:14.5px;color:var(--ink2);line-height:1.65}
+  .concede b{color:var(--ink)}
+
+  .final{border:1px solid var(--line2);border-radius:26px;padding:46px 36px;text-align:center;margin:70px 0 90px;
+    background:linear-gradient(180deg,rgba(37,99,235,.08),var(--panel2));box-shadow:0 24px 60px -40px rgba(37,99,235,.3)}
+  .final h2{font-size:clamp(26px,4vw,40px);letter-spacing:-.02em;font-weight:600;color:var(--ink)}
+  .final p{color:var(--ink2);font-size:17px;max-width:580px;margin:14px auto 0;line-height:1.6}
+  .final .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;justify-content:center}
+  .final .note{font-size:13px;color:var(--ink3);margin-top:20px}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--ink3);font-size:13px}
+  .foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px;align-items:center}
+  .disc{max-width:620px;line-height:1.5}
+  .foot-also{font-size:13px;color:var(--ink3);max-width:420px}
+  .foot-also .h{font-weight:600;color:var(--ink2);margin-bottom:6px}
+  .foot-also p{margin-top:4px;line-height:1.5}
+  .foot-also a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-also a:hover{color:var(--ink)}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:18px;font-size:13px;margin-top:6px}
+  .foot-legal a{color:var(--ink2);text-decoration:underline;text-underline-offset:3px}
+  .foot-legal a:hover{color:var(--ink)}
+
+  @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+  <link rel="stylesheet" href="/assets/responsive.css" />
+<link rel="stylesheet" href="/assets/motion.css" />
+<script src="/assets/motion.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="glow" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/"><svg width="27" height="27" viewBox="0 0 100 100" style="border-radius:8px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round"><line x1="40" y1="42" x2="52" y2="50"/><line x1="52" y1="50" x2="62" y2="42"/><line x1="40" y1="42" x2="42" y2="58"/><line x1="42" y1="58" x2="52" y2="50"/><line x1="52" y1="50" x2="60" y2="60"/><line x1="62" y1="42" x2="60" y2="60"/></g><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/><circle cx="42" cy="58" r="4.5"/><circle cx="60" cy="60" r="4.5"/></g></svg> Top Builder <span style="color:var(--emerald)">AI</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/agents.html">The Agents</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/demo.html">Platform</a>
+      <a href="/blog/">Blog</a>
+      <a href="/faq.html">FAQ</a>
+      <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="pagehead">
+    <div class="wrap">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &rsaquo; <span aria-current="page">For Buildertrend businesses</span>
+      </nav>
+      <span class="eyebrow">For Buildertrend builders &amp; remodelers</span>
+      <h1>The AI back office for Buildertrend businesses</h1>
+      <p class="answer">Top Builder AI is a back-office layer of five self-learning AI agents, Workforce, Routing, Documents, Financial, and Collections, plus a Pricebook engine, installed alongside the Buildertrend you already run and reconciled to your actual QuickBooks general ledger. It works invoice and draw follow-up around the clock, drafts A/P from vendor bills, checks payroll before it runs, and files the paperwork, advisory by default, a person approves every action. It costs $3,000 per month for up to 25 people, and Buildertrend connections run through the Buildertrend partner process.</p>
+      <p class="lede">Buildertrend runs the build: schedules, selections, client communication, proposals. The money runs somewhere else, in your QuickBooks ledger, in the draw that has not been followed up on, in the vendor bill sitting in an inbox. This page answers the questions a Buildertrend operator actually asks, shallowest first, and says plainly what we do and do not cover.</p>
+      <p class="upd">Updated July 1, 2026 &middot; <a href="/agents.html" style="color:var(--indigo)">See all eight agents</a></p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://book.topbuilderai.com">Book a fit call</a>
+        <a class="btn btn-ghost" href="/demo.html">Watch the platform in action</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACT STRIP -->
+  <section class="section" id="numbers" style="padding-top:24px">
+    <div class="wrap">
+      <span class="eyebrow">The slow-pay problem, in published numbers</span>
+      <div class="facts">
+        <div class="fact">
+          <div class="big">82%</div>
+          <h3>of contractors wait 30+ days to get paid</h3>
+          <p>Up from 49% just two years earlier, per the <a href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener" target="_blank">Rabbet 2024 Construction Payments Report</a>.</p>
+        </div>
+        <div class="fact">
+          <div class="big">$280B</div>
+          <h3>cost of slow payments in 2024</h3>
+          <p>Rabbet estimates slow payments cost the U.S. construction sector roughly $280 billion in 2024 (<a href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener" target="_blank">same report</a>).</p>
+        </div>
+        <div class="fact">
+          <div class="big">25 hrs</div>
+          <h3>per week on manual reconciliation</h3>
+          <p>Firms with 10 to 99 employees report an average of 25 hours a week on manual data entry or reconciling data across apps, per the <a href="https://www.intuit.com/enterprise/blog/research/business-solutions-survey-2024/" rel="noopener" target="_blank">Intuit QuickBooks Business Solutions Survey (2024)</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUESTION LADDER -->
+  <section class="section" id="ladder" style="padding-top:30px">
+    <div class="wrap">
+      <span class="eyebrow">The questions, shallow to deep</span>
+      <h2 class="sect" style="margin-top:14px">Buildertrend and the back office, in plain answers.</h2>
+      <div class="qa-list">
+
+        <article class="qa" id="buildertrend-ai">
+          <h2><span class="qn">01</span>Does Buildertrend have AI?</h2>
+          <p class="first">Buildertrend has been adding AI-assisted features to its platform, and as of mid-2026 those features run on Buildertrend's own project, communication, and sales data. Check Buildertrend's current release notes for the specifics, because they are Buildertrend's to define. What stays open either way is the ledger question: your books live in QuickBooks, not in Buildertrend, and the follow-up, reconciliation, and payroll work that lives in those books is not what a project platform's AI is built to run.</p>
+          <p>That is the honest division of labor. Buildertrend is the system of record for the build, and any intelligence it ships makes the build side better. Top Builder AI is a back-office layer that runs on the money side, reconciled to your actual QuickBooks general ledger, and it installs alongside Buildertrend rather than competing with it.</p>
+        </article>
+
+        <article class="qa" id="manual">
+          <h2><span class="qn">02</span>What does Buildertrend leave manual?</h2>
+          <p class="first">The work that lives in your books rather than in the project: chasing the invoice or draw that has not been paid, reconciling what Buildertrend says a job cost against what QuickBooks says actually posted, turning an emailed vendor bill into an A/P entry, verifying payroll before it runs, and tracking which certificates of insurance are about to expire. In most Buildertrend shops that work is done by one or two office people, by hand, when there is time.</p>
+          <ul>
+            <li><b>Invoice and draw follow-up.</b> The list of who owes what exists; a prioritized, ready-to-act follow-up queue does not.</li>
+            <li><b>QuickBooks reconciliation.</b> Job records and the general ledger drift apart, and nobody notices until month-end or later.</li>
+            <li><b>A/P from vendor bills.</b> Bills arrive by email and wait for a person to key them in.</li>
+            <li><b>Payroll verification.</b> Overtime rules and claimed-versus-clocked gaps get checked manually, if at all.</li>
+            <li><b>Paperwork.</b> Filing, COI expiry tracking, and signature chasing land on whoever is nearest.</li>
+          </ul>
+        </article>
+
+        <article class="qa" id="follow-up">
+          <h2><span class="qn">03</span>How do I automate invoice and draw follow-up for a Buildertrend business?</h2>
+          <p class="first">Connect an agent to your open receivables, reconcile them against QuickBooks first so you never chase money that already arrived, score each open item by age, balance, and customer history, and generate a ranked follow-up queue that a person approves before anything reaches a client. That is exactly what Top Builder AI's Collections agent does: it works the aging list around the clock, drafts the follow-up email, SMS, or call script for each item, and tracks every promise-to-pay, and every send requires a department lead's approval, always.</p>
+          <p>The reconciliation-first order matters more on builder work than anywhere else, because draws and progress invoices are exactly the payments that land in QuickBooks without being applied to the matching job record. The full mechanics, including the scoring model and a worked example, are in our guide to <a href="/blog/automate-collections-buildertrend.html">automating collections for a Buildertrend shop</a>.</p>
+        </article>
+
+        <article class="qa" id="reconcile">
+          <h2><span class="qn">04</span>How do I reconcile Buildertrend jobs to QuickBooks?</h2>
+          <p class="first">Treat QuickBooks as the financial source of truth and Buildertrend as the project source of truth, then compare them on a cycle: match jobs and customers across the two systems, compare billed, received, and committed amounts, and flag every place they disagree. Top Builder AI's Financial agent runs that loop and turns each mismatch into a worklist item, an unapplied payment for the bookkeeper, a bill that never posted, a change that exists in one system only, so the margin and cash figures you act on match the books you file.</p>
+          <p>One honest caveat: the QuickBooks connection is activated per customer during install and fails closed until then. If the accounting connection is not yet active, the agents say "not connected" rather than guess a number. Every figure, once connected, is computed by deterministic, tested code; the AI only explains it.</p>
+        </article>
+
+        <article class="qa" id="collections">
+          <h2><span class="qn">05</span>How do I automate collections for a Buildertrend business?</h2>
+          <p class="first">Run the four-step loop: reconcile receivables against QuickBooks, score the genuine open items by age, balance, history, and margin, propose the specific next action for each one, and put a human approval in front of every send. Top Builder AI's Collections agent runs that loop on a configurable cadence and never contacts a client on its own. Given that 82% of contractors now face payment delays of more than 30 days, per the <a href="https://www.globenewswire.com/news-release/2024/10/01/2955968/0/en/Slow-Payments-Cost-280-Billion-in-2024-Threaten-U-S-Construction-Industry-s-Financial-Health.html" rel="noopener" target="_blank">Rabbet 2024 Construction Payments Report</a>, consistent follow-up is the difference between financing your clients interest-free and getting paid.</p>
+          <p>The step-by-step playbook, with the aging math and a worked example, is in <a href="/blog/automate-collections-buildertrend.html">How to Automate Collections for Your Buildertrend Shop</a>.</p>
+        </article>
+
+        <article class="qa" id="cost">
+          <h2><span class="qn">06</span>What does it cost?</h2>
+          <p class="first">$3,000 per month for up to 25 people using the system, $4,500 per month for 26 to 75, $6,000 for 76 to 125, $8,000 for 126 to 250, and custom above that. The one-time install is $0 this quarter, normally $8,000, and every install carries a 30-day board-ready-or-free guarantee. Pricing is published in plain text on <a href="/pricing.html">the pricing page</a>; there are no per-agent add-ons.</p>
+        </article>
+
+        <article class="qa" id="different">
+          <h2><span class="qn">07</span>How is this different from Buildertrend's own features?</h2>
+          <p class="first">They cover different ground, and we say so plainly. Buildertrend's features, including whatever AI it ships, run on Buildertrend's own data and make the project side better: scheduling, client communication, selections, proposals. Top Builder AI runs the QuickBooks-ledger back office that sits outside any project platform's data: collections follow-up, reconciliation to your actual general ledger, A/P drafting from vendor bills, payroll checks, and document filing. You keep Buildertrend exactly as it is; we install alongside it and never touch your system of record.</p>
+          <p>Scope, honestly: Buildertrend businesses get five of our eight agents today, Workforce, Routing, Documents, Financial, and Collections, plus the Pricebook engine running on vendor price files you upload, since Buildertrend carries no pricebook. Booking and Inventory are ServiceTitan-only because Buildertrend exposes no customer-intake or inventory feed. The agent-by-agent breakdown is on <a href="/agents.html">the agents page</a>.</p>
+          <div class="concede">
+            <div class="h">Honest status: partner-gated onboarding</div>
+            <p><b>Buildertrend connections run through the Buildertrend partner process</b>, not a self-serve connect. That means onboarding starts with a fit call, and we complete the data connection through Buildertrend's partner program on your behalf. We would rather tell you that up front than promise a one-click install that does not exist.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="wrap">
+      <div class="final">
+        <h2>See what Buildertrend and QuickBooks disagree about, on your own data.</h2>
+        <p>A 30-minute fit call with the developer, including a real teardown of where your back office is leaking: the draw follow-up, the ledger drift, and the payroll flags. No pitch, no obligation.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://book.topbuilderai.com">Book your fit call</a>
+          <a class="btn btn-ghost" href="/blog/automate-collections-buildertrend.html">Read the collections playbook</a>
+        </div>
+        <p class="note">Five agents plus the Pricebook engine on Buildertrend, connected through the Buildertrend partner process. $0 install this quarter (normally $8,000), then $3,000 per month for up to 25 people. Advisory by default, every figure deterministic and audited.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 100 100" style="border-radius:7px;display:block" aria-hidden="true"><rect x="6" y="6" width="88" height="88" rx="23" fill="#047857"/><polygon points="50,22 74,36 74,64 50,78 26,64 26,36" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linejoin="round"/><g fill="#FFFFFF"><circle cx="40" cy="42" r="4.5"/><circle cx="62" cy="42" r="4.5"/><circle cx="52" cy="50" r="4"/></g></svg> Top Builder AI</div>
+    <p class="disc">The AI back office for ServiceTitan, Procore, and Buildertrend contractors: Money, Materials, People and Paperwork, reconciled to your actual QuickBooks books. Advisory by default; figures are deterministic and the operator approves every action. Financial outputs are decision-support, not a substitute for your CPA's professional judgment.</p>
+    <div class="foot-also">
+      <div class="h">Also from Cory Salisbury</div>
+      <p><a href="https://salisburybookkeeping.com" rel="noopener">salisburybookkeeping.com</a> &middot; Construction bookkeeping and fractional CFO services for contractors.</p>
+      <p><a href="https://neuron-hq.com" rel="noopener">neuron-hq.com</a> &middot; AI training platform that teaches teams to actually use AI at work.</p>
+    </div>
+    <div>
+      <div>&copy; 2026 Top Builder AI &middot; topbuilderai.com &middot; Salisbury Bookkeeping, LLC</div>
+      <div class="foot-legal">
+        <a href="/for-procore.html">For Procore</a>
+        <a href="/agents.html">The Agents</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JSON-LD: WebPage + BreadcrumbList + FAQPage (mirrors the visible Q&As) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebPage","@id":"https://topbuilderai.com/buildertrend.html#webpage",
+     "url":"https://topbuilderai.com/buildertrend.html",
+     "name":"Top Builder AI for Buildertrend: Automate Collections, Draw Follow-Up, and QuickBooks Reconciliation",
+     "description":"The AI back office for Buildertrend builders and remodelers: five self-learning agents plus a Pricebook engine reconcile Buildertrend to your actual QuickBooks general ledger and work the invoice and draw follow-up Buildertrend leaves manual. Advisory by default; $3,000/mo for up to 25 people; Buildertrend connections run through the Buildertrend partner process.",
+     "dateModified":"2026-07-01",
+     "isPartOf":{"@id":"https://topbuilderai.com/#organization"},
+     "about":{"@id":"https://topbuilderai.com/#organization"}},
+    {"@type":"Organization","@id":"https://topbuilderai.com/#organization",
+     "name":"Top Builder AI","url":"https://topbuilderai.com",
+     "legalName":"Salisbury Bookkeeping LLC","email":"support@topbuilderai.com",
+     "parentOrganization":{"@id":"https://salisburybookkeeping.com/#organization"},
+     "founder":{"@id":"https://salisburybookkeeping.com/#cory-salisbury"}},
+    {"@type":"Person","@id":"https://salisburybookkeeping.com/#cory-salisbury",
+     "name":"Cory Salisbury","jobTitle":"Founder",
+     "sameAs":["https://salisburybookkeeping.com","https://topbuilderai.com","https://neuron-hq.com"]},
+    {"@type":"Organization","@id":"https://salisburybookkeeping.com/#organization",
+     "name":"Salisbury Bookkeeping","legalName":"Salisbury Bookkeeping LLC","url":"https://salisburybookkeeping.com"},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://topbuilderai.com/"},
+      {"@type":"ListItem","position":2,"name":"For Buildertrend businesses","item":"https://topbuilderai.com/buildertrend.html"}]},
+    {"@type":"FAQPage","@id":"https://topbuilderai.com/buildertrend.html#faqpage",
+     "mainEntity":[
+      {"@type":"Question","name":"Does Buildertrend have AI?","acceptedAnswer":{"@type":"Answer","text":"Buildertrend has been adding AI-assisted features to its platform, and as of mid-2026 those features run on Buildertrend's own project, communication, and sales data. Check Buildertrend's current release notes for the specifics, because they are Buildertrend's to define. What stays open either way is the ledger question: your books live in QuickBooks, not in Buildertrend, and the follow-up, reconciliation, and payroll work that lives in those books is not what a project platform's AI is built to run."}},
+      {"@type":"Question","name":"What does Buildertrend leave manual?","acceptedAnswer":{"@type":"Answer","text":"The work that lives in your books rather than in the project: chasing the invoice or draw that has not been paid, reconciling what Buildertrend says a job cost against what QuickBooks says actually posted, turning an emailed vendor bill into an A/P entry, verifying payroll before it runs, and tracking which certificates of insurance are about to expire. In most Buildertrend shops that work is done by one or two office people, by hand, when there is time."}},
+      {"@type":"Question","name":"How do I automate invoice and draw follow-up for a Buildertrend business?","acceptedAnswer":{"@type":"Answer","text":"Connect an agent to your open receivables, reconcile them against QuickBooks first so you never chase money that already arrived, score each open item by age, balance, and customer history, and generate a ranked follow-up queue that a person approves before anything reaches a client. That is exactly what Top Builder AI's Collections agent does: it works the aging list around the clock, drafts the follow-up email, SMS, or call script for each item, and tracks every promise-to-pay, and every send requires a department lead's approval, always."}},
+      {"@type":"Question","name":"How do I reconcile Buildertrend jobs to QuickBooks?","acceptedAnswer":{"@type":"Answer","text":"Treat QuickBooks as the financial source of truth and Buildertrend as the project source of truth, then compare them on a cycle: match jobs and customers across the two systems, compare billed, received, and committed amounts, and flag every place they disagree. Top Builder AI's Financial agent runs that loop and turns each mismatch into a worklist item, so the margin and cash figures you act on match the books you file. The QuickBooks connection is activated per customer during install and fails closed until then."}},
+      {"@type":"Question","name":"How do I automate collections for a Buildertrend business?","acceptedAnswer":{"@type":"Answer","text":"Run the four-step loop: reconcile receivables against QuickBooks, score the genuine open items by age, balance, history, and margin, propose the specific next action for each one, and put a human approval in front of every send. Top Builder AI's Collections agent runs that loop on a configurable cadence and never contacts a client on its own. Given that 82% of contractors now face payment delays of more than 30 days, per the Rabbet 2024 Construction Payments Report, consistent follow-up is the difference between financing your clients interest-free and getting paid."}},
+      {"@type":"Question","name":"What does it cost?","acceptedAnswer":{"@type":"Answer","text":"$3,000 per month for up to 25 people using the system, $4,500 per month for 26 to 75, $6,000 for 76 to 125, $8,000 for 126 to 250, and custom above that. The one-time install is $0 this quarter, normally $8,000, and every install carries a 30-day board-ready-or-free guarantee. Pricing is published in plain text on the pricing page; there are no per-agent add-ons."}},
+      {"@type":"Question","name":"How is this different from Buildertrend's own features?","acceptedAnswer":{"@type":"Answer","text":"They cover different ground. Buildertrend's features, including whatever AI it ships, run on Buildertrend's own data and make the project side better: scheduling, client communication, selections, proposals. Top Builder AI runs the QuickBooks-ledger back office that sits outside any project platform's data: collections follow-up, reconciliation to your actual general ledger, A/P drafting from vendor bills, payroll checks, and document filing. Buildertrend businesses get five of our eight agents today plus the Pricebook engine via vendor price-file upload; Booking and Inventory are ServiceTitan-only. Buildertrend connections run through the Buildertrend partner process, not a self-serve connect."}}
+     ]}
+  ]
+}
+</script>
+<script src="/webmcp.js" defer></script>
+</body>
+</html>

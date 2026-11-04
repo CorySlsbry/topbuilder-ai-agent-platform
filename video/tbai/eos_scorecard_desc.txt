@@ -1,0 +1,12 @@
+ServiceTitan's own KPI modules cap out at 6 metrics, from ServiceTitan data only. An EOS Scorecard needs 5-15 weekly measurables, and on most contractor scorecards close to half of them, cash, gross margin, A/R aging, live in QuickBooks, not ServiceTitan. That's the real gap behind every Monday scramble to rebuild the Level 10 Meeting scorecard by hand.
+
+Full breakdown, sources and all: https://topbuilderai.com/blog/automate-eos-scorecard-servicetitan-quickbooks.html
+
+Sources cited in this video:
+- ServiceTitan KPI modules documentation (help.servicetitan.com)
+- EOS Worldwide, "The EOS Scorecard: How to Measure What Actually Drives Your Business"
+- Intuit press release on AI-powered bank feed customer research (2026)
+
+Top Builder AI is the AI back office for ServiceTitan contractors: Money, Materials, People and Paperwork. Advisory by default; the leadership team makes every call.
+
+#ServiceTitan #EOS #QuickBooks #Contractors #HVAC

@@ -1,0 +1,8 @@
+[
+  { "sku": "SKU-COMP", "vendor": "AltCo Supply", "unit_price": 385, "lead_time_days": 9 },
+  { "sku": "SKU-COMP", "vendor": "BigBox HVAC",  "unit_price": 432, "lead_time_days": 5 },
+  { "sku": "SKU-RFGR", "vendor": "AltCo Supply", "unit_price": 165, "lead_time_days": 12 },
+  { "sku": "SKU-FILT", "vendor": "BulkCo",       "unit_price": 7.5, "lead_time_days": 6 },
+  { "sku": "SKU-CAP",  "vendor": "AltCo Supply", "unit_price": 14,  "lead_time_days": 4 },
+  { "sku": "SKU-THRM", "vendor": "AltCo Supply", "unit_price": 72,  "lead_time_days": 7 }
+]

@@ -1,0 +1,28 @@
+{
+  "QueryResponse": {
+    "Payment": [
+      {
+        "Id": "9001",
+        "TxnDate": "2026-06-12",
+        "TotalAmt": 1500.00,
+        "CustomerRef": { "value": "1", "name": "Acme Mechanical" }
+      },
+      {
+        "Id": "9002",
+        "TxnDate": "2026-06-13",
+        "TotalAmt": 500.00,
+        "CustomerRef": { "value": "2", "name": "Birch Property Group" }
+      },
+      {
+        "Id": "9003",
+        "TxnDate": "2026-06-15",
+        "TotalAmt": 250.50,
+        "CustomerRef": { "value": "3", "name": "Cedar Builders" }
+      }
+    ],
+    "startPosition": 1,
+    "maxResults": 3,
+    "totalCount": 3
+  },
+  "time": "2026-06-17T00:00:00.000-07:00"
+}
